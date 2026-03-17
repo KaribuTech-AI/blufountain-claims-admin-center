@@ -1,0 +1,96 @@
+<div id="subrogation-financial-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💰</div>
+                            <div class="header-title">
+                                <h1>Subrogation Financial Tracking</h1>
+                                <p>Recovery amounts, payment tracking, cost allocation, ROI analysis, and financial reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Payment status')">💳 Payments</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Recovered YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">$8.4M</p>
+                        <p class="stat-change positive">↑ 18% vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pipeline value</p>
+                        <p class="stat-value" style="color: #7F77DD;">$18.6M</p>
+                        <p class="stat-change positive">Active pursuit</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg recovery amount</p>
+                        <p class="stat-value">$24.6K</p>
+                        <p class="stat-change positive">Per case</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery costs</p>
+                        <p class="stat-value" style="color: #A32D2D;">$1.48M</p>
+                        <p class="stat-change positive">YTD expenses</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Net recovery</p>
+                        <p class="stat-value" style="color: #1D9E75;">$6.92M</p>
+                        <p class="stat-change positive">After costs</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery ROI</p>
+                        <p class="stat-value" style="color: #1D9E75;">567%</p>
+                        <p class="stat-change positive">Return on investment</p>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Recovery by month (YTD)</h3>
+                        <div style="height: 200px; display: flex; align-items: flex-end; gap: 8px; padding: 16px;">
+                            <div style="flex: 1; background: #1D9E75; height: 45%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #1D9E75; height: 62%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #1D9E75; height: 78%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #1D9E75; height: 52%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #1D9E75; height: 88%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #1D9E75; height: 95%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #7F77DD; height: 68%; border-radius: 4px 4px 0 0;"></div>
+                            <div style="flex: 1; background: #7F77DD; height: 42%; border-radius: 4px 4px 0 0;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; padding: 0 16px; font-size: 11px; color: var(--color-text-secondary);">
+                            <span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span><span>Jan</span><span>Feb</span>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Financial performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #7F77DD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #534AB7;">Total recovered YTD</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #7F77DD; margin-bottom: 4px;">$8.4M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">342 cases • $24.6K avg • ↑ 18% vs LY • Strong performance</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Recovery ROI</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">567%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">$8.4M recovered • $1.48M costs • $6.92M net • Excellent return</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Pipeline value</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$18.6M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Active cases • Expected recovery $10.8M (58% success rate) • $7.8M potential upside</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RECOVERY ANALYTICS & REPORTING SUBMODULE SCREEN -->

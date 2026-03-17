@@ -1,0 +1,102 @@
+<div id="recovery-analytics-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Recovery Analytics & Reporting</h1>
+                                <p>Performance dashboards, trend analysis, KPI tracking, predictive analytics, and executive reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Schedule report')">📅 Schedule</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Generate report')">Generate Report</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery ROI</p>
+                        <p class="stat-value" style="color: #1D9E75;">567%</p>
+                        <p class="stat-change positive">Return on investment</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Success rate trend</p>
+                        <p class="stat-value" style="color: #1D9E75;">↑ 4.2%</p>
+                        <p class="stat-change positive">vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg cycle time</p>
+                        <p class="stat-value" style="color: #1D9E75;">↓ 24d</p>
+                        <p class="stat-change positive">Improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active reports</p>
+                        <p class="stat-value">24</p>
+                        <p class="stat-change positive">Dashboards</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">KPIs tracked</p>
+                        <p class="stat-value">18</p>
+                        <p class="stat-change positive">Metrics</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Forecast accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">87%</p>
+                        <p class="stat-change positive">Predictions</p>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Key performance indicators</h3>
+                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Recovery Success Rate</p>
+                                <p style="font-size: 24px; font-weight: 600; color: #1D9E75;">58.3%</p>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">↑ 4.2% vs LY</p>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Average Cycle Time</p>
+                                <p style="font-size: 24px; font-weight: 600; color: #378ADD;">186 days</p>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">↓ 24 days vs LY</p>
+                            </div>
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Total Recovered YTD</p>
+                                <p style="font-size: 24px; font-weight: 600; color: #7F77DD;">$8.4M</p>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">↑ 18% vs LY</p>
+                            </div>
+                            <div style="padding: 12px; background: #FAEEDA; border-radius: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Pipeline Value</p>
+                                <p style="font-size: 24px; font-weight: 600; color: #EF9F27;">$18.6M</p>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Active cases</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Recovery performance trends</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">YTD Performance vs Target</span>
+                                <span style="font-weight: 500;">112% of goal</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📈 Performance summary</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">$8.4M recovered vs $7.5M target • 567% ROI • 58.3% success rate • ↓ 24d cycle time • Strong year</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CLAIMS LIFECYCLE & CLOSURE HUB SCREEN -->

@@ -1,0 +1,91 @@
+<div id="skills-assignment-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🎯</div>
+                            <div class="header-title">
+                                <h1>Skills-Based Claims Assignment</h1>
+                                <p>Expertise mapping, optimal routing, certification tracking, skill matching, and intelligent claim distribution</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Configure rules')">⚙️ Rules</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Skills match rate</p><p class="stat-value" style="color: #1D9E75;">87%</p><p class="stat-change positive">Optimal assignments</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-assignment</p><p class="stat-value" style="color: #1D9E75;">92.4%</p><p class="stat-change positive">AI-powered</p></div>
+                    <div class="stat-card"><p class="stat-label">Manual overrides</p><p class="stat-value">7.6%</p><p class="stat-change positive">Special handling</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg assignment time</p><p class="stat-value" style="color: #1D9E75;">0.8s</p><p class="stat-change positive">Real-time</p></div>
+                    <div class="stat-card"><p class="stat-label">Certifications tracked</p><p class="stat-value">42</p><p class="stat-change positive">Skill categories</p></div>
+                    <div class="stat-card"><p class="stat-label">Specializations</p><p class="stat-value">8</p><p class="stat-change positive">Product lines</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Skills Matrix & Assignment Rules</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+                        <div>
+                            <h3 style="margin-bottom: 12px; font-size: 16px;">Skill Categories</h3>
+                            <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                <div style="display: flex; flex-direction: column; gap: 10px;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #E1F5EE; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Life Insurance</span>
+                                        <span style="background: #1D9E75; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">98 adjusters</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #E6F1FB; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Long-Term Disability</span>
+                                        <span style="background: #378ADD; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">87 adjusters</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #FAEEDA; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Short-Term Disability</span>
+                                        <span style="background: #EF9F27; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">72 adjusters</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #EEEDFE; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Critical Illness</span>
+                                        <span style="background: #534AB7; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">42 adjusters</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #FCE9E4; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Complex/High-Value</span>
+                                        <span style="background: #D85A30; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">28 adjusters</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 8px; background: #E1F5EE; border-radius: 6px;">
+                                        <span style="font-weight: 500;">Medical Assessment</span>
+                                        <span style="background: #1D9E75; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">54 adjusters</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 style="margin-bottom: 12px; font-size: 16px;">Assignment Rules</h3>
+                            <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                <div style="font-size: 13px; line-height: 1.8;">
+                                    <div style="margin-bottom: 10px; padding: 8px; background: rgba(29, 158, 117, 0.1); border-radius: 4px;">
+                                        <strong>Rule 1:</strong> Match claim type to primary specialization
+                                    </div>
+                                    <div style="margin-bottom: 10px; padding: 8px; background: rgba(55, 138, 221, 0.1); border-radius: 4px;">
+                                        <strong>Rule 2:</strong> Balance workload across qualified adjusters
+                                    </div>
+                                    <div style="margin-bottom: 10px; padding: 8px; background: rgba(239, 159, 39, 0.1); border-radius: 4px;">
+                                        <strong>Rule 3:</strong> Route high-value (>$100K) to senior adjusters
+                                    </div>
+                                    <div style="margin-bottom: 10px; padding: 8px; background: rgba(83, 74, 183, 0.1); border-radius: 4px;">
+                                        <strong>Rule 4:</strong> Assign complex cases to certified specialists
+                                    </div>
+                                    <div style="margin-bottom: 10px; padding: 8px; background: rgba(216, 90, 48, 0.1); border-radius: 4px;">
+                                        <strong>Rule 5:</strong> Consider adjuster performance history
+                                    </div>
+                                    <div style="padding: 8px; background: rgba(29, 158, 117, 0.1); border-radius: 4px;">
+                                        <strong>Rule 6:</strong> Respect geographic/language preferences
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WORKFORCE SCHEDULING SUBMODULE SCREEN -->

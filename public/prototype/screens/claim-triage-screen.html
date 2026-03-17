@@ -1,0 +1,284 @@
+<div id="claim-triage-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🎯</div>
+                            <div class="header-title">
+                                <h1>Claim Triage Engine</h1>
+                                <p>Intelligent routing, priority scoring, complexity assessment, and automated assignment workflows</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showAllClaims()">📋 All Claims</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #7F77DD; border-color: #7F77DD;" onclick="alert('Configure triage rules')">Configure Rules</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Claims triaged today</p>
+                        <p class="stat-value" style="color: #7F77DD;">142</p>
+                        <p class="stat-change positive">Auto-routed</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Auto-assignment rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">87.3%</p>
+                        <p class="stat-change positive">Automation</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg triage time</p>
+                        <p class="stat-value" style="color: #1D9E75;">0.8s</p>
+                        <p class="stat-change positive">Real-time</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">High-priority claims</p>
+                        <p class="stat-value" style="color: #A32D2D;">34</p>
+                        <p class="stat-change neutral">Urgent attention</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Workload balance</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.8%</p>
+                        <p class="stat-change positive">Even distribution</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Triage accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.4%</p>
+                        <p class="stat-change positive">ML-powered</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🚨</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">High-priority queue</p>
+                                <p style="font-size: 12px; color: #A32D2D;">34 urgent claims requiring immediate attention</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing urgent...')">View</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✓</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Auto-assigned today</p>
+                                <p style="font-size: 12px; color: #1D9E75;">124 claims routed automatically (87.3%)</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing assignments...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claim Triage Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Priority Scoring: ML algorithm, urgency factors, SLA targets')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔥</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PRIORITY SCORING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">34</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">High-priority claims</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Urgent</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">High</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">22</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View priorities</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Complexity Assessment: Simple/standard/complex classification, skill matching')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COMPLEXITY ASSESSMENT</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.4%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">ML accuracy</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Complex</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">28</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Simple</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">84</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View complexity</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Auto-Assignment: Skill-based routing, workload balancing, specialty matching')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AUTO-ASSIGNMENT</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">87.3%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Automation rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">124</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Manual</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View assignments</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Workload Balancing: Even distribution, capacity monitoring, overflow routing')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">WORKLOAD BALANCING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.8%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Balance score</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg load</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18.4</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Variance</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">±2.1</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View workload</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('SLA Routing: Time-sensitive claims, deadline tracking, escalation rules')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SLA ROUTING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">SLA compliance</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Met</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">134</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Breach</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View SLA</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Triage Rules Engine: 84 active rules, ML optimization, continuous learning')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🧠</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">TRIAGE RULES ENGINE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active rules</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">96.4%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Speed</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">0.8s</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View rules</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Triage distribution by priority</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🚨 Urgent</span>
+                                <span style="font-weight: 500;">12 claims • 8.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔥 High priority</span>
+                                <span style="font-weight: 500;">22 claims • 15.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📊 Normal</span>
+                                <span style="font-weight: 500;">78 claims • 54.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 55%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✓ Low priority</span>
+                                <span style="font-weight: 500;">30 claims • 21.1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 21%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total triaged</p>
+                                <p style="color: #7F77DD;">142</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg time</p>
+                                <p style="color: #1D9E75;">0.8s</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Accuracy</p>
+                                <p style="color: #1D9E75;">96.4%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Triage performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Auto-assignment success</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">87.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">124 auto-assigned • 18 manual • Skill-based routing • 94.8% workload balance</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Triage speed</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">0.8 seconds</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Real-time processing • ML-powered • 84 active rules • Instant routing</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Classification accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">96.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Priority & complexity assessment • Continuous ML learning • Feedback loop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FRAUD DETECTION & PREVENTION SCREEN -->

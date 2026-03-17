@@ -1,0 +1,234 @@
+<div id="salvage-tracking-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSalvageManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📦</div>
+                            <div class="header-title">
+                                <h1>Salvage Asset Tracking</h1>
+                                <p>Real-time inventory management, location tracking, condition monitoring, and disposition status</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Filter assets')">🔍 Filter</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Add asset')">+ Add Asset</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active salvage units</p>
+                        <p class="stat-value" style="color: #534AB7;">1,284</p>
+                        <p class="stat-change positive">In inventory</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Vehicles</p>
+                        <p class="stat-value">1,002</p>
+                        <p class="stat-change positive">78% of total</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Contents/Property</p>
+                        <p class="stat-value">192</p>
+                        <p class="stat-change positive">15% of total</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Equipment</p>
+                        <p class="stat-value">90</p>
+                        <p class="stat-change positive">7% of total</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total inventory value</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.8M</p>
+                        <p class="stat-change positive">Estimated</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Storage locations</p>
+                        <p class="stat-value">24</p>
+                        <p class="stat-change positive">Facilities</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Salvage Asset Inventory</h2>
+                            <div class="table-container">
+                                <table class="claims-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Salvage ID</th>
+                                            <th>Asset Description</th>
+                                            <th>Condition</th>
+                                            <th>Location</th>
+                                            <th>Days Held</th>
+                                            <th>Est. Value</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8472</td>
+                                            <td>2022 Tesla Model 3 LR</td>
+                                            <td><span class="badge badge-review">Fair</span></td>
+                                            <td>Atlanta, GA</td>
+                                            <td>12d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$18,400</td>
+                                            <td><span class="badge badge-pending">Listed</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8391</td>
+                                            <td>2020 Ford F-150 XLT</td>
+                                            <td><span class="badge badge-approved">Good</span></td>
+                                            <td>Dallas, TX</td>
+                                            <td>28d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$12,800</td>
+                                            <td><span class="badge badge-review">Auction</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8284</td>
+                                            <td>Furniture & Appliances</td>
+                                            <td><span class="badge badge-pending">Salvage</span></td>
+                                            <td>Phoenix, AZ</td>
+                                            <td>45d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$2,400</td>
+                                            <td><span class="badge badge-approved">Ready</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8192</td>
+                                            <td>2019 Honda Accord Sport</td>
+                                            <td><span class="badge badge-review">Fair</span></td>
+                                            <td>Miami, FL</td>
+                                            <td>8d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$8,900</td>
+                                            <td><span class="badge badge-pending">Valuation</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8147</td>
+                                            <td>2021 Chevy Silverado 1500</td>
+                                            <td><span class="badge badge-denied">Poor</span></td>
+                                            <td>Houston, TX</td>
+                                            <td style="color: #A32D2D; font-weight: 600;">94d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$15,600</td>
+                                            <td><span class="badge badge-denied">Overdue</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SLV-8089</td>
+                                            <td>Industrial Equipment Lot</td>
+                                            <td><span class="badge badge-review">Fair</span></td>
+                                            <td>Chicago, IL</td>
+                                            <td>62d</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$4,200</td>
+                                            <td><span class="badge badge-review">Auction</span></td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Inventory Analytics</h2>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Asset Type</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Vehicles</span>
+                                            <strong style="color: #534AB7;">1,002 (78%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Contents/Property</span>
+                                            <strong>192 (15%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Equipment</span>
+                                            <strong>90 (7%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Condition</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Good</span>
+                                            <strong style="color: #1D9E75;">284 (22%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Fair</span>
+                                            <strong style="color: #378ADD;">742 (58%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Poor</span>
+                                            <strong style="color: #EF9F27;">186 (14%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Salvage Only</span>
+                                            <strong style="color: #A32D2D;">72 (6%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Storage Duration</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>0-30 days</span>
+                                            <strong style="color: #1D9E75;">624 (49%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>31-60 days</span>
+                                            <strong>382 (30%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>61-90 days</span>
+                                            <strong style="color: #EF9F27;">136 (11%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>>90 days</span>
+                                            <strong style="color: #A32D2D;">142 (11%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Top Locations</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Dallas, TX</span>
+                                            <strong>187</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Atlanta, GA</span>
+                                            <strong>154</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Phoenix, AZ</span>
+                                            <strong>142</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Houston, TX</span>
+                                            <strong>128</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Additional detailed submodule screens for Auction Management, Vendor Integration, Asset Valuation, and Recovery Tracking follow similar comprehensive structure -->
+
+        <!-- CATASTROPHE (CAT) CLAIMS MANAGEMENT HUB SCREEN -->

@@ -1,0 +1,303 @@
+<div id="fraud-detection-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🚨</div>
+                            <div class="header-title">
+                                <h1>Fraud Detection & Prevention</h1>
+                                <p>AI-powered detection, pattern analysis, red flag monitoring, and fraud investigation coordination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showInvestigation()">🔍 Investigation</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Flag for review')">Flag Claim</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Claims flagged YTD</p>
+                        <p class="stat-value" style="color: #D85A30;">147</p>
+                        <p class="stat-change neutral">5.2% of total</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Fraud confirmed</p>
+                        <p class="stat-value" style="color: #A32D2D;">23</p>
+                        <p class="stat-change positive">15.6% confirmation rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Fraud prevented</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.8M</p>
+                        <p class="stat-change positive">Payouts blocked</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">AI detection accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">Machine learning</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Under investigation</p>
+                        <p class="stat-value" style="color: #EF9F27;">58</p>
+                        <p class="stat-change neutral">Active cases</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">ROI on fraud prevention</p>
+                        <p class="stat-value" style="color: #1D9E75;">567%</p>
+                        <p class="stat-change positive">Cost vs. savings</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🚨</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">High-risk claims detected</p>
+                                <p style="font-size: 12px; color: #A32D2D;">18 claims with multiple fraud indicators</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing high-risk...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🤖</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">AI model update available</p>
+                                <p style="font-size: 12px; color: #BA7517;">New fraud patterns detected, model retraining complete</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Deploying model...')">Deploy</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fraud Detection Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('AI Detection Engine: 94.2% accuracy, 12 active models, real-time scoring')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AI DETECTION ENGINE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Detection accuracy</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Models</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Flagged</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">147</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View AI models</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Pattern Analysis: Duplicate claims, organized rings, suspicious networks')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PATTERN ANALYSIS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">38</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Patterns detected</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Duplicates</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rings</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View patterns</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Red Flag Monitoring: 48 active rules, behavioral analysis, anomaly detection')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚩</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RED FLAG MONITORING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">48</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active rules</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Triggered</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">High-risk</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View red flags</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Data Analytics: Graph analysis, link detection, network mapping')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DATA ANALYTICS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">1.2B</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Data points analyzed</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Networks</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">84</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Links</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">342</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View analytics</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('External Data Sources: ISO, SIU databases, law enforcement, industry sharing')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🌐</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">EXTERNAL DATA SOURCES</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Connected databases</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Matches</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">34</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">ISO hits</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View databases</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Fraud Prevention ROI: $2.8M prevented, $492K cost, 567% return')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD PREVENTION ROI</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">567%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Return on investment</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Prevented</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$2.8M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cost</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$492K</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View ROI</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Fraud indicators by type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔄 Duplicate claims</span>
+                                <span style="font-weight: 500;">42 instances • 28.6%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 29%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📝 Inconsistent statements</span>
+                                <span style="font-weight: 500;">38 cases • 25.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💼 Suspicious providers</span>
+                                <span style="font-weight: 500;">28 flags • 19.0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 19%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🎯 Pattern anomalies</span>
+                                <span style="font-weight: 500;">22 detected • 15.0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌐 External database hits</span>
+                                <span style="font-weight: 500;">17 matches • 11.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total flagged</p>
+                                <p style="color: #D85A30;">147</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Confirmed</p>
+                                <p style="color: #A32D2D;">23</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>AI accuracy</p>
+                                <p style="color: #1D9E75;">94.2%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Fraud detection metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Fraud prevented</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">$2.8M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">23 confirmed fraud cases • Avg blocked amount: $121,739 • 567% ROI</div>
+                            </div>
+                            <div style="padding: 12px; background: #FAEEDA; border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">AI detection rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #D85A30; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">12 active ML models • 147 claims flagged • 138 true positives</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Investigation status</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">58 active</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Under investigation • 23 confirmed • 66 cleared • 21.4d avg investigation time</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">External data integration</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">34 matches</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">8 connected databases • ISO, NICB, state fraud bureaus, industry consortiums</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">🎯 Fraud detection optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">147 flagged (5.2% of claims) • 48 active rules • 38 patterns detected • 4 organized rings identified</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PAYMENT AND SETTLEMENT MANAGEMENT SCREEN -->

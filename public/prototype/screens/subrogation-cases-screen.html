@@ -1,0 +1,205 @@
+<div id="subrogation-cases-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Subrogation Case Management</h1>
+                                <p>Case tracking, status management, assignment workflows, and recovery coordination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Filter cases')">🔍 Filter</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Create new case')">+ New Case</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total active cases</p>
+                        <p class="stat-value" style="color: #1D9E75;">342</p>
+                        <p class="stat-change positive">In recovery</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">New this month</p>
+                        <p class="stat-value">47</p>
+                        <p class="stat-change positive">Cases opened</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">High priority</p>
+                        <p class="stat-value" style="color: #D85A30;">68</p>
+                        <p class="stat-change positive">Urgent action</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Closed this month</p>
+                        <p class="stat-value" style="color: #1D9E75;">34</p>
+                        <p class="stat-change positive">Recovered</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg case value</p>
+                        <p class="stat-value">$54.3K</p>
+                        <p class="stat-change positive">Recovery potential</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Success rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">58.3%</p>
+                        <p class="stat-change positive">Historical</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Active Cases (342)</h2>
+                            <div class="table-container">
+                                <table class="claims-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Case ID</th>
+                                            <th>Claim Reference</th>
+                                            <th>Liable Party</th>
+                                            <th>Amount</th>
+                                            <th>Stage</th>
+                                            <th>Age</th>
+                                            <th>Assignee</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2847</td>
+                                            <td>CLM-2024-08472</td>
+                                            <td>Auto Depot LLC</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$84,200</td>
+                                            <td><span class="badge badge-review">Negotiation</span></td>
+                                            <td>124d</td>
+                                            <td>Maria Santos</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2846</td>
+                                            <td>CLM-2024-08391</td>
+                                            <td>Smith Enterprises</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$127,450</td>
+                                            <td><span class="badge badge-denied">Litigation</span></td>
+                                            <td>218d</td>
+                                            <td>John Mitchell</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2845</td>
+                                            <td>CLM-2024-08284</td>
+                                            <td>ABC Manufacturing</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$42,800</td>
+                                            <td><span class="badge badge-pending">Investigation</span></td>
+                                            <td>42d</td>
+                                            <td>Lisa Wang</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2844</td>
+                                            <td>CLM-2024-08192</td>
+                                            <td>Johnson & Co</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$68,900</td>
+                                            <td><span class="badge badge-approved">Demand Sent</span></td>
+                                            <td>78d</td>
+                                            <td>David Chen</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2843</td>
+                                            <td>CLM-2024-08147</td>
+                                            <td>City Transit Authority</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$156,300</td>
+                                            <td><span class="badge badge-review">Negotiation</span></td>
+                                            <td>164d</td>
+                                            <td>Sarah Johnson</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">SUB-2842</td>
+                                            <td>CLM-2024-08089</td>
+                                            <td>Metro Property Group</td>
+                                            <td style="font-weight: 600; color: #1D9E75;">$38,500</td>
+                                            <td><span class="badge badge-pending">Investigation</span></td>
+                                            <td>28d</td>
+                                            <td>Mike Rodriguez</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Case Statistics</h2>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Stage</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Investigation</span>
+                                            <strong style="color: #378ADD;">124 (36%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Demand Sent</span>
+                                            <strong style="color: #1D9E75;">94 (27%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Negotiation</span>
+                                            <strong style="color: #EF9F27;">72 (21%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Litigation</span>
+                                            <strong style="color: #A32D2D;">52 (16%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Priority</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>🔴 High</span>
+                                            <strong style="color: #D85A30;">68 (20%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>🟠 Medium</span>
+                                            <strong style="color: #EF9F27;">184 (54%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>🟢 Low</span>
+                                            <strong style="color: #1D9E75;">90 (26%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Recovery Potential</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Total Pipeline</span>
+                                            <strong style="color: #1D9E75;">$18.6M</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Avg Case Value</span>
+                                            <strong>$54.3K</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Expected Recovery</span>
+                                            <strong style="color: #1D9E75;">$10.8M</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- THIRD-PARTY LIABILITY TRACKING SUBMODULE SCREEN -->

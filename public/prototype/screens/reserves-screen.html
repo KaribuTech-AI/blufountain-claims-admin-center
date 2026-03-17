@@ -1,0 +1,500 @@
+<div id="reserves-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">💼</div>
+                            <div class="header-title">
+                                <h1>Reserve Management</h1>
+                                <p>Financial reserves, loss estimates, and reserve adequacy analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Opening reserve calculator...')">Reserve Calculator</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total reserves</p>
+                        <p class="stat-value">$127.4M</p>
+                        <p class="stat-change positive">Across all claim types</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Case reserves</p>
+                        <p class="stat-value" style="color: #534AB7;">$89.2M</p>
+                        <p class="stat-change neutral">Active claims</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">IBNR reserves</p>
+                        <p class="stat-value" style="color: #7F77DD;">$28.6M</p>
+                        <p class="stat-change neutral">Incurred but not reported</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Legal/Litigation reserves</p>
+                        <p class="stat-value" style="color: #A32D2D;">$9.6M</p>
+                        <p class="stat-change negative">127 active cases</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Reserve adequacy</p>
+                        <p class="stat-value" style="color: #1D9E75;">102.4%</p>
+                        <p class="stat-change positive">Within target range</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg reserve per claim</p>
+                        <p class="stat-value">$44,758</p>
+                        <p class="stat-change neutral">2,847 total claims</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #EEEDFE 0%, #D4D2F7 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #534AB7;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📈</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #3E3686;">Significant reserve adjustments</p>
+                                <p style="font-size: 12px; color: #534AB7;">34 claims require reserve review based on case developments</p>
+                            </div>
+                            <button style="background: #534AB7; border-color: #534AB7; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening review queue...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Large loss reserves</p>
+                                <p style="font-size: 12px; color: #BA7517;">18 claims with reserves over $250K require quarterly actuarial review</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening large loss tracker...')">Track</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, claimant, reserve type...">
+                    <select>
+                        <option>All reserve types</option>
+                        <option>Case reserve</option>
+                        <option>Medical reserve</option>
+                        <option>Indemnity reserve</option>
+                        <option>Legal reserve</option>
+                        <option>IBNR reserve</option>
+                    </select>
+                    <select>
+                        <option>All claim types</option>
+                        <option>Life insurance</option>
+                        <option>Short-term disability</option>
+                        <option>Long-term disability</option>
+                        <option>Critical illness</option>
+                        <option>Accident insurance</option>
+                    </select>
+                    <select>
+                        <option>All reserve amounts</option>
+                        <option>Under $25K</option>
+                        <option>$25K - $100K</option>
+                        <option>$100K - $250K</option>
+                        <option>Over $250K</option>
+                    </select>
+                </div>
+
+                <!-- Reserves Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Reserve portfolio</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Batch reserve adjustment coming soon!')">Batch Adjust</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Claim ID</th>
+                                <th>Claimant</th>
+                                <th>Claim Type</th>
+                                <th>Initial Reserve</th>
+                                <th>Current Reserve</th>
+                                <th>Paid to Date</th>
+                                <th>Reserve Change</th>
+                                <th>Last Review</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CLM-78542')" style="cursor: pointer; background: rgba(83, 74, 183, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78542</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">RM</div>
+                                        <div>
+                                            <div class="user-details">Robert Martinez</div>
+                                            <div class="user-policy">LTD - Multiple sclerosis</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">LTD</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$420,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #534AB7;">$385,000</td>
+                                <td style="font-size: 14px;">$124,800</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #1D9E75;">↓ $35,000</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">Favorable development</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Feb 28, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78542')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78539')" style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78539</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">SK</div>
+                                        <div>
+                                            <div class="user-details">Sarah Kim</div>
+                                            <div class="user-policy">Life - Cancer stage 4</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Life</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$750,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #EF9F27;">$850,000</td>
+                                <td style="font-size: 14px;">$0</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #EF9F27;">↑ $100,000</div>
+                                    <div style="font-size: 11px; color: #BA7517;">Medical deterioration</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 8, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78539')">Adjust Reserve</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78536')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78536</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">TC</div>
+                                        <div>
+                                            <div class="user-details">Thomas Chen</div>
+                                            <div class="user-policy">STD - Back surgery</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">STD</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$18,500</td>
+                                <td style="font-weight: 500; font-size: 15px;">$15,200</td>
+                                <td style="font-size: 14px;">$8,400</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #1D9E75;">↓ $3,300</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">Early RTW</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 5, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78536')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78532')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78532</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">WJ</div>
+                                        <div>
+                                            <div class="user-details">Williams v. ClaimFlow</div>
+                                            <div class="user-policy">Litigation - Bad faith</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Legal</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$1,200,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #A32D2D;">$1,800,000</td>
+                                <td style="font-size: 14px;">$0</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #A32D2D;">↑ $600,000</div>
+                                    <div style="font-size: 11px; color: #A32D2D;">Adverse ruling</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 11, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="showClaimDetail('CLM-78532')">Critical Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78528')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78528</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">MR</div>
+                                        <div>
+                                            <div class="user-details">Maria Rodriguez</div>
+                                            <div class="user-policy">Critical illness - Stroke</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Critical</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$65,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$65,000</td>
+                                <td style="font-size: 14px;">$32,500</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">No change</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">On track</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 1, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78528')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78524')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78524</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">JP</div>
+                                        <div>
+                                            <div class="user-details">James Parker</div>
+                                            <div class="user-policy">Accident - Workplace injury</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Accident</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$28,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$22,400</td>
+                                <td style="font-size: 14px;">$14,000</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #1D9E75;">↓ $5,600</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">Recovery ahead of schedule</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Feb 25, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78524')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78519')" style="cursor: pointer; background: rgba(83, 74, 183, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78519</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">DL</div>
+                                        <div>
+                                            <div class="user-details">David Lee</div>
+                                            <div class="user-policy">LTD - Chronic pain</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">LTD</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$156,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #534AB7;">$142,000</td>
+                                <td style="font-size: 14px;">$56,000</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500; color: #1D9E75;">↓ $14,000</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">Vocational rehab success</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 3, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78519')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78512')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78512</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">AB</div>
+                                        <div>
+                                            <div class="user-details">Amanda Brown</div>
+                                            <div class="user-policy">Life - Heart disease</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Life</span>
+                                </td>
+                                <td style="font-size: 14px; color: var(--color-text-secondary);">$325,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$325,000</td>
+                                <td style="font-size: 14px;">$0</td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">No change</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Claim pending</div>
+                                </td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Feb 18, 2026</td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78512')">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 2,847 claims with reserves</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>356</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Reserve by Claim Type -->
+                    <div class="analytics-card">
+                        <h3>Reserves by claim type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Long-term disability</span>
+                                <span style="font-weight: 500;">$48.6M • 427 claims</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 38%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Life insurance</span>
+                                <span style="font-weight: 500;">$32.4M • 854 claims</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Short-term disability</span>
+                                <span style="font-weight: 500;">$18.2M • 996 claims</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 14%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Legal/Litigation</span>
+                                <span style="font-weight: 500;">$9.6M • 127 cases</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Critical illness</span>
+                                <span style="font-weight: 500;">$6.8M • 198 claims</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 5%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Accident insurance</span>
+                                <span style="font-weight: 500;">$3.2M • 312 claims</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 3%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total case reserves</p>
+                                <p>$89.2M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>IBNR reserves</p>
+                                <p>$28.6M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Reserve adequacy</p>
+                                <p style="color: #1D9E75;">102.4%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reserve Development Analysis -->
+                    <div class="analytics-card">
+                        <h3>Reserve development trends</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Favorable development</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #1D9E75;">142 claims</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Reserves decreased by $4.2M total</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">No change</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">1,892 claims</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Reserves stable, as expected</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Adverse development</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #EF9F27;">67 claims</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Reserves increased by $2.8M total</p>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #A32D2D;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Significant adjustments</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">34 claims</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">Changes over $50K, require review</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">📊 Quarterly performance</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Q1 2026: Net favorable development of $1.4M • Reserve adequacy improved 1.2%</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">✅ Actuarial review status</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Last full review: Jan 2026 • Next scheduled: Apr 2026 • Large loss reviews: Monthly</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">⚠️ Watch list</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">18 claims over $250K • 12 litigation cases with uncertain outcomes</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SUBROGATION & RECOVERY SCREEN -->

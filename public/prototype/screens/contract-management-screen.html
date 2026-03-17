@@ -1,0 +1,352 @@
+<div id="contract-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📄</div>
+                            <div class="header-title">
+                                <h1>Claims Contract & Agreement Management Hub</h1>
+                                <p>Vendor contracts, SLA monitoring, liability agreements, repair networks, and partnership governance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View expiring')">⚠️ Expiring</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('New contract')">+ New Contract</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active contracts</p>
+                        <p class="stat-value" style="color: #534AB7;">342</p>
+                        <p class="stat-change positive">All types</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total contract value</p>
+                        <p class="stat-value">$24.8M</p>
+                        <p class="stat-change positive">Annual spend</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">SLA compliance</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.4%</p>
+                        <p class="stat-change positive">Meeting targets</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Expiring soon</p>
+                        <p class="stat-value" style="color: #EF9F27;">18</p>
+                        <p class="stat-change positive">Next 90 days</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Vendor partners</p>
+                        <p class="stat-value">124</p>
+                        <p class="stat-change positive">Active vendors</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Contract renewals</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">This quarter</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">SLA breach detected</p>
+                                <p style="font-size: 12px; color: #A32D2D;">Acme Repair Network: 18% of claims exceed 48hr response SLA</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Contract renewal completed</p>
+                                <p style="font-size: 12px; color: #1D9E75;">Premier Medical Network - 3 year renewal with 8% cost savings</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contract Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Contract & Agreement Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showVendorContracts()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS VENDOR CONTRACT MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active contracts</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Value</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$24.8M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Vendors</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">124</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage contracts</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showSLAMonitoring()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SERVICE-LEVEL AGREEMENT MONITORING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.4%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Compliance rate</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">SLAs</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Breaches</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Monitor SLAs</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLiabilityAgreements()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">THIRD-PARTY LIABILITY AGREEMENTS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">87</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active agreements</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Coverage</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$42M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Parties</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">64</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage agreements</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRepairNetworks()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔧</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REPAIR NETWORK CONTRACTS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Network providers</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$12.4M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Quality</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage networks</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showPartnershipGovernance()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤝</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS PARTNERSHIP GOVERNANCE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Strategic partners</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Reviews</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">Q4</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Score</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Governance dashboard</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Active Contracts Overview -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Contract Portfolio Overview</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Contract ID</th>
+                                    <th>Vendor/Partner</th>
+                                    <th>Contract Type</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Annual Value</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2024-847</td>
+                                    <td>Premier Medical Network</td>
+                                    <td>Medical Services</td>
+                                    <td>Jan 1, 2024</td>
+                                    <td>Dec 31, 2026</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$4.2M</td>
+                                    <td><span class="badge badge-approved">Active</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2024-802</td>
+                                    <td>Acme Repair Network</td>
+                                    <td>Auto Repair</td>
+                                    <td>Mar 1, 2023</td>
+                                    <td>Feb 28, 2026</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$3.8M</td>
+                                    <td><span class="badge badge-denied">SLA Breach</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2023-1456</td>
+                                    <td>Global Assessment Services</td>
+                                    <td>Claims Assessment</td>
+                                    <td>Jun 15, 2023</td>
+                                    <td style="color: #EF9F27; font-weight: 600;">Jun 14, 2026</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$2.4M</td>
+                                    <td><span class="badge badge-pending">Expiring Soon</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2024-689</td>
+                                    <td>TechRepair Solutions</td>
+                                    <td>Electronics Repair</td>
+                                    <td>Feb 1, 2024</td>
+                                    <td>Jan 31, 2027</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$1.8M</td>
+                                    <td><span class="badge badge-approved">Active</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2023-2145</td>
+                                    <td>HomeCare Services Group</td>
+                                    <td>Property Restoration</td>
+                                    <td>Sep 1, 2023</td>
+                                    <td>Aug 31, 2026</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$2.8M</td>
+                                    <td><span class="badge badge-approved">Active</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CON-2024-421</td>
+                                    <td>Legal Services Alliance</td>
+                                    <td>Legal Counsel</td>
+                                    <td>Jan 1, 2024</td>
+                                    <td>Dec 31, 2024</td>
+                                    <td style="font-weight: 600; color: #534AB7;">$1.4M</td>
+                                    <td><span class="badge badge-review">Up for Renewal</span></td>
+                                    <td><button onclick="alert('View contract')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Contract Performance Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Contract spend by category</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Repair Networks</span>
+                                <span style="font-weight: 500;">$12.4M • 50%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 50%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Medical Services</span>
+                                <span style="font-weight: 500;">$6.8M • 27%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Assessment Services</span>
+                                <span style="font-weight: 500;">$3.2M • 13%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Legal Services</span>
+                                <span style="font-weight: 500;">$2.4M • 10%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total spend</p>
+                                <p style="color: #534AB7;">$24.8M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Contracts</p>
+                                <p>342</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Vendors</p>
+                                <p>124</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Contract management metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">SLA compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">96.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">284 SLAs monitored • 18 breaches YTD • Strong performance overall</div>
+                            </div>
+                            <div style="padding: 12px; background: #FAEEDA; border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #854F0B;">Expiring contracts</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #EF9F27; margin-bottom: 4px;">18 contracts</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Expiring in 90 days • 42 renewals this quarter • Proactive management needed</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Contract value</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$24.8M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Annual spend • 342 contracts • 124 vendors • Strategic portfolio</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Condensed submodule screens for Vendor Contracts, SLA Monitoring, Liability Agreements, Repair Networks, and Partnership Governance follow established pattern -->
+
+        <!-- REINSURANCE CLAIMS MANAGEMENT HUB SCREEN -->

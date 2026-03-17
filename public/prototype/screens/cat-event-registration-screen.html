@@ -1,0 +1,216 @@
+<div id="cat-event-registration-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCatClaims()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Catastrophe Event Registration</h1>
+                                <p>Event declaration, peril classification, affected zone mapping, and CAT code assignment</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('NOAA data')">🌡️ Weather Data</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Declare new event')">+ Declare Event</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active CAT events</p>
+                        <p class="stat-value" style="color: #D85A30;">7</p>
+                        <p class="stat-change positive">Ongoing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Events YTD</p>
+                        <p class="stat-value">23</p>
+                        <p class="stat-change positive">Declared</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg response time</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.2h</p>
+                        <p class="stat-change positive">From occurrence</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Affected states</p>
+                        <p class="stat-value">12</p>
+                        <p class="stat-change positive">Current</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Critical events</p>
+                        <p class="stat-value" style="color: #A32D2D;">2</p>
+                        <p class="stat-change positive">High severity</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Wind-down phase</p>
+                        <p class="stat-value">8</p>
+                        <p class="stat-change positive">Closing</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Registered CAT Events</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>CAT ID</th>
+                                    <th>Event Name</th>
+                                    <th>Peril Type</th>
+                                    <th>Date Declared</th>
+                                    <th>Affected Areas</th>
+                                    <th>Severity</th>
+                                    <th>Claims</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-007</td>
+                                    <td>Hurricane Milton</td>
+                                    <td>Hurricane - Cat 4</td>
+                                    <td>Mar 10, 2026</td>
+                                    <td>FL, GA, SC</td>
+                                    <td><span class="badge badge-denied">Critical</span></td>
+                                    <td style="font-weight: 600; color: #D85A30;">2,847</td>
+                                    <td><span class="badge badge-review">Active</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-006</td>
+                                    <td>Midwest Tornado Outbreak</td>
+                                    <td>Tornado - EF3/EF4</td>
+                                    <td>Mar 5, 2026</td>
+                                    <td>OK, KS, MO, AR</td>
+                                    <td><span class="badge badge-denied">High</span></td>
+                                    <td style="font-weight: 600; color: #D85A30;">1,284</td>
+                                    <td><span class="badge badge-review">Active</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-005</td>
+                                    <td>California Wildfire Season</td>
+                                    <td>Wildfire</td>
+                                    <td>Feb 28, 2026</td>
+                                    <td>CA (multiple counties)</td>
+                                    <td><span class="badge badge-review">Medium</span></td>
+                                    <td style="font-weight: 600;">842</td>
+                                    <td><span class="badge badge-review">Active</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-004</td>
+                                    <td>Texas Ice Storm</td>
+                                    <td>Winter Storm</td>
+                                    <td>Feb 14, 2026</td>
+                                    <td>TX (statewide)</td>
+                                    <td><span class="badge badge-review">Medium</span></td>
+                                    <td style="font-weight: 600;">1,847</td>
+                                    <td><span class="badge badge-pending">Wind-down</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-003</td>
+                                    <td>Southeast Flooding</td>
+                                    <td>Flood</td>
+                                    <td>Feb 1, 2026</td>
+                                    <td>TN, AL, MS</td>
+                                    <td><span class="badge badge-pending">Low</span></td>
+                                    <td style="font-weight: 600;">984</td>
+                                    <td><span class="badge badge-approved">Closing</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-002</td>
+                                    <td>Northeast Nor'easter</td>
+                                    <td>Winter Storm</td>
+                                    <td>Jan 18, 2026</td>
+                                    <td>NY, NJ, CT, MA</td>
+                                    <td><span class="badge badge-pending">Low</span></td>
+                                    <td style="font-weight: 600;">1,247</td>
+                                    <td><span class="badge badge-approved">Closed</span></td>
+                                    <td><button onclick="alert('Manage event')">Manage</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Event registration metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Response time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.2 hours</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">From event occurrence to declaration • Automated weather monitoring • NOAA integration</div>
+                            </div>
+                            <div style="padding: 12px; background: #FCE9E4; border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #A32D2D;">Active events requiring attention</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #D85A30; margin-bottom: 4px;">2 critical</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Hurricane Milton • Midwest Tornado Outbreak • Additional resources deployed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Peril type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Hurricane</span>
+                                <span style="font-weight: 500;">8 events</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 35%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Flood</span>
+                                <span style="font-weight: 500;">6 events</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Wildfire</span>
+                                <span style="font-weight: 500;">4 events</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 17%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Tornado</span>
+                                <span style="font-weight: 500;">3 events</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Winter Storm</span>
+                                <span style="font-weight: 500;">2 events</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Remaining CAT submodule screens (Mass Intake, Rapid Triage, Reserves, Coordination, Geographic) would follow similar comprehensive pattern -->
+        <!-- For file size optimization, condensed with core functionality -->
+
+        <!-- CLAIMS CUSTOMER RETENTION & LOYALTY HUB SCREEN -->

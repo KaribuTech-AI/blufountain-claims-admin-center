@@ -1,0 +1,352 @@
+<div id="litigation-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Litigation Management Hub</h1>
+                                <p>Case tracking, document management, court workflow, attorney coordination, cost tracking, and outcome analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Court calendar')">📅 Calendar</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="alert('New litigation case')">+ New Case</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active litigation cases</p>
+                        <p class="stat-value" style="color: #A32D2D;">127</p>
+                        <p class="stat-change positive">In court</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total exposure</p>
+                        <p class="stat-value" style="color: #A32D2D;">$42.8M</p>
+                        <p class="stat-change positive">At risk</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Win rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">68%</p>
+                        <p class="stat-change positive">Favorable outcomes</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Legal costs YTD</p>
+                        <p class="stat-value">$4.2M</p>
+                        <p class="stat-change positive">Defense expenses</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg case duration</p>
+                        <p class="stat-value">284d</p>
+                        <p class="stat-change positive">Filing to verdict</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Upcoming hearings</p>
+                        <p class="stat-value">18</p>
+                        <p class="stat-change positive">Next 30 days</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">High-exposure trial approaching</p>
+                                <p style="font-size: 12px; color: #A32D2D;">$8.4M bad faith lawsuit - trial starts in 12 days</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Preparing...')">Prepare</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🎉</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Summary judgment granted</p>
+                                <p style="font-size: 12px; color: #1D9E75;">$2.4M exposure eliminated - plaintiff claim dismissed</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Litigation Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Litigation Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showLitigationTracking()" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LITIGATION CASE TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">127</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active cases</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Trial</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">14</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Discovery</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">68</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track cases</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLegalDocuments()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LEGAL DOCUMENT MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8,472</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Legal documents</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Filings</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">2.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Evidence</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">3.8K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage docs</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showCourtWorkflow()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏛️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COURT CASE WORKFLOW MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">284d</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg duration</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Hearings</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Motions</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">42</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage workflow</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showAttorneyManagement()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👨‍⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ATTORNEY MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">External counsel</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Win rate</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">68%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Firms</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage attorneys</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLegalCostTracking()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LEGAL COST TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$4.2M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Costs YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg/case</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$33K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Budget</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">92%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track costs</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showOutcomeAnalytics()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LITIGATION OUTCOME ANALYTICS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">68%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Win rate</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Won</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">184</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Lost</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">87</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View analytics</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Active Litigation Cases -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Active Litigation Cases (127)</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Case Number</th>
+                                    <th>Plaintiff</th>
+                                    <th>Claim Type</th>
+                                    <th>Attorney</th>
+                                    <th>Stage</th>
+                                    <th>Exposure</th>
+                                    <th>Next Event</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2024-1847</td>
+                                    <td>Johnson v. InsureCo</td>
+                                    <td>Bad Faith</td>
+                                    <td>Rachel Morrison</td>
+                                    <td><span class="badge badge-denied">Trial</span></td>
+                                    <td style="font-weight: 600; color: #A32D2D;">$8.4M</td>
+                                    <td>Trial: Mar 26</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2024-1802</td>
+                                    <td>Smith v. InsureCo</td>
+                                    <td>Denial Dispute</td>
+                                    <td>Michael Chen</td>
+                                    <td><span class="badge badge-review">Discovery</span></td>
+                                    <td style="font-weight: 600; color: #A32D2D;">$2.4M</td>
+                                    <td>Deposition: Mar 22</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2024-1756</td>
+                                    <td>Davis v. InsureCo</td>
+                                    <td>Coverage Dispute</td>
+                                    <td>Jennifer Liu</td>
+                                    <td><span class="badge badge-pending">Pre-Trial</span></td>
+                                    <td style="font-weight: 600; color: #A32D2D;">$1.8M</td>
+                                    <td>Hearing: Apr 5</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2023-2945</td>
+                                    <td>Martinez v. InsureCo</td>
+                                    <td>Bad Faith</td>
+                                    <td>David Walsh</td>
+                                    <td><span class="badge badge-review">Discovery</span></td>
+                                    <td style="font-weight: 600; color: #A32D2D;">$4.2M</td>
+                                    <td>Motion: Mar 28</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2024-1689</td>
+                                    <td>Thompson v. InsureCo</td>
+                                    <td>Delay Claim</td>
+                                    <td>Sarah Johnson</td>
+                                    <td><span class="badge badge-approved">Settlement</span></td>
+                                    <td style="font-weight: 600;">$840K</td>
+                                    <td>Conference: Mar 20</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CV-2024-1624</td>
+                                    <td>Wilson v. InsureCo</td>
+                                    <td>Subrogation</td>
+                                    <td>Lisa Wang</td>
+                                    <td><span class="badge badge-review">Discovery</span></td>
+                                    <td style="font-weight: 600; color: #A32D2D;">$3.2M</td>
+                                    <td>Deposition: Apr 2</td>
+                                    <td><button onclick="alert('View case')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Litigation Performance Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Litigation outcomes (YTD)</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✅ Won/Dismissed</span>
+                                <span style="font-weight: 500;">184 cases • 68%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">❌ Lost/Adverse</span>
+                                <span style="font-weight: 500;">87 cases • 32%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 32%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total decided</p>
+                                <p>271</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Win rate</p>
+                                <p style="color: #1D9E75;">68%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Active</p>
+                                <p style="color: #A32D2D;">127</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Litigation management metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Win rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">68%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">184 won • 87 lost • Strong performance vs 55% industry avg</div>
+                            </div>
+                            <div style="padding: 12px; background: #FCE9E4; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Total exposure</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">$42.8M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">127 active cases • Avg $337K per case • Close monitoring required</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Case duration</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">284 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">From filing to verdict • ↓ 18 days vs LY • Process improvements working</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LITIGATION CASE TRACKING SUBMODULE SCREEN -->

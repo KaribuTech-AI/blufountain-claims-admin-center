@@ -1,0 +1,216 @@
+<div id="litigation-tracking-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showLitigationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Litigation Case Tracking</h1>
+                                <p>Comprehensive case management, status tracking, deadline monitoring, and strategic oversight</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Filter cases')">🔍 Filter</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="alert('New case')">+ New Case</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active litigation</p>
+                        <p class="stat-value" style="color: #A32D2D;">127</p>
+                        <p class="stat-change positive">Cases</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Trial stage</p>
+                        <p class="stat-value" style="color: #A32D2D;">14</p>
+                        <p class="stat-change positive">Critical</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Discovery</p>
+                        <p class="stat-value">68</p>
+                        <p class="stat-change positive">In process</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pre-trial</p>
+                        <p class="stat-value">28</p>
+                        <p class="stat-change positive">Motions pending</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Settlement talks</p>
+                        <p class="stat-value" style="color: #1D9E75;">17</p>
+                        <p class="stat-change positive">Negotiating</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Deadlines (30d)</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">Upcoming</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Active Litigation Cases</h2>
+                            <div class="table-container">
+                                <table class="claims-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Case Number</th>
+                                            <th>Plaintiff</th>
+                                            <th>Type</th>
+                                            <th>Filed</th>
+                                            <th>Stage</th>
+                                            <th>Exposure</th>
+                                            <th>Attorney</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1847</td>
+                                            <td>Johnson v. InsureCo</td>
+                                            <td>Bad Faith</td>
+                                            <td>Jan 15, 2024</td>
+                                            <td><span class="badge badge-denied">Trial</span></td>
+                                            <td style="font-weight: 600; color: #A32D2D;">$8.4M</td>
+                                            <td>R. Morrison</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1802</td>
+                                            <td>Smith v. InsureCo</td>
+                                            <td>Denial Dispute</td>
+                                            <td>Feb 3, 2024</td>
+                                            <td><span class="badge badge-review">Discovery</span></td>
+                                            <td style="font-weight: 600; color: #A32D2D;">$2.4M</td>
+                                            <td>M. Chen</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1756</td>
+                                            <td>Davis v. InsureCo</td>
+                                            <td>Coverage Dispute</td>
+                                            <td>Jan 28, 2024</td>
+                                            <td><span class="badge badge-pending">Pre-Trial</span></td>
+                                            <td style="font-weight: 600; color: #A32D2D;">$1.8M</td>
+                                            <td>J. Liu</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2023-2945</td>
+                                            <td>Martinez v. InsureCo</td>
+                                            <td>Bad Faith</td>
+                                            <td>Oct 12, 2023</td>
+                                            <td><span class="badge badge-review">Discovery</span></td>
+                                            <td style="font-weight: 600; color: #A32D2D;">$4.2M</td>
+                                            <td>D. Walsh</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1689</td>
+                                            <td>Thompson v. InsureCo</td>
+                                            <td>Delay Claim</td>
+                                            <td>Feb 18, 2024</td>
+                                            <td><span class="badge badge-approved">Settlement</span></td>
+                                            <td style="font-weight: 600;">$840K</td>
+                                            <td>S. Johnson</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1624</td>
+                                            <td>Wilson v. InsureCo</td>
+                                            <td>Subrogation</td>
+                                            <td>Jan 22, 2024</td>
+                                            <td><span class="badge badge-review">Discovery</span></td>
+                                            <td style="font-weight: 600; color: #A32D2D;">$3.2M</td>
+                                            <td>L. Wang</td>
+                                            <td><button onclick="alert('Manage')">Manage</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Case Analytics</h2>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Stage</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Discovery</span>
+                                            <strong style="color: #378ADD;">68 (54%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Pre-Trial</span>
+                                            <strong>28 (22%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Settlement</span>
+                                            <strong style="color: #1D9E75;">17 (13%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Trial</span>
+                                            <strong style="color: #A32D2D;">14 (11%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Claim Type</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Bad Faith</span>
+                                            <strong style="color: #A32D2D;">42 (33%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Coverage Dispute</span>
+                                            <strong>38 (30%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Denial Dispute</span>
+                                            <strong>28 (22%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Other</span>
+                                            <strong>19 (15%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Exposure Range</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>>$5M</span>
+                                            <strong style="color: #A32D2D;">8 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>$1M-$5M</span>
+                                            <strong style="color: #D85A30;">42 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>$500K-$1M</span>
+                                            <strong>48 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span><$500K</span>
+                                            <strong>29 cases</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Additional detailed submodule screens for Legal Documents, Court Workflow, Attorney Management, Cost Tracking, and Outcome Analytics follow similar comprehensive structure -->
+
+        <!-- SALVAGE MANAGEMENT HUB SCREEN -->

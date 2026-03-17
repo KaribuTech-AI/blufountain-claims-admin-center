@@ -1,0 +1,369 @@
+<div id="cat-claims-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🌪️</div>
+                            <div class="header-title">
+                                <h1>Catastrophe (CAT) Claims Management Hub</h1>
+                                <p>Event registration, mass intake, rapid triage, reserve management, disaster coordination, and geographic analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View active CATs')">🌊 Active CATs</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Register new CAT event')">+ New CAT Event</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active CAT events</p>
+                        <p class="stat-value" style="color: #D85A30;">7</p>
+                        <p class="stat-change positive">Ongoing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total CAT claims YTD</p>
+                        <p class="stat-value" style="color: #D85A30;">8,472</p>
+                        <p class="stat-change positive">All events</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">CAT reserves</p>
+                        <p class="stat-value">$284M</p>
+                        <p class="stat-change positive">Total exposure</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Response teams deployed</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">Field teams</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg triage time</p>
+                        <p class="stat-value" style="color: #1D9E75;">18m</p>
+                        <p class="stat-change positive">Rapid response</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Claims closed</p>
+                        <p class="stat-value" style="color: #1D9E75;">5,284</p>
+                        <p class="stat-change positive">62% closed</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">Hurricane Milton escalating</p>
+                                <p style="font-size: 12px; color: #A32D2D;">2,847 new claims in past 24 hours - additional resources needed</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Deploying...')">Deploy</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">CAT-2024-003 wind-down</p>
+                                <p style="font-size: 12px; color: #1D9E75;">Flood event 94% claims closed, final reserves released</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAT Claims Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Catastrophe Claims Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showCatEventRegistration()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CATASTROPHE EVENT REGISTRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">7</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active events</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">This year</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">23</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Severity</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">High</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage events</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showMassClaimsIntake()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📥</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">MASS CLAIMS INTAKE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8,472</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">CAT claims YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">3.2K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Process intake</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRapidTriage()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚡</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RAPID CLAIM TRIAGE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18m</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg triage time</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Triaged</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">7.2K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto %</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">78%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Triage claims</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showCatReserves()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CATASTROPHE RESERVE MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$284M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Total CAT reserves</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Paid</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$147M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">IBNR</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$42M</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage reserves</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showDisasterCoordination()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚁</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DISASTER RESPONSE COORDINATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Teams deployed</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Adjusters</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">287</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Sites</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Coordinate response</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showGeographicAnalysis()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🗺️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">GEOGRAPHIC CLAIMS ANALYSIS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Affected ZIP codes</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Hotspots</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Density</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">High</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View map</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Active CAT Events Overview -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Active Catastrophe Events (7)</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>CAT ID</th>
+                                    <th>Event Name</th>
+                                    <th>Type</th>
+                                    <th>Date Declared</th>
+                                    <th>Claims</th>
+                                    <th>Reserves</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-007</td>
+                                    <td>Hurricane Milton</td>
+                                    <td>Hurricane</td>
+                                    <td>Mar 10, 2026</td>
+                                    <td style="font-weight: 600; color: #D85A30;">2,847</td>
+                                    <td style="font-weight: 600;">$124M</td>
+                                    <td><span class="badge badge-denied">Critical</span></td>
+                                    <td><button onclick="alert('View event')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-006</td>
+                                    <td>Midwest Tornado Outbreak</td>
+                                    <td>Tornado</td>
+                                    <td>Mar 5, 2026</td>
+                                    <td style="font-weight: 600; color: #D85A30;">1,284</td>
+                                    <td style="font-weight: 600;">$48M</td>
+                                    <td><span class="badge badge-review">Active</span></td>
+                                    <td><button onclick="alert('View event')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-005</td>
+                                    <td>California Wildfire Season</td>
+                                    <td>Wildfire</td>
+                                    <td>Feb 28, 2026</td>
+                                    <td style="font-weight: 600; color: #D85A30;">842</td>
+                                    <td style="font-weight: 600;">$38M</td>
+                                    <td><span class="badge badge-review">Active</span></td>
+                                    <td><button onclick="alert('View event')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-004</td>
+                                    <td>Texas Ice Storm</td>
+                                    <td>Winter Storm</td>
+                                    <td>Feb 14, 2026</td>
+                                    <td style="font-weight: 600;">1,847</td>
+                                    <td style="font-weight: 600;">$28M</td>
+                                    <td><span class="badge badge-pending">Wind-down</span></td>
+                                    <td><button onclick="alert('View event')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">CAT-2024-003</td>
+                                    <td>Southeast Flooding</td>
+                                    <td>Flood</td>
+                                    <td>Feb 1, 2026</td>
+                                    <td style="font-weight: 600;">984</td>
+                                    <td style="font-weight: 600;">$18M</td>
+                                    <td><span class="badge badge-approved">Closing</span></td>
+                                    <td><button onclick="alert('View event')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CAT Performance Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>CAT claims by event type (YTD)</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌀 Hurricane</span>
+                                <span style="font-weight: 500;">3,284 claims • 38.8%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 39%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌊 Flood</span>
+                                <span style="font-weight: 500;">2,124 claims • 25.1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 25%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔥 Wildfire</span>
+                                <span style="font-weight: 500;">1,547 claims • 18.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌪️ Tornado</span>
+                                <span style="font-weight: 500;">1,024 claims • 12.1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">❄️ Winter Storm</span>
+                                <span style="font-weight: 500;">493 claims • 5.8%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 6%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total CAT claims</p>
+                                <p style="color: #D85A30;">8,472</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Active events</p>
+                                <p>7</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Closed</p>
+                                <p style="color: #1D9E75;">62%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>CAT response metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Rapid triage time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">18 minutes</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Avg initial assessment • 78% auto-triaged • ↓ 12min vs standard claims</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Response team deployment</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">42 teams</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">287 adjusters • 18 field sites • 24/7 operations • Mobile claims centers</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Total CAT reserves</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$284M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">$147M paid • $95M outstanding • $42M IBNR • Active monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CATASTROPHE EVENT REGISTRATION SUBMODULE SCREEN -->

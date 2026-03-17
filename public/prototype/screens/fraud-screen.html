@@ -1,0 +1,583 @@
+<div id="fraud-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">🔍</div>
+                            <div class="header-title">
+                                <h1>Fraud Detection & Risk Assessment</h1>
+                                <p>AI-driven fraud detection, suspicious claims analysis, and risk scoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Opening fraud investigation...')">+ New Investigation</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">High-risk claims flagged</p>
+                        <p class="stat-value">147</p>
+                        <p class="stat-change negative">↑ 18% from last quarter</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active investigations</p>
+                        <p class="stat-value" style="color: #D85A30;">58</p>
+                        <p class="stat-change neutral">Under review</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Confirmed fraud cases</p>
+                        <p class="stat-value" style="color: #A32D2D;">23</p>
+                        <p class="stat-change positive">YTD discoveries</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Fraud prevented</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.8M</p>
+                        <p class="stat-change positive">Denied fraudulent claims</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">AI detection accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">True positive rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg risk score</p>
+                        <p class="stat-value">32.5</p>
+                        <p class="stat-change neutral">Scale: 0-100</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C4C4 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #D85A30;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🚨</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #8B2B1C;">Critical fraud alerts</p>
+                                <p style="font-size: 12px; color: #A32D2D;">12 claims flagged with risk scores >85 require immediate investigation</p>
+                            </div>
+                            <button style="background: #D85A30; border-color: #D85A30; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening critical alerts...')">Investigate</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🤖</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">AI anomaly detections</p>
+                                <p style="font-size: 12px; color: #BA7517;">34 claims show unusual patterns requiring human review</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening AI alerts...')">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, claimant, fraud indicator...">
+                    <select>
+                        <option>All risk levels</option>
+                        <option>Critical (85-100)</option>
+                        <option>High (70-84)</option>
+                        <option>Medium (50-69)</option>
+                        <option>Low (25-49)</option>
+                        <option>Minimal (0-24)</option>
+                    </select>
+                    <select>
+                        <option>All fraud indicators</option>
+                        <option>Multiple claims pattern</option>
+                        <option>Inconsistent documentation</option>
+                        <option>Suspicious timing</option>
+                        <option>Provider fraud ring</option>
+                        <option>Identity verification issues</option>
+                        <option>External database match</option>
+                    </select>
+                    <select>
+                        <option>All investigation status</option>
+                        <option>AI flagged - pending review</option>
+                        <option>Under investigation</option>
+                        <option>SIU assigned</option>
+                        <option>Law enforcement referred</option>
+                        <option>Confirmed fraud</option>
+                        <option>Cleared - legitimate</option>
+                    </select>
+                </div>
+
+                <!-- Fraud Detection Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>High-risk & suspicious claims</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort by Risk</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Batch SIU assignment coming soon!')">Assign SIU</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Claim ID</th>
+                                <th>Claimant</th>
+                                <th>Claim Type</th>
+                                <th>Risk Score</th>
+                                <th>Primary Indicators</th>
+                                <th>Claim Amount</th>
+                                <th>Flagged Date</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CLM-78567')" style="cursor: pointer; background: rgba(216, 90, 48, 0.08);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78567</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">JD</div>
+                                        <div>
+                                            <div class="user-details">John Doe</div>
+                                            <div class="user-policy">Policy #LTD-99234 • Age 42</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">LTD</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #A32D2D;">92</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 600;">CRITICAL</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🔴 Multiple claims (4 in 2 years)</div>
+                                        <div style="margin-bottom: 2px;">🔴 Surveillance mismatch</div>
+                                        <div>🔴 Database match (fraud list)</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$156,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 8, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">SIU Investigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="showClaimDetail('CLM-78567')">Investigate</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78561')" style="cursor: pointer; background: rgba(216, 90, 48, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78561</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">SM</div>
+                                        <div>
+                                            <div class="user-details">Sarah Martinez</div>
+                                            <div class="user-policy">Policy #ACC-76542 • Age 35</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Accident</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #D85A30;">88</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 600;">CRITICAL</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🟠 Suspicious timing (filed day after policy)</div>
+                                        <div style="margin-bottom: 2px;">🟠 Inconsistent medical records</div>
+                                        <div>🟠 Provider flagged (fraud ring)</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$85,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 10, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Under Investigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="showClaimDetail('CLM-78561')">Investigate</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78558')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78558</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">RK</div>
+                                        <div>
+                                            <div class="user-details">Robert Kim</div>
+                                            <div class="user-policy">Policy #LIFE-65432 • Age 58</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Life</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #EF9F27;">76</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 600;">HIGH</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🟡 Policy contestability period</div>
+                                        <div style="margin-bottom: 2px;">🟡 Beneficiary relationship unclear</div>
+                                        <div>🟡 Premium payment irregularities</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$650,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 7, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">AI Flagged</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78558')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78554')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78554</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">TC</div>
+                                        <div>
+                                            <div class="user-details">Thomas Chen</div>
+                                            <div class="user-policy">Policy #STD-54321 • Age 39</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">STD</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #EF9F27;">72</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 600;">HIGH</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🟡 Social media activity conflicts</div>
+                                        <div style="margin-bottom: 2px;">🟡 Employer dispute flagged</div>
+                                        <div>🟡 Medical timeline gaps</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$24,500</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 5, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Under Investigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78554')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78549')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78549</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">LP</div>
+                                        <div>
+                                            <div class="user-details">Linda Phillips</div>
+                                            <div class="user-policy">Policy #CRT-43287 • Age 51</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Critical</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #378ADD;">58</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 600;">MEDIUM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🔵 Diagnosis verification needed</div>
+                                        <div style="margin-bottom: 2px;">🔵 Medical provider unfamiliar</div>
+                                        <div>🔵 Out-of-state treatment</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$75,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Mar 3, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">AI Flagged</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78549')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78543')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78543</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">MB</div>
+                                        <div>
+                                            <div class="user-details">Maria Brown</div>
+                                            <div class="user-policy">Policy #ACC-38291 • Age 44</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Accident</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #1D9E75;">18</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 600;">LOW</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">✅ All documentation verified</div>
+                                        <div style="margin-bottom: 2px;">✅ Consistent timeline</div>
+                                        <div>✅ Investigation cleared</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$28,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Feb 12, 2026</td>
+                                <td>
+                                    <span class="status-badge status-approved">Cleared - Legitimate</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78543')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78538')" style="cursor: pointer; background: rgba(163, 45, 45, 0.08);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78538</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">DW</div>
+                                        <div>
+                                            <div class="user-details">David Wilson</div>
+                                            <div class="user-policy">Policy #LTD-29384 • Age 47</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">LTD</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #A32D2D;">96</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 600;">CRITICAL</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🔴 Confirmed fraud</div>
+                                        <div style="margin-bottom: 2px;">🔴 False medical documentation</div>
+                                        <div>🔴 Law enforcement referred</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$220,000</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Jan 18, 2026</td>
+                                <td>
+                                    <span class="status-badge status-denied">Confirmed Fraud</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button style="background: #A32D2D; border-color: #A32D2D; color: white;" onclick="showClaimDetail('CLM-78538')">View Case</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78532')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78532</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">AJ</div>
+                                        <div>
+                                            <div class="user-details">Angela Johnson</div>
+                                            <div class="user-policy">Policy #STD-18293 • Age 36</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">STD</span>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-size: 18px; font-weight: 600; color: #378ADD;">62</div>
+                                        <span style="font-size: 10px; padding: 2px 6px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 600;">MEDIUM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px;">
+                                        <div style="margin-bottom: 2px;">🔵 AI anomaly detected</div>
+                                        <div style="margin-bottom: 2px;">🔵 Claim amount outlier</div>
+                                        <div>🔵 Pattern analysis flagged</div>
+                                    </div>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$18,400</td>
+                                <td style="color: var(--color-text-secondary); font-size: 13px;">Feb 28, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">AI Flagged</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78532')">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 147 flagged claims</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>19</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Fraud Indicators -->
+                    <div class="analytics-card">
+                        <h3>Top fraud indicators detected</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Multiple claims pattern</span>
+                                <span style="font-weight: 500;">42 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 29%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Inconsistent documentation</span>
+                                <span style="font-weight: 500;">38 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Suspicious timing</span>
+                                <span style="font-weight: 500;">29 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 20%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Provider fraud ring</span>
+                                <span style="font-weight: 500;">18 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">External database match</span>
+                                <span style="font-weight: 500;">12 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Identity verification issues</span>
+                                <span style="font-weight: 500;">8 cases flagged</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 5%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>AI accuracy</p>
+                                <p style="color: #1D9E75;">94.2%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>False positive rate</p>
+                                <p>5.8%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg investigation time</p>
+                                <p>18.4 days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Risk & Outcomes -->
+                    <div class="analytics-card">
+                        <h3>Fraud investigation outcomes</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #A32D2D;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Confirmed fraud</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">23 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">$2.8M in claims denied, 8 law enforcement referrals</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Under investigation</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">58 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">SIU assigned, evidence gathering phase</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">AI flagged - pending review</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">66 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Automated detection, human review required</p>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md); border-left: 3px solid #1D9E75;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #0F6E56;">Cleared - legitimate</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #1D9E75;">142 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: #1D9E75;">Investigation concluded, no fraud found</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">💰 Financial impact YTD</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Fraud prevented: $2.8M • Investigation costs: $420K • Net savings: $2.38M • ROI: 567%</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #EEEDFE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🤖 AI model performance</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">True positive rate: 94.2% • False positive rate: 5.8% • Model trained on 50,000+ historical claims</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #8B2B1C; margin-bottom: 4px;">🔍 External database integrations</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">NICB database • ISO ClaimSearch • LexisNexis • State fraud bureaus • Provider watch lists</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- COMPLAINT & DISPUTE MANAGEMENT SCREEN -->

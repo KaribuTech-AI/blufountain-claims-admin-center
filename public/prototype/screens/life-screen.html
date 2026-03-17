@@ -1,0 +1,503 @@
+<div id="life-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">❤️</div>
+                            <div class="header-title">
+                                <h1>Life Insurance Claims</h1>
+                                <p>Comprehensive portfolio management and beneficiary services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" onclick="createNewClaim()">+ New Life Claim</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total life claims</p>
+                        <p class="stat-value">854</p>
+                        <p class="stat-change positive">↑ 8% from last month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active claims</p>
+                        <p class="stat-value" style="color: #EF9F27;">143</p>
+                        <p class="stat-change neutral">Currently processing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approved this month</p>
+                        <p class="stat-value">67</p>
+                        <p class="stat-change neutral">Avg. $42,388</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total payout YTD</p>
+                        <p class="stat-value">$28.4M</p>
+                        <p class="stat-change positive">711 claims paid</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Third party claims</p>
+                        <p class="stat-value" style="color: #378ADD;">89</p>
+                        <p class="stat-change neutral">Estate & trust claims</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approval rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">89.4%</p>
+                        <p class="stat-change positive">Industry avg: 86%</p>
+                    </div>
+                </div>
+
+                <!-- High Priority Alert -->
+                <div style="padding: 0 24px 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 20px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27; display: flex; align-items: center; gap: 16px;">
+                        <div style="font-size: 32px;">⚠️</div>
+                        <div style="flex: 1;">
+                            <p style="font-weight: 500; font-size: 15px; margin-bottom: 4px; color: #854F0B;">High-value claims requiring senior review</p>
+                            <p style="font-size: 13px; color: #BA7517;">12 claims over $100,000 • Total pending value: $2.8M</p>
+                        </div>
+                        <button class="primary" onclick="alert('Opening high-value review queue...')">Review Queue</button>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, policyholder name, beneficiary...">
+                    <select>
+                        <option>All policy types</option>
+                        <option>Term life</option>
+                        <option>Whole life</option>
+                        <option>Universal life</option>
+                    </select>
+                    <select>
+                        <option>All statuses</option>
+                        <option>Pending</option>
+                        <option>Under review</option>
+                        <option>Approved</option>
+                        <option>Denied</option>
+                        <option>Investigation</option>
+                    </select>
+                    <select>
+                        <option>All claim types</option>
+                        <option>Direct beneficiary</option>
+                        <option>Third party</option>
+                        <option>Estate claims</option>
+                        <option>Trust claims</option>
+                    </select>
+                </div>
+
+                <!-- Recent Claims Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Recent life insurance claims</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Bulk processing coming soon!')">Bulk Process</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Claim ID</th>
+                                <th>Deceased</th>
+                                <th>Beneficiary</th>
+                                <th>Type</th>
+                                <th>Policy Type</th>
+                                <th>Benefit Amount</th>
+                                <th>Filed</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CLM-78491')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78491</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">RC</div>
+                                        <div>
+                                            <div class="user-details">Robert Chen</div>
+                                            <div class="user-policy">Age 45 • Natural causes</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Sarah Chen</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spouse</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Term Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$250,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 10, 2026</span>
+                                    <span class="elapsed">3 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78491')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78487')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78487</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">MT</div>
+                                        <div>
+                                            <div class="user-details">Michael Thompson</div>
+                                            <div class="user-policy">Age 62 • Cardiac arrest</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Lisa Thompson</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spouse</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Whole Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$300,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 8, 2026</span>
+                                    <span class="elapsed">5 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-docs">Docs Needed</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="requestDocsFlow()">Request Docs</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78485')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78485</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">KN</div>
+                                        <div>
+                                            <div class="user-details">Kevin Nguyen</div>
+                                            <div class="user-policy">Age 38 • Vehicle accident</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Anna Nguyen</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spouse</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Universal</td>
+                                <td style="font-weight: 500; font-size: 15px;">$150,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 7, 2026</span>
+                                    <span class="elapsed">6 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-investigation">Investigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78485')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78479')" style="cursor: pointer; background: rgba(55, 138, 221, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78479</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FBEAF0; color: #993556;">GH</div>
+                                        <div>
+                                            <div class="user-details">George Harrison</div>
+                                            <div class="user-policy">Age 71 • Natural causes</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Harrison Family Trust</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Trustee: Jane Harrison</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">Trust</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Whole Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$520,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 6, 2026</span>
+                                    <span class="elapsed">7 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-review">Under Review</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78479')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78472')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78472</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FBEAF0; color: #993556;">EM</div>
+                                        <div>
+                                            <div class="user-details">Elizabeth Morgan</div>
+                                            <div class="user-policy">Age 56 • Terminal illness</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">James Morgan</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spouse</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Term Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$425,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 5, 2026</span>
+                                    <span class="elapsed">8 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78472')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78468')" style="cursor: pointer; background: rgba(55, 138, 221, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78468</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">BW</div>
+                                        <div>
+                                            <div class="user-details">Barbara Williams</div>
+                                            <div class="user-policy">Age 59 • Natural causes</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Estate of Barbara Williams</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Executor: Thomas Williams</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Estate</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Term Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$175,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 4, 2026</span>
+                                    <span class="elapsed">9 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-docs">Docs Needed</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="requestDocsFlow()">Request Docs</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78463')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78463</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAECE7; color: #993C1D;">DF</div>
+                                        <div>
+                                            <div class="user-details">Daniel Foster</div>
+                                            <div class="user-policy">Age 41 • Suicide (2yr exclusion)</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Rachel Foster</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spouse</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Term Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$200,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 4, 2026</span>
+                                    <span class="elapsed">9 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-denied">Denied</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78463')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78458')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78458</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">PJ</div>
+                                        <div>
+                                            <div class="user-details">Patricia Johnson</div>
+                                            <div class="user-policy">Age 68 • Natural causes</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px;">Marcus Johnson</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Child</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Direct</span>
+                                </td>
+                                <td style="color: var(--color-text-secondary);">Whole Life</td>
+                                <td style="font-weight: 500; font-size: 15px;">$180,000</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 3, 2026</span>
+                                    <span class="elapsed">10 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78458')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 143 active claims</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>18</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section (moved below table) -->
+                <div class="analytics-section">
+                    
+                    <!-- Policy Type Distribution -->
+                    <div class="analytics-card">
+                        <h3>Claims by policy type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Term life insurance</span>
+                                <span style="font-weight: 500;">512 claims • $18.2M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Whole life insurance</span>
+                                <span style="font-weight: 500;">234 claims • $7.8M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Universal life insurance</span>
+                                <span style="font-weight: 500;">108 claims • $2.4M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg benefit</p>
+                                <p>$33,254</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Largest claim</p>
+                                <p>$850K</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Contest rate</p>
+                                <p>3.8%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Third Party Claims Breakdown -->
+                    <div class="analytics-card">
+                        <h3>Third party claims breakdown</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Direct beneficiary</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">765</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Spouse, children, named individuals</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #EEEDFE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Trust claims</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">52</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Family trusts, living trusts</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Estate claims</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">37</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Probate, executor claims</p>
+                            </div>
+                            <div style="padding: 12px; background: #FAEEDA; border-radius: var(--border-radius-md); border-left: 3px solid #EF9F27;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #854F0B;">Complex third party</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #BA7517;">14</span>
+                                </div>
+                                <p style="font-size: 11px; color: #BA7517;">Contested, multiple claimants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CRITICAL ILLNESS SCREEN -->

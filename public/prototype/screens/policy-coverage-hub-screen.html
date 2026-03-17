@@ -1,0 +1,66 @@
+<div id="policy-coverage-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">✓</div>
+                            <div class="header-title">
+                                <h1>Policy & Coverage Validation Hub</h1>
+                                <p>Policy lookup, status verification, premium validation, coverage verification, waiting periods, exclusions, loan checks, and rider validation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Validate policy')">✓ Validate</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Validations performed</p><p class="stat-value">2,847</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Validation accuracy</p><p class="stat-value" style="color: #1D9E75;">99.4%</p><p class="stat-change positive">Error-free</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg validation time</p><p class="stat-value" style="color: #1D9E75;">1.2s</p><p class="stat-change positive">Real-time</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-validated</p><p class="stat-value" style="color: #1D9E75;">98.6%</p><p class="stat-change positive">Automated</p></div>
+                    <div class="stat-card"><p class="stat-label">Policies validated</p><p class="stat-value">2,847</p><p class="stat-change positive">Active policies</p></div>
+                    <div class="stat-card"><p class="stat-label">Failed validations</p><p class="stat-value">42</p><p class="stat-change positive">1.5% rejection</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Policy & Coverage Validation Modules (8)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <div onclick="showScreen('policy-lookup-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY LOOKUP</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div><div style="font-size: 13px; margin-bottom: 16px;">Lookups YTD</div><div style="font-size: 13px; font-weight: 500;">→ Search policies</div></div>
+                        </div>
+                        <div onclick="showScreen('policy-status-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY STATUS VERIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Active policies</div><div style="font-size: 13px; font-weight: 500;">→ Check status</div></div>
+                        </div>
+                        <div onclick="showScreen('premium-payment-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💳</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PREMIUM PAYMENT VERIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Paid up-to-date</div><div style="font-size: 13px; font-weight: 500;">→ Verify premiums</div></div>
+                        </div>
+                        <div onclick="showScreen('coverage-validation-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🛡️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">COVERAGE VALIDATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$284M</div><div style="font-size: 13px; margin-bottom: 16px;">Total coverage</div><div style="font-size: 13px; font-weight: 500;">→ Validate coverage</div></div>
+                        </div>
+                        <div onclick="showScreen('waiting-period-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏳</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">WAITING PERIOD VALIDATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Period passed</div><div style="font-size: 13px; font-weight: 500;">→ Check periods</div></div>
+                        </div>
+                        <div onclick="showScreen('policy-exclusion-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⛔</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY EXCLUSION VALIDATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">142</div><div style="font-size: 13px; margin-bottom: 16px;">Exclusions flagged</div><div style="font-size: 13px; font-weight: 500;">→ Check exclusions</div></div>
+                        </div>
+                        <div onclick="showScreen('policy-loan-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY LOAN CHECK</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$4.2M</div><div style="font-size: 13px; margin-bottom: 16px;">Outstanding loans</div><div style="font-size: 13px; font-weight: 500;">→ Check loans</div></div>
+                        </div>
+                        <div onclick="showScreen('rider-coverage-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">➕</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RIDER COVERAGE VALIDATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div><div style="font-size: 13px; margin-bottom: 16px;">Active riders</div><div style="font-size: 13px; font-weight: 500;">→ Validate riders</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- POLICY LOOKUP SUBMODULE -->

@@ -1,0 +1,74 @@
+<div id="settlements-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💰</div>
+                            <div class="header-title">
+                                <h1>Claim Settlements Hub</h1>
+                                <p>Settlement negotiation, structured agreements, lump-sum payments, calculations, approvals, documentation, dispute resolution, compliance, and reconciliation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New settlement')">💰 Settle</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Total settled YTD</p><p class="stat-value" style="color: #1D9E75;">$45.8M</p><p class="stat-change positive">All settlements</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg settlement</p><p class="stat-value">$16,089</p><p class="stat-change positive">Per claim</p></div>
+                    <div class="stat-card"><p class="stat-label">Settlement time</p><p class="stat-value" style="color: #1D9E75;">2.8d</p><p class="stat-change positive">Avg processing</p></div>
+                    <div class="stat-card"><p class="stat-label">Pending settlements</p><p class="stat-value" style="color: #EF9F27;">124</p><p class="stat-change positive">In queue</p></div>
+                    <div class="stat-card"><p class="stat-label">Success rate</p><p class="stat-value" style="color: #1D9E75;">99.4%</p><p class="stat-change positive">First-time</p></div>
+                    <div class="stat-card"><p class="stat-label">Compliance rate</p><p class="stat-value" style="color: #1D9E75;">100%</p><p class="stat-change positive">Regulatory</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Settlement Management Modules (10)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('negotiated-settlements-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤝</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">NEGOTIATED SETTLEMENTS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div><div style="font-size: 13px; margin-bottom: 16px;">Active negotiations</div><div style="font-size: 13px; font-weight: 500;">→ Manage negotiations</div></div>
+                        </div>
+                        <div onclick="showScreen('structured-settlements-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">STRUCTURED SETTLEMENT AGREEMENTS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div><div style="font-size: 13px; margin-bottom: 16px;">Structured plans</div><div style="font-size: 13px; font-weight: 500;">→ Manage structures</div></div>
+                        </div>
+                        <div onclick="showScreen('lumpsum-settlements-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💵</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">LUMP-SUM SETTLEMENTS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,284</div><div style="font-size: 13px; margin-bottom: 16px;">One-time payments</div><div style="font-size: 13px; font-weight: 500;">→ Process lump-sum</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-calculations-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🧮</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT CALCULATIONS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div><div style="font-size: 13px; margin-bottom: 16px;">AI accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Calculate settlements</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-approvals-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT APPROVALS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div><div style="font-size: 13px; margin-bottom: 16px;">Pending approvals</div><div style="font-size: 13px; font-weight: 500;">→ Approve settlements</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-payments-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💳</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT PAYMENTS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$45.8M</div><div style="font-size: 13px; margin-bottom: 16px;">Disbursed YTD</div><div style="font-size: 13px; font-weight: 500;">→ Process payments</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-documentation-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT DOCUMENTATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div><div style="font-size: 13px; margin-bottom: 16px;">Documents generated</div><div style="font-size: 13px; font-weight: 500;">→ Manage documents</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-disputes-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT DISPUTE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div><div style="font-size: 13px; margin-bottom: 16px;">Active disputes</div><div style="font-size: 13px; font-weight: 500;">→ Resolve disputes</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-compliance-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🛡️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT COMPLIANCE</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">100%</div><div style="font-size: 13px; margin-bottom: 16px;">Compliance rate</div><div style="font-size: 13px; font-weight: 500;">→ Monitor compliance</div></div>
+                        </div>
+                        <div onclick="showScreen('financial-reconciliation-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FINANCIAL RECONCILIATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Reconciled daily</div><div style="font-size: 13px; font-weight: 500;">→ Reconcile accounts</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEGOTIATED SETTLEMENTS SUBMODULE -->

@@ -1,0 +1,78 @@
+<div id="workforce-scheduling-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📅</div>
+                            <div class="header-title">
+                                <h1>Workforce Scheduling</h1>
+                                <p>Shift management, time-off tracking, resource allocation, coverage optimization, and schedule coordination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Create schedule')">📅 Schedule</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Schedule efficiency</p><p class="stat-value" style="color: #1D9E75;">96%</p><p class="stat-change positive">Coverage maintained</p></div>
+                    <div class="stat-card"><p class="stat-label">Scheduled today</p><p class="stat-value">274</p><p class="stat-change positive">95% of workforce</p></div>
+                    <div class="stat-card"><p class="stat-label">Time-off approved</p><p class="stat-value">13</p><p class="stat-change positive">PTO/sick</p></div>
+                    <div class="stat-card"><p class="stat-label">Shift coverage</p><p class="stat-value" style="color: #1D9E75;">100%</p><p class="stat-change positive">All shifts staffed</p></div>
+                    <div class="stat-card"><p class="stat-label">Overtime hours</p><p class="stat-value">124</p><p class="stat-change positive">This week</p></div>
+                    <div class="stat-card"><p class="stat-label">Schedule conflicts</p><p class="stat-value" style="color: #1D9E75;">0</p><p class="stat-change positive">Resolved</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Weekly Schedule Overview</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr><th>Shift</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Weekend</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">Morning (8am-4pm)</td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">124</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">128</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">124</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">126</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">122</span></td>
+                                    <td><span style="background: #E6F1FB; padding: 4px 8px; border-radius: 4px; color: #378ADD; font-weight: 600;">48</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Day (9am-5pm)</td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">98</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">94</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">96</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">98</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">92</span></td>
+                                    <td><span style="background: #E6F1FB; padding: 4px 8px; border-radius: 4px; color: #378ADD; font-weight: 600;">36</span></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Evening (12pm-8pm)</td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">52</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">54</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">52</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">50</span></td>
+                                    <td><span style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; color: #1D9E75; font-weight: 600;">54</span></td>
+                                    <td><span style="background: #E6F1FB; padding: 4px 8px; border-radius: 4px; color: #378ADD; font-weight: 600;">24</span></td>
+                                </tr>
+                                <tr style="background: var(--color-background-primary); font-weight: 600;">
+                                    <td>Total Coverage</td>
+                                    <td>274</td>
+                                    <td>276</td>
+                                    <td>272</td>
+                                    <td>274</td>
+                                    <td>268</td>
+                                    <td>108</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERFORMANCE INCENTIVE TRACKING SUBMODULE SCREEN -->

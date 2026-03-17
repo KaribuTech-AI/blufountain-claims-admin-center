@@ -1,0 +1,207 @@
+<div id="satisfaction-tracking-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCustomerRetention()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">😊</div>
+                            <div class="header-title">
+                                <h1>Customer Satisfaction Tracking</h1>
+                                <p>Real-time CSAT monitoring, survey management, response tracking, and satisfaction trend analysis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Configure surveys')">⚙️ Configure</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Send survey')">Send Survey</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Overall CSAT</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.6/5.0</p>
+                        <p class="stat-change positive">Excellent</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Surveys sent</p>
+                        <p class="stat-value">12,284</p>
+                        <p class="stat-change positive">YTD</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Response rate</p>
+                        <p class="stat-value" style="color: #378ADD;">68.3%</p>
+                        <p class="stat-change positive">Engaged</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">5-star reviews</p>
+                        <p class="stat-value" style="color: #1D9E75;">4,847</p>
+                        <p class="stat-change positive">57.7%</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg response time</p>
+                        <p class="stat-value">2.4h</p>
+                        <p class="stat-change positive">From survey</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Low ratings</p>
+                        <p class="stat-value" style="color: #A32D2D;">429</p>
+                        <p class="stat-change positive">Need follow-up</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Recent Survey Responses</h2>
+                            <div class="table-container">
+                                <table class="claims-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Claim ID</th>
+                                            <th>Customer</th>
+                                            <th>Rating</th>
+                                            <th>Category</th>
+                                            <th>Submitted</th>
+                                            <th>Comment</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8472</td>
+                                            <td>Sarah Johnson</td>
+                                            <td><span style="color: #1D9E75;">⭐⭐⭐⭐⭐ 5.0</span></td>
+                                            <td>Life</td>
+                                            <td>2 hours ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Excellent service, very professional...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8391</td>
+                                            <td>Michael Chen</td>
+                                            <td><span style="color: #378ADD;">⭐⭐⭐⭐ 4.0</span></td>
+                                            <td>STD</td>
+                                            <td>4 hours ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Good experience overall, quick turnaround...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8284</td>
+                                            <td>Jennifer Liu</td>
+                                            <td><span style="color: #A32D2D;">⭐⭐ 2.0</span></td>
+                                            <td>LTD</td>
+                                            <td>6 hours ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Slow processing, poor communication...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8192</td>
+                                            <td>David Rodriguez</td>
+                                            <td><span style="color: #1D9E75;">⭐⭐⭐⭐⭐ 5.0</span></td>
+                                            <td>Critical Illness</td>
+                                            <td>8 hours ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Amazing support during difficult time...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8147</td>
+                                            <td>Lisa Wang</td>
+                                            <td><span style="color: #EF9F27;">⭐⭐⭐ 3.0</span></td>
+                                            <td>Accident</td>
+                                            <td>1 day ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Average, met expectations...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CLM-8089</td>
+                                            <td>Robert Thompson</td>
+                                            <td><span style="color: #1D9E75;">⭐⭐⭐⭐⭐ 5.0</span></td>
+                                            <td>Life</td>
+                                            <td>1 day ago</td>
+                                            <td style="max-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Fast approval, caring adjuster...</td>
+                                            <td><button onclick="alert('View details')">View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Satisfaction Trends</h2>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Insurance Type</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Life</span>
+                                            <strong style="color: #1D9E75;">4.8/5.0</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Critical Illness</span>
+                                            <strong style="color: #1D9E75;">4.7/5.0</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>STD</span>
+                                            <strong style="color: #378ADD;">4.5/5.0</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>LTD</span>
+                                            <strong style="color: #378ADD;">4.4/5.0</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Accident</span>
+                                            <strong>4.3/5.0</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Top Satisfaction Drivers</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Speed of processing</span>
+                                            <strong style="color: #1D9E75;">32%</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Adjuster professionalism</span>
+                                            <strong style="color: #1D9E75;">28%</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Communication quality</span>
+                                            <strong style="color: #378ADD;">24%</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Fair settlement</span>
+                                            <strong>16%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Survey Performance</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Sent YTD</span>
+                                            <strong>12,284</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Responses</span>
+                                            <strong style="color: #1D9E75;">8,400</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Response Rate</span>
+                                            <strong style="color: #1D9E75;">68.3%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CLAIMS EXPERIENCE ANALYTICS SUBMODULE SCREEN -->

@@ -1,0 +1,68 @@
+<div id="settlement-calculation-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showFinancialManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Financial Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🧮</div>
+                            <div class="header-title">
+                                <h1>Settlement Calculation Engine</h1>
+                                <p>AI-powered valuations, market data integration, comparative analysis, and automated settlement calculations</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Calculate settlement')">🧮 Calculate</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Avg settlement</p><p class="stat-value" style="color: #378ADD;">$16,089</p><p class="stat-change positive">Per claim</p></div>
+                    <div class="stat-card"><p class="stat-label">AI accuracy</p><p class="stat-value" style="color: #1D9E75;">96.8%</p><p class="stat-change positive">Within 5% of actual</p></div>
+                    <div class="stat-card"><p class="stat-label">Calculations YTD</p><p class="stat-value">2,847</p><p class="stat-change positive">Automated</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg processing time</p><p class="stat-value">0.8s</p><p class="stat-change positive">Real-time</p></div>
+                    <div class="stat-card"><p class="stat-label">Settlement range</p><p class="stat-value">±8.4%</p><p class="stat-change positive">Confidence interval</p></div>
+                    <div class="stat-card"><p class="stat-label">Market data points</p><p class="stat-value">1.2M</p><p class="stat-change positive">Comparables</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Settlement Calculation Methodology</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                            <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">📊 Data Inputs</div>
+                            <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                • Claim amount & type<br>
+                                • Loss details & documentation<br>
+                                • Policy coverage & limits<br>
+                                • Market comparables<br>
+                                • Historical settlements<br>
+                                • Actuarial factors
+                            </div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                            <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">🤖 AI Processing</div>
+                            <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                • Pattern recognition<br>
+                                • Comparable matching<br>
+                                • Risk adjustment<br>
+                                • Valuation modeling<br>
+                                • Confidence scoring<br>
+                                • Range calculation
+                            </div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                            <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">✅ Output</div>
+                            <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                • Recommended settlement<br>
+                                • Settlement range<br>
+                                • Confidence interval<br>
+                                • Supporting comparables<br>
+                                • Adjustment rationale<br>
+                                • Approval routing
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLAIMS PAYMENT PROCESSING SUBMODULE SCREEN -->

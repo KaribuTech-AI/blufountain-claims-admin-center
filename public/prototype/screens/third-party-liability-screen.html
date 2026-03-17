@@ -1,0 +1,188 @@
+<div id="third-party-liability-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">👤</div>
+                            <div class="header-title">
+                                <h1>Third-Party Liability Tracking</h1>
+                                <p>Liable party identification, insurance verification, contact management, and responsibility tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Search parties')">🔍 Search</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Add liable party')">+ Add Party</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Liable parties tracked</p>
+                        <p class="stat-value" style="color: #378ADD;">487</p>
+                        <p class="stat-change positive">All time</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Insurance verified</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">Coverage confirmed</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Contact established</p>
+                        <p class="stat-value">203</p>
+                        <p class="stat-change positive">Responsive</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg response time</p>
+                        <p class="stat-value">12d</p>
+                        <p class="stat-change positive">Initial contact</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Liability admitted</p>
+                        <p class="stat-value" style="color: #1D9E75;">34%</p>
+                        <p class="stat-change positive">Without dispute</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Disputed liability</p>
+                        <p class="stat-value" style="color: #A32D2D;">118</p>
+                        <p class="stat-change positive">Active disputes</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Liable Parties Database</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Party Name</th>
+                                    <th>Type</th>
+                                    <th>Insurance Carrier</th>
+                                    <th>Policy Status</th>
+                                    <th>Active Cases</th>
+                                    <th>Total Liability</th>
+                                    <th>Contact Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">Auto Depot LLC</td>
+                                    <td>Business</td>
+                                    <td>State Farm Commercial</td>
+                                    <td><span class="badge badge-approved">Verified</span></td>
+                                    <td>3</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$247,800</td>
+                                    <td><span class="badge badge-approved">Responsive</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Smith Enterprises</td>
+                                    <td>Business</td>
+                                    <td>Liberty Mutual</td>
+                                    <td><span class="badge badge-approved">Verified</span></td>
+                                    <td>2</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$183,450</td>
+                                    <td><span class="badge badge-denied">Disputed</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">John Doe</td>
+                                    <td>Individual</td>
+                                    <td>Progressive Auto</td>
+                                    <td><span class="badge badge-approved">Verified</span></td>
+                                    <td>1</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$42,800</td>
+                                    <td><span class="badge badge-approved">Cooperative</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">ABC Manufacturing</td>
+                                    <td>Business</td>
+                                    <td>Zurich Insurance</td>
+                                    <td><span class="badge badge-pending">Pending</span></td>
+                                    <td>1</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$68,900</td>
+                                    <td><span class="badge badge-review">In Contact</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">City Transit Authority</td>
+                                    <td>Government</td>
+                                    <td>Self-Insured</td>
+                                    <td><span class="badge badge-approved">Verified</span></td>
+                                    <td>4</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$624,700</td>
+                                    <td><span class="badge badge-review">Legal Counsel</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Metro Property Group</td>
+                                    <td>Business</td>
+                                    <td>Travelers Property</td>
+                                    <td><span class="badge badge-approved">Verified</span></td>
+                                    <td>2</td>
+                                    <td style="font-weight: 600; color: #378ADD;">$127,300</td>
+                                    <td><span class="badge badge-approved">Responsive</span></td>
+                                    <td><button onclick="alert('View party')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Liability party analytics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Insurance verification rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">459 verified • 28 pending • Avg verification time 8.4 days</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Liability admission rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">34%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">166 admitted • 203 negotiating • 118 disputed • Faster settlements when admitted</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Party type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏢 Business entities</span>
+                                <span style="font-weight: 500;">284 parties • 58.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">👤 Individuals</span>
+                                <span style="font-weight: 500;">142 parties • 29.2%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 29%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏛️ Government entities</span>
+                                <span style="font-weight: 500;">61 parties • 12.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RECOVERY WORKFLOW MANAGEMENT SUBMODULE SCREEN -->

@@ -1,0 +1,243 @@
+<div id="investigation-case-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <button onclick="showAssessmentHub()" style="background: none; border: none; cursor: pointer; padding: 8px; color: var(--color-text-secondary);">← Back to Hub</button>
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔍</div>
+                            <div class="header-title">
+                                <h1>Investigation Case Management</h1>
+                                <p>Case tracking, investigator coordination, SIU workflows, and investigation status management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showInvestigation()">🔍 Investigation Dashboard</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Open new case')">Open Case</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active cases</p>
+                        <p class="stat-value" style="color: #D85A30;">84</p>
+                        <p class="stat-change positive">Under investigation</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">SIU cases</p>
+                        <p class="stat-value" style="color: #A32D2D;">34</p>
+                        <p class="stat-change neutral">Special Investigation</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Standard investigations</p>
+                        <p class="stat-value">50</p>
+                        <p class="stat-change positive">Routine cases</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg investigation time</p>
+                        <p class="stat-value" style="color: #1D9E75;">21.4d</p>
+                        <p class="stat-change positive">Case cycle</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Cases closed YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">342</p>
+                        <p class="stat-change positive">Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Fraud confirmation rate</p>
+                        <p class="stat-value" style="color: #A32D2D;">27.3%</p>
+                        <p class="stat-change neutral">Of investigated</p>
+                    </div>
+                </div>
+
+                <!-- Investigation Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('SIU Cases: Special Investigation Unit, 34 active, fraud suspected')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚨</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SIU CASES</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">34</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Special Investigation</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">High-risk</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Standard</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">16</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View SIU cases</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Standard Investigations: Routine checks, 50 active, verification needed')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">STANDARD INVESTIGATIONS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">50</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Routine cases</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Active</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">38</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View standard cases</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Case Assignment: Investigator allocation, workload management, specialty matching')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👥</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CASE ASSIGNMENT</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">24</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active investigators</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg load</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">3.5</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Balance</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">92%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View assignments</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Investigation Timeline: Case milestones, deadline tracking, status updates')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📅</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">INVESTIGATION TIMELINE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">21.4d</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg cycle time</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">SIU</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">28.6d</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Standard</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">16.2d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View timelines</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Case Status Tracking: Open, active, pending, closed workflows')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CASE STATUS TRACKING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active tracking</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">In progress</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">68</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">16</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View status</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Investigation Reports: Final reports, findings, recommendations, actions')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">INVESTIGATION REPORTS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Completed YTD</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Confirmed</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">93</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cleared</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">249</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View reports</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Investigation case breakdown</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🚨 SIU cases (high-risk)</span>
+                                <span style="font-weight: 500;">34 active • 40.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📋 Standard investigations</span>
+                                <span style="font-weight: 500;">50 active • 59.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total active</p>
+                                <p style="color: #D85A30;">84</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Investigators</p>
+                                <p>24</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Closed YTD</p>
+                                <p style="color: #1D9E75;">342</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Investigation case metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Investigation cycle time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">21.4 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average case duration • SIU 28.6d, Standard 16.2d • 342 completed YTD</div>
+                            </div>
+                            <div style="padding: 12px; background: #FAEEDA; border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Fraud confirmation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #D85A30; margin-bottom: 4px;">27.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">93 of 342 confirmed fraud • 249 cleared • Investigation accuracy high</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Workload balance</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">92%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">24 investigators • 3.5 avg cases per investigator • Even distribution</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- POLICY COVERAGE VERIFICATION SCREEN -->

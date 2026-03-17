@@ -1,0 +1,537 @@
+<div id="settlements-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">💰</div>
+                            <div class="header-title">
+                                <h1>Claim Settlements</h1>
+                                <p>Negotiated settlements, structured agreements, and lump-sum payments</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" onclick="alert('Opening settlement calculator...')">Settlement Calculator</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total settlements YTD</p>
+                        <p class="stat-value">342</p>
+                        <p class="stat-change positive">↑ 11% from last year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">In negotiation</p>
+                        <p class="stat-value" style="color: #EF9F27;">89</p>
+                        <p class="stat-change neutral">Pending agreement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approved settlements</p>
+                        <p class="stat-value" style="color: #1D9E75;">67</p>
+                        <p class="stat-change positive">Awaiting payment</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total value YTD</p>
+                        <p class="stat-value">$18.4M</p>
+                        <p class="stat-change positive">342 settlements</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg settlement</p>
+                        <p class="stat-value">$53,801</p>
+                        <p class="stat-change neutral">Median: $42,500</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg time to settle</p>
+                        <p class="stat-value">38 days</p>
+                        <p class="stat-change positive">↓ 12 days improvement</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Settlements ready for payment</p>
+                                <p style="font-size: 12px; color: #1D9E75;">67 approved settlements totaling $3.6M ready to disburse</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening payment queue...')">Process</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚖️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Legal review pending</p>
+                                <p style="font-size: 12px; color: #BA7517;">23 settlements require legal counsel approval before finalization</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening legal review queue...')">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, claimant, settlement ID...">
+                    <select>
+                        <option>All settlement types</option>
+                        <option>Lump sum</option>
+                        <option>Structured settlement</option>
+                        <option>Partial settlement</option>
+                        <option>Full & final</option>
+                        <option>Medical-only</option>
+                    </select>
+                    <select>
+                        <option>All statuses</option>
+                        <option>In negotiation</option>
+                        <option>Offer extended</option>
+                        <option>Counteroffer received</option>
+                        <option>Approved - pending payment</option>
+                        <option>Paid</option>
+                        <option>Rejected</option>
+                    </select>
+                    <select>
+                        <option>All value ranges</option>
+                        <option>Under $25K</option>
+                        <option>$25K - $50K</option>
+                        <option>$50K - $100K</option>
+                        <option>$100K - $250K</option>
+                        <option>Over $250K</option>
+                    </select>
+                </div>
+
+                <!-- Settlements Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Settlement negotiations & agreements</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Batch payment processing coming soon!')">Batch Payment</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Settlement ID</th>
+                                <th>Related Claim</th>
+                                <th>Claimant</th>
+                                <th>Settlement Type</th>
+                                <th>Offer Amount</th>
+                                <th>Negotiation Start</th>
+                                <th>Days Active</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('STL-2458')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2458</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78542</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Back injury</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">JM</div>
+                                        <div>
+                                            <div class="user-details">Jennifer Morrison</div>
+                                            <div class="user-policy">Age 48</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Full & Final</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px; color: #1D9E75;">$125,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 8, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">33 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved - Payment Due</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="alert('Processing payment...')">Process Payment</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2455')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2455</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78538</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Life - Natural causes</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">DK</div>
+                                        <div>
+                                            <div class="user-details">David Kim Estate</div>
+                                            <div class="user-policy">Beneficiary: Sarah Kim</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Lump Sum</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px; color: #1D9E75;">$285,000</td>
+                                <td style="color: var(--color-text-secondary);">Jan 28, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">44 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved - Payment Due</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="alert('Processing payment...')">Process Payment</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2453')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2453</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78536</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Accident - Vehicle</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">MR</div>
+                                        <div>
+                                            <div class="user-details">Maria Rodriguez</div>
+                                            <div class="user-policy">Age 34</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Structured</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$180,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 20, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #EF9F27;">21 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Counteroffer Received</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('STL-2453')">Review Offer</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2451')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2451</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78532</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">STD - Medical</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">TC</div>
+                                        <div>
+                                            <div class="user-details">Thomas Chen</div>
+                                            <div class="user-policy">Age 41</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FBEAF0; color: #993556; border-radius: 8px; font-weight: 500;">Partial</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$42,500</td>
+                                <td style="color: var(--color-text-secondary);">Mar 1, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #378ADD;">12 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-review">Offer Extended</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('STL-2451')">Track</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2449')" style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2449</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78528</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Critical Illness - Cancer</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">AB</div>
+                                        <div>
+                                            <div class="user-details">Amanda Brown</div>
+                                            <div class="user-policy">Age 56</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Medical-Only</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$68,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 15, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #EF9F27;">26 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Legal Review</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('STL-2449')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2447')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2447</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78524</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Neurological</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">LP</div>
+                                        <div>
+                                            <div class="user-details">Lisa Phillips</div>
+                                            <div class="user-policy">Age 52</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Full & Final</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$310,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 5, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #378ADD;">36 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">In Negotiation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('STL-2447')">Negotiate</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2444')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2444</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78519</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Accident - Workplace</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">RJ</div>
+                                        <div>
+                                            <div class="user-details">Robert Johnson</div>
+                                            <div class="user-policy">Age 39</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Structured</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$95,000</td>
+                                <td style="color: var(--color-text-secondary);">Jan 10, 2026</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">62 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #B8E6D5; color: #0F6E56;">Paid</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('STL-2444')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('STL-2441')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">STL-2441</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78512</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Life - Heart attack</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">EM</div>
+                                        <div>
+                                            <div class="user-details">Estate of Edward Miller</div>
+                                            <div class="user-policy">Beneficiary: Mary Miller</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Lump Sum</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$420,000</td>
+                                <td style="color: var(--color-text-secondary);">Dec 28, 2025</td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">75 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #B8E6D5; color: #0F6E56;">Paid</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('STL-2441')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 89 active settlements</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>12</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Settlement Type Distribution -->
+                    <div class="analytics-card">
+                        <h3>Settlements by type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Lump sum payments</span>
+                                <span style="font-weight: 500;">156 settlements • $8.2M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 46%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Full & final settlements</span>
+                                <span style="font-weight: 500;">89 settlements • $5.4M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Structured settlements</span>
+                                <span style="font-weight: 500;">58 settlements • $3.1M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 17%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Partial settlements</span>
+                                <span style="font-weight: 500;">27 settlements • $1.2M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Medical-only settlements</span>
+                                <span style="font-weight: 500;">12 settlements • $520K</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 4%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg settlement</p>
+                                <p>$53,801</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Largest YTD</p>
+                                <p>$850K</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Acceptance rate</p>
+                                <p>76.4%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Negotiation Timeline & Outcomes -->
+                    <div class="analytics-card">
+                        <h3>Settlement timeline analysis</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Under 30 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">142</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Fast-track settlements, minimal negotiation</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">30-60 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">128</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Standard negotiation period</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">60-90 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">52</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Complex cases, multiple counteroffers</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FCEBEB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Over 90 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">20</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Legal involvement, disputed claims</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">💡 Settlement insights</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Structured settlements take 18% longer but have 94% acceptance rate vs 72% for lump sum</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">⚖️ Legal counsel impact</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">23% of settlements over $100K require legal review • Avg additional time: 12 days</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LITIGATION SCREEN -->

@@ -1,0 +1,62 @@
+<div id="subrogation-recovery-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔄</div>
+                            <div class="header-title">
+                                <h1>Subrogation & Recovery Hub</h1>
+                                <p>Case management, third-party liability, recovery workflows, legal coordination, settlement tracking, financial monitoring, and analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New subrogation case')">🔄 New Case</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Recovery potential</p><p class="stat-value" style="color: #1D9E75;">$18.6M</p><p class="stat-change positive">Total opportunity</p></div>
+                    <div class="stat-card"><p class="stat-label">Recovered YTD</p><p class="stat-value" style="color: #1D9E75;">$8.4M</p><p class="stat-change positive">↑ 18% vs LY</p></div>
+                    <div class="stat-card"><p class="stat-label">Active cases</p><p class="stat-value">342</p><p class="stat-change positive">In progress</p></div>
+                    <div class="stat-card"><p class="stat-label">Success rate</p><p class="stat-value" style="color: #1D9E75;">58.3%</p><p class="stat-change positive">Recovery rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg recovery time</p><p class="stat-value">42d</p><p class="stat-change positive">To settlement</p></div>
+                    <div class="stat-card"><p class="stat-label">ROI</p><p class="stat-value" style="color: #1D9E75;">347%</p><p class="stat-change positive">Return on investment</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Subrogation & Recovery Modules (7)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('subrogation-case-mgmt-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUBROGATION CASE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div><div style="font-size: 13px; margin-bottom: 16px;">Active cases</div><div style="font-size: 13px; font-weight: 500;">→ Manage cases</div></div>
+                        </div>
+                        <div onclick="showScreen('third-party-liability-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👤</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">THIRD-PARTY LIABILITY TRACKING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div><div style="font-size: 13px; margin-bottom: 16px;">Liable parties</div><div style="font-size: 13px; font-weight: 500;">→ Track liability</div></div>
+                        </div>
+                        <div onclick="showScreen('recovery-workflow-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY WORKFLOW MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">87%</div><div style="font-size: 13px; margin-bottom: 16px;">Automation rate</div><div style="font-size: 13px; font-weight: 500;">→ Manage workflow</div></div>
+                        </div>
+                        <div onclick="showScreen('subrogation-legal-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUBROGATION LEGAL MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div><div style="font-size: 13px; margin-bottom: 16px;">Legal cases</div><div style="font-size: 13px; font-weight: 500;">→ Legal coordination</div></div>
+                        </div>
+                        <div onclick="showScreen('recovery-settlement-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY SETTLEMENT TRACKING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$8.4M</div><div style="font-size: 13px; margin-bottom: 16px;">Recovered YTD</div><div style="font-size: 13px; font-weight: 500;">→ Track settlements</div></div>
+                        </div>
+                        <div onclick="showScreen('recovery-financial-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💵</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY FINANCIAL MONITORING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">347%</div><div style="font-size: 13px; margin-bottom: 16px;">ROI</div><div style="font-size: 13px; font-weight: 500;">→ Monitor financials</div></div>
+                        </div>
+                        <div onclick="showScreen('subrogation-analytics-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUBROGATION ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">58.3%</div><div style="font-size: 13px; margin-bottom: 16px;">Success rate</div><div style="font-size: 13px; font-weight: 500;">→ View analytics</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUBROGATION CASE MANAGEMENT SUBMODULE -->

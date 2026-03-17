@@ -1,0 +1,124 @@
+<div id="retention-risk-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCustomerRetention()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚠️</div>
+                            <div class="header-title">
+                                <h1>Retention Risk Analytics</h1>
+                                <p>Churn prediction, risk scoring, intervention workflows, win-back campaigns, and retention forecasting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Risk factors')">🎯 Factors</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Intervene')">Intervene</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Retention rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">92.4%</p>
+                        <p class="stat-change positive">Policy renewal</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Churn rate</p>
+                        <p class="stat-value" style="color: #A32D2D;">7.6%</p>
+                        <p class="stat-change positive">Annual</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">High-risk customers</p>
+                        <p class="stat-value" style="color: #A32D2D;">284</p>
+                        <p class="stat-change positive">Urgent</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Medium-risk customers</p>
+                        <p class="stat-value" style="color: #EF9F27;">847</p>
+                        <p class="stat-change positive">Watch list</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Intervention success</p>
+                        <p class="stat-value" style="color: #1D9E75;">68%</p>
+                        <p class="stat-change positive">Saved</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Churn cost saved</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.4M</p>
+                        <p class="stat-change positive">YTD</p>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Churn risk factors</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Low satisfaction score (<3.0)</span>
+                                <span style="font-weight: 500;">42% correlation</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Multiple denied claims</span>
+                                <span style="font-weight: 500;">38% correlation</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 38%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Long processing time (>60 days)</span>
+                                <span style="font-weight: 500;">34% correlation</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 34%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Poor communication</span>
+                                <span style="font-weight: 500;">28% correlation</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 28%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Retention analytics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Overall retention rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">92.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Policy renewals • 7.6% churn • ↑ 2.8% vs LY • Trend improving</div>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">High-risk customers</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">284 accounts</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Immediate intervention needed • 68% save rate • Proactive outreach active</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Churn cost saved</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">$2.4M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Through interventions • 847 accounts saved • Strong ROI on retention efforts</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CUSTOMER FEEDBACK COLLECTION, LOYALTY INTEGRATION, AND RETENTION RISK screens continue with similar comprehensive structure -->
+
+        <!-- Submodule screens for Satisfaction Tracking, Experience Analytics, Feedback Collection, Loyalty Integration, and Retention Risk would be here -->
+
+        <!-- SUBROGATION MANAGEMENT HUB SCREEN -->

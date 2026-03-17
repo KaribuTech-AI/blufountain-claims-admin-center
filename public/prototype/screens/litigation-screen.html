@@ -1,0 +1,575 @@
+<div id="litigation-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #A32D2D 0%, #8B2B1C 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Litigation Management</h1>
+                                <p>Legal disputes, lawsuits, appeals, and court proceedings</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="alert('Opening legal case intake...')">+ New Legal Case</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total active litigation</p>
+                        <p class="stat-value">127</p>
+                        <p class="stat-change negative">↑ 8% from last year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">In active discovery</p>
+                        <p class="stat-value" style="color: #A32D2D;">43</p>
+                        <p class="stat-change neutral">Evidence gathering</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pre-trial motions</p>
+                        <p class="stat-value" style="color: #EF9F27;">28</p>
+                        <p class="stat-change neutral">Pending rulings</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Trial scheduled</p>
+                        <p class="stat-value">12</p>
+                        <p class="stat-change neutral">Next 90 days</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Cases won YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">34</p>
+                        <p class="stat-change positive">68% success rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total exposure</p>
+                        <p class="stat-value">$42.8M</p>
+                        <p class="stat-change neutral">Reserved amounts</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C4C4 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🔴</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #8B2B1C;">Critical deadlines approaching</p>
+                                <p style="font-size: 12px; color: #A32D2D;">8 cases have discovery/motion deadlines within 7 days</p>
+                            </div>
+                            <button style="background: #A32D2D; border-color: #A32D2D; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening deadline tracker...')">View</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📋</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Appeals pending decision</p>
+                                <p style="font-size: 12px; color: #BA7517;">15 appellate cases awaiting court rulings</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening appeals tracker...')">Track</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by case number, plaintiff, attorney...">
+                    <select>
+                        <option>All case types</option>
+                        <option>Bad faith</option>
+                        <option>Denial dispute</option>
+                        <option>Disability discrimination</option>
+                        <option>Beneficiary dispute</option>
+                        <option>Coverage dispute</option>
+                        <option>Medical malpractice</option>
+                    </select>
+                    <select>
+                        <option>All case stages</option>
+                        <option>Pre-litigation</option>
+                        <option>Filed - Discovery</option>
+                        <option>Pre-trial motions</option>
+                        <option>Trial scheduled</option>
+                        <option>Verdict rendered</option>
+                        <option>On appeal</option>
+                    </select>
+                    <select>
+                        <option>All jurisdictions</option>
+                        <option>Federal court</option>
+                        <option>State superior court</option>
+                        <option>Court of appeals</option>
+                        <option>Supreme court</option>
+                    </select>
+                </div>
+
+                <!-- Litigation Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active litigation cases</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Legal team assignment coming soon!')">Assign Counsel</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Case Number</th>
+                                <th>Plaintiff</th>
+                                <th>Case Type</th>
+                                <th>Jurisdiction</th>
+                                <th>Exposure Amount</th>
+                                <th>Filed Date</th>
+                                <th>Next Action</th>
+                                <th>Stage</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('LIT-2024-087')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2024-087</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">JW</div>
+                                        <div>
+                                            <div class="user-details">Johnson v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-77892</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Bad Faith</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">LTD claim denial</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Federal</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px; color: #A32D2D;">$2.4M</td>
+                                <td style="color: var(--color-text-secondary);">Oct 12, 2024</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500; color: #A32D2D;">Discovery deadline</div>
+                                        <div style="font-size: 11px; color: #A32D2D;">⚠️ Due Mar 18 (5 days)</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Active Discovery</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="showClaimDetail('LIT-2024-087')">Urgent</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2024-104')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2024-104</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">MS</div>
+                                        <div>
+                                            <div class="user-details">Martinez v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-78234</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Denial Dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Life insurance contestability</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">State Superior</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$450,000</td>
+                                <td style="color: var(--color-text-secondary);">Jan 8, 2025</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Motion to dismiss</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Hearing Apr 5</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Pre-Trial Motion</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2024-104')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2023-156')" style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2023-156</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">TC</div>
+                                        <div>
+                                            <div class="user-details">Chen v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-76542</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Coverage Dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Policy exclusion interpretation</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">Appeals Court</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$680,000</td>
+                                <td style="color: var(--color-text-secondary);">Mar 22, 2023</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Appellate decision</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Expected Apr-May</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">On Appeal</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2023-156')">Track</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2025-012')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2025-012</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">RP</div>
+                                        <div>
+                                            <div class="user-details">Rodriguez v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-78891</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Disability Discrimination</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">ERISA violation claim</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Federal</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$1.2M</td>
+                                <td style="color: var(--color-text-secondary);">Jan 5, 2025</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Initial disclosures</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Due Mar 28</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Active Discovery</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2025-012')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2024-198')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2024-198</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">WF</div>
+                                        <div>
+                                            <div class="user-details">Williams Family Trust v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-77456</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Beneficiary Dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Multiple claimants, will contest</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">State Superior</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px; color: #A32D2D;">$3.2M</td>
+                                <td style="color: var(--color-text-secondary);">Aug 14, 2024</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500; color: #A32D2D;">Trial date</div>
+                                        <div style="font-size: 11px; color: #A32D2D;">⚠️ Apr 22 (40 days)</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Trial Scheduled</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="showClaimDetail('LIT-2024-198')">Prep Trial</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2024-223')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2024-223</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">KP</div>
+                                        <div>
+                                            <div class="user-details">Kim v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-78123</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Bad Faith</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Delayed claim processing</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">State Superior</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$850,000</td>
+                                <td style="color: var(--color-text-secondary);">Dec 5, 2024</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Mediation scheduled</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Mar 25</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Pre-Trial Motion</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2024-223')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2025-008')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2025-008</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">BH</div>
+                                        <div>
+                                            <div class="user-details">Brown v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-78967</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Coverage Dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Pre-existing condition</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Federal</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$520,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 18, 2025</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Answer due</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Due Apr 2</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Filed - Discovery</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2025-008')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('LIT-2024-176')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">LIT-2024-176</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">DG</div>
+                                        <div>
+                                            <div class="user-details">Davis v. ClaimFlow</div>
+                                            <div class="user-policy">Related: CLM-77689</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Denial Dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Critical illness timing</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">State Superior</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$175,000</td>
+                                <td style="color: var(--color-text-secondary);">Sep 3, 2024</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 13px; font-weight: 500;">Settlement talks</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">In progress</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Pre-Trial Motion</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('LIT-2024-176')">Manage</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 127 active cases</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>16</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Case Type Distribution -->
+                    <div class="analytics-card">
+                        <h3>Litigation by case type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Bad faith claims</span>
+                                <span style="font-weight: 500;">42 cases • $18.4M exposure</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Denial disputes</span>
+                                <span style="font-weight: 500;">34 cases • $12.8M exposure</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Coverage disputes</span>
+                                <span style="font-weight: 500;">23 cases • $6.2M exposure</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Beneficiary disputes</span>
+                                <span style="font-weight: 500;">16 cases • $3.8M exposure</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Disability discrimination</span>
+                                <span style="font-weight: 500;">12 cases • $1.6M exposure</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Win rate</p>
+                                <p>68%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Settlement rate</p>
+                                <p>54%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg case duration</p>
+                                <p>14.2 months</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case Stage & Outcomes -->
+                    <div class="analytics-card">
+                        <h3>Cases by stage</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Pre-litigation / Demand</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">18</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Settlement negotiations, no suit filed</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FCEBEB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Filed - Active discovery</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">43</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Document production, depositions</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Pre-trial motions</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">28</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Summary judgment, dismissal motions</p>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #A32D2D;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Trial scheduled</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">12</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">Trial prep, witness prep, exhibits</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #EEEDFE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">On appeal</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">15</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Appellate briefing, oral arguments</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Verdict rendered</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">11</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Post-trial motions, enforcement</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📊 Litigation outcomes YTD</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Won: 34 cases • Settled: 27 cases • Lost: 16 cases • Success rate: 68%</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #8B2B1C; margin-bottom: 4px;">💰 Cost analysis</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Avg defense cost: $84K per case • Total legal spend YTD: $10.6M</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RESERVE MANAGEMENT SCREEN -->

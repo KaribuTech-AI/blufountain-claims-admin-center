@@ -1,0 +1,107 @@
+<div id="workforce-mgmt-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">👥</div>
+                            <div class="header-title">
+                                <h1>Claims Workforce Management</h1>
+                                <p>Team structure, resource planning, capacity management, headcount tracking, and organizational oversight</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Add employee')">➕ Add</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Total workforce</p><p class="stat-value">287</p><p class="stat-change positive">Claims adjusters</p></div>
+                    <div class="stat-card"><p class="stat-label">Active today</p><p class="stat-value" style="color: #1D9E75;">274</p><p class="stat-change positive">95% attendance</p></div>
+                    <div class="stat-card"><p class="stat-label">Senior adjusters</p><p class="stat-value">84</p><p class="stat-change positive">29% of team</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg tenure</p><p class="stat-value">4.8yr</p><p class="stat-change positive">Experience level</p></div>
+                    <div class="stat-card"><p class="stat-label">Open positions</p><p class="stat-value" style="color: #EF9F27;">12</p><p class="stat-change positive">Recruiting</p></div>
+                    <div class="stat-card"><p class="stat-label">Team satisfaction</p><p class="stat-value" style="color: #1D9E75;">4.2/5</p><p class="stat-change positive">Employee survey</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Workforce Distribution</h2>
+                    <div class="analytics-section">
+                        <div class="analytics-card">
+                            <h3>Team by seniority level</h3>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Senior Adjusters</span><span style="font-weight: 500;">84 • 29%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 29%; background: #1D9E75;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Mid-Level Adjusters</span><span style="font-weight: 500;">142 • 50%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 50%; background: #378ADD;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Junior Adjusters</span><span style="font-weight: 500;">61 • 21%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 21%; background: #EF9F27;"></div></div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Team by specialization</h3>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Life Insurance</span><span style="font-weight: 500;">98 • 34%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 34%; background: #534AB7;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Disability (LTD/STD)</span><span style="font-weight: 500;">124 • 43%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 43%; background: #D85A30;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Critical Illness</span><span style="font-weight: 500;">42 • 15%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 15%; background: #7F77DD;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Multi-Line</span><span style="font-weight: 500;">23 • 8%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 8%; background: #1D9E75;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <h2 style="margin-bottom: 16px;">Workforce Capacity Analysis</h2>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                            <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                                <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">📊 Current Capacity</div>
+                                <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                    • 287 total adjusters<br>
+                                    • 274 active today (95%)<br>
+                                    • 5,284 claims assigned<br>
+                                    • 18.4 claims/adjuster avg<br>
+                                    • 94.2% utilization rate<br>
+                                    • Optimal capacity range
+                                </div>
+                            </div>
+                            <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                                <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">📈 Forecasted Demand</div>
+                                <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                    • 12% growth projected Q2<br>
+                                    • 342 additional claims/month<br>
+                                    • 12 open positions<br>
+                                    • Recruiting in progress<br>
+                                    • Target: 299 by Q2 end<br>
+                                    • On track for demand
+                                </div>
+                            </div>
+                            <div style="background: var(--color-background-primary); border-radius: 12px; padding: 20px; border: 2px solid var(--color-border);">
+                                <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">🎯 Resource Strategy</div>
+                                <div style="font-size: 13px; color: var(--color-text-secondary); line-height: 1.6;">
+                                    • Cross-training program<br>
+                                    • Senior mentorship active<br>
+                                    • Seasonal flex capacity<br>
+                                    • Vendor overflow ready<br>
+                                    • AI automation support<br>
+                                    • Balanced workload
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ADJUSTER WORKLOAD BALANCING SUBMODULE SCREEN -->

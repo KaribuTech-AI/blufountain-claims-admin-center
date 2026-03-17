@@ -1,0 +1,159 @@
+<div id="experience-analytics-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCustomerRetention()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Claims Experience Analytics</h1>
+                                <p>Journey mapping, touchpoint analysis, NPS tracking, pain point identification, and experience optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Journey map')">🗺️ Journey</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Net Promoter Score</p>
+                        <p class="stat-value" style="color: #1D9E75;">+42</p>
+                        <p class="stat-change positive">↑ 8 pts vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Promoters</p>
+                        <p class="stat-value" style="color: #1D9E75;">58%</p>
+                        <p class="stat-change positive">Enthusiastic</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Passives</p>
+                        <p class="stat-value">26%</p>
+                        <p class="stat-change positive">Neutral</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Detractors</p>
+                        <p class="stat-value" style="color: #A32D2D;">16%</p>
+                        <p class="stat-change positive">Need improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Effort Score (CES)</p>
+                        <p class="stat-value" style="color: #1D9E75;">2.1/7</p>
+                        <p class="stat-change positive">Low effort</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Touchpoints tracked</p>
+                        <p class="stat-value">12</p>
+                        <p class="stat-change positive">Full journey</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Customer Journey Touchpoints</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">
+                        
+                        <div style="background: var(--color-background-primary); border: 2px solid #1D9E75; border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">1. FNOL Submission</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">4.7</span>
+                            </div>
+                            <div style="margin-bottom: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Satisfaction score</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 94%; height: 100%;"></div>
+                                </div>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Easy process • Quick response</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid #1D9E75; border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">2. Initial Contact</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">4.6</span>
+                            </div>
+                            <div style="margin-bottom: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Satisfaction score</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 92%; height: 100%;"></div>
+                                </div>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Responsive adjuster • Clear explanation</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid #378ADD; border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">3. Document Upload</p>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">4.3</span>
+                            </div>
+                            <div style="margin-bottom: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Satisfaction score</p>
+                                <div style="background: #E6F1FB; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #378ADD; width: 86%; height: 100%;"></div>
+                                </div>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Mobile-friendly • Clear instructions</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid #EF9F27; border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">4. Processing Wait</p>
+                                <span style="background: #FAEEDA; color: #BA7517; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">3.8</span>
+                            </div>
+                            <div style="margin-bottom: 8px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Satisfaction score</p>
+                                <div style="background: #FAEEDA; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #EF9F27; width: 76%; height: 100%;"></div>
+                                </div>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">⚠️ Pain point • Need status updates</p>
+                        </div>
+
+                    </div>
+
+                    <div class="analytics-section">
+                        <div class="analytics-card">
+                            <h3>Net Promoter Score breakdown</h3>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px;">
+                                <div style="padding: 16px; background: #E1F5EE; border-radius: 8px; text-align: center;">
+                                    <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">PROMOTERS (9-10)</p>
+                                    <p style="font-size: 32px; font-weight: 600; color: #1D9E75;">58%</p>
+                                    <p style="font-size: 11px; color: var(--color-text-secondary);">4,872 customers</p>
+                                </div>
+                                <div style="padding: 16px; background: var(--color-background-primary); border-radius: 8px; text-align: center; border: 2px solid var(--color-border);">
+                                    <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">PASSIVES (7-8)</p>
+                                    <p style="font-size: 32px; font-weight: 600;">26%</p>
+                                    <p style="font-size: 11px; color: var(--color-text-secondary);">2,184 customers</p>
+                                </div>
+                                <div style="padding: 16px; background: #FCEBEB; border-radius: 8px; text-align: center;">
+                                    <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">DETRACTORS (0-6)</p>
+                                    <p style="font-size: 32px; font-weight: 600; color: #A32D2D;">16%</p>
+                                    <p style="font-size: 11px; color: var(--color-text-secondary);">1,344 customers</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Experience improvement areas</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                                <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Processing wait time</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">3.8/5.0</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Top pain point • Need better status updates • Reduce cycle time</div>
+                                </div>
+                                <div style="padding: 12px; background: #FAEEDA; border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #854F0B;">Communication frequency</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #EF9F27; margin-bottom: 4px;">4.1/5.0</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Opportunity • Proactive updates • Automated notifications</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- CUSTOMER FEEDBACK COLLECTION SUBMODULE SCREEN -->

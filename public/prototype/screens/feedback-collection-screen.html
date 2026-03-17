@@ -1,0 +1,105 @@
+<div id="feedback-collection-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCustomerRetention()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💬</div>
+                            <div class="header-title">
+                                <h1>Customer Feedback Collection</h1>
+                                <p>Multi-channel feedback, sentiment analysis, theme categorization, and action tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Filter feedback')">🔍 Filter</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total feedback YTD</p>
+                        <p class="stat-value" style="color: #EF9F27;">12,847</p>
+                        <p class="stat-change positive">All channels</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Positive sentiment</p>
+                        <p class="stat-value" style="color: #1D9E75;">78%</p>
+                        <p class="stat-change positive">Happy customers</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Actionable feedback</p>
+                        <p class="stat-value">2,847</p>
+                        <p class="stat-change positive">Improvements</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg response time</p>
+                        <p class="stat-value" style="color: #378ADD;">4.2h</p>
+                        <p class="stat-change positive">To feedback</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Actions implemented</p>
+                        <p class="stat-value" style="color: #1D9E75;">847</p>
+                        <p class="stat-change positive">From feedback</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Negative resolved</p>
+                        <p class="stat-value" style="color: #1D9E75;">84%</p>
+                        <p class="stat-change positive">Recovery rate</p>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Feedback sentiment breakdown</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">😊 Positive</span>
+                                <span style="font-weight: 500;">10,020 items • 78%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">😐 Neutral</span>
+                                <span style="font-weight: 500;">1,542 items • 12%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">😞 Negative</span>
+                                <span style="font-weight: 500;">1,285 items • 10%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Top feedback themes</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Fast processing</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">3,284 mentions</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Most praised • Keep speed up • Competitive advantage</div>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Communication gaps</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">842 mentions</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Top complaint • Need proactive updates • Implement auto-notifications</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LOYALTY PROGRAM INTEGRATION SUBMODULE SCREEN -->

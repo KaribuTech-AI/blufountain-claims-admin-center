@@ -1,0 +1,784 @@
+<div id="communication-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">💬</div>
+                            <div class="header-title">
+                                <h1>Omnichannel Communication</h1>
+                                <p>Unified communication hub across phone, email, SMS, chat, portal, and mobile</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #7F77DD; border-color: #7F77DD;" onclick="alert('Opening unified inbox...')">Unified Inbox</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active conversations</p>
+                        <p class="stat-value">428</p>
+                        <p class="stat-change positive">Across all channels</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending responses</p>
+                        <p class="stat-value" style="color: #7F77DD;">156</p>
+                        <p class="stat-change neutral">Awaiting agent reply</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg response time</p>
+                        <p class="stat-value" style="color: #1D9E75;">2.4 hrs</p>
+                        <p class="stat-change positive">↓ 45 min improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">First contact resolution</p>
+                        <p class="stat-value" style="color: #1D9E75;">78.6%</p>
+                        <p class="stat-change positive">↑ 3.2% improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Customer satisfaction</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.6/5</p>
+                        <p class="stat-change positive">Based on 1,248 ratings</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Messages today</p>
+                        <p class="stat-value">1,847</p>
+                        <p class="stat-change neutral">All channels combined</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C4C4 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #D85A30;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏱️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #8B2B1C;">SLA breaches imminent</p>
+                                <p style="font-size: 12px; color: #A32D2D;">23 conversations will breach response SLA within 1 hour</p>
+                            </div>
+                            <button style="background: #D85A30; border-color: #D85A30; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening urgent queue...')">Respond</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #EEEDFE 0%, #D4D2F7 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #7F77DD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">💬</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #3E3686;">Live chat volume spike</p>
+                                <p style="font-size: 12px; color: #534AB7;">42 active chats, 18 in queue — consider overflow routing</p>
+                            </div>
+                            <button style="background: #7F77DD; border-color: #7F77DD; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening chat dashboard...')">Manage</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Channel Performance Cards -->
+                <div style="padding: 0 24px 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #E6F1FB; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">📧</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">Email</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">684</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Pending</span>
+                            <span style="font-weight: 500;">58</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Avg response</span>
+                            <span style="font-weight: 500; color: #1D9E75;">3.2 hrs</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">CSAT</span>
+                            <span style="font-weight: 500; color: #1D9E75;">4.5/5</span>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #EEEDFE; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">💬</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">Live Chat</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">342</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Active now</span>
+                            <span style="font-weight: 500; color: #7F77DD;">42</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Avg response</span>
+                            <span style="font-weight: 500; color: #1D9E75;">45 sec</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">CSAT</span>
+                            <span style="font-weight: 500; color: #1D9E75;">4.7/5</span>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #E1F5EE; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">📱</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">SMS</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">428</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Pending</span>
+                            <span style="font-weight: 500;">34</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Avg response</span>
+                            <span style="font-weight: 500; color: #1D9E75;">1.8 hrs</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">CSAT</span>
+                            <span style="font-weight: 500; color: #1D9E75;">4.6/5</span>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #FAEEDA; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">📞</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">Phone</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">286</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Callbacks pending</span>
+                            <span style="font-weight: 500;">12</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Avg handle time</span>
+                            <span style="font-weight: 500;">8.4 min</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">CSAT</span>
+                            <span style="font-weight: 500; color: #1D9E75;">4.8/5</span>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #E6F1FB; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">🌐</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">Self-Service Portal</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">1,248</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Active sessions</span>
+                            <span style="font-weight: 500; color: #378ADD;">87</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Self-service rate</span>
+                            <span style="font-weight: 500; color: #1D9E75;">84.2%</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">Deflection rate</span>
+                            <span style="font-weight: 500; color: #1D9E75;">68.4%</span>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                            <div style="width: 32px; height: 32px; background: #E1F5EE; border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; font-size: 18px;">📲</div>
+                            <div style="flex: 1;">
+                                <div style="font-size: 13px; font-weight: 500; color: var(--color-text-secondary);">Mobile App</div>
+                                <div style="font-size: 20px; font-weight: 600; color: var(--color-text-primary);">892</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">Push notifications</span>
+                            <span style="font-weight: 500;">342</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 4px;">
+                            <span style="color: var(--color-text-secondary);">In-app messages</span>
+                            <span style="font-weight: 500;">186</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
+                            <span style="color: var(--color-text-secondary);">Engagement rate</span>
+                            <span style="font-weight: 500; color: #1D9E75;">76.8%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, customer name, conversation...">
+                    <select>
+                        <option>All channels</option>
+                        <option>Email</option>
+                        <option>Live chat</option>
+                        <option>SMS</option>
+                        <option>Phone</option>
+                        <option>Self-service portal</option>
+                        <option>Mobile app</option>
+                    </select>
+                    <select>
+                        <option>All statuses</option>
+                        <option>Active - awaiting customer</option>
+                        <option>Active - awaiting agent</option>
+                        <option>In progress</option>
+                        <option>Escalated</option>
+                        <option>Resolved</option>
+                        <option>Closed</option>
+                    </select>
+                    <select>
+                        <option>All priorities</option>
+                        <option>Urgent - SLA breach risk</option>
+                        <option>High priority</option>
+                        <option>Standard</option>
+                        <option>Low priority</option>
+                    </select>
+                </div>
+
+                <!-- Communication Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Recent conversations</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort by Time</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Bulk assignment coming soon!')">Assign Agent</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Customer</th>
+                                <th>Related Claim</th>
+                                <th>Channel</th>
+                                <th>Subject/Topic</th>
+                                <th>Last Message</th>
+                                <th>SLA Status</th>
+                                <th>Agent</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CONV-8945')" style="cursor: pointer; background: rgba(216, 90, 48, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">JM</div>
+                                        <div>
+                                            <div class="user-details">Jennifer Morrison</div>
+                                            <div class="user-policy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d9b3f7b4b6ababb0aab6b799bcb4b8b0b5f7bab6b4">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78542</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Back injury</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">💬</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Live Chat</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Claim status inquiry</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Requesting update on decision</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>8 minutes ago</div>
+                                    <div style="font-style: italic; color: #7F77DD;">Customer typing...</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #D85A30;">⚠️ 52 min left</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">SLA: 1 hour</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Sarah Chen</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">● Online</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">In Progress</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CONV-8945')">Join Chat</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8942')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">RK</div>
+                                        <div>
+                                            <div class="user-details">Robert Kim</div>
+                                            <div class="user-policy">(555) 234-5678</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78536</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Critical - Cancer</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📧</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Email</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Urgent benefit payment</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Payment not received</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>45 minutes ago</div>
+                                    <div style="color: #A32D2D;">Awaiting response</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #A32D2D;">⚠️ 15 min left</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">SLA: 1 hour</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">David Lee</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">● Away</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Awaiting Agent</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="showClaimDetail('CONV-8942')">Urgent Reply</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8938')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">TC</div>
+                                        <div>
+                                            <div class="user-details">Thomas Chen</div>
+                                            <div class="user-policy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6d19430e0508032d08000c0401430e0200">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78529</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">STD - Surgery</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📱</span>
+                                        <span style="font-size: 13px; font-weight: 500;">SMS</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Document upload question</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">How to submit medical forms</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>1 hour ago</div>
+                                    <div style="color: #378ADD;">Response sent</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Within SLA</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">SLA: 2 hours</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Jennifer Wong</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">● Online</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Awaiting Customer</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8938')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8935')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">LP</div>
+                                        <div>
+                                            <div class="user-details">Linda Phillips</div>
+                                            <div class="user-policy">(555) 876-5432</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78521</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Accident - Vehicle</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📞</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Phone</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Callback request</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Preferred time: 2-4 PM today</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>2 hours ago</div>
+                                    <div style="color: #EF9F27;">Callback scheduled</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Scheduled</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Today 2:30 PM</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Michael Brown</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">● Online</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Scheduled</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8935')">Call Now</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8932')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">MR</div>
+                                        <div>
+                                            <div class="user-details">Maria Rodriguez</div>
+                                            <div class="user-policy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e73306c717a6c77796b7b645e7b737f7772307d7173">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78514</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Life - Heart attack</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">🌐</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Portal</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Self-service inquiry</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Accessed claim details & docs</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>3 hours ago</div>
+                                    <div style="color: #1D9E75;">Session completed</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Self-served</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">No agent needed</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">—</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Automated</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Resolved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8932')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8928')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">DK</div>
+                                        <div>
+                                            <div class="user-details">David Kim</div>
+                                            <div class="user-policy">Mobile app user</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78507</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Depression</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📲</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Mobile App</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Push notification</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Claim approved notification sent</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>4 hours ago</div>
+                                    <div style="color: #1D9E75;">Delivered & read</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Delivered</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Engagement tracked</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">—</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Automated</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Delivered</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8928')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8925')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">AB</div>
+                                        <div>
+                                            <div class="user-details">Angela Brown</div>
+                                            <div class="user-policy"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e081ce82928f978ea0858d81898cce838f8d">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78498</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Critical - Stroke</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📧</span>
+                                        <span style="font-size: 13px; font-weight: 500;">Email</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Medical documentation</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Submitted 3 attachments</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>5 hours ago</div>
+                                    <div style="color: #1D9E75;">Acknowledged</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Within SLA</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">SLA: 24 hours</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Amanda Taylor</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">● Online</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Resolved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8925')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CONV-8921')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">JD</div>
+                                        <div>
+                                            <div class="user-details">James Davis</div>
+                                            <div class="user-policy">(555) 345-6789</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78485</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Accident - Sports</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 6px;">
+                                        <span style="font-size: 16px;">📱</span>
+                                        <span style="font-size: 13px; font-weight: 500;">SMS</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">Payment confirmation</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Asking about direct deposit</div>
+                                </td>
+                                <td style="font-size: 12px; color: var(--color-text-secondary);">
+                                    <div>6 hours ago</div>
+                                    <div style="color: #1D9E75;">Response sent</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 12px; font-weight: 500; color: #1D9E75;">✓ Within SLA</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">SLA: 2 hours</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Brian Smith</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">● Offline</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Closed</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CONV-8921')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 428 conversations</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>54</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Channel Distribution -->
+                    <div class="analytics-card">
+                        <h3>Channel usage & performance</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📧 Email</span>
+                                <span style="font-weight: 500;">684 conversations • 37%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 37%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💬 Live chat</span>
+                                <span style="font-weight: 500;">342 conversations • 18%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📱 SMS</span>
+                                <span style="font-weight: 500;">428 conversations • 23%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 23%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📞 Phone</span>
+                                <span style="font-weight: 500;">286 conversations • 15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌐 Portal (self-service)</span>
+                                <span style="font-weight: 500;">1,248 sessions • N/A</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 68%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg response time</p>
+                                <p style="color: #1D9E75;">2.4 hrs</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>FCR rate</p>
+                                <p style="color: #1D9E75;">78.6%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Overall CSAT</p>
+                                <p style="color: #1D9E75;">4.6/5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Performance Metrics -->
+                    <div class="analytics-card">
+                        <h3>Communication effectiveness</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md); border-left: 3px solid #1D9E75;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #0F6E56;">First contact resolution</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #1D9E75;">78.6%</span>
+                                </div>
+                                <p style="font-size: 11px; color: #1D9E75;">↑ 3.2% improvement from last month</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Self-service success rate</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">84.2%</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">1,051 of 1,248 portal sessions resolved without agent</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #EEEDFE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Channel deflection rate</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">68.4%</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Customers using self-service vs agent channels</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">SLA compliance</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #EF9F27;">91.4%</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">23 conversations at risk of breach within 1 hour</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📊 Response time by channel</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Live chat: 45 sec • SMS: 1.8 hrs • Email: 3.2 hrs • Phone: 8.4 min avg handle</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #EEEDFE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">⭐ Customer satisfaction by channel</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Phone: 4.8/5 • Chat: 4.7/5 • SMS: 4.6/5 • Email: 4.5/5 • Overall: 4.6/5</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #E6F1FB; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #185FA5; margin-bottom: 4px;">📲 Mobile engagement</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Push notifications: 342 sent, 76.8% engagement • In-app messages: 186 • Active sessions: 87</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODALS -->
+    
+    <!-- Approve Claim Modal -->

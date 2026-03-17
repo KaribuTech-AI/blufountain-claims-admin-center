@@ -1,0 +1,59 @@
+<div id="cause-death-assessment-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showScreen('death-claim-hub-screen')" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Death Claims</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔍</div>
+                            <div class="header-title">
+                                <h1>Cause of Death Assessment Hub</h1>
+                                <p>Comprehensive death analysis: cause determination, natural death, accidental death, suicide validation, criminal activity checks, medical history review</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New assessment')">🔍 New Assessment</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Assessments completed</p><p class="stat-value">847</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Covered deaths</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">Payable</p></div>
+                    <div class="stat-card"><p class="stat-label">Natural causes</p><p class="stat-value">684</p><p class="stat-change positive">81%</p></div>
+                    <div class="stat-card"><p class="stat-label">Accidental death</p><p class="stat-value">124</p><p class="stat-change positive">15%</p></div>
+                    <div class="stat-card"><p class="stat-label">Exclusions triggered</p><p class="stat-value">21</p><p class="stat-change positive">2.5%</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg assessment time</p><p class="stat-value" style="color: #1D9E75;">2.4h</p><p class="stat-change positive">Processing</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Cause of Death Assessment Modules (6)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('cause-analysis-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CAUSE ANALYSIS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div><div style="font-size: 13px; margin-bottom: 16px;">Analyzed</div><div style="font-size: 13px; font-weight: 500;">→ Analyze cause</div></div>
+                        </div>
+                        <div onclick="showScreen('natural-death-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏥</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">NATURAL DEATH</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">684</div><div style="font-size: 13px; margin-bottom: 16px;">Natural causes</div><div style="font-size: 13px; font-weight: 500;">→ Assess natural</div></div>
+                        </div>
+                        <div onclick="showScreen('accidental-death-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚠️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">ACCIDENTAL DEATH</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div><div style="font-size: 13px; margin-bottom: 16px;">Accidents</div><div style="font-size: 13px; font-weight: 500;">→ Evaluate accident</div></div>
+                        </div>
+                        <div onclick="showScreen('suicide-clause-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏱️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUICIDE CLAUSE</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div><div style="font-size: 13px; margin-bottom: 16px;">Suicide cases</div><div style="font-size: 13px; font-weight: 500;">→ Validate clause</div></div>
+                        </div>
+                        <div onclick="showScreen('criminal-activity-screen')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚔</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CRIMINAL ACTIVITY</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">12</div><div style="font-size: 13px; margin-bottom: 16px;">Criminal cases</div><div style="font-size: 13px; font-weight: 500;">→ Validate exclusion</div></div>
+                        </div>
+                        <div onclick="showScreen('medical-history-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">MEDICAL HISTORY</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div><div style="font-size: 13px; margin-bottom: 16px;">Reviews done</div><div style="font-size: 13px; font-weight: 500;">→ Review history</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAUSE ANALYSIS SUBMODULE -->

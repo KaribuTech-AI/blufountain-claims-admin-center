@@ -1,0 +1,40 @@
+<div id="deny-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Deny Claim</h2>
+                <button class="close-btn" onclick="closeModal('deny-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px; color: var(--color-text-secondary);">
+                    You are about to deny this claim. Please provide a reason that will be sent to the policyholder.
+                </p>
+                <div class="form-group">
+                    <label>Denial Reason</label>
+                    <select>
+                        <option>Select reason...</option>
+                        <option>Insufficient documentation</option>
+                        <option>Policy exclusion applies</option>
+                        <option>Coverage lapsed</option>
+                        <option>Fraudulent claim</option>
+                        <option>Outside policy terms</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Detailed Explanation</label>
+                    <textarea placeholder="Provide a detailed explanation for the denial..."></textarea>
+                </div>
+                <div style="background: #FCEBEB; padding: 12px; border-radius: var(--border-radius-md); margin-top: 16px;">
+                    <p style="font-size: 13px; color: #A32D2D; margin: 0;">
+                        ⚠️ The policyholder will be notified of this denial and will have the right to appeal.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('deny-modal')">Cancel</button>
+                <button class="danger" onclick="submitDenial()">Deny Claim</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Documents Modal -->

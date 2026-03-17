@@ -1,0 +1,51 @@
+<div id="upload-doc-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upload Document</h2>
+                <button class="close-btn" onclick="closeModal('upload-doc-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Related Claim ID</label>
+                    <input type="text" placeholder="CLM-XXXXX">
+                </div>
+                <div class="form-group">
+                    <label>Document Type</label>
+                    <select>
+                        <option>Select document type...</option>
+                        <option>Medical Records</option>
+                        <option>Claim Form</option>
+                        <option>Police Report</option>
+                        <option>Employer Verification</option>
+                        <option>Death Certificate</option>
+                        <option>Insurance Policy</option>
+                        <option>ID Verification</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Document File</label>
+                    <div style="border: 2px dashed var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 32px; text-align: center; background: var(--color-background-secondary);">
+                        <p style="font-size: 14px; color: var(--color-text-secondary); margin-bottom: 8px;">📎 Drag and drop file here or click to browse</p>
+                        <p style="font-size: 12px; color: var(--color-text-tertiary);">Accepted formats: PDF, JPG, PNG, DOCX (Max 10MB)</p>
+                        <button style="margin-top: 12px; padding: 8px 16px; font-size: 14px;">Choose File</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Description (Optional)</label>
+                    <textarea placeholder="Add any notes about this document..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox"> Mark as urgent for review
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('upload-doc-modal')">Cancel</button>
+                <button class="primary" onclick="submitDocUpload()">Upload Document</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Assign Adjuster Modal -->

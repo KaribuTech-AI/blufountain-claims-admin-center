@@ -1,0 +1,619 @@
+<div id="complaints-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">📢</div>
+                            <div class="header-title">
+                                <h1>Complaint & Dispute Management</h1>
+                                <p>Customer complaints, appeals, grievances, and regulatory reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Opening complaint intake...')">+ Log Complaint</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active complaints</p>
+                        <p class="stat-value">186</p>
+                        <p class="stat-change negative">↑ 12% from last quarter</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending appeals</p>
+                        <p class="stat-value" style="color: #378ADD;">94</p>
+                        <p class="stat-change neutral">Internal review</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Escalated to regulators</p>
+                        <p class="stat-value" style="color: #A32D2D;">8</p>
+                        <p class="stat-change neutral">External oversight</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Resolved this month</p>
+                        <p class="stat-value" style="color: #1D9E75;">142</p>
+                        <p class="stat-change positive">76% resolution rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg resolution time</p>
+                        <p class="stat-value">14.6 days</p>
+                        <p class="stat-change positive">↓ 2.1 days improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Customer satisfaction</p>
+                        <p class="stat-value" style="color: #1D9E75;">82.4%</p>
+                        <p class="stat-change positive">Post-resolution survey</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C4C4 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #8B2B1C;">Regulatory deadline approaching</p>
+                                <p style="font-size: 12px; color: #A32D2D;">8 complaints require state insurance dept response within 7 days</p>
+                            </div>
+                            <button style="background: #A32D2D; border-color: #A32D2D; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening urgent queue...')">Urgent</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E6F1FB 0%, #B8D9F5 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #378ADD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📋</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #185FA5;">Appeals requiring decision</p>
+                                <p style="font-size: 12px; color: #378ADD;">32 internal appeals ready for final determination</p>
+                            </div>
+                            <button style="background: #378ADD; border-color: #378ADD; color: white; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening appeals queue...')">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by complaint ID, claimant, issue...">
+                    <select>
+                        <option>All complaint types</option>
+                        <option>Claim denial</option>
+                        <option>Delay in processing</option>
+                        <option>Poor customer service</option>
+                        <option>Policy interpretation dispute</option>
+                        <option>Payment amount dispute</option>
+                        <option>Coverage question</option>
+                        <option>Premium/billing issue</option>
+                    </select>
+                    <select>
+                        <option>All stages</option>
+                        <option>Initial complaint received</option>
+                        <option>Under investigation</option>
+                        <option>Internal appeal - Level 1</option>
+                        <option>Internal appeal - Level 2</option>
+                        <option>External review</option>
+                        <option>Regulatory escalation</option>
+                        <option>Resolved</option>
+                    </select>
+                    <select>
+                        <option>All priorities</option>
+                        <option>Critical - Regulatory</option>
+                        <option>High - Escalated</option>
+                        <option>Medium - Standard</option>
+                        <option>Low - Routine</option>
+                    </select>
+                </div>
+
+                <!-- Complaints Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active complaints & disputes</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort by Priority</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Batch response templates coming soon!')">Templates</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Complaint ID</th>
+                                <th>Complainant</th>
+                                <th>Related Claim</th>
+                                <th>Issue Type</th>
+                                <th>Priority</th>
+                                <th>Days Open</th>
+                                <th>Stage</th>
+                                <th>Assigned To</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CMP-2026-234')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-234</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">RJ</div>
+                                        <div>
+                                            <div class="user-details">Robert Johnson</div>
+                                            <div class="user-policy">Phone: (555) 234-5678</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78542</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Chronic pain</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Claim denial</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Insufficient medical evidence</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-high" style="background: #FCEBEB; color: #A32D2D; font-size: 11px; padding: 3px 8px;">REGULATORY</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #A32D2D;">23 days</div>
+                                    <div style="font-size: 11px; color: #A32D2D;">⚠️ Due in 7 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Regulatory Escalation</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Legal Dept</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Sarah Chen</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="showClaimDetail('CMP-2026-234')">Respond</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-231')" style="cursor: pointer; background: rgba(57, 138, 221, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-231</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">MR</div>
+                                        <div>
+                                            <div class="user-details">Maria Rodriguez</div>
+                                            <div class="user-policy">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="eb86c599848f99828c9e8e91ab8e868a8287c5888486">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78536</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Critical illness - Cancer</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Payment amount dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Benefit calculation disagreement</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge" style="background: #E6F1FB; color: #185FA5; font-size: 11px; padding: 3px 8px;">HIGH</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #378ADD;">12 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Internal Appeal - Level 2</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Appeals Team</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">David Lee</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CMP-2026-231')">Review Appeal</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-228')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-228</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">TC</div>
+                                        <div>
+                                            <div class="user-details">Thomas Chen</div>
+                                            <div class="user-policy">Phone: (555) 876-5432</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78529</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">STD - Back surgery</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Delay in processing</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Claim pending over 60 days</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-med" style="background: #FAEEDA; color: #BA7517; font-size: 11px; padding: 3px 8px;">MEDIUM</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">8 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Under Investigation</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Claims Dept</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Jennifer Wong</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-228')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-225')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-225</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">LP</div>
+                                        <div>
+                                            <div class="user-details">Linda Phillips</div>
+                                            <div class="user-policy">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3b57154b53525757524b487b5e565a525715585456">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78521</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Life - Heart attack</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Policy interpretation dispute</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Exclusion clause disagreement</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-med" style="background: #FAEEDA; color: #BA7517; font-size: 11px; padding: 3px 8px;">MEDIUM</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">15 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Internal Appeal - Level 1</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Appeals Team</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Michael Brown</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-225')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-221')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-221</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">DK</div>
+                                        <div>
+                                            <div class="user-details">David Kim</div>
+                                            <div class="user-policy">Phone: (555) 345-6789</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78514</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Accident - Vehicle</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Poor customer service</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Unresponsive adjuster</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-low" style="background: #E1F5EE; color: #0F6E56; font-size: 11px; padding: 3px 8px;">LOW</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">5 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Under Investigation</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Customer Service</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Amanda Taylor</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-221')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-218')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-218</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">AB</div>
+                                        <div>
+                                            <div class="user-details">Angela Brown</div>
+                                            <div class="user-policy">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="32531c50405d455c72575f535b5e1c515d5f">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78507</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">LTD - Depression</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Coverage question</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Mental health benefit limits</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-med" style="background: #FAEEDA; color: #BA7517; font-size: 11px; padding: 3px 8px;">MEDIUM</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">18 days</div>
+                                    <div style="font-size: 11px; color: #1D9E75;">Resolved</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Resolved - Favorable</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Policy Services</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Brian Smith</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-218')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-215')" style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-215</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">JD</div>
+                                        <div>
+                                            <div class="user-details">James Davis</div>
+                                            <div class="user-policy">Phone: (555) 987-6543</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78498</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Critical illness - Stroke</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Claim denial</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Pre-existing condition</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge" style="background: #E6F1FB; color: #185FA5; font-size: 11px; padding: 3px 8px;">HIGH</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500; color: #A32D2D;">28 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">External Review</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">External IRO</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Independent review org</div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-215')">Track</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CMP-2026-212')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CMP-2026-212</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">SK</div>
+                                        <div>
+                                            <div class="user-details">Susan King</div>
+                                            <div class="user-policy">Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="becd90d5d7d0d9fedbd3dfd7d290ddd1d3">[email&#160;protected]</a></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78485</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Life - Natural causes</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Premium/billing issue</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Incorrect premium charged</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="priority-badge priority-low" style="background: #E1F5EE; color: #0F6E56; font-size: 11px; padding: 3px 8px;">LOW</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 14px; font-weight: 500;">3 days</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Initial Review</span>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px; font-weight: 500;">Billing Team</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Carlos Martinez</div>
+                                </div>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CMP-2026-212')">Resolve</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 186 active complaints</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>24</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Complaint Types -->
+                    <div class="analytics-card">
+                        <h3>Complaints by type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Claim denial</span>
+                                <span style="font-weight: 500;">68 complaints • 37%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 37%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Delay in processing</span>
+                                <span style="font-weight: 500;">42 complaints • 23%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 23%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Payment amount dispute</span>
+                                <span style="font-weight: 500;">28 complaints • 15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Poor customer service</span>
+                                <span style="font-weight: 500;">22 complaints • 12%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Policy interpretation dispute</span>
+                                <span style="font-weight: 500;">16 complaints • 9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Other</span>
+                                <span style="font-weight: 500;">10 complaints • 5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 5%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Resolved favorably</p>
+                                <p style="color: #1D9E75;">64%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Appeal success rate</p>
+                                <p style="color: #1D9E75;">42%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Customer satisfaction</p>
+                                <p style="color: #1D9E75;">82.4%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Resolution & Outcomes -->
+                    <div class="analytics-card">
+                        <h3>Resolution timeline & outcomes</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Resolved under 7 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">84 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Quick resolution, high satisfaction</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Resolved 7-14 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">38 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Standard investigation period</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Resolved 15-30 days</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">20 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Complex cases, appeal processes</p>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #A32D2D;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Regulatory escalations</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">8 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">State insurance dept involvement</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📊 Resolution outcomes this month</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Resolved favorably: 91 cases (64%) • Upheld original decision: 51 cases (36%)</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #E6F1FB; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #185FA5; margin-bottom: 4px;">📋 Appeals statistics</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Internal appeals filed: 94 • Level 1 success: 38% • Level 2 success: 42% • External review: 12 cases</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">⚡ Processing improvements</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Avg resolution time down 2.1 days • Customer satisfaction up 4.3% • Regulatory complaints down 22%</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- OMNICHANNEL COMMUNICATION SCREEN -->

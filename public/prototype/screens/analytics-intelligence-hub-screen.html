@@ -1,0 +1,70 @@
+<div id="analytics-intelligence-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Claims Analytics & Intelligence Hub</h1>
+                                <p>Performance dashboards, predictive analytics, trend monitoring, fraud analytics, risk exposure, and operational intelligence</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Generate insights')">💡 Insights</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Loss ratio</p><p class="stat-value" style="color: #1D9E75;">62.4%</p><p class="stat-change positive">Within target</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg claim severity</p><p class="stat-value">$16,089</p><p class="stat-change positive">Per claim</p></div>
+                    <div class="stat-card"><p class="stat-label">Claim frequency</p><p class="stat-value">24.8%</p><p class="stat-change positive">Per 1000 policies</p></div>
+                    <div class="stat-card"><p class="stat-label">Prediction accuracy</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">AI models</p></div>
+                    <div class="stat-card"><p class="stat-label">Risk exposure</p><p class="stat-value">$284M</p><p class="stat-change positive">Total portfolio</p></div>
+                    <div class="stat-card"><p class="stat-label">Fraud indicators</p><p class="stat-value" style="color: #D85A30;">147</p><p class="stat-change positive">Flagged claims</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Analytics & Intelligence Modules (9)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('performance-dashboards-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS PERFORMANCE DASHBOARDS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">24</div><div style="font-size: 13px; margin-bottom: 16px;">Active dashboards</div><div style="font-size: 13px; font-weight: 500;">→ View performance</div></div>
+                        </div>
+                        <div onclick="showScreen('loss-ratio-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💹</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOSS RATIO ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">62.4%</div><div style="font-size: 13px; margin-bottom: 16px;">Current loss ratio</div><div style="font-size: 13px; font-weight: 500;">→ Analyze ratios</div></div>
+                        </div>
+                        <div onclick="showScreen('severity-prediction-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM SEVERITY PREDICTION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Model accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Predict severity</div></div>
+                        </div>
+                        <div onclick="showScreen('frequency-analysis-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM FREQUENCY ANALYSIS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">24.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Per 1000 policies</div><div style="font-size: 13px; font-weight: 500;">→ Analyze frequency</div></div>
+                        </div>
+                        <div onclick="showScreen('predictive-analytics-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔮</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PREDICTIVE CLAIMS ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">12</div><div style="font-size: 13px; margin-bottom: 16px;">Active models</div><div style="font-size: 13px; font-weight: 500;">→ View predictions</div></div>
+                        </div>
+                        <div onclick="showScreen('trend-monitoring-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📉</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS TREND MONITORING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div><div style="font-size: 13px; margin-bottom: 16px;">Trends tracked</div><div style="font-size: 13px; font-weight: 500;">→ Monitor trends</div></div>
+                        </div>
+                        <div onclick="showScreen('operational-reporting-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">OPERATIONAL REPORTING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div><div style="font-size: 13px; margin-bottom: 16px;">Reports generated</div><div style="font-size: 13px; font-weight: 500;">→ Generate reports</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-analytics-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚨</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">147</div><div style="font-size: 13px; margin-bottom: 16px;">Fraud indicators</div><div style="font-size: 13px; font-weight: 500;">→ Detect fraud</div></div>
+                        </div>
+                        <div onclick="showScreen('risk-exposure-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚠️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS RISK EXPOSURE ANALYSIS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$284M</div><div style="font-size: 13px; margin-bottom: 16px;">Total exposure</div><div style="font-size: 13px; font-weight: 500;">→ Analyze risk</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLAIMS PERFORMANCE DASHBOARDS SUBMODULE -->

@@ -1,0 +1,295 @@
+<div id="payment-settlement-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💳</div>
+                            <div class="header-title">
+                                <h1>Payment & Settlement Management</h1>
+                                <p>Payment processing, settlement workflows, disbursement tracking, and financial reconciliation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showPayments()">💰 Payments Dashboard</button>
+                        <button onclick="showSettlements()">🤝 Settlements</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Process payment')">Process Payment</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Payments processed YTD</p>
+                        <p class="stat-value">$45.8M</p>
+                        <p class="stat-change positive">2,847 transactions</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending payments</p>
+                        <p class="stat-value" style="color: #EF9F27;">$1.8M</p>
+                        <p class="stat-change neutral">124 in queue</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg payment amount</p>
+                        <p class="stat-value">$16,089</p>
+                        <p class="stat-change neutral">Per claim</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Settlement time</p>
+                        <p class="stat-value" style="color: #1D9E75;">2.8d</p>
+                        <p class="stat-change positive">↓ 1.2d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Reinsurance recoveries</p>
+                        <p class="stat-value" style="color: #1D9E75;">$8.4M</p>
+                        <p class="stat-change positive">18.3% of payouts</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Payment success rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">99.4%</p>
+                        <p class="stat-change positive">Processing accuracy</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Payments pending approval</p>
+                                <p style="font-size: 12px; color: #BA7517;">68 payments ($942K) awaiting authorization</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing payments...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Payments processed today</p>
+                                <p style="font-size: 12px; color: #1D9E75;">184 payments ($2.4M) successfully disbursed</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing transactions...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment & Settlement Management Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Payment Processing: $45.8M processed, 2,847 transactions, 99.4% success rate')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💳</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PAYMENT PROCESSING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$45.8M</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Processed YTD</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Transactions</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">2,847</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Success</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">99.4%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View processing</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Settlement Workflows: 342 settlements, $18.4M total, 38d avg cycle')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤝</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT WORKFLOWS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Settlements YTD</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Total</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$18.4M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cycle</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">38d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View settlements</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Disbursement Tracking: Multiple payment methods, real-time status, delivery confirmation')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📤</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DISBURSEMENT TRACKING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">2.8d</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg settlement time</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">124</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">184</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ Track disbursements</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Payment Methods: Direct deposit 65%, Check 24%, Debit card 9%, Digital wallet 2%')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PAYMENT METHODS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">4</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active methods</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Direct</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">65%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Check</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">24%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View methods</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Reinsurance Recoveries: $8.4M recovered, 18.3% of payouts, treaty & facultative')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔄</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE RECOVERIES</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$8.4M</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Recovered YTD</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">% Payouts</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18.3%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Claims</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">127</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View recoveries</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Financial Reconciliation: 97.8% reconciled, audit trails, exception management')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">FINANCIAL RECONCILIATION</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">97.8%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Reconciled</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">62</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Exceptions</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View reconciliation</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Payment distribution by method</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏦 Direct deposit (ACH)</span>
+                                <span style="font-weight: 500;">1,847 payments • $32.4M • 65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✉️ Check (mail)</span>
+                                <span style="font-weight: 500;">684 payments • $9.2M • 24%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 24%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💳 Debit card</span>
+                                <span style="font-weight: 500;">248 payments • $3.4M • 9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📱 Digital wallet</span>
+                                <span style="font-weight: 500;">68 payments • $800K • 2%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total paid</p>
+                                <p style="color: #1D9E75;">$45.8M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg payment</p>
+                                <p>$16,089</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Success rate</p>
+                                <p style="color: #1D9E75;">99.4%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Payment & settlement metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Settlement speed</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">2.8 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average settlement time • ↓ 1.2 days improvement • Direct: 1.2d, Check: 5.8d</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Processing accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">99.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Payment success rate • 17 failed transactions • Auto-retry enabled</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #7F77DD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Reinsurance recoveries</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$8.4M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">18.3% of total payouts • 127 claims • Treaty & facultative</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Reconciliation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">97.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">2,784 of 2,847 reconciled • 62 pending • 8 exceptions</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">💳 Payment optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">$45.8M processed • 2,847 transactions • 4 payment methods • 124 pending approval • $1.8M in queue</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- VENDOR MANAGEMENT HUB SCREEN -->

@@ -1,0 +1,28 @@
+<div id="sort-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>Sort Claims</h2>
+                <button class="close-btn" onclick="closeModal('sort-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Sort By</label>
+                    <select>
+                        <option>Date Filed (Newest)</option>
+                        <option>Date Filed (Oldest)</option>
+                        <option>Claim Amount (Highest)</option>
+                        <option>Claim Amount (Lowest)</option>
+                        <option>Priority (High to Low)</option>
+                        <option>Status</option>
+                        <option>Policyholder Name (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('sort-modal')">Cancel</button>
+                <button class="primary" onclick="applySort()">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Columns Modal -->

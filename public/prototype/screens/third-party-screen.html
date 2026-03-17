@@ -1,0 +1,266 @@
+<div id="third-party-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🤝</div>
+                            <div class="header-title">
+                                <h1>Third-Party Management</h1>
+                                <p>Vendor networks, provider management, and performance monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Add vendor')">Add Vendor</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active vendors</p>
+                        <p class="stat-value">342</p>
+                        <p class="stat-change positive">18 new this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$12.4M</p>
+                        <p class="stat-change neutral">Across all vendors</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg performance score</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.3/5</p>
+                        <p class="stat-change positive">↑ 0.2 improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg turnaround time</p>
+                        <p class="stat-value" style="color: #1D9E75;">5.2d</p>
+                        <p class="stat-change positive">↓ 1.3d faster</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Compliance rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.8%</p>
+                        <p class="stat-change positive">SLA & quality standards</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Cost per service</p>
+                        <p class="stat-value">$362</p>
+                        <p class="stat-change neutral">Average</p>
+                    </div>
+                </div>
+
+                <!-- Vendor Category Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="showRepairVendors()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔧</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REPAIR VENDORS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active repair partners</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend YTD</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$4.2M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.5/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View network</div>
+                        </div>
+                    </div>
+
+                    <div onclick="showMedicalProviders()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏥</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">MEDICAL PROVIDERS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">86</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Healthcare partners</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend YTD</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$3.8M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.2/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View providers</div>
+                        </div>
+                    </div>
+
+                    <div onclick="showLossAdjusters()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOSS ADJUSTERS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Independent adjusters</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend YTD</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$2.1M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.4/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View adjusters</div>
+                        </div>
+                    </div>
+
+                    <div onclick="showAssessors()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSESSORS & SURVEYORS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">58</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Field assessment teams</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend YTD</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$1.4M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.3/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View assessors</div>
+                        </div>
+                    </div>
+
+                    <div onclick="showProcessingPartners()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PROCESSING PARTNERS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">32</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Outsourced BPO firms</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend YTD</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$900K</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.1/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View partners</div>
+                        </div>
+                    </div>
+
+                    <div onclick="showOperationalPerformance()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PERFORMANCE MONITORING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Overall compliance rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">SLA met</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">94.2%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg score</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.3/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View dashboard</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Vendor performance by category</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔧 Repair vendors</span>
+                                <span style="font-weight: 500;">4.5/5 avg • 124 vendors</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 90%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📋 Loss adjusters</span>
+                                <span style="font-weight: 500;">4.4/5 avg • 42 vendors</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔍 Assessors & surveyors</span>
+                                <span style="font-weight: 500;">4.3/5 avg • 58 vendors</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 86%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏥 Medical providers</span>
+                                <span style="font-weight: 500;">4.2/5 avg • 86 vendors</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 84%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚙️ Processing partners</span>
+                                <span style="font-weight: 500;">4.1/5 avg • 32 vendors</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 82%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Key performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">SLA compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">322 of 342 vendors meeting SLA targets</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">4.3/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Based on 8,247 service completions</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg turnaround</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">5.2 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 1.3 days improvement YoY</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Cost efficiency</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$362 avg</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Per service engagement</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🎯 Vendor optimization insights</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Top 20% vendors handle 68% volume • 12 underperformers flagged for review • 18 new vendors onboarded this month</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <!-- MEDICAL PROVIDERS SCREEN -->

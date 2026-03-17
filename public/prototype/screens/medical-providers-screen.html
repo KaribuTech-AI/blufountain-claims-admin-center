@@ -1,0 +1,359 @@
+<div id="medical-providers-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showThirdParty()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; font-size: 24px; padding: 0; margin-right: 12px;">←</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🏥</div>
+                            <div class="header-title">
+                                <h1>Medical Provider Network</h1>
+                                <p>Healthcare facilities, medical evaluations, treatment tracking, and provider credentialing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div style="display: flex; gap: 8px; align-items: center; margin-right: 12px;">
+                            <button onclick="showMedicalProviders()" style="width: 32px; height: 32px; background: #D85A30; border: none; border-radius: 6px; color: white; font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showAssessors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showOperationalPerformance()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showProcessingPartners()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showRepairVendors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showLossAdjusters()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                        </div>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Add provider')">Add Provider</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active providers</p>
+                        <p class="stat-value">86</p>
+                        <p class="stat-change positive">5 credentialed this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active evaluations</p>
+                        <p class="stat-value" style="color: #D85A30;">142</p>
+                        <p class="stat-change neutral">In progress</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg quality score</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.2/5</p>
+                        <p class="stat-change positive">Based on 1,284 evaluations</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg report time</p>
+                        <p class="stat-value" style="color: #1D9E75;">8.4d</p>
+                        <p class="stat-change positive">↓ 2.6d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$3.8M</p>
+                        <p class="stat-change neutral">Medical evaluations</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg evaluation cost</p>
+                        <p class="stat-value">$2,961</p>
+                        <p class="stat-change neutral">Per IME/evaluation</p>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by provider name, specialty, credentials...">
+                    <select>
+                        <option>All specialties</option>
+                        <option>Orthopedics</option>
+                        <option>Neurology</option>
+                        <option>Psychiatry</option>
+                        <option>Physical Medicine</option>
+                        <option>Pain Management</option>
+                        <option>Cardiology</option>
+                    </select>
+                    <select>
+                        <option>All service types</option>
+                        <option>Independent Medical Exam (IME)</option>
+                        <option>Treatment Facility</option>
+                        <option>Diagnostic Center</option>
+                        <option>Rehabilitation Services</option>
+                    </select>
+                    <select>
+                        <option>All regions</option>
+                        <option>Northeast</option>
+                        <option>Southeast</option>
+                        <option>Midwest</option>
+                        <option>Southwest</option>
+                        <option>West Coast</option>
+                    </select>
+                </div>
+
+                <!-- Medical Providers Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active medical providers</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Provider</th>
+                                <th>Credentials</th>
+                                <th>Specialty</th>
+                                <th>Service Type</th>
+                                <th>Active Cases</th>
+                                <th>Avg Report Time</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">DS</div>
+                                        <div>
+                                            <div class="user-details">Dr. Sarah Davidson, MD</div>
+                                            <div class="user-policy">Orthopedic Specialists • Board Certified</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">MD, Board Cert</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">20 years exp</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Orthopedics</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Spine & joints</div>
+                                </td>
+                                <td style="font-size: 13px;">IME</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">12</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 15 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">6.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.6</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">89 evals</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Schedule IME')">Schedule</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">MC</div>
+                                        <div>
+                                            <div class="user-details">Dr. Michael Chen, MD, PhD</div>
+                                            <div class="user-policy">Neurological Institute • Research Director</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">MD, PhD</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">25 years exp</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Neurology</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">TBI specialist</div>
+                                </td>
+                                <td style="font-size: 13px;">IME & Treatment</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #378ADD;">8</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 12 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">9.2 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.8</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">142 evals</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Schedule IME')">Schedule</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">RK</div>
+                                        <div>
+                                            <div class="user-details">Dr. Rachel Kim, PsyD</div>
+                                            <div class="user-policy">Behavioral Health Center</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">PsyD, Licensed</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">15 years exp</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Psychiatry</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">PTSD & trauma</div>
+                                </td>
+                                <td style="font-size: 13px;">IME</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">6</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 10 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">7.5 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.4</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">67 evals</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Schedule IME')">Schedule</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">PM</div>
+                                        <div>
+                                            <div class="user-details">Premier Rehab Center</div>
+                                            <div class="user-policy">Multi-specialty Rehabilitation</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Accredited Facility</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Est. 2010</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Physical Medicine</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">PT, OT, Speech</div>
+                                </td>
+                                <td style="font-size: 13px;">Treatment Facility</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #A32D2D;">45</span>
+                                    <div style="font-size: 11px; color: #A32D2D;">of 45 capacity</div>
+                                </td>
+                                <td style="font-weight: 500;">N/A</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.3</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">234 patients</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">At Capacity</span>
+                                </td>
+                                <td>
+                                    <button disabled style="opacity: 0.5;">Schedule</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-4 of 86 providers</p>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>...</button>
+                        <button>22</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Specialty distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🦴 Orthopedics</span>
+                                <span style="font-weight: 500;">28 providers • 4.3/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🧠 Neurology</span>
+                                <span style="font-weight: 500;">22 providers • 4.4/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🧘 Physical Medicine & Rehab</span>
+                                <span style="font-weight: 500;">18 providers • 4.2/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 21%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🧠 Psychiatry & Psychology</span>
+                                <span style="font-weight: 500;">12 providers • 4.1/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 14%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💊 Pain Management</span>
+                                <span style="font-weight: 500;">6 providers • 4.0/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 7%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.2/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Based on 1,284 evaluations</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Credentialing compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">100%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">All providers fully credentialed</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg report time</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">8.4 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 2.6 days improvement YoY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ASSESSORS & SURVEYORS SCREEN -->

@@ -1,0 +1,518 @@
+<div id="subrogation-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">🔄</div>
+                            <div class="header-title">
+                                <h1>Subrogation & Recovery</h1>
+                                <p>Third-party recovery, reimbursement claims, and subrogation litigation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Opening recovery evaluation...')">+ New Recovery Case</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active recovery cases</p>
+                        <p class="stat-value">284</p>
+                        <p class="stat-change positive">↑ 14% from last year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">In active pursuit</p>
+                        <p class="stat-value" style="color: #1D9E75;">156</p>
+                        <p class="stat-change neutral">Investigation ongoing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Subrogation litigation</p>
+                        <p class="stat-value" style="color: #EF9F27;">42</p>
+                        <p class="stat-change neutral">Legal action filed</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total potential recovery</p>
+                        <p class="stat-value">$18.6M</p>
+                        <p class="stat-change positive">284 active cases</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovered YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">$4.2M</p>
+                        <p class="stat-change positive">142 successful recoveries</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">58.3%</p>
+                        <p class="stat-change positive">Industry avg: 42%</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">💰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">High-value recovery opportunities</p>
+                                <p style="font-size: 12px; color: #1D9E75;">23 cases with recovery potential over $100K require investigation</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening high-value queue...')">Evaluate</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Statute of limitations expiring</p>
+                                <p style="font-size: 12px; color: #BA7517;">18 cases have SOL deadlines within 90 days</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening deadline tracker...')">Urgent</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by case ID, responsible party, claim...">
+                    <select>
+                        <option>All recovery types</option>
+                        <option>Auto liability</option>
+                        <option>Product liability</option>
+                        <option>Medical malpractice</option>
+                        <option>Workers' comp offset</option>
+                        <option>Medicare/Medicaid reimbursement</option>
+                        <option>Other third-party</option>
+                    </select>
+                    <select>
+                        <option>All stages</option>
+                        <option>Evaluation</option>
+                        <option>Investigation</option>
+                        <option>Demand sent</option>
+                        <option>Negotiation</option>
+                        <option>Litigation</option>
+                        <option>Recovered</option>
+                        <option>Closed - No recovery</option>
+                    </select>
+                    <select>
+                        <option>All potential amounts</option>
+                        <option>Under $25K</option>
+                        <option>$25K - $100K</option>
+                        <option>$100K - $250K</option>
+                        <option>Over $250K</option>
+                    </select>
+                </div>
+
+                <!-- Subrogation Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active subrogation & recovery cases</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Batch demand letters coming soon!')">Send Demands</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Recovery ID</th>
+                                <th>Related Claim</th>
+                                <th>Responsible Party</th>
+                                <th>Recovery Type</th>
+                                <th>Potential Recovery</th>
+                                <th>Amount Recovered</th>
+                                <th>Opened</th>
+                                <th>Stage</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('SUB-2026-142')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-142</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78542</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Auto accident - Vehicle damage</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">XYZ Insurance Co.</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">At-fault driver's carrier</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Auto Liability</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$85,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #1D9E75;">$62,000</td>
+                                <td style="color: var(--color-text-secondary);">Jan 12, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Negotiation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('SUB-2026-142')">Finalize</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-138')" style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-138</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78529</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Product defect - Medical device</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">MedTech Industries Inc.</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Manufacturer</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Product Liability</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px; color: #EF9F27;">$420,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$0</td>
+                                <td style="color: var(--color-text-secondary);">Feb 8, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Litigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="showClaimDetail('SUB-2026-138')">Manage Case</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-134')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-134</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78518</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Medical malpractice - Surgical error</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">City General Hospital</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Healthcare provider</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">Medical Malpractice</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$180,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$0</td>
+                                <td style="color: var(--color-text-secondary);">Jan 22, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E6F1FB; color: #185FA5;">Investigation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('SUB-2026-134')">Evaluate</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-129')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-129</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78502</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Workplace injury - Equipment failure</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Industrial Equipment LLC</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Equipment manufacturer</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Product Liability</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$95,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$0</td>
+                                <td style="color: var(--color-text-secondary);">Feb 15, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Demand Sent</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('SUB-2026-129')">Follow Up</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-124')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-124</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78489</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Auto accident - Rear-end collision</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">ABC Auto Insurance</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">At-fault driver's carrier</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Auto Liability</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$48,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #1D9E75;">$48,000</td>
+                                <td style="color: var(--color-text-secondary);">Dec 8, 2025</td>
+                                <td>
+                                    <span class="status-badge status-approved">Recovered</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('SUB-2026-124')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-119')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-119</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78476</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Workers' comp - Dual employment</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">State Workers' Comp Fund</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Primary employer carrier</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">Workers' Comp Offset</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$32,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$0</td>
+                                <td style="color: var(--color-text-secondary);">Jan 5, 2026</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Negotiation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('SUB-2026-119')">Negotiate</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-115')" style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-115</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78465</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Medicare primary payer - Coordination of benefits</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Centers for Medicare Services</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Federal government</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Medicare Reimbursement</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$156,000</td>
+                                <td style="font-weight: 500; font-size: 15px;">$0</td>
+                                <td style="color: var(--color-text-secondary);">Nov 28, 2025</td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">Demand Sent</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('SUB-2026-115')">Urgent Follow-Up</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('SUB-2026-108')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">SUB-2026-108</td>
+                                <td>
+                                    <div>
+                                        <div class="claim-id" style="font-size: 13px;">CLM-78452</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Premises liability - Slip and fall</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Retail Store Corp.</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Property owner</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Other Third-Party</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$42,000</td>
+                                <td style="font-weight: 500; font-size: 15px; color: #1D9E75;">$28,000</td>
+                                <td style="color: var(--color-text-secondary);">Oct 14, 2025</td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Negotiation</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('SUB-2026-108')">Settle</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 156 active recovery cases</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>20</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Recovery by Type -->
+                    <div class="analytics-card">
+                        <h3>Recovery by type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Auto liability</span>
+                                <span style="font-weight: 500;">98 cases • $6.8M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 35%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Product liability</span>
+                                <span style="font-weight: 500;">52 cases • $4.2M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Medical malpractice</span>
+                                <span style="font-weight: 500;">38 cases • $3.4M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Workers' comp offset</span>
+                                <span style="font-weight: 500;">42 cases • $1.8M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Medicare/Medicaid reimbursement</span>
+                                <span style="font-weight: 500;">34 cases • $1.6M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Other third-party</span>
+                                <span style="font-weight: 500;">20 cases • $800K potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 7%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total potential</p>
+                                <p>$18.6M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Recovered YTD</p>
+                                <p style="color: #1D9E75;">$4.2M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Recovery rate</p>
+                                <p style="color: #1D9E75;">58.3%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recovery Performance -->
+                    <div class="analytics-card">
+                        <h3>Recovery stage analysis</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Evaluation</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">32 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Initial viability assessment</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Investigation</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">54 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Gathering evidence, documentation</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Demand sent</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">38 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Awaiting response from responsible party</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Negotiation</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">32 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Active settlement discussions</p>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #A32D2D;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Subrogation litigation</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">42 cases</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">Legal action filed, trial track</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">✅ Success metrics YTD</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">142 successful recoveries • $4.2M recovered • 58.3% recovery rate • Avg time to recovery: 128 days</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">⚠️ Statute of limitations tracker</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">18 cases expire within 90 days • 8 cases expire within 30 days • Immediate action required</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #EEEDFE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">💡 Recovery optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Auto liability cases: 72% success rate • Product liability: 48% success rate • Early demand (within 60 days) increases recovery by 34%</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FRAUD DETECTION SCREEN -->

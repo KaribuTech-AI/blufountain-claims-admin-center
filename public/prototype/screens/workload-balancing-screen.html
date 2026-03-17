@@ -1,0 +1,96 @@
+<div id="workload-balancing-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Adjuster Workload Balancing</h1>
+                                <p>Load distribution, capacity monitoring, fair assignment, overflow management, and workload optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Rebalance workload')">⚖️ Rebalance</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Avg workload</p><p class="stat-value" style="color: #378ADD;">18.4</p><p class="stat-change positive">Claims per adjuster</p></div>
+                    <div class="stat-card"><p class="stat-label">Workload variance</p><p class="stat-value" style="color: #1D9E75;">±2.8</p><p class="stat-change positive">Well balanced</p></div>
+                    <div class="stat-card"><p class="stat-label">Over capacity</p><p class="stat-value" style="color: #D85A30;">8</p><p class="stat-change positive">Adjusters >25 claims</p></div>
+                    <div class="stat-card"><p class="stat-label">Under capacity</p><p class="stat-value" style="color: #1D9E75;">12</p><p class="stat-change positive">Adjusters <12 claims</p></div>
+                    <div class="stat-card"><p class="stat-label">Balance score</p><p class="stat-value" style="color: #1D9E75;">92/100</p><p class="stat-change positive">Optimized</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-balancing</p><p class="stat-value" style="color: #1D9E75;">87%</p><p class="stat-change positive">AI-powered</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Workload Distribution Analysis</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr><th>Adjuster</th><th>Seniority</th><th>Specialization</th><th>Active Claims</th><th>Workload %</th><th>Status</th><th>Actions</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">Sarah Johnson</td>
+                                    <td>Senior</td>
+                                    <td>Life Insurance</td>
+                                    <td style="font-weight: 600; color: #D85A30;">28</td>
+                                    <td><div style="background: #FCE9E4; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #D85A30; font-weight: 600;">140%</div></td>
+                                    <td><span class="badge badge-denied">Over Capacity</span></td>
+                                    <td><button onclick="alert('Reassign claims')">Reassign</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Michael Chen</td>
+                                    <td>Senior</td>
+                                    <td>LTD</td>
+                                    <td style="font-weight: 600;">22</td>
+                                    <td><div style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #1D9E75; font-weight: 600;">110%</div></td>
+                                    <td><span class="badge badge-approved">Optimal</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Jennifer Liu</td>
+                                    <td>Mid-Level</td>
+                                    <td>STD</td>
+                                    <td style="font-weight: 600;">18</td>
+                                    <td><div style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #1D9E75; font-weight: 600;">90%</div></td>
+                                    <td><span class="badge badge-approved">Balanced</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">David Walsh</td>
+                                    <td>Senior</td>
+                                    <td>Critical Illness</td>
+                                    <td style="font-weight: 600;">24</td>
+                                    <td><div style="background: #FAEEDA; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #EF9F27; font-weight: 600;">120%</div></td>
+                                    <td><span class="badge badge-pending">High</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Emily Parker</td>
+                                    <td>Junior</td>
+                                    <td>Life Insurance</td>
+                                    <td style="font-weight: 600; color: #378ADD;">9</td>
+                                    <td><div style="background: #E6F1FB; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #378ADD; font-weight: 600;">60%</div></td>
+                                    <td><span class="badge badge-review">Under Capacity</span></td>
+                                    <td><button onclick="alert('Assign claims')">Assign</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">Robert Martinez</td>
+                                    <td>Mid-Level</td>
+                                    <td>Multi-Line</td>
+                                    <td style="font-weight: 600;">19</td>
+                                    <td><div style="background: #E1F5EE; padding: 4px 8px; border-radius: 4px; display: inline-block; color: #1D9E75; font-weight: 600;">95%</div></td>
+                                    <td><span class="badge badge-approved">Balanced</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLAIMS TEAM PRODUCTIVITY ANALYTICS SUBMODULE SCREEN -->

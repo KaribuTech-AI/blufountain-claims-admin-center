@@ -1,0 +1,36 @@
+<div id="notifications-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Notifications</h2>
+                <button class="close-btn" onclick="closeModal('notifications-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                    <p style="font-size: 13px; color: var(--color-text-secondary);">3 unread notifications</p>
+                    <button style="padding: 4px 8px; font-size: 12px;" onclick="markAllRead()">Mark all as read</button>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border-left: 3px solid #EF9F27;">
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">High-value claim requires review</p>
+                        <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 4px;">CLM-78487 - $300,000 life insurance claim</p>
+                        <p style="font-size: 12px; color: var(--color-text-tertiary);">2 hours ago</p>
+                    </div>
+                    <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border-left: 3px solid #378ADD;">
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">New documents uploaded</p>
+                        <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 4px;">CLM-78490 - Medical records received</p>
+                        <p style="font-size: 12px; color: var(--color-text-tertiary);">4 hours ago</p>
+                    </div>
+                    <div style="padding: 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); border-left: 3px solid #1D9E75;">
+                        <p style="font-size: 14px; font-weight: 500; margin-bottom: 4px;">Payment processed</p>
+                        <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 4px;">CLM-78485 - $150,000 disbursed</p>
+                        <p style="font-size: 12px; color: var(--color-text-tertiary);">Yesterday</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('notifications-modal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Menu Modal -->

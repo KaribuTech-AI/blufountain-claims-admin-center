@@ -1,0 +1,94 @@
+<div id="death-claim-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🕊️</div>
+                            <div class="header-title">
+                                <h1>Death Claim Processing Hub</h1>
+                                <p>End-to-end death claim workflow: notification, registration, validation, verification, assessment, investigation, approval, calculation, settlement, payment, and closure</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New death claim')">🕊️ New Claim</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Death claims processed</p><p class="stat-value">847</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg processing time</p><p class="stat-value" style="color: #1D9E75;">8.4d</p><p class="stat-change positive">Days to settlement</p></div>
+                    <div class="stat-card"><p class="stat-label">Claims paid</p><p class="stat-value" style="color: #1D9E75;">$42.8M</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Approval rate</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">Accepted</p></div>
+                    <div class="stat-card"><p class="stat-label">Active claims</p><p class="stat-value">142</p><p class="stat-change positive">In progress</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg claim amount</p><p class="stat-value">$50,542</p><p class="stat-change positive">Per claim</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Death Claim Processing Modules (15)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+                        <div onclick="showScreen('death-notification-screen')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📞</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">NOTIFICATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">847</div><div style="font-size: 11px; margin-bottom: 12px;">Received</div><div style="font-size: 11px; font-weight: 500;">→ Capture</div></div>
+                        </div>
+                        <div onclick="showScreen('claim-registration-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">REGISTRATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">847</div><div style="font-size: 11px; margin-bottom: 12px;">Registered</div><div style="font-size: 11px; font-weight: 500;">→ Register</div></div>
+                        </div>
+                        <div onclick="showScreen('death-policy-validation-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">✓</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">POLICY VALIDATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">98.6%</div><div style="font-size: 11px; margin-bottom: 12px;">Valid</div><div style="font-size: 11px; font-weight: 500;">→ Validate</div></div>
+                        </div>
+                        <div onclick="showScreen('death-beneficiary-verification-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">👤</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">BENEFICIARY</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">847</div><div style="font-size: 11px; margin-bottom: 12px;">Verified</div><div style="font-size: 11px; font-weight: 500;">→ Verify</div></div>
+                        </div>
+                        <div onclick="showScreen('death-document-mgmt-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">DOCUMENTS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2,541</div><div style="font-size: 11px; margin-bottom: 12px;">Collected</div><div style="font-size: 11px; font-weight: 500;">→ Manage</div></div>
+                        </div>
+                        <div onclick="showScreen('cause-death-assessment-hub-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CAUSE OF DEATH</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">94.2%</div><div style="font-size: 11px; margin-bottom: 12px;">Covered</div><div style="font-size: 11px; font-weight: 500;">→ Assess</div></div>
+                        </div>
+                        <div onclick="showScreen('death-fraud-detection-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🚨</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">FRAUD DETECTION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">28</div><div style="font-size: 11px; margin-bottom: 12px;">Flagged</div><div style="font-size: 11px; font-weight: 500;">→ Detect</div></div>
+                        </div>
+                        <div onclick="showScreen('death-investigation-screen')" style="background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔎</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">INVESTIGATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">42</div><div style="font-size: 11px; margin-bottom: 12px;">Active</div><div style="font-size: 11px; font-weight: 500;">→ Investigate</div></div>
+                        </div>
+                        <div onclick="showScreen('death-assessment-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">ASSESSMENT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">94.2%</div><div style="font-size: 11px; margin-bottom: 12px;">Approved</div><div style="font-size: 11px; font-weight: 500;">→ Approve</div></div>
+                        </div>
+                        <div onclick="showScreen('benefit-calculation-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🧮</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CALCULATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">$50.5K</div><div style="font-size: 11px; margin-bottom: 12px;">Avg benefit</div><div style="font-size: 11px; font-weight: 500;">→ Calculate</div></div>
+                        </div>
+                        <div onclick="showScreen('death-settlement-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">💼</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">SETTLEMENT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">$42.8M</div><div style="font-size: 11px; margin-bottom: 12px;">YTD</div><div style="font-size: 11px; font-weight: 500;">→ Settle</div></div>
+                        </div>
+                        <div onclick="showScreen('death-payment-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">💳</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">PAYMENT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2.4h</div><div style="font-size: 11px; margin-bottom: 12px;">Avg time</div><div style="font-size: 11px; font-weight: 500;">→ Process</div></div>
+                        </div>
+                        <div onclick="showScreen('beneficiary-allocation-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">➗</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">ALLOCATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">284</div><div style="font-size: 11px; margin-bottom: 12px;">Multi-benef</div><div style="font-size: 11px; font-weight: 500;">→ Allocate</div></div>
+                        </div>
+                        <div onclick="showScreen('death-notification-mgmt-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📧</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CUSTOMER NOTIFY</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2,541</div><div style="font-size: 11px; margin-bottom: 12px;">Sent</div><div style="font-size: 11px; font-weight: 500;">→ Notify</div></div>
+                        </div>
+                        <div onclick="showScreen('death-closure-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📦</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CLOSURE</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">797</div><div style="font-size: 11px; margin-bottom: 12px;">Closed</div><div style="font-size: 11px; font-weight: 500;">→ Close</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DEATH CLAIM SUBMODULES (15) -->

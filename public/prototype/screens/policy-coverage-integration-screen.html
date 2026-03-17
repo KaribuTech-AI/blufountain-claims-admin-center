@@ -1,0 +1,347 @@
+<div id="policy-coverage-integration-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔗</div>
+                            <div class="header-title">
+                                <h1>Policy & Coverage Integration Hub</h1>
+                                <p>Real-time policy validation, coverage verification, rules engine, endorsement checks, and eligibility confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showPolicyCoverage()">📋 Coverage Verification</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Sync policies')">Sync Policies</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Policies validated today</p>
+                        <p class="stat-value" style="color: #378ADD;">2,847</p>
+                        <p class="stat-change positive">Real-time checks</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">API response time</p>
+                        <p class="stat-value" style="color: #1D9E75;">0.8s</p>
+                        <p class="stat-change positive">Avg lookup</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Coverage confirmed</p>
+                        <p class="stat-value" style="color: #1D9E75;">98.6%</p>
+                        <p class="stat-change positive">Valid policies</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Rules processed</p>
+                        <p class="stat-value">12,384</p>
+                        <p class="stat-change positive">Today</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Policy systems connected</p>
+                        <p class="stat-value" style="color: #378ADD;">4</p>
+                        <p class="stat-change positive">API integration</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Integration uptime</p>
+                        <p class="stat-value" style="color: #1D9E75;">99.9%</p>
+                        <p class="stat-change positive">24/7 availability</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">Coverage exceptions</p>
+                                <p style="font-size: 12px; color: #A32D2D;">42 claims with policy coverage issues requiring review</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Policy sync complete</p>
+                                <p style="font-size: 12px; color: #1D9E75;">2,847 policies validated successfully (98.6%)</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy & Coverage Integration Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Policy & Coverage Integration Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="alert('Policy Coverage Validation: Real-time verification, active status, effective dates, in-force checking')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✓</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY COVERAGE VALIDATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">98.6%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Coverage confirmed</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">2,847</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Exceptions</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">42</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View validation</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Policy Lookup & Verification: API integration, policy retrieval, beneficiary info, coverage details')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY LOOKUP & VERIFICATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">0.8s</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg lookup time</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Lookups</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">3,284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Success</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">99.2%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View lookup</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Coverage Rules Engine: Business rules, decision logic, eligibility criteria, automated validation')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COVERAGE RULES ENGINE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active rules</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Executed</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">12.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">99.4%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View rules</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Product Rules Integration: Product-specific logic, term life, whole life, disability, critical illness')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📦</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PRODUCT RULES INTEGRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">12</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Product types</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rules</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">842</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Applied</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View products</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Policy Endorsement Verification: Rider validation, amendment checks, coverage modifications, effective dates')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📝</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ENDORSEMENT VERIFICATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">1,847</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Endorsements checked</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Active</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">684</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Verified</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">99.1%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View endorsements</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Eligibility & Limits Verification: Coverage amounts, deductibles, maximums, sub-limits, waiting periods')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ELIGIBILITY & LIMITS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">97.8%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Within limits</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Checked</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">2,847</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Exceeded</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">62</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View limits</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Policy System Integrations -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Connected Policy Systems</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Policy Admin System</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">LIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Uptime</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 99.9%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">99.9%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">REST API • 2,847 calls today</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Billing System</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">LIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Uptime</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 99.8%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">99.8%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">SOAP API • 1,284 calls today</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Underwriting System</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">LIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Uptime</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 99.7%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">99.7%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">GraphQL • 842 calls today</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Legacy Mainframe</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">LIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Uptime</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 99.6%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">99.6%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">MQ Series • 428 calls today</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Policy validation outcomes</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✓ Coverage confirmed</span>
+                                <span style="font-weight: 500;">2,805 policies • 98.6%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 99%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚠️ Coverage exceptions</span>
+                                <span style="font-weight: 500;">42 policies • 1.4%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 1%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total validated</p>
+                                <p style="color: #378ADD;">2,847</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg time</p>
+                                <p style="color: #1D9E75;">0.8s</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>API uptime</p>
+                                <p style="color: #1D9E75;">99.9%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Policy integration metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">API response time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">0.8 seconds</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average lookup time • 3,284 lookups today • 99.2% success rate • Real-time validation</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Coverage confirmation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">98.6%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">2,805 confirmed • 42 exceptions • 4 policy systems integrated • 99.9% uptime</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Rules engine accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">99.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">284 active rules • 12.4K executed today • Product-specific logic • Automated validation</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Eligibility compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">97.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Within policy limits • 2,847 checked • 62 exceeded limits • Automatic alerts</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E6F1FB; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #185FA5; margin-bottom: 4px;">🔗 Integration optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">6 modules integrated • 4 policy systems • 2,847 validations today • 0.8s response • 99.9% uptime</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CLAIMS AUTOMATION & AI HUB SCREEN -->

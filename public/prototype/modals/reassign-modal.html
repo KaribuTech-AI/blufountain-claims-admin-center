@@ -1,0 +1,39 @@
+<div id="reassign-modal" class="modal">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h2>Reassign Claim</h2>
+                <button class="close-btn" onclick="closeModal('reassign-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Currently Assigned To</label>
+                    <input type="text" value="Sarah Kim" disabled style="background: var(--color-background-secondary);">
+                </div>
+                <div class="form-group">
+                    <label>Reassign To</label>
+                    <select>
+                        <option>Select adjuster...</option>
+                        <option>David Lee</option>
+                        <option>Taylor Chen</option>
+                        <option>Maria Rodriguez</option>
+                        <option>James Wilson</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Reason for Reassignment</label>
+                    <textarea placeholder="Explain why this claim is being reassigned..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Notify new adjuster via email
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('reassign-modal')">Cancel</button>
+                <button class="primary" onclick="submitReassign()">Reassign Claim</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Note Modal -->

@@ -1,0 +1,52 @@
+<div id="workforce-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">👥</div>
+                            <div class="header-title">
+                                <h1>Workforce & Operational Management Hub</h1>
+                                <p>Workforce management, workload balancing, productivity analytics, skills assignment, scheduling, performance tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Total workforce</p><p class="stat-value">287</p><p class="stat-change positive">Claims adjusters</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg workload</p><p class="stat-value">18.4</p><p class="stat-change positive">Claims per adjuster</p></div>
+                    <div class="stat-card"><p class="stat-label">Team productivity</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">Utilization rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Skills match rate</p><p class="stat-value" style="color: #1D9E75;">87%</p><p class="stat-change positive">Optimal assignments</p></div>
+                    <div class="stat-card"><p class="stat-label">Schedule efficiency</p><p class="stat-value" style="color: #1D9E75;">96%</p><p class="stat-change positive">Coverage maintained</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg performance score</p><p class="stat-value" style="color: #1D9E75;">4.3/5</p><p class="stat-change positive">Team rating</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Workforce & Operational Modules (6)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('workforce-mgmt-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👥</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS WORKFORCE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">287</div><div style="font-size: 13px; margin-bottom: 16px;">Total adjusters</div><div style="font-size: 13px; font-weight: 500;">→ Manage workforce</div></div>
+                        </div>
+                        <div onclick="showScreen('workload-balancing-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">ADJUSTER WORKLOAD BALANCING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">18.4</div><div style="font-size: 13px; margin-bottom: 16px;">Avg claims/adjuster</div><div style="font-size: 13px; font-weight: 500;">→ Balance workload</div></div>
+                        </div>
+                        <div onclick="showScreen('productivity-analytics-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">TEAM PRODUCTIVITY ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Utilization rate</div><div style="font-size: 13px; font-weight: 500;">→ View analytics</div></div>
+                        </div>
+                        <div onclick="showScreen('skills-assignment-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SKILLS-BASED ASSIGNMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">87%</div><div style="font-size: 13px; margin-bottom: 16px;">Match rate</div><div style="font-size: 13px; font-weight: 500;">→ Assign claims</div></div>
+                        </div>
+                        <div onclick="showScreen('workforce-scheduling-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📅</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">WORKFORCE SCHEDULING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">96%</div><div style="font-size: 13px; margin-bottom: 16px;">Schedule efficiency</div><div style="font-size: 13px; font-weight: 500;">→ Manage schedule</div></div>
+                        </div>
+                        <div onclick="showScreen('performance-incentive-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏆</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PERFORMANCE INCENTIVE TRACKING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">4.3/5</div><div style="font-size: 13px; margin-bottom: 16px;">Avg performance</div><div style="font-size: 13px; font-weight: 500;">→ Track performance</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

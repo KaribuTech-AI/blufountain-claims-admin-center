@@ -1,0 +1,404 @@
+<div id="fnol-channels-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📱</div>
+                            <div class="header-title">
+                                <h1>FNOL Channels Management</h1>
+                                <p>Multi-channel claim intake, digital FNOL, mobile reporting, voice automation, and channel performance optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showClaimsIntake()">📥 Claims Intake</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Configure channels')">Configure Channels</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active FNOL channels</p>
+                        <p class="stat-value" style="color: #378ADD;">6</p>
+                        <p class="stat-change positive">All operational</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Digital adoption rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">68.4%</p>
+                        <p class="stat-change positive">↑ 12.3% vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Mobile FNOL submissions</p>
+                        <p class="stat-value" style="color: #378ADD;">97</p>
+                        <p class="stat-change positive">Today</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg channel response time</p>
+                        <p class="stat-value" style="color: #1D9E75;">45s</p>
+                        <p class="stat-change positive">Real-time</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Channel uptime</p>
+                        <p class="stat-value" style="color: #1D9E75;">99.8%</p>
+                        <p class="stat-change positive">24/7 availability</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Auto-triage success</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">AI routing</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E6F1FB 0%, #B8D9F5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #378ADD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📱</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #185FA5;">Mobile FNOL surge</p>
+                                <p style="font-size: 12px; color: #378ADD;">97 mobile submissions today, up 42% from daily average</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing mobile submissions...')">View</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">All channels operational</p>
+                                <p style="font-size: 12px; color: #1D9E75;">99.8% uptime maintained across all 6 FNOL channels</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Channel health...')">Health</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FNOL Channels Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">FNOL Channel Performance</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="alert('Mobile App Channel: Native iOS/Android, photo upload, GPS location, push notifications')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📱</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">MOBILE APP</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42.3%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Of all FNOL submissions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">97</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">3.2m</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View mobile channel</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Phone/IVR Channel: Call center, voice automation, intelligent routing, callback')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">☎️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PHONE / IVR</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">31.7%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Of all FNOL submissions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">73</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4m</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View phone channel</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Web Portal Channel: Self-service, document upload, guided workflows, chatbot')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🌐</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">WEB PORTAL</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18.3%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Of all FNOL submissions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">42</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">5.8m</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View web channel</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Email Channel: Structured intake, attachment processing, auto-parsing')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📧</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">EMAIL</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">5.6%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Of all FNOL submissions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">13</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto-parse</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">92%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View email channel</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Agent-Assisted Channel: Live support, complex claims, high-touch service')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👤</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AGENT-ASSISTED</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">2.1%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Of all FNOL submissions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">5</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">14.2m</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View agent channel</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Voice AI Channel: Conversational AI, natural language, 24/7 automated intake')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">VOICE AI (BETA)</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8.2%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Deflection from live agents</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Completed</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">96.4%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View Voice AI</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Channel Features & Analytics -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Channel Features & Capabilities</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="alert('Omnichannel Integration: Seamless handoffs, unified data, cross-channel tracking')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🔄</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">Omnichannel Integration</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">Seamless handoffs</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Unified customer experience across all channels with context preservation and intelligent routing</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Cross-channel</span>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Context aware</span>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Photo & Video Upload: Mobile capture, damage assessment, GPS tagging, EXIF data')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📸</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">Photo & Video Upload</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">Mobile evidence capture</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Real-time photo/video upload with AI damage assessment, GPS location tagging, and metadata extraction</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">AI analysis</span>
+                                <span style="background: #EEEDFE; color: #534AB7; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">GPS tagged</span>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Voice-to-Text: Speech recognition, auto-transcription, sentiment analysis')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🎤</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">Voice-to-Text</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">Speech recognition</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Automated transcription of phone calls with sentiment analysis and keyword extraction for quality control</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #FAEEDA; color: #BA7517; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">AI transcription</span>
+                                <span style="background: #FCEBEB; color: #A32D2D; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Sentiment</span>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Chatbot Integration: 24/7 availability, guided workflows, FAQ handling, escalation')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">💬</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">Chatbot Integration</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">AI-powered assistance</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Intelligent chatbot for guided claim submission, FAQ handling, and seamless escalation to live agents</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #EEEDFE; color: #534AB7; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">24/7 available</span>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Smart routing</span>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('GPS Location Services: Auto-location, incident mapping, proximity detection, routing')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">📍</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">GPS Location Services</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">Auto-location capture</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Automatic incident location capture, mapping, and proximity-based service provider routing</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #EEEDFE; color: #7F77DD; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Geo-tagged</span>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Auto-routing</span>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Push Notifications: Real-time updates, status changes, next steps, reminders')" style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 20px; cursor: pointer; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
+                                <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px;">🔔</div>
+                                <div style="flex: 1;">
+                                    <p style="font-weight: 600; font-size: 14px; margin-bottom: 2px;">Push Notifications</p>
+                                    <p style="font-size: 12px; color: var(--color-text-secondary);">Real-time updates</p>
+                                </div>
+                            </div>
+                            <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">Instant push notifications for claim status updates, document requests, and action reminders</p>
+                            <div style="display: flex; gap: 8px;">
+                                <span style="background: #FCEBEB; color: #D85A30; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Instant</span>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 4px 10px; border-radius: 12px; font-size: 11px; font-weight: 500;">Multi-channel</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Channel distribution & performance</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📱 Mobile App</span>
+                                <span style="font-weight: 500;">97 submissions • 42.3% • 3.2m avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">☎️ Phone / IVR</span>
+                                <span style="font-weight: 500;">73 submissions • 31.7% • 8.4m avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 32%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌐 Web Portal</span>
+                                <span style="font-weight: 500;">42 submissions • 18.3% • 5.8m avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📧 Email</span>
+                                <span style="font-weight: 500;">13 submissions • 5.6% • 92% auto-parse</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 6%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">👤 Agent-Assisted</span>
+                                <span style="font-weight: 500;">5 submissions • 2.1% • 14.2m avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total today</p>
+                                <p style="color: #378ADD;">230</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Digital adoption</p>
+                                <p style="color: #1D9E75;">68.4%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg response</p>
+                                <p style="color: #1D9E75;">45s</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>FNOL channel metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Digital adoption rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">68.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Mobile 42.3%, Web 18.3%, Email 5.6%, Voice AI 2.2% • ↑ 12.3% vs last year</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Channel response time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">45 seconds</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average across all channels • Mobile 12s, Phone 2.3m, Web 38s • Real-time processing</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Auto-triage success</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">AI-powered routing • 217 auto-assigned • 13 manual review • Continuous learning</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Channel uptime</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">99.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">24/7 availability • All 6 channels operational • Redundant infrastructure • Real-time monitoring</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E6F1FB; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #185FA5; margin-bottom: 4px;">📱 FNOL optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">6 channels active • 230 submissions today • 68.4% digital • 94.2% auto-triage • 45s avg response</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DOCUMENT & EVIDENCE MANAGEMENT HUB SCREEN -->

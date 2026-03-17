@@ -1,0 +1,533 @@
+<div id="loss-adjusters-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showThirdParty()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; font-size: 24px; padding: 0; margin-right: 12px;">←</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Loss Adjusters Network</h1>
+                                <p>Independent adjusters, assignments, performance tracking, and quality management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div style="display: flex; gap: 8px; align-items: center; margin-right: 12px;">
+                            <button onclick="showMedicalProviders()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showAssessors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showOperationalPerformance()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showProcessingPartners()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showRepairVendors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showLossAdjusters()" style="width: 32px; height: 32px; background: #EF9F27; border: none; border-radius: 6px; color: white; font-size: 18px; cursor: pointer;">•</button>
+                        </div>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #EF9F27; border-color: #EF9F27;" onclick="showModal('assign-adjuster-modal')">Assign Adjuster</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active adjusters</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">3 onboarded this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active assignments</p>
+                        <p class="stat-value" style="color: #EF9F27;">128</p>
+                        <p class="stat-change neutral">Across all adjusters</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg performance rating</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.4/5</p>
+                        <p class="stat-change positive">Based on 1,847 assignments</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg report turnaround</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.8d</p>
+                        <p class="stat-change positive">↓ 1.2d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$2.1M</p>
+                        <p class="stat-change neutral">Adjuster fees</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg cost per assignment</p>
+                        <p class="stat-value">$1,136</p>
+                        <p class="stat-change neutral">Including expenses</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Reports submitted</p>
+                                <p style="font-size: 12px; color: #1D9E75;">34 final reports ready for review</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing reports...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Overdue assignments</p>
+                                <p style="font-size: 12px; color: #BA7517;">8 assignments past SLA deadline</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing overdue...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by adjuster name, license, specialization...">
+                    <select>
+                        <option>All statuses</option>
+                        <option>Available</option>
+                        <option>On assignment</option>
+                        <option>At capacity</option>
+                        <option>Inactive</option>
+                    </select>
+                    <select>
+                        <option>All specializations</option>
+                        <option>Property damage</option>
+                        <option>Casualty</option>
+                        <option>Auto accidents</option>
+                        <option>Workers compensation</option>
+                        <option>Liability</option>
+                        <option>Complex commercial</option>
+                    </select>
+                    <select>
+                        <option>All regions</option>
+                        <option>Northeast</option>
+                        <option>Southeast</option>
+                        <option>Midwest</option>
+                        <option>Southwest</option>
+                        <option>West Coast</option>
+                    </select>
+                </div>
+
+                <!-- Loss Adjusters Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active loss adjusters</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Adjuster</th>
+                                <th>License #</th>
+                                <th>Specialization</th>
+                                <th>Region</th>
+                                <th>Active Assignments</th>
+                                <th>Avg Turnaround</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">JC</div>
+                                        <div>
+                                            <div class="user-details">James Crawford</div>
+                                            <div class="user-policy">Crawford Adjusting LLC</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-48291</td>
+                                <td>
+                                    <div style="font-size: 13px;">Property Damage</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">15 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Northeast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #EF9F27;">8</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 12 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">3.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.8</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">142 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  James Crawford')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">MP</div>
+                                        <div>
+                                            <div class="user-details">Maria Patel</div>
+                                            <div class="user-policy">Patel & Associates</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-52847</td>
+                                <td>
+                                    <div style="font-size: 13px;">Casualty</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">12 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Southeast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 10 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">4.2 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.7</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">98 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  Maria Patel')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">RJ</div>
+                                        <div>
+                                            <div class="user-details">Robert Johnson</div>
+                                            <div class="user-policy">Johnson Claims Services</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-43156</td>
+                                <td>
+                                    <div style="font-size: 13px;">Auto Accidents</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">18 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Midwest</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #A32D2D;">12</span>
+                                    <div style="font-size: 11px; color: #A32D2D;">of 12 capacity</div>
+                                </td>
+                                <td style="font-weight: 500;">5.1 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.6</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">187 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">At Capacity</span>
+                                </td>
+                                <td>
+                                    <button disabled style="opacity: 0.5;">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">LT</div>
+                                        <div>
+                                            <div class="user-details">Linda Thompson</div>
+                                            <div class="user-policy">Thompson Investigation</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-49823</td>
+                                <td>
+                                    <div style="font-size: 13px;">Complex Commercial</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">22 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">West Coast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #EF9F27;">6</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 8 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">4.5 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.9</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">234 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  Linda Thompson')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">DM</div>
+                                        <div>
+                                            <div class="user-details">David Martinez</div>
+                                            <div class="user-policy">Martinez Consulting</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-51234</td>
+                                <td>
+                                    <div style="font-size: 13px;">Liability</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">9 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Southwest</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">3</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 10 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">3.9 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.5</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">76 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  David Martinez')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">SW</div>
+                                        <div>
+                                            <div class="user-details">Sarah Williams</div>
+                                            <div class="user-policy">Williams Field Services</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-50192</td>
+                                <td>
+                                    <div style="font-size: 13px;">Property Damage</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">11 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Southeast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">5</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 12 capacity</div>
+                                </td>
+                                <td style="font-weight: 500;">5.3 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #EF9F27;">4.2</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">112 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  Sarah Williams')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">KC</div>
+                                        <div>
+                                            <div class="user-details">Kevin Chen</div>
+                                            <div class="user-policy">Chen Adjusting Group</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-47682</td>
+                                <td>
+                                    <div style="font-size: 13px;">Workers Comp</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">14 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">West Coast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #EF9F27;">7</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 10 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">4.1 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.7</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">156 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="showModal('assign-adjuster-modal'); //  Kevin Chen')">Assign</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">TB</div>
+                                        <div>
+                                            <div class="user-details">Thomas Brown</div>
+                                            <div class="user-policy">Brown Assessment LLC</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">LA-44891</td>
+                                <td>
+                                    <div style="font-size: 13px;">Auto Accidents</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">7 years exp</div>
+                                </td>
+                                <td style="font-size: 13px;">Northeast</td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">2</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 8 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #A32D2D;">7.2 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #A32D2D;">3.8</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">45 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Under Review</span>
+                                </td>
+                                <td>
+                                    <button disabled style="opacity: 0.5;">Assign</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 42 adjusters</p>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Adjuster specializations</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Property damage</span>
+                                <span style="font-weight: 500;">18 adjusters • 4.6/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 43%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Auto accidents</span>
+                                <span style="font-weight: 500;">12 adjusters • 4.5/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 29%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Casualty & liability</span>
+                                <span style="font-weight: 500;">8 adjusters • 4.4/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 19%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Complex commercial</span>
+                                <span style="font-weight: 500;">4 adjusters • 4.7/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg rating</p>
+                                <p style="color: #1D9E75;">4.4/5</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Total assignments YTD</p>
+                                <p>1,847</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg turnaround</p>
+                                <p style="color: #1D9E75;">4.8d</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Performance & quality metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Report quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.4/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Based on 1,847 completed assignments</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">SLA compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">91.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">1,696 reports submitted on time</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg report turnaround</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">4.8 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 1.2 days improvement YoY</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Cost per assignment</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$1,136</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Includes fees and expenses</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📊 Capacity utilization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Current: 128 active / 420 total capacity (30.5%) • 8 at max capacity • 34 available with <3 assignments</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">⚠️ Quality flags</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">2 adjusters under performance review • 8 assignments overdue • 3 quality complaints this month</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- OPERATIONAL PERFORMANCE SCREEN -->

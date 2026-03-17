@@ -1,0 +1,47 @@
+<div id="payment-approval-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showFinancialManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Financial Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">✅</div>
+                            <div class="header-title">
+                                <h1>Payment Approval Workflow</h1>
+                                <p>Authority-based routing, dual approval, escalation management, SLA tracking, and complete audit trails</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Approve payment')">✅ Approve</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Pending approvals</p><p class="stat-value" style="color: #EF9F27;">124</p><p class="stat-change positive">In queue</p></div>
+                    <div class="stat-card"><p class="stat-label">Approved today</p><p class="stat-value" style="color: #1D9E75;">87</p><p class="stat-change positive">Payments released</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg approval time</p><p class="stat-value">4.2h</p><p class="stat-change positive">Submission to approval</p></div>
+                    <div class="stat-card"><p class="stat-label">SLA compliance</p><p class="stat-value" style="color: #1D9E75;">96.8%</p><p class="stat-change positive">Within SLA</p></div>
+                    <div class="stat-card"><p class="stat-label">Dual approvals</p><p class="stat-value">42</p><p class="stat-change positive">>$50K threshold</p></div>
+                    <div class="stat-card"><p class="stat-label">Escalations</p><p class="stat-value">8</p><p class="stat-change positive">Auto-escalated</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Approval Authority Matrix</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr><th>Amount Range</th><th>Primary Approver</th><th>Secondary Approver</th><th>Avg Time</th><th>Count YTD</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>< $5,000</td><td>Claims Examiner</td><td>—</td><td>1.2h</td><td>1,847</td></tr>
+                                <tr><td>$5,000 - $25,000</td><td>Senior Examiner</td><td>—</td><td>2.8h</td><td>724</td></tr>
+                                <tr><td>$25,000 - $50,000</td><td>Claims Manager</td><td>—</td><td>4.2h</td><td>184</td></tr>
+                                <tr><td>$50,000 - $100,000</td><td>Claims Manager</td><td>Director</td><td>8.4h</td><td>68</td></tr>
+                                <tr><td>> $100,000</td><td>Director</td><td>VP/CFO</td><td>18.2h</td><td>24</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CLAIM EXPENSE MANAGEMENT SUBMODULE SCREEN -->

@@ -1,0 +1,270 @@
+<div id="operational-performance-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Operational Performance Management</h1>
+                                <p>Claims processing KPIs, productivity metrics, SLA tracking, and operational dashboards</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button onclick="showAnalytics()" style="margin-right: 8px;">📈 Analytics</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Configure KPIs')">Configure KPIs</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Overall SLA compliance</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.7%</p>
+                        <p class="stat-change positive">↑ 2.3% improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg processing time</p>
+                        <p class="stat-value" style="color: #1D9E75;">3.2d</p>
+                        <p class="stat-change positive">↓ 1.8d faster</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Cost per claim</p>
+                        <p class="stat-value">$127</p>
+                        <p class="stat-change positive">↓ $18 reduction</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Adjuster productivity</p>
+                        <p class="stat-value" style="color: #1D9E75;">18.4</p>
+                        <p class="stat-change positive">Claims/adjuster/week</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">First contact resolution</p>
+                        <p class="stat-value" style="color: #1D9E75;">78.6%</p>
+                        <p class="stat-change positive">↑ 5.2% improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Customer satisfaction</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.6/5</p>
+                        <p class="stat-change positive">↑ 0.3 improvement</p>
+                    </div>
+                </div>
+
+                <!-- Performance Dashboards Grid -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Claims Processing KPIs: Approval rates, cycle times, volumes, efficiency metrics')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PROCESSING KPIs</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">91.7%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Approval rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Volume</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">2,847</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cycle</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">3.2d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View metrics</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Turnaround Time: Processing speed, stage durations, bottleneck analysis')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏱️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">TURNAROUND TIME</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">3.2d</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Average processing</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Fastest</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">1.2d</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Target</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.0d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View breakdown</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Cost Control: Processing costs, vendor spend, efficiency optimization')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COST CONTROL</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$127</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Per claim processed</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Total</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$362K</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">vs Target</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">-12%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View details</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Adjuster Productivity: Cases per adjuster, closure rates, workload distribution')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👥</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ADJUSTER PRODUCTIVITY</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18.4</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Claims/adjuster/week</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Team</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">24</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Util.</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">87%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View team</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('SLA Tracking: Compliance rates, breach analysis, remediation actions')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SLA COMPLIANCE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.7%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Overall compliance</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Met</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">2,696</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Breach</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">151</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View SLAs</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Operational Dashboards: Real-time monitoring, trends, predictive analytics')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">OPERATIONAL DASHBOARDS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">Live</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Real-time monitoring</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Active</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">286</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Alerts</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ Open dashboard</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Performance by claim type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Life insurance</span>
+                                <span style="font-weight: 500;">89.4% approval • 3.8d avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 89%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Short-term disability</span>
+                                <span style="font-weight: 500;">87.6% approval • 2.9d avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Accident insurance</span>
+                                <span style="font-weight: 500;">94.2% approval • 2.1d avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 94%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Critical illness</span>
+                                <span style="font-weight: 500;">82.3% approval • 4.2d avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 82%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Overall</p>
+                                <p style="color: #1D9E75;">91.7%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Cycle time</p>
+                                <p>3.2d</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Volume</p>
+                                <p>2,847</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Key operational metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">SLA compliance rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94.7%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">2,696 of 2,847 claims met SLA • ↑ 2.3% improvement</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">First contact resolution</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">78.6%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">No escalation required • ↑ 5.2% improvement</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Auto-adjudication rate</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">42.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">1,204 claims processed automatically</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Cost efficiency</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$127/claim</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ $18 reduction • 12% cost savings</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">📊 Productivity insights</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">18.4 claims/adjuster/week • 87% utilization • Top 20% handle 42% of volume</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ACCIDENT INSURANCE SCREEN -->

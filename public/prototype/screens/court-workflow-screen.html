@@ -1,0 +1,341 @@
+<div id="court-workflow-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showScreen('litigation-management-screen')" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Litigation Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #A32D2D 0%, #7A1F1F 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Court Case Workflow Management</h1>
+                                <p>Case tracking, hearing schedules, motion management, deadline monitoring, court calendaring, and procedural compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Court calendar view')">📅 Calendar</button>
+                        <button onclick="alert('Add hearing')">➕ Add Hearing</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active court cases</p>
+                        <p class="stat-value" style="color: #A32D2D;">127</p>
+                        <p class="stat-change positive">In litigation</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Upcoming hearings</p>
+                        <p class="stat-value" style="color: #EF9F27;">18</p>
+                        <p class="stat-change positive">Next 30 days</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending motions</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">Awaiting ruling</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg case duration</p>
+                        <p class="stat-value">284d</p>
+                        <p class="stat-change positive">Filing to verdict</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Deadline compliance</p>
+                        <p class="stat-value" style="color: #1D9E75;">98.6%</p>
+                        <p class="stat-change positive">On-time filings</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Court appearances</p>
+                        <p class="stat-value">284</p>
+                        <p class="stat-change positive">YTD</p>
+                    </div>
+                </div>
+
+                <!-- Critical Deadlines Alert -->
+                <div style="padding: 0 24px 24px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 20px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 32px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 600; font-size: 16px; margin-bottom: 4px; color: #7A1F1F;">Critical Deadlines This Week</p>
+                                <p style="font-size: 13px; color: #A32D2D; margin-bottom: 12px;">8 court deadlines approaching • 3 motions due • 2 discovery responses required</p>
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <div style="background: white; padding: 6px 12px; border-radius: 6px; font-size: 12px;"><strong>Tomorrow:</strong> Motion to Dismiss - Case #2024-CV-1847</div>
+                                    <div style="background: white; padding: 6px 12px; border-radius: 6px; font-size: 12px;"><strong>Friday:</strong> Discovery Response - Case #2024-CV-2284</div>
+                                    <div style="background: white; padding: 6px 12px; border-radius: 6px; font-size: 12px;"><strong>Friday:</strong> Pretrial Brief - Case #2024-CV-1923</div>
+                                </div>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D;" onclick="alert('View all deadlines')">View All</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Status Pipeline -->
+                <div style="padding: 0 24px 24px;">
+                    <h2 style="margin-bottom: 16px; font-size: 18px; font-weight: 600;">Case Workflow Pipeline</h2>
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;">
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border); text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📝</div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Pleading</div>
+                            <div style="font-size: 24px; font-weight: 700; color: #378ADD; margin: 8px 0;">18</div>
+                            <div style="font-size: 11px; color: var(--color-text-secondary);">Initial filings</div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border); text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">🔍</div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Discovery</div>
+                            <div style="font-size: 24px; font-weight: 700; color: #EF9F27; margin: 8px 0;">42</div>
+                            <div style="font-size: 11px; color: var(--color-text-secondary);">Evidence gathering</div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border); text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📋</div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Pretrial</div>
+                            <div style="font-size: 24px; font-weight: 700; color: #534AB7; margin: 8px 0;">28</div>
+                            <div style="font-size: 11px; color: var(--color-text-secondary);">Motion practice</div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border); text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">⚖️</div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Trial</div>
+                            <div style="font-size: 24px; font-weight: 700; color: #A32D2D; margin: 8px 0;">12</div>
+                            <div style="font-size: 11px; color: var(--color-text-secondary);">Active trials</div>
+                        </div>
+                        <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border); text-align: center;">
+                            <div style="font-size: 24px; margin-bottom: 8px;">✅</div>
+                            <div style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Post-Trial</div>
+                            <div style="font-size: 24px; font-weight: 700; color: #1D9E75; margin: 8px 0;">27</div>
+                            <div style="font-size: 11px; color: var(--color-text-secondary);">Appeals/Judgments</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Hearings Table -->
+                <div style="padding: 0 24px 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h2 style="font-size: 18px; font-weight: 600;">Upcoming Court Hearings (Next 30 Days)</h2>
+                        <div style="display: flex; gap: 8px;">
+                            <button onclick="alert('Filter by court')">🏛️ Filter Court</button>
+                            <button onclick="alert('Filter by type')">📋 Filter Type</button>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Case Number</th>
+                                    <th>Hearing Type</th>
+                                    <th>Court</th>
+                                    <th>Judge</th>
+                                    <th>Attorney</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">
+                                        <div>Mar 16, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">9:00 AM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2024-CV-1847</td>
+                                    <td>Motion to Dismiss</td>
+                                    <td>Superior Court - Div 4</td>
+                                    <td>Hon. Sarah Mitchell</td>
+                                    <td>
+                                        <div>Jennifer Chen, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Thompson & Associates</div>
+                                    </td>
+                                    <td><span class="badge badge-pending">Scheduled</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Prepare')">Prepare</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">
+                                        <div>Mar 18, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">2:00 PM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2024-CV-2284</td>
+                                    <td>Status Conference</td>
+                                    <td>Federal District Court</td>
+                                    <td>Hon. Robert Anderson</td>
+                                    <td>
+                                        <div>Michael Walsh, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Davis Law Group</div>
+                                    </td>
+                                    <td><span class="badge badge-pending">Scheduled</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Prepare')">Prepare</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">
+                                        <div>Mar 22, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">10:30 AM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2023-CV-3942</td>
+                                    <td>Pretrial Conference</td>
+                                    <td>Superior Court - Div 2</td>
+                                    <td>Hon. David Kim</td>
+                                    <td>
+                                        <div>Amanda Rodriguez, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Miller & Partners</div>
+                                    </td>
+                                    <td><span class="badge badge-review">Brief Due</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Prepare')">Prepare</button>
+                                    </td>
+                                </tr>
+                                <tr style="background: linear-gradient(135deg, #FFF5E6 0%, #FFE8CC 100%);">
+                                    <td style="font-weight: 600;">
+                                        <div>Mar 26, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">9:00 AM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2023-CV-4758</td>
+                                    <td style="font-weight: 600; color: #D85A30;">Trial - Day 1</td>
+                                    <td>Superior Court - Div 1</td>
+                                    <td>Hon. Elizabeth Torres</td>
+                                    <td>
+                                        <div>James Patterson, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Senior Trial Counsel</div>
+                                    </td>
+                                    <td><span class="badge" style="background: #D85A30; color: white;">Trial</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Trial prep')">Prep</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">
+                                        <div>Apr 2, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">1:30 PM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2024-CV-1523</td>
+                                    <td>Motion for Summary Judgment</td>
+                                    <td>Superior Court - Div 3</td>
+                                    <td>Hon. Maria Garcia</td>
+                                    <td>
+                                        <div>Brian Thompson, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Wilson & Associates</div>
+                                    </td>
+                                    <td><span class="badge badge-pending">Scheduled</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Prepare')">Prepare</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">
+                                        <div>Apr 8, 2026</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">11:00 AM</div>
+                                    </td>
+                                    <td style="font-weight: 600; color: #A32D2D;">2024-CV-2847</td>
+                                    <td>Deposition Hearing</td>
+                                    <td>Federal District Court</td>
+                                    <td>Hon. Robert Anderson</td>
+                                    <td>
+                                        <div>Sarah Johnson, Esq.</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">Corporate Litigation Dept</div>
+                                    </td>
+                                    <td><span class="badge badge-pending">Scheduled</span></td>
+                                    <td>
+                                        <button onclick="alert('View case details')">View</button>
+                                        <button onclick="alert('Prepare')">Prepare</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Motion Tracking -->
+                <div style="padding: 0 24px 24px;">
+                    <h2 style="margin-bottom: 16px; font-size: 18px; font-weight: 600;">Active Motions & Filings</h2>
+                    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                        <div class="analytics-card">
+                            <h3>Pending Motion Rulings</h3>
+                            <div style="margin-top: 16px;">
+                                <div class="progress-item">
+                                    <div class="progress-header"><span>Motions to Dismiss</span><span style="font-weight: 500;">12 pending</span></div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 4px;">Avg ruling time: 18 days</div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-header"><span>Summary Judgment Motions</span><span style="font-weight: 500;">8 pending</span></div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 4px;">Avg ruling time: 32 days</div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-header"><span>Discovery Motions</span><span style="font-weight: 500;">14 pending</span></div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 4px;">Avg ruling time: 12 days</div>
+                                </div>
+                                <div class="progress-item">
+                                    <div class="progress-header"><span>Other Motions</span><span style="font-weight: 500;">8 pending</span></div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary); margin-top: 4px;">Various procedural motions</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Court Workflow Metrics</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                                <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Deadline Compliance</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">98.6%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">284 filings on-time • 4 missed deadlines • Excellent record</div>
+                                </div>
+                                <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg Case Duration</div>
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">284 days</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Filing to verdict • ↓ 12d vs last year • Improved efficiency</div>
+                                </div>
+                                <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Hearing Preparation</div>
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">100%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">All hearings prepared • Briefs filed • Exhibits ready</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Court Calendar Integration -->
+                <div style="padding: 0 24px 24px;">
+                    <h2 style="margin-bottom: 16px; font-size: 18px; font-weight: 600;">Automated Court Calendar Management</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+                        <div style="background: linear-gradient(135deg, #E6F1FB 0%, #C2DCF5 100%); border-radius: 12px; padding: 20px; border-left: 4px solid #378ADD;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">📅</div>
+                            <div style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #185FA5;">Calendar Sync</div>
+                            <div style="font-size: 13px; color: #378ADD; line-height: 1.6;">
+                                • Automatic court date import<br>
+                                • Attorney calendar integration<br>
+                                • Deadline auto-calculation<br>
+                                • Reminder notifications
+                            </div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #FAEEDA 0%, #F5DDB8 100%); border-radius: 12px; padding: 20px; border-left: 4px solid #EF9F27;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">⏰</div>
+                            <div style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #BA7517;">Deadline Tracking</div>
+                            <div style="font-size: 13px; color: #EF9F27; line-height: 1.6;">
+                                • Statutory deadlines tracked<br>
+                                • Court rule compliance<br>
+                                • Custom deadline rules<br>
+                                • Escalation alerts
+                            </div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E8D8 100%); border-radius: 12px; padding: 20px; border-left: 4px solid #1D9E75;">
+                            <div style="font-size: 32px; margin-bottom: 12px;">🔔</div>
+                            <div style="font-weight: 600; font-size: 16px; margin-bottom: 8px; color: #0F6E56;">Smart Notifications</div>
+                            <div style="font-size: 13px; color: #1D9E75; line-height: 1.6;">
+                                • Email/SMS/App alerts<br>
+                                • Multi-tier reminders<br>
+                                • Team notifications<br>
+                                • Attorney preferences
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>

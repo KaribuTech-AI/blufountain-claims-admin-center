@@ -1,0 +1,47 @@
+<div id="request-docs-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request Additional Documents</h2>
+                <button class="close-btn" onclick="closeModal('request-docs-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: 20px; color: var(--color-text-secondary);">
+                    Request additional documentation from the policyholder to proceed with the claim review.
+                </p>
+                <div class="form-group">
+                    <label>Documents Needed</label>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Medical records
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Employer verification
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Police report
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Death certificate
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Other (specify below)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Additional Instructions</label>
+                    <textarea placeholder="Provide specific instructions or additional document types needed..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Response Deadline</label>
+                    <input type="date">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('request-docs-modal')">Cancel</button>
+                <button class="primary" onclick="submitDocRequest()">Send Request</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export Report Modal -->

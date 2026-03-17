@@ -1,0 +1,303 @@
+<div id="claims-intake-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📥</div>
+                            <div class="header-title">
+                                <h1>Claims Intake & Registration</h1>
+                                <p>First Notice of Loss (FNOL), claim registration, intake channels, and initial processing workflows</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showCommunication()">📞 FNOL Channels</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Register new claim')">Register Claim</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Claims received today</p>
+                        <p class="stat-value" style="color: #378ADD;">142</p>
+                        <p class="stat-change positive">↑ 12% vs yesterday</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg registration time</p>
+                        <p class="stat-value" style="color: #1D9E75;">8.4min</p>
+                        <p class="stat-change positive">↓ 2.1min improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">FNOL capture rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.8%</p>
+                        <p class="stat-change positive">Complete data</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Digital FNOL adoption</p>
+                        <p class="stat-value" style="color: #378ADD;">68.4%</p>
+                        <p class="stat-change positive">↑ 14.2% growth</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending registration</p>
+                        <p class="stat-value" style="color: #EF9F27;">24</p>
+                        <p class="stat-change neutral">Incomplete intake</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Same-day registration</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">SLA compliance</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Incomplete registrations</p>
+                                <p style="font-size: 12px; color: #BA7517;">24 claims missing required information</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing incomplete...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E6F1FB 0%, #B8D9F5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #378ADD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📱</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #185FA5;">Digital FNOL spike</p>
+                                <p style="font-size: 12px; color: #378ADD;">97 claims via mobile app today (68% of total)</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing digital intake...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Intake & Registration Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('FNOL Channels: Phone 32%, Mobile app 42%, Web portal 18%, Email 6%, Agent 2%')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📞</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">FNOL CHANNELS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">6</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active intake channels</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Digital</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">68%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Phone</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">32%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View channels</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Claim Registration: 142 today, 8.4min avg, 96.8% data capture')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📝</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM REGISTRATION</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">142</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Registered today</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8.4m</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Complete</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">96.8%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View registry</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Data Capture Quality: 96.8% complete, validation rules, missing field alerts')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✓</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DATA CAPTURE QUALITY</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Complete data</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Incomplete</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">24</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Fields</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">48</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View quality</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Intake Automation: AI-assisted entry, OCR, prefill, validation')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">INTAKE AUTOMATION</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">68%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Auto-populated fields</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">OCR</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">92%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">AI Score</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">94%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View automation</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Triage & Routing: Auto-assignment, priority scoring, specialist allocation')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">TRIAGE & ROUTING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">87%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Auto-assigned</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Priority</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">34</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Manual</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View routing</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('SLA Compliance: 94.2% same-day registration, 8.4min avg, 24hr target')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏱️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SLA COMPLIANCE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Same-day registration</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg time</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8.4m</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Target</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">24h</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View SLA</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>FNOL intake by channel</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📱 Mobile app</span>
+                                <span style="font-weight: 500;">60 claims • 42.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📞 Phone (IVR + Agent)</span>
+                                <span style="font-weight: 500;">45 claims • 31.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 32%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🌐 Web portal</span>
+                                <span style="font-weight: 500;">26 claims • 18.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 18%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📧 Email</span>
+                                <span style="font-weight: 500;">8 claims • 5.6%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 6%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">👤 Agent portal</span>
+                                <span style="font-weight: 500;">3 claims • 2.1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total today</p>
+                                <p style="color: #378ADD;">142</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Digital %</p>
+                                <p style="color: #1D9E75;">68.4%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg capture</p>
+                                <p>96.8%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Registration performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Registration speed</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">8.4 minutes</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average registration time • ↓ 2.1min improvement • Digital: 4.2m, Phone: 12.8m</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Data completeness</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">96.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">All required fields captured • 24 incomplete • 48 data fields tracked</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Same-day SLA</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">134 of 142 registered same day • Target: 24 hours • 8 pending</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Automation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">68%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Auto-populated fields • OCR: 92% accuracy • AI assist: 94% accuracy</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🎯 Intake optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">87% auto-routed • 34 high-priority • Digital adoption ↑ 14.2% • 6 active channels</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DECISION AND ADJUDICATION SCREEN -->

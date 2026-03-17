@@ -1,0 +1,365 @@
+<div id="claims-lifecycle-closure-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🏁</div>
+                            <div class="header-title">
+                                <h1>Claims Lifecycle & Closure Hub</h1>
+                                <p>Final settlement, closure workflow, recovery management, salvage processing, archiving, and post-claim review</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showSettlements()">💰 Settlements</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Close batch claims')">Batch Close</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Claims closed YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">18,473</p>
+                        <p class="stat-change positive">Complete lifecycle</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg days to closure</p>
+                        <p class="stat-value" style="color: #1D9E75;">38.4</p>
+                        <p class="stat-change positive">↓ 6.2 days vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Settlement accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">99.2%</p>
+                        <p class="stat-change positive">First-time right</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery collected</p>
+                        <p class="stat-value" style="color: #1D9E75;">$8.4M</p>
+                        <p class="stat-change positive">YTD</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Salvage revenue</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.8M</p>
+                        <p class="stat-change positive">YTD</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Ready for closure</p>
+                        <p class="stat-value">284</p>
+                        <p class="stat-change positive">Pending final review</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Closure pending</p>
+                                <p style="font-size: 12px; color: #BA7517;">284 claims ready for final closure review and archival</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Recovery milestone</p>
+                                <p style="font-size: 12px; color: #1D9E75;">$8.4M recovered YTD, exceeding target by 12%</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Claims Lifecycle & Closure Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Claims Lifecycle & Closure Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="alert('Claim Settlement Management: Final payment processing, settlement calculation, payee verification, disbursement tracking')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM SETTLEMENT MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$45.8M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Settled YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Settled</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg pay</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$2.5K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View settlements</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Claim Closure Workflow: Final review, quality checks, documentation completion, closure approval')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏁</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM CLOSURE WORKFLOW</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">38.4</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg days to close</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Closed</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18.5K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View closures</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Recovery and Subrogation: Third-party recovery, reimbursement tracking, legal coordination, collection management')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY & SUBROGATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$8.4M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Recovered YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cases</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">342</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rate</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">58%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View recovery</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Salvage Management: Asset disposition, salvage sales, auction coordination, revenue tracking')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚗</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SALVAGE MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$2.8M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Salvage revenue YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Units</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg value</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$2.2K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View salvage</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Claim Archiving: Document retention, digital archiving, compliance, retrieval system')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📦</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM ARCHIVING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18.5K</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Claims archived YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Storage</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2TB</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Retrieval</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1.8s</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View archives</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Post-Claim Review: Quality assessment, lessons learned, process improvement, customer feedback')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">POST-CLAIM REVIEW</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">4.6/5</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Customer satisfaction</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Reviews</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">NPS</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">+42</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View reviews</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Closure Pipeline -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Claim Closure Pipeline</h2>
+                    <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;">
+                        
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Settlement Ready</p>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">124</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg time in stage</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #378ADD;">2.4 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Final approval pending</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Payment Processing</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">87</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg time in stage</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75;">1.8 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Disbursement in progress</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Final Review</p>
+                                <span style="background: #FAEEDA; color: #BA7517; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">284</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg time in stage</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #EF9F27;">3.2 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Quality check in progress</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Archiving</p>
+                                <span style="background: #EEEDFE; color: #534AB7; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">156</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg time in stage</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #534AB7;">0.8 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Document archival</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Closed</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">18.5K</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">YTD closed</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75;">Complete</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Full lifecycle closed</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Closure timeline performance</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚡ Fast track (0-30 days)</span>
+                                <span style="font-weight: 500;">12,847 claims • 69.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📅 Standard (31-60 days)</span>
+                                <span style="font-weight: 500;">4,284 claims • 23.2%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 23%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⏰ Extended (61-90 days)</span>
+                                <span style="font-weight: 500;">1,008 claims • 5.5%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 6%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔴 Complex (90+ days)</span>
+                                <span style="font-weight: 500;">334 claims • 1.8%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg closure</p>
+                                <p style="color: #1D9E75;">38.4 days</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>YTD closed</p>
+                                <p style="color: #1D9E75;">18,473</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Improvement</p>
+                                <p style="color: #1D9E75;">↓ 6.2 days</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Lifecycle & closure metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Settlement accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">99.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">First-time right • $45.8M settled • 18.5K claims • Zero payment errors</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Average days to closure</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">38.4 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 6.2 days vs LY • 69.5% fast-track (<30 days) • Continuous improvement</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Recovery & salvage</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$11.2M combined</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">$8.4M recovery • $2.8M salvage • 342 cases • 58% success rate</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Customer satisfaction</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">4.6/5.0</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">8.4K reviews • +42 NPS • 92% would recommend • Post-claim feedback</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">🏁 Closure optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">6 modules integrated • 18.5K closed YTD • 38.4d avg • 99.2% accuracy • $11.2M recovered</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- POLICY & COVERAGE INTEGRATION HUB SCREEN -->

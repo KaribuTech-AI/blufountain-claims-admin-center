@@ -1,0 +1,108 @@
+<div id="claim-detail-screen" class="screen">
+            <div class="dashboard">
+                <div class="detail-header">
+                    <button class="back-button" onclick="backToDashboard()">← Back to claims</button>
+                    <h2 style="font-size: 18px; font-weight: 500; margin-left: auto;">Claim <span id="detail-claim-id">CLM-78492</span></h2>
+                </div>
+
+                <div class="detail-content">
+                    <div class="detail-section">
+                        <h3>Claim Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Policyholder</span>
+                                <span class="detail-value">Jennifer Martinez</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Policy Number</span>
+                                <span class="detail-value">POL-45892</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Insurance Type</span>
+                                <span class="detail-value">Short-term Disability</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Claim Amount</span>
+                                <span class="detail-value">$8,500</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Date Filed</span>
+                                <span class="detail-value">March 11, 2026</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Status</span>
+                                <span class="status-badge status-pending">Pending Review</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Priority</span>
+                                <span class="priority-badge priority-high">HIGH</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Assigned To</span>
+                                <span class="detail-value">Sarah Kim</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Claim Details</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--color-text-secondary);">
+                            Claimant is requesting short-term disability benefits due to a work-related back injury sustained on March 8, 2026. Medical documentation indicates herniated disc requiring 6-8 weeks of recovery. Employee has been with the company for 4 years and is eligible for benefits under policy POL-45892.
+                        </p>
+                        <div style="margin-top: 16px;">
+                            <p style="font-size: 13px; font-weight: 500; margin-bottom: 8px;">Documents Attached:</p>
+                            <ul style="font-size: 14px; color: var(--color-text-secondary); margin-left: 20px;">
+                                <li>Medical Report - Dr. Anderson (March 9, 2026)</li>
+                                <li>Employer Incident Report (March 8, 2026)</li>
+                                <li>Claim Application Form</li>
+                                <li>W-2 Employment Verification</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Activity Timeline</h3>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-date">March 11, 2026 - 2:45 PM</div>
+                                <div class="timeline-content">
+                                    <span class="timeline-user">Sarah Kim</span> assigned claim for review
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">March 11, 2026 - 10:22 AM</div>
+                                <div class="timeline-content">
+                                    Claim submitted by <span class="timeline-user">Jennifer Martinez</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">March 9, 2026 - 3:15 PM</div>
+                                <div class="timeline-content">
+                                    Medical documentation uploaded
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-date">March 8, 2026 - 11:00 AM</div>
+                                <div class="timeline-content">
+                                    Incident reported to employer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Actions</h3>
+                        <div class="action-buttons">
+                            <button class="primary" onclick="approveClaimFlow()">Approve Claim</button>
+                            <button class="danger" onclick="denyClaimFlow()">Deny Claim</button>
+                            <button onclick="requestDocsFlow()">Request Documents</button>
+                            <button onclick="reassignClaim()">Assign to Another Adjuster</button>
+                            <button onclick="addNote()">Add Note</button>
+                            <button onclick="scheduleCall()">Schedule Call</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEW CLAIM SCREEN -->

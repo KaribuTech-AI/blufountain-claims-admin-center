@@ -1,0 +1,74 @@
+<div id="assessment-investigation-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔬</div>
+                            <div class="header-title">
+                                <h1>Claims Assessment & Investigation Hub</h1>
+                                <p>Loss assessment, damage evaluation, medical review, evidence collection, investigation, site inspection, validation, analysis, assignment, reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New assessment')">🔬 Assess</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Active assessments</p><p class="stat-value" style="color: #534AB7;">284</p><p class="stat-change positive">In progress</p></div>
+                    <div class="stat-card"><p class="stat-label">Investigations</p><p class="stat-value">84</p><p class="stat-change positive">Active cases</p></div>
+                    <div class="stat-card"><p class="stat-label">Evidence items</p><p class="stat-value">2,847</p><p class="stat-change positive">Collected</p></div>
+                    <div class="stat-card"><p class="stat-label">Site inspections</p><p class="stat-value">142</p><p class="stat-change positive">Scheduled</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg assessment time</p><p class="stat-value" style="color: #1D9E75;">4.8d</p><p class="stat-change positive">Completion</p></div>
+                    <div class="stat-card"><p class="stat-label">Validation rate</p><p class="stat-value" style="color: #1D9E75;">96.4%</p><p class="stat-change positive">Accuracy</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Assessment & Investigation Modules (10)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('loss-assessment-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOSS ASSESSMENT MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div><div style="font-size: 13px; margin-bottom: 16px;">Active assessments</div><div style="font-size: 13px; font-weight: 500;">→ Manage assessments</div></div>
+                        </div>
+                        <div onclick="showScreen('damage-assessment-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏚️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">DAMAGE ASSESSMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">187</div><div style="font-size: 13px; margin-bottom: 16px;">Damage evaluations</div><div style="font-size: 13px; font-weight: 500;">→ Assess damage</div></div>
+                        </div>
+                        <div onclick="showScreen('medical-assessment-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏥</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">MEDICAL ASSESSMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div><div style="font-size: 13px; margin-bottom: 16px;">Medical reviews</div><div style="font-size: 13px; font-weight: 500;">→ Review medical</div></div>
+                        </div>
+                        <div onclick="showScreen('evidence-collection-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📦</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">EVIDENCE COLLECTION MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div><div style="font-size: 13px; margin-bottom: 16px;">Evidence items</div><div style="font-size: 13px; font-weight: 500;">→ Manage evidence</div></div>
+                        </div>
+                        <div onclick="showScreen('investigation-case-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">INVESTIGATION CASE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div><div style="font-size: 13px; margin-bottom: 16px;">Active investigations</div><div style="font-size: 13px; font-weight: 500;">→ Manage cases</div></div>
+                        </div>
+                        <div onclick="showScreen('site-inspection-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏗️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SITE INSPECTION MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">142</div><div style="font-size: 13px; margin-bottom: 16px;">Scheduled inspections</div><div style="font-size: 13px; font-weight: 500;">→ Schedule inspections</div></div>
+                        </div>
+                        <div onclick="showScreen('claim-validation-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM VALIDATION CHECKS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.4%</div><div style="font-size: 13px; margin-bottom: 16px;">Validation accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Run validations</div></div>
+                        </div>
+                        <div onclick="showScreen('evidence-analysis-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔬</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM EVIDENCE ANALYSIS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">1,284</div><div style="font-size: 13px; margin-bottom: 16px;">Analyses completed</div><div style="font-size: 13px; font-weight: 500;">→ Analyze evidence</div></div>
+                        </div>
+                        <div onclick="showScreen('investigator-assignment-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👨‍🔬</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">INVESTIGATOR ASSIGNMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div><div style="font-size: 13px; margin-bottom: 16px;">Active investigators</div><div style="font-size: 13px; font-weight: 500;">→ Assign investigators</div></div>
+                        </div>
+                        <div onclick="showScreen('assessment-reporting-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSESSMENT REPORTING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div><div style="font-size: 13px; margin-bottom: 16px;">Reports generated</div><div style="font-size: 13px; font-weight: 500;">→ Generate reports</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOSS ASSESSMENT MANAGEMENT SUBMODULE -->

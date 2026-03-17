@@ -1,0 +1,70 @@
+<div id="fraud-detection-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🚨</div>
+                            <div class="header-title">
+                                <h1>Fraud Detection & Risk Management Hub</h1>
+                                <p>Risk scoring, suspicious claim detection, investigation workflows, case management, database integration, AI models, pattern analytics, alerts, and reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New fraud alert')">🚨 Alert</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Flagged claims</p><p class="stat-value" style="color: #D85A30;">147</p><p class="stat-change positive">5.2% of total</p></div>
+                    <div class="stat-card"><p class="stat-label">Confirmed fraud</p><p class="stat-value" style="color: #A32D2D;">23</p><p class="stat-change positive">Validated cases</p></div>
+                    <div class="stat-card"><p class="stat-label">Fraud prevented</p><p class="stat-value" style="color: #1D9E75;">$2.8M</p><p class="stat-change positive">YTD savings</p></div>
+                    <div class="stat-card"><p class="stat-label">AI accuracy</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">Detection rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Active investigations</p><p class="stat-value">58</p><p class="stat-change positive">In progress</p></div>
+                    <div class="stat-card"><p class="stat-label">Investigation ROI</p><p class="stat-value" style="color: #1D9E75;">567%</p><p class="stat-change positive">Return</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Fraud Detection & Risk Modules (9)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('fraud-risk-scoring-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD RISK SCORING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div><div style="font-size: 13px; margin-bottom: 16px;">AI accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Score risks</div></div>
+                        </div>
+                        <div onclick="showScreen('suspicious-detection-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUSPICIOUS CLAIM DETECTION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">147</div><div style="font-size: 13px; margin-bottom: 16px;">Flagged claims</div><div style="font-size: 13px; font-weight: 500;">→ Detect fraud</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-investigation-workflow-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD INVESTIGATION WORKFLOW</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">58</div><div style="font-size: 13px; margin-bottom: 16px;">Active investigations</div><div style="font-size: 13px; font-weight: 500;">→ Manage workflow</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-case-mgmt-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📁</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD CASE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">23</div><div style="font-size: 13px; margin-bottom: 16px;">Confirmed fraud</div><div style="font-size: 13px; font-weight: 500;">→ Manage cases</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-database-integration-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🗄️</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">EXTERNAL FRAUD DATABASE INTEGRATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">8</div><div style="font-size: 13px; margin-bottom: 16px;">Connected databases</div><div style="font-size: 13px; font-weight: 500;">→ Check databases</div></div>
+                        </div>
+                        <div onclick="showScreen('ai-fraud-models-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">AI FRAUD DETECTION MODELS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">12</div><div style="font-size: 13px; margin-bottom: 16px;">Active models</div><div style="font-size: 13px; font-weight: 500;">→ View models</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-pattern-analytics-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD PATTERN ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div><div style="font-size: 13px; margin-bottom: 16px;">Patterns identified</div><div style="font-size: 13px; font-weight: 500;">→ Analyze patterns</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-alert-mgmt-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔔</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD ALERT MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">284</div><div style="font-size: 13px; margin-bottom: 16px;">Alerts generated</div><div style="font-size: 13px; font-weight: 500;">→ Manage alerts</div></div>
+                        </div>
+                        <div onclick="showScreen('fraud-reporting-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FRAUD INVESTIGATION REPORTING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$2.8M</div><div style="font-size: 13px; margin-bottom: 16px;">Fraud prevented</div><div style="font-size: 13px; font-weight: 500;">→ Generate reports</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FRAUD RISK SCORING SUBMODULE -->

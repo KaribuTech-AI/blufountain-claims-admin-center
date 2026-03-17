@@ -1,0 +1,221 @@
+<div id="recovery-workflow-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚙️</div>
+                            <div class="header-title">
+                                <h1>Recovery Workflow Management</h1>
+                                <p>Workflow automation, stage transitions, task management, and process optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Configure workflow')">⚙️ Configure</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Avg cycle time</p>
+                        <p class="stat-value" style="color: #EF9F27;">186d</p>
+                        <p class="stat-change positive">Total duration</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Success rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">58.3%</p>
+                        <p class="stat-change positive">Cases won</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Workflow stages</p>
+                        <p class="stat-value">8</p>
+                        <p class="stat-change positive">Defined steps</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Automated tasks</p>
+                        <p class="stat-value" style="color: #1D9E75;">73%</p>
+                        <p class="stat-change positive">Workflow efficiency</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg stage time</p>
+                        <p class="stat-value">23d</p>
+                        <p class="stat-change positive">Per stage</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Bottlenecks</p>
+                        <p class="stat-value" style="color: #A32D2D;">3</p>
+                        <p class="stat-change positive">Need attention</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Recovery Workflow Stages</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;">
+                        
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">1. Case Identification</p>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">124</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #378ADD;">14 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Review claim • Identify potential • Assign specialist</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">2. Investigation</p>
+                                <span style="background: #E6F1FB; color: #378ADD; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">94</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #378ADD;">42 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Gather evidence • Verify liability • Document findings</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">3. Demand Letter</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">72</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75;">28 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Draft demand • Send to party • Await response</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">4. Negotiation</p>
+                                <span style="background: #FAEEDA; color: #BA7517; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">68</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #EF9F27;">68 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Counter-offers • Settlement discussion • Agreement</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">5. Legal Review</p>
+                                <span style="background: #EEEDFE; color: #534AB7; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">52</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #534AB7;">21 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Attorney review • Legal strategy • Filing decision</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">6. Litigation</p>
+                                <span style="background: #FCEBEB; color: #A32D2D; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">28</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #A32D2D;">284 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">File suit • Discovery • Trial/settlement</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">7. Collection</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">42</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75;">48 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Payment tracking • Follow-up • Receipt confirmation</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">8. Closure</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">199</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Avg duration</p>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75;">7 days</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Final documentation • Case archive • Reporting</p>
+                        </div>
+
+                    </div>
+
+                    <div class="analytics-section">
+                        <div class="analytics-card">
+                            <h3>Workflow efficiency metrics</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                                <div style="padding: 12px; background: #FAEEDA; border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #854F0B;">Average total cycle time</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #EF9F27; margin-bottom: 4px;">186 days</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">From identification to closure • ↓ 24 days vs LY • Continuous optimization</div>
+                                </div>
+                                <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Workflow automation rate</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">73%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Automated tasks • Email triggers • Document generation • Status updates</div>
+                                </div>
+                                <div style="padding: 12px; background: #FCEBEB; border-radius: 8px; border-left: 3px solid #A32D2D;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #7A1F1F;">Bottleneck stages</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #A32D2D; margin-bottom: 4px;">3 identified</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Litigation (284d) • Negotiation (68d) • Investigation (42d) • Improvement plans active</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Stage transition success rates</h3>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span style="color: var(--color-text-secondary);">Investigation → Demand</span>
+                                    <span style="font-weight: 500;">76% success</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 76%; background: #1D9E75;"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span style="color: var(--color-text-secondary);">Demand → Negotiation</span>
+                                    <span style="font-weight: 500;">72% success</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 72%; background: #1D9E75;"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span style="color: var(--color-text-secondary);">Negotiation → Settlement</span>
+                                    <span style="font-weight: 500;">64% success</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 64%; background: #EF9F27;"></div>
+                                </div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span style="color: var(--color-text-secondary);">Litigation → Recovery</span>
+                                    <span style="font-weight: 500;">68% success</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%; background: #534AB7;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEGAL COORDINATION SUBMODULE SCREEN -->

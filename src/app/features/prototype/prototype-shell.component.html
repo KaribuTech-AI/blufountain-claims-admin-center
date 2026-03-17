@@ -1,0 +1,100 @@
+<div class="prototype-shell">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <div class="sidebar-logo-icon">C</div>
+        <div class="sidebar-logo-text">ClaimFlow</div>
+      </div>
+      <div class="sidebar-subtitle">Admin Portal</div>
+    </div>
+
+    <div class="sidebar-nav">
+      @for (section of sidebarSections; track section.title) {
+        <div class="nav-section">
+          <div class="nav-section-title">{{ section.title }}</div>
+          @for (item of section.items; track item.label) {
+            <button
+              type="button"
+              class="nav-item nav-button"
+              [class.active]="isSidebarScreenActive(item.screenId)"
+              (click)="onSidebarItemClick(item.action, item.screenId)"
+            >
+              <span class="nav-icon">
+                <app-prototype-icon [name]="item.icon" />
+              </span>
+              <span>{{ item.label }}</span>
+              @if (item.badge) {
+                <span class="nav-badge">{{ item.badge }}</span>
+              }
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+  </div>
+
+  <div class="main-content">
+    <div class="shell-topbar">
+      <button type="button" class="shell-account" (click)="onSidebarItemClick('showUserMenu()', undefined)">
+        <div class="shell-account-copy">
+          <div class="shell-account-name">Admin User</div>
+          <div class="shell-account-role">Senior Adjuster</div>
+        </div>
+        <div class="shell-account-avatar">AK</div>
+      </button>
+    </div>
+
+    <div class="container">
+      @if (usesAngularScreen()) {
+        @if (screenLoading()) {
+          <section class="prototype-placeholder">
+            <div class="detail-content">
+              <div class="detail-section">
+                <h3>Loading</h3>
+                <p class="detail-copy">Fetching the latest screen data.</p>
+              </div>
+            </div>
+          </section>
+        } @else if (screenError()) {
+          <section class="prototype-placeholder">
+            <div class="detail-content">
+              <div class="detail-section">
+                <h3>Something Went Wrong</h3>
+                <p class="detail-copy">{{ screenError() }}</p>
+              </div>
+            </div>
+          </section>
+        } @else {
+          @switch (activeScreenId()) {
+            @case ('dashboard-screen') {
+              <app-dashboard-screen
+                [data]="dashboardData()"
+                [claims]="claims()"
+                (action)="processAction($event)"
+                (claimSelected)="openClaimDetail($event)"
+              />
+            }
+            @case ('all-claims-screen') {
+              <app-all-claims-screen
+                [overview]="claimsOverview()"
+                [claims]="claims()"
+                (action)="processAction($event)"
+                (claimSelected)="openClaimDetail($event)"
+              />
+            }
+            @case ('claim-detail-screen') {
+              <app-claim-detail-screen [claim]="claimDetail()" (action)="processAction($event)" (back)="goBackToClaims()" />
+            }
+          }
+        }
+      } @else {
+        <div [innerHTML]="legacyScreenHtml()" (click)="handleMarkupClick($event)"></div>
+      }
+    </div>
+  </div>
+
+  @if (modalHtml()) {
+    <div [innerHTML]="modalHtml()" (click)="handleMarkupClick($event)"></div>
+  }
+</div>

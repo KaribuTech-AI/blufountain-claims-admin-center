@@ -1,0 +1,35 @@
+<div id="note-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Note</h2>
+                <button class="close-btn" onclick="closeModal('note-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Note Type</label>
+                    <select>
+                        <option>General Note</option>
+                        <option>Internal Comment</option>
+                        <option>Decision Rationale</option>
+                        <option>Follow-up Required</option>
+                        <option>Investigation Finding</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Note Content</label>
+                    <textarea placeholder="Enter your note here..." style="min-height: 150px;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox"> Mark as important
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('note-modal')">Cancel</button>
+                <button class="primary" onclick="submitNote()">Add Note</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Schedule Call Modal -->

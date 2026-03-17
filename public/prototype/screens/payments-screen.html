@@ -1,0 +1,149 @@
+<div id="payments-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💳</div>
+                            <div class="header-title">
+                                <h1>Claims Payment & Settlement</h1>
+                                <p>Payment processing, settlement calculation, and financial reconciliation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Process payments')">Process Payments</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total payout YTD</p>
+                        <p class="stat-value">$45.8M</p>
+                        <p class="stat-change positive">2,847 claims paid</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending payments</p>
+                        <p class="stat-value" style="color: #EF9F27;">$1.8M</p>
+                        <p class="stat-change neutral">43 claims</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg payment</p>
+                        <p class="stat-value">$16,089</p>
+                        <p class="stat-change neutral">Per claim</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Settlement time</p>
+                        <p class="stat-value" style="color: #1D9E75;">2.8d</p>
+                        <p class="stat-change positive">↓ 1.2d faster</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Reinsurance recovery</p>
+                        <p class="stat-value" style="color: #378ADD;">$8.4M</p>
+                        <p class="stat-change positive">18.3% of payout</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Success rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">99.4%</p>
+                        <p class="stat-change positive">17 failed</p>
+                    </div>
+                </div>
+
+                <div style="padding: 0 24px 24px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="margin-bottom: 12px;">
+                            <div style="font-size: 13px; color: var(--color-text-secondary);">🏦 Direct Deposit</div>
+                            <div style="font-size: 20px; font-weight: 600;">1,847</div>
+                        </div>
+                        <div style="font-size: 12px; color: var(--color-text-secondary);">$32.4M • 1.2d avg</div>
+                    </div>
+                    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="margin-bottom: 12px;">
+                            <div style="font-size: 13px; color: var(--color-text-secondary);">✉️ Check</div>
+                            <div style="font-size: 20px; font-weight: 600;">684</div>
+                        </div>
+                        <div style="font-size: 12px; color: var(--color-text-secondary);">$9.2M • 5.8d avg</div>
+                    </div>
+                    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="margin-bottom: 12px;">
+                            <div style="font-size: 13px; color: var(--color-text-secondary);">💳 Debit Card</div>
+                            <div style="font-size: 20px; font-weight: 600;">248</div>
+                        </div>
+                        <div style="font-size: 12px; color: var(--color-text-secondary);">$3.4M • 0.5d avg</div>
+                    </div>
+                    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 16px; border: 1px solid var(--color-border);">
+                        <div style="margin-bottom: 12px;">
+                            <div style="font-size: 13px; color: var(--color-text-secondary);">📱 Digital Wallet</div>
+                            <div style="font-size: 20px; font-weight: 600;">68</div>
+                        </div>
+                        <div style="font-size: 12px; color: var(--color-text-secondary);">$800K • 0.3d avg</div>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Payment distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Direct deposit</span>
+                                <span style="font-weight: 500;">$32.4M • 65%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Check</span>
+                                <span style="font-weight: 500;">$9.2M • 24%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 24%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Debit card</span>
+                                <span style="font-weight: 500;">$3.4M • 9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Digital wallet</span>
+                                <span style="font-weight: 500;">$800K • 2%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Reinsurance & reconciliation</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Reinsurance recovery YTD</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">$8.4M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">18.3% of total • 127 claims</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Reconciled payments</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">2,784</div>
+                                <div style="font-size: 11px; color: #1D9E75;">97.8% reconciliation rate</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #FAEEDA;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Pending reinsurance</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">12</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">$1.2M potential recovery</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ANALYTICS SCREEN -->

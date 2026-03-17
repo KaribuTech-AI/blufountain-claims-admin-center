@@ -1,0 +1,287 @@
+<div id="subrogation-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔄</div>
+                            <div class="header-title">
+                                <h1>Subrogation Management Hub</h1>
+                                <p>Third-party recovery, liability tracking, legal coordination, financial management, and recovery analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showSubrogation()">📊 Legacy View</button>
+                        <button onclick="exportReport()">📥 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('New recovery case')">New Recovery</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery potential</p>
+                        <p class="stat-value" style="color: #1D9E75;">$18.6M</p>
+                        <p class="stat-change positive">Active pipeline</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovered YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">$8.4M</p>
+                        <p class="stat-change positive">↑ 18% vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery success rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">58.3%</p>
+                        <p class="stat-change positive">Cases won</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active cases</p>
+                        <p class="stat-value">342</p>
+                        <p class="stat-change positive">In pursuit</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg recovery time</p>
+                        <p class="stat-value">186d</p>
+                        <p class="stat-change positive">From filing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Legal cases</p>
+                        <p class="stat-value">84</p>
+                        <p class="stat-change positive">In litigation</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚖️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Legal action required</p>
+                                <p style="font-size: 12px; color: #BA7517;">28 cases approaching statute of limitations deadline</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">💰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Large recovery settled</p>
+                                <p style="font-size: 12px; color: #1D9E75;">$847K collected from third-party liability case</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Subrogation Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Subrogation Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showSubrogationCases()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUBROGATION CASE MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active cases</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">124</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">In pursuit</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">218</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage cases</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showThirdPartyLiability()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👤</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">THIRD-PARTY LIABILITY TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">487</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Liable parties tracked</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Identified</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Contacted</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">203</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track liability</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRecoveryWorkflow()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY WORKFLOW MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">186d</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg cycle time</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Success</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">58%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Stages</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View workflows</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLegalCoordination()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LEGAL COORDINATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">84</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Legal cases active</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Attorneys</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">42</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Win rate</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">68%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Legal cases</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showSubrogationFinancial()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SUBROGATION FINANCIAL TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$8.4M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Recovered YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pipeline</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$18.6M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg rec</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$24.6K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View financials</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRecoveryAnalytics()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RECOVERY ANALYTICS & REPORTING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">567%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">ROI on recovery</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Reports</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">24</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">KPIs</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View analytics</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Recovery Pipeline Overview -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Recovery pipeline by stage</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔍 Investigation</span>
+                                <span style="font-weight: 500;">124 cases • $3.2M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 36%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📧 Demand sent</span>
+                                <span style="font-weight: 500;">94 cases • $4.8M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🤝 Negotiation</span>
+                                <span style="font-weight: 500;">72 cases • $3.4M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 21%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚖️ Litigation</span>
+                                <span style="font-weight: 500;">52 cases • $7.2M potential</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 16%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total active</p>
+                                <p style="color: #1D9E75;">342</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Pipeline value</p>
+                                <p style="color: #1D9E75;">$18.6M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Success rate</p>
+                                <p style="color: #1D9E75;">58.3%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Subrogation performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Recovery success rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">58.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Cases won • 199 successful • 142 unsuccessful • 1 pending verdict</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Average recovery cycle</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">186 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">From case open to payment • Investigation 42d • Demand 28d • Negotiation 68d • Collection 48d</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Recovery ROI</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">567%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">$8.4M recovered • $1.48M costs • $6.92M net recovery • Strong performance</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SUBROGATION CASE MANAGEMENT SUBMODULE SCREEN -->

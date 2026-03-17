@@ -1,0 +1,56 @@
+<div id="export-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Export Report</h2>
+                <button class="close-btn" onclick="closeModal('export-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Report Type</label>
+                    <select>
+                        <option>Claims Summary</option>
+                        <option>Detailed Claims Report</option>
+                        <option>Payment History</option>
+                        <option>Analytics Dashboard</option>
+                        <option>Custom Report</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date Range</label>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <input type="date" placeholder="From">
+                        <input type="date" placeholder="To">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Format</label>
+                    <select>
+                        <option>PDF</option>
+                        <option>Excel (XLSX)</option>
+                        <option>CSV</option>
+                        <option>JSON</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Include</label>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" checked> Charts and graphs
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox" checked> Summary statistics
+                        </label>
+                        <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                            <input type="checkbox"> Individual claim details
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('export-modal')">Cancel</button>
+                <button class="primary" onclick="submitExport()">Export</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notifications Modal -->

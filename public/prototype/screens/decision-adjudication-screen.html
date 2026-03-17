@@ -1,0 +1,294 @@
+<div id="decision-adjudication-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Decision & Adjudication Management</h1>
+                                <p>Claim decisions, automated adjudication, review workflows, decision analytics, and quality control</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showAllClaims()">📋 Pending Decisions</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Configure decision rules')">Configure Rules</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Auto-adjudication rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">42.3%</p>
+                        <p class="stat-change positive">↑ 8.4% improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Manual review queue</p>
+                        <p class="stat-value" style="color: #EF9F27;">186</p>
+                        <p class="stat-change neutral">Awaiting decision</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approval rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">91.7%</p>
+                        <p class="stat-change positive">Within target range</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg decision time</p>
+                        <p class="stat-value" style="color: #1D9E75;">1.8d</p>
+                        <p class="stat-change positive">↓ 0.9d faster</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Appeals rate</p>
+                        <p class="stat-value">3.2%</p>
+                        <p class="stat-change positive">↓ 1.1% reduction</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Decision accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.8%</p>
+                        <p class="stat-change positive">Quality score</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">SLA approaching</p>
+                                <p style="font-size: 12px; color: #BA7517;">34 claims need decision within 24 hours</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Prioritizing claims...')">Prioritize</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🤖</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Auto-approved today</p>
+                                <p style="font-size: 12px; color: #1D9E75;">1,204 claims processed automatically</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing auto-decisions...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decision Management Widgets -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Automated Adjudication: 1,204 auto-approved, 42.3% automation rate, AI-powered decisions')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AUTOMATED ADJUDICATION</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42.3%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Automation rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto-approved</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">1,204</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">98.4%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View automation</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Manual Review Queue: 186 pending, priority scoring, adjuster assignment')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👤</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">MANUAL REVIEW QUEUE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">186</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Awaiting decision</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">High priority</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">34</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg age</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">1.8d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View queue</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Decision Analytics: 91.7% approval, 3.2% appeals, 96.8% accuracy')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DECISION ANALYTICS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">91.7%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Approval rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Denials</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8.3%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Appeals</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">3.2%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View analytics</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Quality Control: 96.8% accuracy, peer review, audit findings')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✓</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">QUALITY CONTROL</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Decision accuracy</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Reviewed</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Issues</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">9</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View audits</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Policy Compliance: Rule engine, guideline adherence, consistency checks')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">POLICY COMPLIANCE</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">98.6%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Guideline adherence</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rules</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">248</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Checks</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">2,847</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View rules</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Appeal Management: 3.2% appeal rate, 68% overturn rate, resolution tracking')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚡</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">APPEAL MANAGEMENT</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">3.2%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Appeal rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Active</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">28</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Overturn</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">68%</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View appeals</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Decision outcomes by type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✅ Approved</span>
+                                <span style="font-weight: 500;">2,611 claims • 91.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 92%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">❌ Denied</span>
+                                <span style="font-weight: 500;">236 claims • 8.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🤖 Auto-adjudicated</span>
+                                <span style="font-weight: 500;">1,204 claims • 42.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">👤 Manual review</span>
+                                <span style="font-weight: 500;">1,643 claims • 57.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total decisions</p>
+                                <p>2,847</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg time</p>
+                                <p style="color: #1D9E75;">1.8d</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Accuracy</p>
+                                <p style="color: #1D9E75;">96.8%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Adjudication performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Auto-adjudication success</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">42.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">1,204 auto-approved • 98.4% accuracy • ↑ 8.4% improvement</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Decision speed</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">1.8 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average decision time • ↓ 0.9 days faster • Auto: 0.3d, Manual: 2.4d</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">96.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">284 decisions audited • 9 issues found • Peer review program</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #D85A30;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Appeal outcomes</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">3.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">91 appeals filed • 68% overturn rate • 28 active appeals</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">📈 Decision optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">248 active rules • 98.6% policy compliance • 186 pending manual review • 34 high-priority</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INVESTIGATION MANAGEMENT SCREEN -->

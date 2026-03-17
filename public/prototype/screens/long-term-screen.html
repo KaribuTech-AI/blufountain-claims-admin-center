@@ -1,0 +1,570 @@
+<div id="long-term-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">📅</div>
+                            <div class="header-title">
+                                <h1>Long-Term Disability Claims</h1>
+                                <p>Extended income protection for chronic conditions and permanent disabilities</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" onclick="createNewClaim()">+ New LTD Claim</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total LTD claims</p>
+                        <p class="stat-value">427</p>
+                        <p class="stat-change positive">↑ 6% from last month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active long-term cases</p>
+                        <p class="stat-value" style="color: #7F77DD;">186</p>
+                        <p class="stat-change neutral">Ongoing support</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approved this month</p>
+                        <p class="stat-value">12</p>
+                        <p class="stat-change neutral">Avg. $4,850/mo</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total monthly payout</p>
+                        <p class="stat-value">$902K</p>
+                        <p class="stat-change positive">186 beneficiaries</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg case duration</p>
+                        <p class="stat-value">3.2 yrs</p>
+                        <p class="stat-change neutral">Median: 2.8 years</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">18.4%</p>
+                        <p class="stat-change positive">Return to work</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts Row -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #EEEDFE 0%, #D4D2F7 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #7F77DD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🔄</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #534AB7;">Annual recertification due</p>
+                                <p style="font-size: 12px; color: #7F77DD;">34 claims require annual medical review and benefit recertification</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Opening recertification queue...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: var(--border-radius-lg); border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Vocational rehab opportunities</p>
+                                <p style="font-size: 12px; color: #1D9E75;">18 claimants eligible for return-to-work programs</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Opening vocational services...')">Assess</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, claimant name, condition...">
+                    <select>
+                        <option>All disability categories</option>
+                        <option>Musculoskeletal</option>
+                        <option>Neurological</option>
+                        <option>Mental health</option>
+                        <option>Cardiovascular</option>
+                        <option>Cancer/Oncology</option>
+                        <option>Chronic pain</option>
+                    </select>
+                    <select>
+                        <option>All statuses</option>
+                        <option>Active - Receiving benefits</option>
+                        <option>Annual review pending</option>
+                        <option>Vocational rehab</option>
+                        <option>Social Security offset</option>
+                        <option>Closed - Recovered</option>
+                        <option>Closed - Max benefit</option>
+                    </select>
+                    <select>
+                        <option>All benefit periods</option>
+                        <option>Under 1 year</option>
+                        <option>1-2 years</option>
+                        <option>2-5 years</option>
+                        <option>Over 5 years</option>
+                    </select>
+                </div>
+
+                <!-- Claims Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Long-term disability claims</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Case management dashboard coming soon!')">Case Management</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Claim ID</th>
+                                <th>Claimant</th>
+                                <th>Disability Condition</th>
+                                <th>Category</th>
+                                <th>Monthly Benefit</th>
+                                <th>Benefit Start</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CLM-78536')" style="cursor: pointer; background: rgba(127, 119, 221, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78536</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">KM</div>
+                                        <div>
+                                            <div class="user-details">Katherine Martinez</div>
+                                            <div class="user-policy">Age 52 • Policy #LTD-92847</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Multiple Sclerosis</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Progressive, limited mobility</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">Neurological</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$6,200</td>
+                                <td style="color: var(--color-text-secondary);">Jan 15, 2022</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">4.2 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">50 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78536')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78532')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78532</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">DW</div>
+                                        <div>
+                                            <div class="user-details">David Wilson</div>
+                                            <div class="user-policy">Age 48 • Policy #LTD-88291</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Chronic Back Pain</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Spinal stenosis, degenerative</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Musculoskeletal</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$5,800</td>
+                                <td style="color: var(--color-text-secondary);">Mar 10, 2023</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">3.0 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">36 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78532')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78528')" style="cursor: pointer; background: rgba(127, 119, 221, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78528</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">SA</div>
+                                        <div>
+                                            <div class="user-details">Sarah Anderson</div>
+                                            <div class="user-policy">Age 44 • Policy #LTD-76542</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Severe Depression/Anxiety</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Treatment-resistant, PTSD</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FBEAF0; color: #993556; border-radius: 8px; font-weight: 500;">Mental Health</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$4,900</td>
+                                <td style="color: var(--color-text-secondary);">Jun 20, 2023</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">2.7 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">33 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-review">Annual Review Due</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78528')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78524')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78524</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">RC</div>
+                                        <div>
+                                            <div class="user-details">Robert Chen</div>
+                                            <div class="user-policy">Age 55 • Policy #LTD-65432</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Stroke Sequelae</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Right hemiparesis, aphasia</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #EEEDFE; color: #534AB7; border-radius: 8px; font-weight: 500;">Neurological</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$5,400</td>
+                                <td style="color: var(--color-text-secondary);">Sep 5, 2021</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">4.5 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">54 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78524')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78519')" style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78519</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">LP</div>
+                                        <div>
+                                            <div class="user-details">Linda Phillips</div>
+                                            <div class="user-policy">Age 42 • Policy #LTD-54321</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Fibromyalgia</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Chronic fatigue syndrome</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">Chronic Pain</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$4,200</td>
+                                <td style="color: var(--color-text-secondary);">Nov 12, 2022</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">3.3 years</div>
+                                        <div style="font-size: 11px; color: #1D9E75;">Vocational rehab</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Rehab Program</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78519')">Assess RTW</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78515')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78515</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">JT</div>
+                                        <div>
+                                            <div class="user-details">James Taylor</div>
+                                            <div class="user-policy">Age 59 • Policy #LTD-43287</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Rheumatoid Arthritis</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Severe joint damage, bilateral</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">Musculoskeletal</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$6,500</td>
+                                <td style="color: var(--color-text-secondary);">Feb 18, 2020</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">6.1 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">73 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78515')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78511')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78511</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAECE7; color: #993C1D;">MB</div>
+                                        <div>
+                                            <div class="user-details">Maria Baker</div>
+                                            <div class="user-policy">Age 51 • Policy #LTD-38291</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Breast Cancer Metastatic</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Stage 4, ongoing treatment</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Oncology</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$5,100</td>
+                                <td style="color: var(--color-text-secondary);">Aug 8, 2023</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">2.6 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">31 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78511')">Manage</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78506')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78506</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">TH</div>
+                                        <div>
+                                            <div class="user-details">Thomas Harris</div>
+                                            <div class="user-policy">Age 46 • Policy #LTD-29384</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Heart Failure</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">CHF, EF 25%, cardiomyopathy</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 12px; padding: 3px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">Cardiovascular</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$4,700</td>
+                                <td style="color: var(--color-text-secondary);">Apr 15, 2024</td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500; color: #7F77DD;">1.9 years</div>
+                                        <div style="font-size: 11px; color: var(--color-text-secondary);">23 months active</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #EEEDFE; color: #534AB7;">Active</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78506')">Manage</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 186 active claims</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>24</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Disability Category Distribution -->
+                    <div class="analytics-card">
+                        <h3>Claims by disability category</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Musculoskeletal disorders</span>
+                                <span style="font-weight: 500;">112 claims • $632K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 28%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Neurological conditions</span>
+                                <span style="font-weight: 500;">89 claims • $512K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 22%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Mental health</span>
+                                <span style="font-weight: 500;">78 claims • $368K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 19%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Cancer/Oncology</span>
+                                <span style="font-weight: 500;">64 claims • $328K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 16%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Cardiovascular</span>
+                                <span style="font-weight: 500;">52 claims • $268K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 13%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Chronic pain syndromes</span>
+                                <span style="font-weight: 500;">32 claims • $136K/mo</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg benefit</p>
+                                <p>$4,850/mo</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg duration</p>
+                                <p>3.2 years</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Max benefit</p>
+                                <p>$8,200/mo</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duration & Outcomes -->
+                    <div class="analytics-card">
+                        <h3>Claims by benefit duration</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Under 1 year</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">34</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Recent transitions from STD</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">1-2 years</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">48</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Stabilized conditions</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #EEEDFE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">2-5 years</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">76</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Long-term management</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Over 5 years</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">28</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Permanent disabilities</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📈 Recovery & outcomes</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">18.4% return to work rate • 12% transition to Social Security • 8% reach max benefit period</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #EEEDFE; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🎯 Case management focus</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Active vocational rehabilitation programs show 34% higher return-to-work success</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SETTLEMENTS SCREEN -->

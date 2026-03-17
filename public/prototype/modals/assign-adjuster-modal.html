@@ -1,0 +1,177 @@
+<div id="assign-adjuster-modal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>Assign Loss Adjuster</h2>
+                <button class="close-btn" onclick="closeModal('assign-adjuster-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                
+                <!-- Step 1: Select Claim -->
+                <div id="assign-step-1" style="display: block;">
+                    <h3 style="font-size: 16px; margin-bottom: 16px; color: var(--color-text-primary);">Step 1: Select Claim</h3>
+                    <div class="form-group">
+                        <label>Search for Claim</label>
+                        <input type="text" placeholder="Search by claim ID, claimant name, policy number..." id="claim-search">
+                    </div>
+                    
+                    <!-- Recent Claims Needing Assignment -->
+                    <div style="margin-top: 24px;">
+                        <h4 style="font-size: 14px; font-weight: 500; margin-bottom: 12px; color: var(--color-text-secondary);">Recent claims needing adjuster assignment:</h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px; max-height: 300px; overflow-y: auto;">
+                            <div onclick="selectClaimForAssignment('CLM-78598', 'Property Damage - Fire', 'Robert Williams', '$145,000')" style="padding: 12px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 4px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">CLM-78598 • Robert Williams</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Property Damage - Fire • Estimated: $145,000</div>
+                                    </div>
+                                    <span style="background: #FAEEDA; color: #BA7517; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">HIGH PRIORITY</span>
+                                </div>
+                                <div style="font-size: 11px; color: var(--color-text-tertiary);">Filed: Mar 12, 2026 • Region: Northeast</div>
+                            </div>
+                            
+                            <div onclick="selectClaimForAssignment('CLM-78592', 'Auto Accident - Liability', 'Jennifer Davis', '$42,000')" style="padding: 12px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 4px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">CLM-78592 • Jennifer Davis</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Auto Accident - Liability • Estimated: $42,000</div>
+                                    </div>
+                                    <span style="background: #E6F1FB; color: #185FA5; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">NORMAL</span>
+                                </div>
+                                <div style="font-size: 11px; color: var(--color-text-tertiary);">Filed: Mar 11, 2026 • Region: Midwest</div>
+                            </div>
+                            
+                            <div onclick="selectClaimForAssignment('CLM-78587', 'Workers Comp - Back Injury', 'Michael Chen', '$28,500')" style="padding: 12px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 4px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">CLM-78587 • Michael Chen</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Workers Comp - Back Injury • Estimated: $28,500</div>
+                                    </div>
+                                    <span style="background: #E6F1FB; color: #185FA5; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">NORMAL</span>
+                                </div>
+                                <div style="font-size: 11px; color: var(--color-text-tertiary);">Filed: Mar 10, 2026 • Region: West Coast</div>
+                            </div>
+                            
+                            <div onclick="selectClaimForAssignment('CLM-78581', 'Complex Commercial - Liability', 'Anderson Corp', '$380,000')" style="padding: 12px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 4px;">
+                                    <div>
+                                        <div style="font-weight: 500; font-size: 14px;">CLM-78581 • Anderson Corp</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Complex Commercial - Liability • Estimated: $380,000</div>
+                                    </div>
+                                    <span style="background: #FCEBEB; color: #A32D2D; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">URGENT</span>
+                                </div>
+                                <div style="font-size: 11px; color: var(--color-text-tertiary);">Filed: Mar 9, 2026 • Region: West Coast</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                        <p style="font-size: 12px; color: #0F6E56;"><strong>💡 Tip:</strong> Click on a claim above to see recommended adjusters based on specialization, region, and availability.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Select Adjuster (Initially Hidden) -->
+                <div id="assign-step-2" style="display: none;">
+                    <button onclick="backToClaimSelection()" style="background: none; border: none; color: #EF9F27; cursor: pointer; font-size: 14px; margin-bottom: 16px; padding: 0;">← Back to claim selection</button>
+                    
+                    <div style="padding: 16px; background: var(--color-background-secondary); border-radius: 8px; margin-bottom: 20px; border-left: 3px solid #EF9F27;">
+                        <div style="font-size: 12px; color: var(--color-text-secondary); margin-bottom: 4px;">Selected Claim:</div>
+                        <div style="font-weight: 500; font-size: 15px; margin-bottom: 4px;" id="selected-claim-id">CLM-78598</div>
+                        <div style="font-size: 13px; color: var(--color-text-secondary);" id="selected-claim-details">Property Damage - Fire • Robert Williams • $145,000</div>
+                    </div>
+                    
+                    <h3 style="font-size: 16px; margin-bottom: 12px; color: var(--color-text-primary);">Step 2: Select Loss Adjuster</h3>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; gap: 8px; margin-bottom: 12px;">
+                            <button onclick="filterAdjusters('recommended')" id="filter-recommended" class="primary" style="font-size: 13px; padding: 6px 12px; background: #EF9F27; border-color: #EF9F27;">Recommended (5)</button>
+                            <button onclick="filterAdjusters('all')" id="filter-all" style="font-size: 13px; padding: 6px 12px;">All Available (34)</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommended Adjusters -->
+                    <div style="display: flex; flex-direction: column; gap: 12px; max-height: 350px; overflow-y: auto;">
+                        <div onclick="selectAdjuster('James Crawford', 'LA-48291', '4.8/5', '3.8 days')" style="padding: 14px; background: #E1F5EE; border-radius: 8px; cursor: pointer; border: 2px solid #1D9E75; transition: all 0.2s;">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #0F6E56; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px;">JC</div>
+                                <div style="flex: 1;">
+                                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 2px;">
+                                        <div style="font-weight: 500; font-size: 15px;">James Crawford</div>
+                                        <span style="background: #1D9E75; color: white; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">TOP MATCH</span>
+                                    </div>
+                                    <div style="font-size: 12px; color: #0F6E56;">Property Damage • Northeast • 15 years exp</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">4.8/5</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">142 reviews</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 16px; font-size: 12px; color: #0F6E56;">
+                                <div>📊 8/12 capacity</div>
+                                <div>⏱️ 3.8d avg turnaround</div>
+                                <div>📋 License: LA-48291</div>
+                            </div>
+                            <div style="margin-top: 8px; padding: 8px; background: white; border-radius: 6px;">
+                                <div style="font-size: 11px; color: #0F6E56; font-weight: 500;">Why recommended:</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">✓ Exact specialization match • ✓ Same region • ✓ Available capacity • ✓ Top performance rating</div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectAdjuster('Linda Thompson', 'LA-49823', '4.9/5', '4.5 days')" style="padding: 14px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #534AB7; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px;">LT</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 500; font-size: 15px; margin-bottom: 2px;">Linda Thompson</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Complex Commercial • West Coast • 22 years exp</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 14px; font-weight: 500; color: #1D9E75;">4.9/5</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">234 reviews</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 16px; font-size: 12px; color: var(--color-text-secondary);">
+                                <div>📊 6/8 capacity</div>
+                                <div>⏱️ 4.5d avg turnaround</div>
+                                <div>📋 License: LA-49823</div>
+                            </div>
+                        </div>
+                        
+                        <div onclick="selectAdjuster('Sarah Williams', 'LA-50192', '4.2/5', '5.3 days')" style="padding: 14px; background: var(--color-background-secondary); border-radius: 8px; cursor: pointer; border: 2px solid transparent; transition: all 0.2s;" onmouseover="this.style.borderColor='#EF9F27'" onmouseout="this.style.borderColor='transparent'">
+                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                                <div style="width: 40px; height: 40px; border-radius: 50%; background: #378ADD; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px;">SW</div>
+                                <div style="flex: 1;">
+                                    <div style="font-weight: 500; font-size: 15px; margin-bottom: 2px;">Sarah Williams</div>
+                                    <div style="font-size: 12px; color: var(--color-text-secondary);">Property Damage • Southeast • 11 years exp</div>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 14px; font-weight: 500;">4.2/5</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">112 reviews</div>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 16px; font-size: 12px; color: var(--color-text-secondary);">
+                                <div>📊 5/12 capacity</div>
+                                <div>⏱️ 5.3d avg turnaround</div>
+                                <div>📋 License: LA-50192</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 16px; padding: 12px; background: #FAEEDA; border-radius: 8px;">
+                        <div style="font-size: 13px; font-weight: 500; margin-bottom: 4px; color: #854F0B;">Assignment Details</div>
+                        <div class="form-group" style="margin-bottom: 12px;">
+                            <label style="font-size: 12px;">Expected completion date</label>
+                            <input type="date" value="2026-03-20" style="font-size: 13px;">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label style="font-size: 12px;">Assignment notes (optional)</label>
+                            <textarea placeholder="Add any specific instructions for the adjuster..." rows="2" style="font-size: 13px;"></textarea>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('assign-adjuster-modal')">Cancel</button>
+                <button class="primary" id="assign-btn" style="background: #EF9F27; border-color: #EF9F27;" onclick="submitAdjusterAssignment()" disabled>Assign Adjuster</button>
+            </div>
+        </div>
+    </div>

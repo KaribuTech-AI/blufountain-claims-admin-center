@@ -1,0 +1,115 @@
+<div id="loyalty-integration-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showCustomerRetention()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🎁</div>
+                            <div class="header-title">
+                                <h1>Loyalty Program Integration</h1>
+                                <p>Points management, rewards tracking, tier benefits, engagement metrics, and program analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Manage tiers')">🏆 Tiers</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Award points')">Award Points</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active members</p>
+                        <p class="stat-value" style="color: #534AB7;">8,247</p>
+                        <p class="stat-change positive">Enrolled</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Points issued YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.2M</p>
+                        <p class="stat-change positive">Rewards</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Rewards redeemed</p>
+                        <p class="stat-value">1,284</p>
+                        <p class="stat-change positive">This year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Engagement rate</p>
+                        <p class="stat-value" style="color: #378ADD;">34%</p>
+                        <p class="stat-change positive">Active users</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg points per member</p>
+                        <p class="stat-value">509</p>
+                        <p class="stat-change positive">Balance</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Tier upgrades</p>
+                        <p class="stat-value" style="color: #1D9E75;">342</p>
+                        <p class="stat-change positive">This quarter</p>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Membership tier distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🥉 Bronze</span>
+                                <span style="font-weight: 500;">5,284 members • 64%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 64%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🥈 Silver</span>
+                                <span style="font-weight: 500;">2,284 members • 28%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 28%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🥇 Gold</span>
+                                <span style="font-weight: 500;">572 members • 7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 7%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💎 Platinum</span>
+                                <span style="font-weight: 500;">107 members • 1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 1%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Loyalty program impact</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Member retention rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">96.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">vs 92.4% non-members • 4.4% uplift • Strong program performance</div>
+                            </div>
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #3E3686;">Engagement rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #534AB7; margin-bottom: 4px;">34%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">2,803 active • Regular redemptions • Targeted communications working</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RETENTION RISK ANALYTICS SUBMODULE SCREEN -->

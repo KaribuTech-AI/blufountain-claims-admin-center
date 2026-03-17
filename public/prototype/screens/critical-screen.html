@@ -1,0 +1,528 @@
+<div id="critical-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; font-size: 18px;">🏥</div>
+                            <div class="header-title">
+                                <h1>Critical Illness Insurance</h1>
+                                <p>Serious medical condition claims and recovery support</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export Report</button>
+                        <button class="primary" onclick="createNewClaim()">+ New Critical Illness Claim</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total critical illness claims</p>
+                        <p class="stat-value">198</p>
+                        <p class="stat-change positive">↑ 12% from last month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active claims</p>
+                        <p class="stat-value" style="color: #D85A30;">47</p>
+                        <p class="stat-change neutral">Under medical review</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approved this month</p>
+                        <p class="stat-value">23</p>
+                        <p class="stat-change neutral">Avg. $28,450</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total payout YTD</p>
+                        <p class="stat-value">$3.2M</p>
+                        <p class="stat-change positive">164 claims paid</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Medical review time</p>
+                        <p class="stat-value">6.8d</p>
+                        <p class="stat-change neutral">Specialist consults</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Approval rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">82.3%</p>
+                        <p class="stat-change positive">Industry avg: 78%</p>
+                    </div>
+                </div>
+
+                <!-- High Priority Alert -->
+                <div style="padding: 0 24px 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C4C4 100%); padding: 20px; border-radius: var(--border-radius-lg); border-left: 4px solid #D85A30; display: flex; align-items: center; gap: 16px;">
+                        <div style="font-size: 32px;">🚨</div>
+                        <div style="flex: 1;">
+                            <p style="font-weight: 500; font-size: 15px; margin-bottom: 4px; color: #8B2B1C;">Expedited review required</p>
+                            <p style="font-size: 13px; color: #A32D2D;">8 terminal diagnosis claims require urgent processing • 3 awaiting specialist consultation</p>
+                        </div>
+                        <button class="primary" style="background: #D85A30; border-color: #D85A30;" onclick="alert('Opening urgent review queue...')">Urgent Queue</button>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by claim ID, policyholder, diagnosis...">
+                    <select>
+                        <option>All conditions</option>
+                        <option>Cancer</option>
+                        <option>Heart attack</option>
+                        <option>Stroke</option>
+                        <option>Organ failure</option>
+                        <option>Other critical illness</option>
+                    </select>
+                    <select>
+                        <option>All statuses</option>
+                        <option>Pending medical review</option>
+                        <option>Specialist consultation</option>
+                        <option>Approved</option>
+                        <option>Denied</option>
+                        <option>Additional info needed</option>
+                    </select>
+                    <select>
+                        <option>All severity levels</option>
+                        <option>Terminal diagnosis</option>
+                        <option>Stage 4</option>
+                        <option>Stage 3</option>
+                        <option>Early stage</option>
+                    </select>
+                </div>
+
+                <!-- Claims Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Critical illness claims</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                            <button onclick="alert('Medical team review coming soon!')">Medical Review</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox"></th>
+                                <th>Claim ID</th>
+                                <th>Policyholder</th>
+                                <th>Diagnosis</th>
+                                <th>Severity</th>
+                                <th>Benefit Amount</th>
+                                <th>Diagnosis Date</th>
+                                <th>Filed</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showClaimDetail('CLM-78512')" style="cursor: pointer; background: rgba(216, 90, 48, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78512</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">AJ</div>
+                                        <div>
+                                            <div class="user-details">Amanda Jackson</div>
+                                            <div class="user-policy">Age 52 • Policy #CI-88291</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Pancreatic Cancer</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Stage 4 metastatic</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">TERMINAL</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$50,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 28, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 11, 2026</span>
+                                    <span class="elapsed">2 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-review">Medical Review</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78512')">Expedite</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78508')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78508</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">RK</div>
+                                        <div>
+                                            <div class="user-details">Robert Kumar</div>
+                                            <div class="user-policy">Age 48 • Policy #CI-76542</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Acute Myocardial Infarction</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Triple bypass required</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">SEVERE</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$35,000</td>
+                                <td style="color: var(--color-text-secondary);">Mar 3, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 9, 2026</span>
+                                    <span class="elapsed">4 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78508')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78503')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78503</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">LM</div>
+                                        <div>
+                                            <div class="user-details">Linda Martinez</div>
+                                            <div class="user-policy">Age 44 • Policy #CI-65789</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Breast Cancer</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Stage 2 invasive ductal</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">MODERATE</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$25,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 25, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 7, 2026</span>
+                                    <span class="elapsed">6 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-docs">Additional Records</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="requestDocsFlow()">Request Records</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78498')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78498</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">DT</div>
+                                        <div>
+                                            <div class="user-details">David Thompson</div>
+                                            <div class="user-policy">Age 59 • Policy #CI-54321</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Ischemic Stroke</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Left hemisphere, paralysis</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">SEVERE</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$40,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 20, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 5, 2026</span>
+                                    <span class="elapsed">8 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78498')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78492')" style="cursor: pointer; background: rgba(216, 90, 48, 0.05);">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78492</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">SC</div>
+                                        <div>
+                                            <div class="user-details">Sarah Collins</div>
+                                            <div class="user-policy">Age 36 • Policy #CI-43287</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Kidney Failure</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">End-stage renal disease</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #FCEBEB; color: #A32D2D; border-radius: 8px; font-weight: 500;">CRITICAL</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$45,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 18, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 4, 2026</span>
+                                    <span class="elapsed">9 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-investigation">Specialist Review</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button class="primary" onclick="showClaimDetail('CLM-78492')">Review</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78487')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78487</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">MW</div>
+                                        <div>
+                                            <div class="user-details">Michael Wong</div>
+                                            <div class="user-policy">Age 51 • Policy #CI-38765</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Colon Cancer</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Stage 1, early detection</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #E1F5EE; color: #0F6E56; border-radius: 8px; font-weight: 500;">EARLY</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$20,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 15, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Mar 2, 2026</span>
+                                    <span class="elapsed">11 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78487')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78481')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78481</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FBEAF0; color: #993556;">JP</div>
+                                        <div>
+                                            <div class="user-details">Jennifer Park</div>
+                                            <div class="user-policy">Age 42 • Policy #CI-29384</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Multiple Sclerosis</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Progressive relapsing</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #E6F1FB; color: #185FA5; border-radius: 8px; font-weight: 500;">MODERATE</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$30,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 10, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Feb 28, 2026</span>
+                                    <span class="elapsed">14 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78481')">View</button>
+                                </td>
+                            </tr>
+                            <tr onclick="showClaimDetail('CLM-78475')" style="cursor: pointer;">
+                                <td onclick="event.stopPropagation()"><input type="checkbox"></td>
+                                <td class="claim-id">CLM-78475</td>
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAECE7; color: #993C1D;">BH</div>
+                                        <div>
+                                            <div class="user-details">Brian Harris</div>
+                                            <div class="user-policy">Age 55 • Policy #CI-18293</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <div style="font-size: 14px; font-weight: 500;">Coronary Artery Bypass</div>
+                                        <div style="font-size: 12px; color: var(--color-text-secondary);">Quadruple bypass surgery</div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span style="font-size: 11px; padding: 4px 8px; background: #FAEEDA; color: #BA7517; border-radius: 8px; font-weight: 500;">SEVERE</span>
+                                </td>
+                                <td style="font-weight: 500; font-size: 15px;">$38,000</td>
+                                <td style="color: var(--color-text-secondary);">Feb 8, 2026</td>
+                                <td class="date-filed">
+                                    <span class="date">Feb 26, 2026</span>
+                                    <span class="elapsed">16 days ago</span>
+                                </td>
+                                <td>
+                                    <span class="status-badge status-approved">Approved</span>
+                                </td>
+                                <td onclick="event.stopPropagation()">
+                                    <button onclick="showClaimDetail('CLM-78475')">View</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 47 active claims</p>
+                        <select>
+                            <option>8 per page</option>
+                            <option>15 per page</option>
+                            <option>25 per page</option>
+                            <option>50 per page</option>
+                        </select>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <!-- Diagnosis Type Distribution -->
+                    <div class="analytics-card">
+                        <h3>Claims by critical illness type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Cancer (all types)</span>
+                                <span style="font-weight: 500;">89 claims • $2.1M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 45%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Heart attack & cardiac</span>
+                                <span style="font-weight: 500;">52 claims • $1.8M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 26%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Stroke</span>
+                                <span style="font-weight: 500;">31 claims • $1.2M</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 16%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Organ failure</span>
+                                <span style="font-weight: 500;">18 claims • $820K</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Other conditions</span>
+                                <span style="font-weight: 500;">8 claims • $280K</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 4%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg payout</p>
+                                <p>$33,254</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Survival rate</p>
+                                <p>76.2%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Recurrence</p>
+                                <p>4.1%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Severity Breakdown -->
+                    <div class="analytics-card">
+                        <h3>Claims by severity level</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E1F5EE;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Early stage detection</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">42</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Stage 0-1, highly treatable</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #E6F1FB;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Moderate severity</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">78</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Stage 2, treatment underway</p>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: var(--border-radius-md); border-left: 3px solid #FAEEDA;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500;">Severe condition</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: var(--color-text-primary);">54</span>
+                                </div>
+                                <p style="font-size: 11px; color: var(--color-text-secondary);">Stage 3, advanced treatment</p>
+                            </div>
+                            <div style="padding: 12px; background: #FCEBEB; border-radius: var(--border-radius-md); border-left: 3px solid #D85A30;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                                    <span style="font-size: 13px; font-weight: 500; color: #8B2B1C;">Critical/Terminal</span>
+                                    <span style="font-size: 14px; font-weight: 500; color: #A32D2D;">24</span>
+                                </div>
+                                <p style="font-size: 11px; color: #A32D2D;">Stage 4, palliative care</p>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E6F1FB; border-radius: var(--border-radius-md);">
+                            <p style="font-size: 12px; color: #185FA5; margin-bottom: 4px;">💡 Medical insight</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Early detection claims have 94% approval vs 76% for advanced stage</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SHORT-TERM DISABILITY SCREEN -->

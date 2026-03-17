@@ -1,0 +1,582 @@
+<div id="repair-vendors-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showThirdParty()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; font-size: 24px; padding: 0; margin-right: 12px;">←</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔧</div>
+                            <div class="header-title">
+                                <h1>Repair Vendor Network</h1>
+                                <p>Approved repair facilities, service tracking, quality control, and vendor performance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div style="display: flex; gap: 8px; align-items: center; margin-right: 12px;">
+                            <button onclick="showMedicalProviders()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showAssessors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showOperationalPerformance()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showProcessingPartners()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showRepairVendors()" style="width: 32px; height: 32px; background: #378ADD; border: none; border-radius: 6px; color: white; font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showLossAdjusters()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                        </div>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Add vendor')">Add Vendor</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active vendors</p>
+                        <p class="stat-value">124</p>
+                        <p class="stat-change positive">8 new this quarter</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active repair orders</p>
+                        <p class="stat-value" style="color: #378ADD;">286</p>
+                        <p class="stat-change neutral">In progress</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg quality score</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.5/5</p>
+                        <p class="stat-change positive">Based on 2,847 repairs</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg completion time</p>
+                        <p class="stat-value" style="color: #1D9E75;">6.2d</p>
+                        <p class="stat-change positive">↓ 2.1d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$4.2M</p>
+                        <p class="stat-change neutral">Repair costs</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg repair cost</p>
+                        <p class="stat-value">$1,476</p>
+                        <p class="stat-change neutral">Per repair order</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Repairs completed</p>
+                                <p style="font-size: 12px; color: #1D9E75;">78 repairs awaiting quality inspection</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing repairs...')">Inspect</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Overdue repairs</p>
+                                <p style="font-size: 12px; color: #BA7517;">12 repair orders past deadline</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing overdue...')">Review</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by vendor name, license, service type...">
+                    <select>
+                        <option>All statuses</option>
+                        <option>Active - Available</option>
+                        <option>Active - At Capacity</option>
+                        <option>On Hold - Quality Review</option>
+                        <option>Suspended</option>
+                        <option>Inactive</option>
+                    </select>
+                    <select>
+                        <option>All service types</option>
+                        <option>Auto body repair</option>
+                        <option>Glass replacement</option>
+                        <option>Mechanical repair</option>
+                        <option>Collision repair</option>
+                        <option>Paintless dent repair</option>
+                        <option>Detailing & restoration</option>
+                    </select>
+                    <select>
+                        <option>All certifications</option>
+                        <option>OEM Certified</option>
+                        <option>I-CAR Gold Class</option>
+                        <option>ASE Certified</option>
+                        <option>Tesla Approved</option>
+                        <option>Honda ProFirst</option>
+                    </select>
+                </div>
+
+                <!-- Repair Vendors Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active repair vendors</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Vendor</th>
+                                <th>License #</th>
+                                <th>Service Type</th>
+                                <th>Certifications</th>
+                                <th>Active Orders</th>
+                                <th>Avg Turnaround</th>
+                                <th>Rating</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">AP</div>
+                                        <div>
+                                            <div class="user-details">Apex Auto Body</div>
+                                            <div class="user-policy">Northeast Region • Est. 2012</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-84721</td>
+                                <td>
+                                    <div style="font-size: 13px;">Collision Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Full service</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E1F5EE; color: #0F6E56; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">I-CAR Gold</span>
+                                        <span style="background: #E6F1FB; color: #185FA5; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">OEM</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #378ADD;">18</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 25 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">4.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.7</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">284 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">PC</div>
+                                        <div>
+                                            <div class="user-details">Premium Collision Center</div>
+                                            <div class="user-policy">Midwest Region • Est. 2008</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-79234</td>
+                                <td>
+                                    <div style="font-size: 13px;">Auto Body Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Specialty paint</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E1F5EE; color: #0F6E56; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">I-CAR Gold</span>
+                                        <span style="background: #FAEEDA; color: #BA7517; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">ASE</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">12</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 20 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">5.2 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.6</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">192 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; background: rgba(239, 159, 39, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">EG</div>
+                                        <div>
+                                            <div class="user-details">Elite Glass & Auto</div>
+                                            <div class="user-policy">West Coast • Est. 2015</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-88456</td>
+                                <td>
+                                    <div style="font-size: 13px;">Glass Replacement</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">ADAS calibration</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E6F1FB; color: #185FA5; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">OEM</span>
+                                        <span style="background: #EEEDFE; color: #534AB7; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">Tesla</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #A32D2D;">30</span>
+                                    <div style="font-size: 11px; color: #A32D2D;">of 30 capacity</div>
+                                </td>
+                                <td style="font-weight: 500;">3.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.8</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">412 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FAEEDA; color: #BA7517;">At Capacity</span>
+                                </td>
+                                <td>
+                                    <button disabled style="opacity: 0.5;">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">MA</div>
+                                        <div>
+                                            <div class="user-details">Master Auto Works</div>
+                                            <div class="user-policy">Southeast • Est. 2010</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-81293</td>
+                                <td>
+                                    <div style="font-size: 13px;">Mechanical Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Engine & transmission</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #FAEEDA; color: #BA7517; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">ASE Master</span>
+                                        <span style="background: #E6F1FB; color: #185FA5; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">Honda</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #378ADD;">14</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 18 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">6.1 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.5</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">156 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">QD</div>
+                                        <div>
+                                            <div class="user-details">QuickDent PDR Specialists</div>
+                                            <div class="user-policy">Southwest • Est. 2018</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-92847</td>
+                                <td>
+                                    <div style="font-size: 13px;">Paintless Dent Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Hail damage specialist</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E1F5EE; color: #0F6E56; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">Certified PDR</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">8</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 15 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">2.4 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.7</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">89 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">CR</div>
+                                        <div>
+                                            <div class="user-details">Certified Restoration Pro</div>
+                                            <div class="user-policy">Northeast • Est. 2014</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-85672</td>
+                                <td>
+                                    <div style="font-size: 13px;">Detailing & Restoration</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Luxury/classic cars</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E6F1FB; color: #185FA5; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">OEM</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">6</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 12 capacity</div>
+                                </td>
+                                <td style="font-weight: 500;">7.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.8</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">167 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer; background: rgba(163, 45, 45, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FCEBEB; color: #A32D2D;">BA</div>
+                                        <div>
+                                            <div class="user-details">Budget Auto Repairs</div>
+                                            <div class="user-policy">Midwest • Est. 2016</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-87234</td>
+                                <td>
+                                    <div style="font-size: 13px;">Collision Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Economy service</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #FCEBEB; color: #A32D2D; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">None</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">4</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 15 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #A32D2D;">9.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #A32D2D;">3.6</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">34 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #FCEBEB; color: #A32D2D;">Quality Review</span>
+                                </td>
+                                <td>
+                                    <button disabled style="opacity: 0.5;">On Hold</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">PB</div>
+                                        <div>
+                                            <div class="user-details">Precision Body & Paint</div>
+                                            <div class="user-policy">West Coast • Est. 2011</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="font-family: monospace; font-size: 12px; color: #534AB7;">RV-80156</td>
+                                <td>
+                                    <div style="font-size: 13px;">Auto Body Repair</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Custom paint matching</div>
+                                </td>
+                                <td>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        <span style="background: #E1F5EE; color: #0F6E56; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">I-CAR Gold</span>
+                                        <span style="background: #FAEEDA; color: #BA7517; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">ASE</span>
+                                        <span style="background: #E6F1FB; color: #185FA5; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 500;">OEM</span>
+                                    </div>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px; color: #378ADD;">9</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">of 22 capacity</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">5.6 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.7</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">298 reviews</div>
+                                </td>
+                                <td>
+                                    <span class="status-badge" style="background: #E1F5EE; color: #0F6E56;">Available</span>
+                                </td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send repair order')">Send Order</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-8 of 124 vendors</p>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>16</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Service type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔧 Collision repair</span>
+                                <span style="font-weight: 500;">48 vendors • 4.6/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 39%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🎨 Auto body & paint</span>
+                                <span style="font-weight: 500;">34 vendors • 4.5/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🪟 Glass replacement</span>
+                                <span style="font-weight: 500;">18 vendors • 4.7/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚙️ Mechanical repair</span>
+                                <span style="font-weight: 500;">14 vendors • 4.4/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 11%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔨 Paintless dent repair</span>
+                                <span style="font-weight: 500;">10 vendors • 4.5/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 8%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg rating</p>
+                                <p style="color: #1D9E75;">4.5/5</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Repairs completed YTD</p>
+                                <p>2,847</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg turnaround</p>
+                                <p style="color: #1D9E75;">6.2d</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Performance & quality metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.5/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Based on 2,847 completed repairs</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Warranty compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">96.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Lifetime warranty on all repairs</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg completion time</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">6.2 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 2.1 days improvement YoY</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg repair cost</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$1,476</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Per repair order • Parts + labor</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #E1F5EE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #0F6E56; margin-bottom: 4px;">📊 Capacity utilization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Current: 286 active / 2,180 total capacity (13.1%) • 8 vendors at max capacity • 102 vendors with <5 orders</p>
+                        </div>
+                        <div style="margin-top: 12px; padding: 12px; background: #FAEEDA; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #854F0B; margin-bottom: 4px;">🏆 Certifications</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">I-CAR Gold: 78 vendors • OEM Certified: 52 vendors • ASE Master: 34 vendors • Tesla Approved: 12 vendors</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- LOSS ADJUSTERS SCREEN -->

@@ -1,0 +1,334 @@
+<div id="reinsurance-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🔄</div>
+                            <div class="header-title">
+                                <h1>Reinsurance Claims Management Hub</h1>
+                                <p>Treaty integration, claim allocation, recovery management, settlement tracking, and comprehensive reporting</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View treaties')">📋 Treaties</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Submit recovery')">Submit Recovery</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Reinsurance recoveries YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">$18.4M</p>
+                        <p class="stat-change positive">Collected</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending recoveries</p>
+                        <p class="stat-value" style="color: #378ADD;">$8.6M</p>
+                        <p class="stat-change positive">Outstanding</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active treaties</p>
+                        <p class="stat-value">12</p>
+                        <p class="stat-change positive">Reinsurers</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Ceded claims</p>
+                        <p class="stat-value">847</p>
+                        <p class="stat-change positive">This year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg recovery time</p>
+                        <p class="stat-value">42d</p>
+                        <p class="stat-change positive">Submission to payment</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.2%</p>
+                        <p class="stat-change positive">Success rate</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Large recovery delayed</p>
+                                <p style="font-size: 12px; color: #BA7517;">$2.4M recovery from Swiss Re overdue by 18 days</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Following up...')">Follow Up</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">CAT recovery received</p>
+                                <p style="font-size: 12px; color: #1D9E75;">$4.8M Hurricane Milton recovery confirmed from Munich Re</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reinsurance Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Reinsurance Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showTreatyIntegration()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE TREATY INTEGRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">12</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active treaties</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Quota Share</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">5</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Excess</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">7</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage treaties</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showClaimAllocation()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE CLAIM ALLOCATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Claims ceded YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">92%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Manual</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Allocate claims</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRecoveryManagement()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE RECOVERY MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$18.4M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Recovered YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$8.6M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rate</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">94%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track recovery</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showSettlementTracking()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE SETTLEMENT TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42d</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg recovery time</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">On time</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">87%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Overdue</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">18</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track settlements</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showReinsuranceReporting()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE REPORTING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">24</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Standard reports</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Quarterly</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Ad-hoc</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">16</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Generate reports</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Reinsurance Recovery Status -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Pending Reinsurance Recoveries</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Recovery ID</th>
+                                    <th>Reinsurer</th>
+                                    <th>Claim Reference</th>
+                                    <th>Treaty Type</th>
+                                    <th>Amount</th>
+                                    <th>Submitted</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">REC-2024-847</td>
+                                    <td>Swiss Re</td>
+                                    <td>CLM-2024-08472</td>
+                                    <td>Excess of Loss</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$2.4M</td>
+                                    <td>Feb 8, 2026</td>
+                                    <td><span class="badge badge-denied">Overdue</span></td>
+                                    <td><button onclick="alert('Follow up')">Follow Up</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">REC-2024-846</td>
+                                    <td>Munich Re</td>
+                                    <td>CLM-2024-08391</td>
+                                    <td>Quota Share</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$1.8M</td>
+                                    <td>Feb 28, 2026</td>
+                                    <td><span class="badge badge-approved">Approved</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">REC-2024-845</td>
+                                    <td>Hannover Re</td>
+                                    <td>CLM-2024-08284</td>
+                                    <td>CAT Excess</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$4.8M</td>
+                                    <td>Mar 5, 2026</td>
+                                    <td><span class="badge badge-review">In Review</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">REC-2024-844</td>
+                                    <td>SCOR</td>
+                                    <td>CLM-2024-08192</td>
+                                    <td>Quota Share</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$680K</td>
+                                    <td>Mar 1, 2026</td>
+                                    <td><span class="badge badge-pending">Submitted</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">REC-2024-843</td>
+                                    <td>Lloyd's Syndicate</td>
+                                    <td>CLM-2024-08147</td>
+                                    <td>Excess of Loss</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$1.2M</td>
+                                    <td>Feb 22, 2026</td>
+                                    <td><span class="badge badge-approved">Approved</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Reinsurance Performance Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Reinsurance recoveries by treaty type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Quota Share</span>
+                                <span style="font-weight: 500;">$8.4M • 46%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 46%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">Excess of Loss</span>
+                                <span style="font-weight: 500;">$6.2M • 34%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 34%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">CAT Excess</span>
+                                <span style="font-weight: 500;">$3.8M • 20%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 20%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total recovered</p>
+                                <p style="color: #1D9E75;">$18.4M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Pending</p>
+                                <p style="color: #378ADD;">$8.6M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Success rate</p>
+                                <p style="color: #1D9E75;">94.2%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Reinsurance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Recovery rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94.2%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Success rate • $18.4M collected • 847 claims ceded • Strong performance</div>
+                            </div>
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #3E3686;">Average recovery time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #534AB7; margin-bottom: 4px;">42 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Submission to payment • 87% on time • ↓ 6 days vs LY • Process improving</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Pending recoveries</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$8.6M</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Outstanding • 142 submissions • 18 overdue • Active monitoring</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Condensed submodule screens for Treaty Integration, Claim Allocation, Recovery Management, Settlement Tracking, and Reporting follow established pattern -->
+
+        <!-- LITIGATION MANAGEMENT HUB SCREEN -->
+        <!-- COURT CASE WORKFLOW MANAGEMENT SUBMODULE SCREEN -->

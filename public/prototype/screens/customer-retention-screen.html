@@ -1,0 +1,276 @@
+<div id="customer-retention-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">❤️</div>
+                            <div class="header-title">
+                                <h1>Claims Customer Retention & Loyalty Hub</h1>
+                                <p>Satisfaction tracking, experience analytics, feedback collection, loyalty integration, and retention risk management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View feedback')">💬 Feedback</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Send survey')">Send Survey</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Customer satisfaction</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.6/5.0</p>
+                        <p class="stat-change positive">CSAT score</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Net Promoter Score</p>
+                        <p class="stat-value" style="color: #1D9E75;">+42</p>
+                        <p class="stat-change positive">↑ 8 pts vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Retention rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">92.4%</p>
+                        <p class="stat-change positive">Policy renewal</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">At-risk customers</p>
+                        <p class="stat-value" style="color: #A32D2D;">284</p>
+                        <p class="stat-change positive">Need intervention</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Survey response rate</p>
+                        <p class="stat-value">68.3%</p>
+                        <p class="stat-change positive">Engagement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Loyalty members</p>
+                        <p class="stat-value" style="color: #378ADD;">8,247</p>
+                        <p class="stat-change positive">Active</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">High churn risk</p>
+                                <p style="font-size: 12px; color: #A32D2D;">28 customers with dissatisfaction scores below 2.0</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Intervening...')">Intervene</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⭐</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Excellent feedback</p>
+                                <p style="font-size: 12px; color: #1D9E75;">847 5-star reviews received this month</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Customer Retention & Loyalty Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Customer Retention & Loyalty Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showSatisfactionTracking()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">😊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CUSTOMER SATISFACTION TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">4.6/5.0</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Overall CSAT</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Surveys</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Response</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">68%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track satisfaction</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showExperienceAnalytics()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS EXPERIENCE ANALYTICS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">+42</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Net Promoter Score</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Promoters</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">58%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Detractors</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">16%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View analytics</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showFeedbackCollection()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💬</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CUSTOMER FEEDBACK COLLECTION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">12,847</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Feedback items YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Positive</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">78%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Actionable</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">2.8K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View feedback</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLoyaltyIntegration()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎁</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOYALTY PROGRAM INTEGRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8,247</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active members</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Points</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rewards</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,284</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage loyalty</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRetentionRisk()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚠️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">RETENTION RISK ANALYTICS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">92.4%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Retention rate</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">At-risk</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Churn</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">7.6%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Analyze risk</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Satisfaction Overview -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Customer satisfaction breakdown</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⭐⭐⭐⭐⭐ Excellent (5 stars)</span>
+                                <span style="font-weight: 500;">4,847 responses • 57.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⭐⭐⭐⭐ Good (4 stars)</span>
+                                <span style="font-weight: 500;">2,284 responses • 27.2%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 27%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⭐⭐⭐ Neutral (3 stars)</span>
+                                <span style="font-weight: 500;">840 responses • 10.0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 10%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⭐⭐ Poor (2 stars)</span>
+                                <span style="font-weight: 500;">284 responses • 3.4%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 3%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⭐ Very Poor (1 star)</span>
+                                <span style="font-weight: 500;">145 responses • 1.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 2%; background: #A32D2D;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Avg rating</p>
+                                <p style="color: #1D9E75;">4.6/5.0</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Total surveys</p>
+                                <p>8,400</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Response rate</p>
+                                <p style="color: #1D9E75;">68.3%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Retention & loyalty metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Customer retention rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">92.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Policy renewal rate • 284 at-risk • ↑ 2.8% vs LY • Strong performance</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #185FA5;">Net Promoter Score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">+42</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">58% promoters • 26% passives • 16% detractors • ↑ 8 points vs LY</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Loyalty program engagement</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">8,247 members</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">4.2M points issued • 1,284 rewards redeemed • 34% engagement rate</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CUSTOMER SATISFACTION TRACKING SUBMODULE SCREEN -->

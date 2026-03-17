@@ -1,0 +1,64 @@
+<div id="beneficiary-identity-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">👤</div>
+                            <div class="header-title">
+                                <h1>Beneficiary & Identity Verification Hub</h1>
+                                <p>Beneficiary identification, eligibility checks, identity validation, KYC verification, AML screening, sanctions checks, and relationship verification</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Verify beneficiary')">👤 Verify</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Verifications completed</p><p class="stat-value">2,847</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Verification success</p><p class="stat-value" style="color: #1D9E75;">98.6%</p><p class="stat-change positive">Passed</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg verification time</p><p class="stat-value" style="color: #1D9E75;">2.4h</p><p class="stat-change positive">Processing</p></div>
+                    <div class="stat-card"><p class="stat-label">KYC compliance</p><p class="stat-value" style="color: #1D9E75;">100%</p><p class="stat-change positive">Compliant</p></div>
+                    <div class="stat-card"><p class="stat-label">AML flags</p><p class="stat-value">18</p><p class="stat-change positive">Under review</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-verification</p><p class="stat-value" style="color: #1D9E75;">87.4%</p><p class="stat-change positive">Automated</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Beneficiary & Identity Verification Modules (7)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <div onclick="showScreen('beneficiary-identification-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👤</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">BENEFICIARY IDENTIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div><div style="font-size: 13px; margin-bottom: 16px;">Identified YTD</div><div style="font-size: 13px; font-weight: 500;">→ Identify</div></div>
+                        </div>
+                        <div onclick="showScreen('beneficiary-eligibility-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✓</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">ELIGIBILITY CHECK</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">98.6%</div><div style="font-size: 13px; margin-bottom: 16px;">Eligible</div><div style="font-size: 13px; font-weight: 500;">→ Check eligibility</div></div>
+                        </div>
+                        <div onclick="showScreen('identity-verification-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🆔</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">IDENTITY VERIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Verified</div><div style="font-size: 13px; font-weight: 500;">→ Verify ID</div></div>
+                        </div>
+                        <div onclick="showScreen('kyc-verification-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">KYC VERIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">100%</div><div style="font-size: 13px; margin-bottom: 16px;">Compliance</div><div style="font-size: 13px; font-weight: 500;">→ KYC check</div></div>
+                        </div>
+                        <div onclick="showScreen('aml-screening-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🚨</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">AML SCREENING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div><div style="font-size: 13px; margin-bottom: 16px;">Flags detected</div><div style="font-size: 13px; font-weight: 500;">→ Screen AML</div></div>
+                        </div>
+                        <div onclick="showScreen('sanctions-screening-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⛔</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SANCTIONS SCREENING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">0</div><div style="font-size: 13px; margin-bottom: 16px;">Matches found</div><div style="font-size: 13px; font-weight: 500;">→ Screen sanctions</div></div>
+                        </div>
+                        <div onclick="showScreen('relationship-verification-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👨‍👩‍👧</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RELATIONSHIP VERIFICATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Confirmed</div><div style="font-size: 13px; font-weight: 500;">→ Verify relationship</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BENEFICIARY IDENTIFICATION SUBMODULE -->
+
+        <!-- ENHANCED BENEFICIARY IDENTIFICATION SUBMODULE -->

@@ -1,0 +1,134 @@
+<div id="excess-management-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💳</div>
+                            <div class="header-title">
+                                <h1>Claims Deductible & Excess Management Hub</h1>
+                                <p>Configuration, calculation, policy management, waivers, overrides, deductions, payments, collections, refunds, disputes, approvals, reconciliation, and compliance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Calculate excess')">💳 Calculate</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Total excess collected</p><p class="stat-value" style="color: #534AB7;">$4.2M</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg excess amount</p><p class="stat-value">$1,472</p><p class="stat-change positive">Per claim</p></div>
+                    <div class="stat-card"><p class="stat-label">Collection rate</p><p class="stat-value" style="color: #1D9E75;">96.8%</p><p class="stat-change positive">Success rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Waivers granted</p><p class="stat-value">284</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Pending collections</p><p class="stat-value" style="color: #EF9F27;">$284K</p><p class="stat-change positive">Outstanding</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-calculation rate</p><p class="stat-value" style="color: #1D9E75;">98.4%</p><p class="stat-change positive">Automated</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Deductible & Excess Management Modules (25)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        <div onclick="showScreen('excess-rule-config-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">RULE CONFIGURATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">142</div><div style="font-size: 11px; margin-bottom: 12px;">Active rules</div><div style="font-size: 11px; font-weight: 500;">→ Configure</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-calculation-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🧮</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CALCULATION ENGINE</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">98.4%</div><div style="font-size: 11px; margin-bottom: 12px;">Accuracy</div><div style="font-size: 11px; font-weight: 500;">→ Calculate</div></div>
+                        </div>
+                        <div onclick="showScreen('policy-excess-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">POLICY EXCESS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2,847</div><div style="font-size: 11px; margin-bottom: 12px;">Active policies</div><div style="font-size: 11px; font-weight: 500;">→ Manage</div></div>
+                        </div>
+                        <div onclick="showScreen('voluntary-excess-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">✋</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">VOLUNTARY EXCESS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">847</div><div style="font-size: 11px; margin-bottom: 12px;">Opted-in</div><div style="font-size: 11px; font-weight: 500;">→ Manage</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-aggregation-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">➕</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">AGGREGATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">124</div><div style="font-size: 11px; margin-bottom: 12px;">Multi-excess</div><div style="font-size: 11px; font-weight: 500;">→ Aggregate</div></div>
+                        </div>
+                        <div onclick="showScreen('conditional-excess-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔀</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">CONDITIONAL RULES</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">84</div><div style="font-size: 11px; margin-bottom: 12px;">Active conditions</div><div style="font-size: 11px; font-weight: 500;">→ Configure</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-waiver-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🎫</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">WAIVER MGMT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">284</div><div style="font-size: 11px; margin-bottom: 12px;">Granted YTD</div><div style="font-size: 11px; font-weight: 500;">→ Manage</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-override-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔓</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">OVERRIDE MGMT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">42</div><div style="font-size: 11px; margin-bottom: 12px;">Overrides</div><div style="font-size: 11px; font-weight: 500;">→ Override</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-adjustment-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">ADJUSTMENTS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">187</div><div style="font-size: 11px; margin-bottom: 12px;">Adjusted</div><div style="font-size: 11px; font-weight: 500;">→ Adjust</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-deduction-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">➖</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">DEDUCTION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">$4.2M</div><div style="font-size: 11px; margin-bottom: 12px;">Deducted YTD</div><div style="font-size: 11px; font-weight: 500;">→ Deduct</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-payment-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">💳</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">PAYMENT PROC</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2,847</div><div style="font-size: 11px; margin-bottom: 12px;">Processed</div><div style="font-size: 11px; font-weight: 500;">→ Process</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-collection-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">COLLECTIONS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">96.8%</div><div style="font-size: 11px; margin-bottom: 12px;">Success rate</div><div style="font-size: 11px; font-weight: 500;">→ Collect</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-installment-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📅</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">INSTALLMENTS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">124</div><div style="font-size: 11px; margin-bottom: 12px;">Payment plans</div><div style="font-size: 11px; font-weight: 500;">→ Manage</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-recovery-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">RECOVERY</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">$842K</div><div style="font-size: 11px; margin-bottom: 12px;">Recovered</div><div style="font-size: 11px; font-weight: 500;">→ Recover</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-refund-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">↩️</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">REFUNDS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">$124K</div><div style="font-size: 11px; margin-bottom: 12px;">Refunded</div><div style="font-size: 11px; font-weight: 500;">→ Refund</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-dispute-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">DISPUTES</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">18</div><div style="font-size: 11px; margin-bottom: 12px;">Active</div><div style="font-size: 11px; font-weight: 500;">→ Resolve</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-approval-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">APPROVALS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">42</div><div style="font-size: 11px; margin-bottom: 12px;">Pending</div><div style="font-size: 11px; font-weight: 500;">→ Approve</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-exception-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">⚠️</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">EXCEPTIONS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">28</div><div style="font-size: 11px; margin-bottom: 12px;">Flagged</div><div style="font-size: 11px; font-weight: 500;">→ Handle</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-reconciliation-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">RECONCILIATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">99.6%</div><div style="font-size: 11px; margin-bottom: 12px;">Reconciled</div><div style="font-size: 11px; font-weight: 500;">→ Reconcile</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-reporting-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">ANALYTICS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">284</div><div style="font-size: 11px; margin-bottom: 12px;">Reports</div><div style="font-size: 11px; font-weight: 500;">→ Analyze</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-audit-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">AUDIT</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">100%</div><div style="font-size: 11px; margin-bottom: 12px;">Compliance</div><div style="font-size: 11px; font-weight: 500;">→ Audit</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-notification-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📧</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">NOTIFICATIONS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">2,847</div><div style="font-size: 11px; margin-bottom: 12px;">Sent</div><div style="font-size: 11px; font-weight: 500;">→ Notify</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-ledger-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">📚</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">LEDGER</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">99.8%</div><div style="font-size: 11px; margin-bottom: 12px;">Integrated</div><div style="font-size: 11px; font-weight: 500;">→ Integrate</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-validation-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">✓</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">VALIDATION</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">98.6%</div><div style="font-size: 11px; margin-bottom: 12px;">Validated</div><div style="font-size: 11px; font-weight: 500;">→ Validate</div></div>
+                        </div>
+                        <div onclick="showScreen('excess-risk-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 20px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -15px; right: -15px; font-size: 80px; opacity: 0.1;">🎯</div>
+                            <div style="position: relative;"><div style="font-size: 12px; margin-bottom: 6px; font-weight: 500;">RISK ASSESS</div><div style="font-size: 24px; font-weight: 600; margin-bottom: 8px;">Low</div><div style="font-size: 11px; margin-bottom: 12px;">Risk level</div><div style="font-size: 11px; font-weight: 500;">→ Assess</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. EXCESS RULE CONFIGURATION -->

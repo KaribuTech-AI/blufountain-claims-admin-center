@@ -1,0 +1,74 @@
+<div id="productivity-analytics-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Claims Team Productivity Analytics</h1>
+                                <p>Performance metrics, efficiency tracking, KPI dashboards, trend analysis, and productivity optimization</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View trends')">📈 Trends</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Team productivity</p><p class="stat-value" style="color: #1D9E75;">94.2%</p><p class="stat-change positive">Utilization rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Claims/adjuster/week</p><p class="stat-value">18.4</p><p class="stat-change positive">Processing rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg cycle time</p><p class="stat-value" style="color: #1D9E75;">3.2d</p><p class="stat-change positive">↓ 0.4d vs LY</p></div>
+                    <div class="stat-card"><p class="stat-label">First contact resolution</p><p class="stat-value" style="color: #1D9E75;">78.6%</p><p class="stat-change positive">FCR rate</p></div>
+                    <div class="stat-card"><p class="stat-label">Quality score</p><p class="stat-value" style="color: #1D9E75;">96.4%</p><p class="stat-change positive">Audit results</p></div>
+                    <div class="stat-card"><p class="stat-label">Customer satisfaction</p><p class="stat-value" style="color: #1D9E75;">4.6/5</p><p class="stat-change positive">CSAT score</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Productivity Metrics by Team</h2>
+                    <div class="analytics-section">
+                        <div class="analytics-card">
+                            <h3>Top performers (by claims closed)</h3>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Life Insurance Team</span><span style="font-weight: 500;">847 claims • 102% target</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 102%; background: #1D9E75;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>LTD Team</span><span style="font-weight: 500;">724 claims • 98% target</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 98%; background: #378ADD;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>STD Team</span><span style="font-weight: 500;">684 claims • 95% target</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 95%; background: #EF9F27;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Critical Illness Team</span><span style="font-weight: 500;">284 claims • 91% target</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 91%; background: #534AB7;"></div></div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Key performance indicators</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                                <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Utilization rate</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94.2%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Productive hours / Available hours • Industry benchmark: 85-90%</div>
+                                </div>
+                                <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Quality score</div>
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">96.4%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Audit compliance • Error rate <4% • Excellent quality standards</div>
+                                </div>
+                                <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Processing efficiency</div>
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">3.2 days</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Avg cycle time • ↓ 0.4d vs LY • Continuous improvement</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SKILLS-BASED CLAIMS ASSIGNMENT SUBMODULE SCREEN -->

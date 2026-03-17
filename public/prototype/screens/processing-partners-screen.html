@@ -1,0 +1,370 @@
+<div id="processing-partners-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showThirdParty()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; font-size: 24px; padding: 0; margin-right: 12px;">←</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚙️</div>
+                            <div class="header-title">
+                                <h1>Processing Partners (BPO)</h1>
+                                <p>Outsourced claims processing, document management, data entry, and workflow automation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <div style="display: flex; gap: 8px; align-items: center; margin-right: 12px;">
+                            <button onclick="showMedicalProviders()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showAssessors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showOperationalPerformance()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showProcessingPartners()" style="width: 32px; height: 32px; background: #7F77DD; border: none; border-radius: 6px; color: white; font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showRepairVendors()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                            <button onclick="showLossAdjusters()" style="width: 32px; height: 32px; background: var(--color-border); border: none; border-radius: 6px; color: var(--color-text-secondary); font-size: 18px; cursor: pointer;">•</button>
+                        </div>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #7F77DD; border-color: #7F77DD;" onclick="alert('Add partner')">Add Partner</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Active partners</p>
+                        <p class="stat-value">32</p>
+                        <p class="stat-change positive">2 onboarded this year</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Claims processed</p>
+                        <p class="stat-value" style="color: #7F77DD;">1,284</p>
+                        <p class="stat-change neutral">Via BPO this month</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg quality score</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.1/5</p>
+                        <p class="stat-change positive">Based on 15,428 claims</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg processing time</p>
+                        <p class="stat-value" style="color: #1D9E75;">1.8d</p>
+                        <p class="stat-change positive">↓ 0.6d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$900K</p>
+                        <p class="stat-change neutral">BPO services</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Cost per claim</p>
+                        <p class="stat-value">$58</p>
+                        <p class="stat-change neutral">Processing fee</p>
+                    </div>
+                </div>
+
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Processing complete</p>
+                                <p style="font-size: 12px; color: #1D9E75;">1,284 claims processed and ready for review</p>
+                            </div>
+                            <button class="primary" style="background: #1D9E75; border-color: #1D9E75; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing batch...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E6F1FB 0%, #B8D9F5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #378ADD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📊</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #185FA5;">SLA compliance</p>
+                                <p style="font-size: 12px; color: #378ADD;">96.4% of claims processed within SLA</p>
+                            </div>
+                            <div style="font-size: 20px; font-weight: 600; color: #378ADD;">96.4%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filters & Search -->
+                <div class="filters">
+                    <input type="text" placeholder="Search by partner name, service type, location...">
+                    <select>
+                        <option>All service types</option>
+                        <option>Full Claims Processing</option>
+                        <option>Data Entry & Indexing</option>
+                        <option>FNOL Processing</option>
+                        <option>Document Management</option>
+                        <option>Quality Assurance</option>
+                    </select>
+                    <select>
+                        <option>All locations</option>
+                        <option>Domestic (US)</option>
+                        <option>Philippines</option>
+                        <option>India</option>
+                        <option>Costa Rica</option>
+                    </select>
+                    <select>
+                        <option>All SLA tiers</option>
+                        <option>24-hour</option>
+                        <option>48-hour</option>
+                        <option>72-hour</option>
+                    </select>
+                </div>
+
+                <!-- Processing Partners Table -->
+                <div class="table-section">
+                    <div class="table-header">
+                        <h3>Active processing partners</h3>
+                        <div class="table-controls">
+                            <button onclick="sortClaims()">↓ Sort</button>
+                            <button onclick="customizeColumns()">⚙ Columns</button>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Partner</th>
+                                <th>Location</th>
+                                <th>Service Type</th>
+                                <th>SLA</th>
+                                <th>Monthly Volume</th>
+                                <th>Avg Processing Time</th>
+                                <th>Quality Score</th>
+                                <th>SLA Compliance</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="cursor: pointer; background: rgba(29, 158, 117, 0.05);">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E1F5EE; color: #0F6E56;">GP</div>
+                                        <div>
+                                            <div class="user-details">Global Processing Solutions</div>
+                                            <div class="user-policy">Full-service BPO • Est. 2015</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Philippines</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">24/7 operations</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Full Claims Processing</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">All claim types</div>
+                                </td>
+                                <td>
+                                    <span style="background: #E1F5EE; color: #0F6E56; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">24-hour</span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">428</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">claims/month</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">1.2 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.3</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">5,136 claims</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">98.2%</td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send batch')">Send Batch</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #E6F1FB; color: #378ADD;">DA</div>
+                                        <div>
+                                            <div class="user-details">DataAccess BPO</div>
+                                            <div class="user-policy">Document specialists • Est. 2012</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">India</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">18-hour coverage</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Data Entry & Indexing</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">OCR & extraction</div>
+                                </td>
+                                <td>
+                                    <span style="background: #E6F1FB; color: #185FA5; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">48-hour</span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">312</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">claims/month</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">1.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.1</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">3,744 claims</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">95.8%</td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send batch')">Send Batch</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #EEEDFE; color: #534AB7;">FS</div>
+                                        <div>
+                                            <div class="user-details">FirstCall Services</div>
+                                            <div class="user-policy">FNOL specialists • Est. 2018</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Costa Rica</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Bilingual staff</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">FNOL Processing</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Call center integration</div>
+                                </td>
+                                <td>
+                                    <span style="background: #E1F5EE; color: #0F6E56; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">24-hour</span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">284</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">claims/month</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">0.8 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.2</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">3,408 claims</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">97.4%</td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send batch')">Send Batch</button>
+                                </td>
+                            </tr>
+                            <tr style="cursor: pointer;">
+                                <td>
+                                    <div class="user-info">
+                                        <div class="user-avatar" style="background: #FAEEDA; color: #BA7517;">QA</div>
+                                        <div>
+                                            <div class="user-details">QualityAssure USA</div>
+                                            <div class="user-policy">Domestic QA • Est. 2010</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">United States</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">5 regional centers</div>
+                                </td>
+                                <td>
+                                    <div style="font-size: 13px;">Quality Assurance</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Audit & review</div>
+                                </td>
+                                <td>
+                                    <span style="background: #FAEEDA; color: #BA7517; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 500;">72-hour</span>
+                                </td>
+                                <td style="text-align: center;">
+                                    <span style="font-weight: 500; font-size: 15px;">260</span>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">audits/month</div>
+                                </td>
+                                <td style="font-weight: 500;">2.4 days</td>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 4px;">
+                                        <span style="font-weight: 500; font-size: 15px; color: #1D9E75;">4.4</span>
+                                        <span style="color: var(--color-text-secondary);">/5</span>
+                                    </div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">3,120 audits</div>
+                                </td>
+                                <td style="font-weight: 500; color: #1D9E75;">96.1%</td>
+                                <td>
+                                    <button class="primary" onclick="alert('Send batch')">Send Batch</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination">
+                    <div class="pagination-info">
+                        <p>Showing 1-4 of 32 partners</p>
+                    </div>
+                    <div class="pagination-controls">
+                        <button>Previous</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>...</button>
+                        <button>8</button>
+                        <button>Next</button>
+                    </div>
+                </div>
+
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Service type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📄 Full claims processing</span>
+                                <span style="font-weight: 500;">12 partners • 4.2/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 38%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⌨️ Data entry & indexing</span>
+                                <span style="font-weight: 500;">10 partners • 4.0/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 31%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📞 FNOL processing</span>
+                                <span style="font-weight: 500;">6 partners • 4.1/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 19%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">✅ Quality assurance</span>
+                                <span style="font-weight: 500;">4 partners • 4.3/5 avg</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 12%; background: #BA7517;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.1/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Based on 15,428 processed claims</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">SLA compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">96.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">14,873 claims within SLA</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #7F77DD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Avg processing time</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">1.8 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 0.6 days improvement YoY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- REPAIR VENDORS SCREEN -->

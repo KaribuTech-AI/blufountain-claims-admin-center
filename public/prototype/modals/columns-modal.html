@@ -1,0 +1,51 @@
+<div id="columns-modal" class="modal">
+        <div class="modal-content" style="max-width: 400px;">
+            <div class="modal-header">
+                <h2>Customize Columns</h2>
+                <button class="close-btn" onclick="closeModal('columns-modal')">×</button>
+            </div>
+            <div class="modal-body">
+                <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 16px;">
+                    Select which columns to display in the claims table
+                </p>
+                <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Claim ID
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Policyholder
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Type
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Amount
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Filed Date
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Assignee
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Status
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox" checked> Priority
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox"> Last Updated
+                    </label>
+                    <label style="font-weight: 400; font-size: 14px; display: flex; align-items: center; gap: 8px;">
+                        <input type="checkbox"> Days Open
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button onclick="closeModal('columns-modal')">Cancel</button>
+                <button class="primary" onclick="applyColumns()">Apply</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reassign Modal -->

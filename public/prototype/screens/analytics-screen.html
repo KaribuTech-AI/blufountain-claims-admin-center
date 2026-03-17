@@ -1,0 +1,186 @@
+<div id="analytics-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: var(--border-radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📊</div>
+                            <div class="header-title">
+                                <h1>Claims Analytics & Reporting</h1>
+                                <p>Performance dashboards, predictive analytics, and AI-driven insights</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export All</button>
+                        <button class="primary" style="background: #378ADD; border-color: #378ADD;" onclick="alert('Custom report builder')">Custom Report</button>
+                    </div>
+                </div>
+
+                <!-- Analytics Widgets Grid -->
+                <div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Performance Dashboard: 91.7% approval rate, 3.2d avg cycle time, 4.6/5 CSAT')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PERFORMANCE DASHBOARD</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">91.7%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Overall approval rate</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cycle time</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">3.2d</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">CSAT</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.6/5</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View metrics</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Cost Analysis: $45.8M total paid, $16,089 avg claim, $127 cost per claim')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COST ANALYSIS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$45.8M</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Total claims paid YTD</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg claim</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$16K</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Cost/claim</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$127</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View breakdown</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Loss Ratio: 68.4% combined ratio, $52.3M incurred, $76.4M premium')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📉</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOSS RATIO ANALYSIS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">68.4%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Combined loss ratio</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Incurred</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$52M</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Premium</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$76M</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View trends</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Cycle Time: 3.2d avg, 1.2d fastest, 8.7d slowest')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⏱️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CYCLE TIME ANALYSIS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">3.2d</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg processing time</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Fastest</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">1.2d</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Slowest</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8.7d</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View breakdown</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Severity & Frequency: 2,847 claims, 4.2% frequency, $16,089 avg severity')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SEVERITY & FREQUENCY</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Total claims</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Frequency</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">4.2%</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg severity</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">$16K</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View analysis</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Predictive Analytics: 94.2% AI accuracy, 12 models active, 2,847 predictions made')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔮</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PREDICTIVE ANALYTICS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">AI prediction accuracy</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Models</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Predictions</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">2.8K</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View AI insights</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Executive Summary -->
+                <div style="padding: 0 24px 24px;">
+                    <div style="background: var(--color-background-secondary); border-radius: 12px; padding: 24px; border: 1px solid var(--color-border);">
+                        <h3 style="margin-bottom: 16px; font-size: 16px;">Executive Summary - Current Period</h3>
+                        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px;">
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">Total Claims</div>
+                                <div style="font-size: 24px; font-weight: 600;">2,847</div>
+                                <div style="font-size: 11px; color: #1D9E75;">↑ 8% vs LY</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">Claims Paid</div>
+                                <div style="font-size: 24px; font-weight: 600;">$45.8M</div>
+                                <div style="font-size: 11px; color: #1D9E75;">↑ 12% vs LY</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">Approval Rate</div>
+                                <div style="font-size: 24px; font-weight: 600; color: #1D9E75;">91.7%</div>
+                                <div style="font-size: 11px; color: #1D9E75;">↑ 2.3% vs LY</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">Cycle Time</div>
+                                <div style="font-size: 24px; font-weight: 600; color: #1D9E75;">3.2d</div>
+                                <div style="font-size: 11px; color: #1D9E75;">↓ 1.8d vs LY</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">Loss Ratio</div>
+                                <div style="font-size: 24px; font-weight: 600; color: #EF9F27;">68.4%</div>
+                                <div style="font-size: 11px; color: #A32D2D;">↑ 3.1% vs LY</div>
+                            </div>
+                            <div>
+                                <div style="color: var(--color-text-secondary); font-size: 12px; margin-bottom: 4px;">CSAT</div>
+                                <div style="font-size: 24px; font-weight: 600; color: #1D9E75;">4.6/5</div>
+                                <div style="font-size: 11px; color: #1D9E75;">↑ 0.3 vs LY</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- OPERATIONAL PERFORMANCE SCREEN -->

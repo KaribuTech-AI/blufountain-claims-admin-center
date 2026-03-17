@@ -1,0 +1,341 @@
+<div id="salvage-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🚗</div>
+                            <div class="header-title">
+                                <h1>Salvage Management Hub</h1>
+                                <p>Asset tracking, auction management, vendor integration, valuation, and recovery tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('View auctions')">🔨 Auctions</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Add salvage asset')">+ Add Asset</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Salvage revenue YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">$2.8M</p>
+                        <p class="stat-change positive">↑ 12% vs LY</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active salvage units</p>
+                        <p class="stat-value" style="color: #534AB7;">1,284</p>
+                        <p class="stat-change positive">In inventory</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg salvage value</p>
+                        <p class="stat-value">$2,180</p>
+                        <p class="stat-change positive">Per unit</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Recovery rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">23%</p>
+                        <p class="stat-change positive">Of claim paid</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Days to sale</p>
+                        <p class="stat-value">45d</p>
+                        <p class="stat-change positive">Avg turnover</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending auctions</p>
+                        <p class="stat-value">18</p>
+                        <p class="stat-change positive">Scheduled</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Storage costs accumulating</p>
+                                <p style="font-size: 12px; color: #BA7517;">142 units held >90 days - expedite auction to reduce costs</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Scheduling...')">Schedule</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🎉</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">High-value auction success</p>
+                                <p style="font-size: 12px; color: #1D9E75;">$147K recovery on luxury vehicle - 34% above estimate</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salvage Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Salvage Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showSalvageTracking()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📦</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SALVAGE ASSET TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">1,284</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active units</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Vehicles</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,002</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Other</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">282</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track assets</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showAuctionManagement()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔨</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SALVAGE AUCTION MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Pending auctions</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">This month</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">42</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Avg sale</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$2.2K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage auctions</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showSalvageVendors()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤝</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SALVAGE VENDOR INTEGRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">8</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active vendors</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Copart</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">48%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">IAA</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">35%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage vendors</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showAssetValuation()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💎</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSET VALUATION MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$2,180</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Avg salvage value</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">94%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">AI model</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">Active</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Value assets</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRecoveryTracking()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">SALVAGE RECOVERY TRACKING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">$2.8M</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Revenue YTD</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Recovery %</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">23%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Units sold</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1.3K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Track recovery</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Salvage Inventory Overview -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Active Salvage Inventory (1,284 units)</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr>
+                                    <th>Salvage ID</th>
+                                    <th>Asset Type</th>
+                                    <th>Claim Reference</th>
+                                    <th>Location</th>
+                                    <th>Est. Value</th>
+                                    <th>Days in Storage</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8472</td>
+                                    <td>2022 Tesla Model 3</td>
+                                    <td>CLM-2024-08472</td>
+                                    <td>Atlanta, GA</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$18,400</td>
+                                    <td>12d</td>
+                                    <td><span class="badge badge-pending">Listed</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8391</td>
+                                    <td>2020 Ford F-150</td>
+                                    <td>CLM-2024-08391</td>
+                                    <td>Dallas, TX</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$12,800</td>
+                                    <td>28d</td>
+                                    <td><span class="badge badge-review">Auction Pending</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8284</td>
+                                    <td>Household Contents</td>
+                                    <td>CLM-2024-08284</td>
+                                    <td>Phoenix, AZ</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$2,400</td>
+                                    <td>45d</td>
+                                    <td><span class="badge badge-approved">Ready for Sale</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8192</td>
+                                    <td>2019 Honda Accord</td>
+                                    <td>CLM-2024-08192</td>
+                                    <td>Miami, FL</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$8,900</td>
+                                    <td>8d</td>
+                                    <td><span class="badge badge-pending">Valuation</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8147</td>
+                                    <td>2021 Chevrolet Silverado</td>
+                                    <td>CLM-2024-08147</td>
+                                    <td>Houston, TX</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$15,600</td>
+                                    <td>94d</td>
+                                    <td><span class="badge badge-denied">Overdue</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">SLV-2024-8089</td>
+                                    <td>Commercial Equipment</td>
+                                    <td>CLM-2024-08089</td>
+                                    <td>Chicago, IL</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$4,200</td>
+                                    <td>62d</td>
+                                    <td><span class="badge badge-review">Auction Pending</span></td>
+                                    <td><button onclick="alert('View details')">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Salvage Performance Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Salvage revenue by asset type</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🚗 Vehicles</span>
+                                <span style="font-weight: 500;">$2.18M • 78%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏠 Contents/Property</span>
+                                <span style="font-weight: 500;">$420K • 15%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚙️ Equipment/Machinery</span>
+                                <span style="font-weight: 500;">$196K • 7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 7%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total revenue</p>
+                                <p style="color: #1D9E75;">$2.8M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Units sold</p>
+                                <p>1,284</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg value</p>
+                                <p>$2,180</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Salvage management metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Recovery rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">23%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Of claim amount paid • $2.8M recovered • 1,284 units sold • Strong performance</div>
+                            </div>
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #3E3686;">Days to sale</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #534AB7; margin-bottom: 4px;">45 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Avg turnover • ↓ 8 days vs LY • Faster auctions • Reduced storage costs</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Valuation accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">94%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">AI-powered estimates • Market data integration • Real-time pricing • High precision</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SALVAGE ASSET TRACKING SUBMODULE SCREEN -->

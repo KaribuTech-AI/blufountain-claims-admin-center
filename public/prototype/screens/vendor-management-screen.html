@@ -1,0 +1,306 @@
+<div id="vendor-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🤝</div>
+                            <div class="header-title">
+                                <h1>Vendor Management Hub</h1>
+                                <p>Third-party network, vendor performance, contract management, and service provider coordination</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showThirdParty()">📊 Third-Party Dashboard</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #7F77DD; border-color: #7F77DD;" onclick="alert('Add vendor')">Add Vendor</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total active vendors</p>
+                        <p class="stat-value">342</p>
+                        <p class="stat-change positive">Across all categories</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Total spend YTD</p>
+                        <p class="stat-value">$12.4M</p>
+                        <p class="stat-change neutral">Vendor services</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg vendor rating</p>
+                        <p class="stat-value" style="color: #1D9E75;">4.3/5</p>
+                        <p class="stat-change positive">Quality score</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg turnaround time</p>
+                        <p class="stat-value" style="color: #1D9E75;">5.2d</p>
+                        <p class="stat-change positive">↓ 1.8d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Compliance rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.8%</p>
+                        <p class="stat-change positive">Contract adherence</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active assignments</p>
+                        <p class="stat-value" style="color: #378ADD;">748</p>
+                        <p class="stat-change neutral">In progress</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FCEBEB 0%, #F5C9C9 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #A32D2D;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚠️</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #7A1F1F;">Contract renewals due</p>
+                                <p style="font-size: 12px; color: #A32D2D;">18 vendor contracts expiring within 30 days</p>
+                            </div>
+                            <button class="primary" style="background: #A32D2D; border-color: #A32D2D; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing contracts...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">📊</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Performance reviews needed</p>
+                                <p style="font-size: 12px; color: #BA7517;">34 vendors due for quarterly performance review</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Starting reviews...')">Start</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vendor Category Widgets with Slider Navigation -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Vendor Categories</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showMedicalProviders()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏥</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">MEDICAL PROVIDERS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">86</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Healthcare facilities</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$3.8M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage providers</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showAssessors()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSESSORS & SURVEYORS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">58</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Field assessment teams</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$1.4M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.3/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage assessors</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showProcessingPartners()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">PROCESSING PARTNERS (BPO)</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">32</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Outsourced processing</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$900K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.1/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage partners</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showRepairVendors()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔧</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">REPAIR VENDORS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Repair facilities</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$4.2M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.5/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage vendors</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showLossAdjusters()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LOSS ADJUSTERS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Independent adjusters</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$2.1M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.4/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage adjusters</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Legal Services: Attorneys, law firms, litigation support, contract review')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">LEGAL SERVICES</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">28</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Law firms & attorneys</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Spend</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">$1.9M</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Rating</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.6/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage legal</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Vendor spend by category</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔧 Repair vendors</span>
+                                <span style="font-weight: 500;">$4.2M • 33.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 34%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏥 Medical providers</span>
+                                <span style="font-weight: 500;">$3.8M • 30.6%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 31%; background: #D85A30;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📋 Loss adjusters</span>
+                                <span style="font-weight: 500;">$2.1M • 16.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 17%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚖️ Legal services</span>
+                                <span style="font-weight: 500;">$1.9M • 15.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 15%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🔍 Assessors & surveyors</span>
+                                <span style="font-weight: 500;">$1.4M • 11.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 11%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total spend</p>
+                                <p>$12.4M</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Vendors</p>
+                                <p>342</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Avg rating</p>
+                                <p style="color: #1D9E75;">4.3/5</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Vendor performance metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Overall quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">4.3/5</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">342 active vendors • 96.8% compliance • Based on 15,428 service deliveries</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Average turnaround</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">5.2 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">↓ 1.8 days improvement • 748 active assignments • SLA: 7 days</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Contract compliance</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">96.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">331 of 342 vendors compliant • 18 contracts expiring • 34 reviews due</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Cost per service</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">$362</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average across all categories • $12.4M total spend YTD</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🎯 Vendor optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">342 active vendors • 6 categories • 748 assignments in progress • Performance monitoring across all service types</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CLAIMS INTAKE & REGISTRATION SCREEN -->

@@ -1,0 +1,94 @@
+<div id="performance-incentive-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showWorkforceManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Workforce Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🏆</div>
+                            <div class="header-title">
+                                <h1>Performance Incentive Tracking</h1>
+                                <p>Goal tracking, bonus calculations, recognition programs, performance reviews, and reward management</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Calculate bonuses')">💰 Calculate</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Avg performance score</p><p class="stat-value" style="color: #1D9E75;">4.3/5</p><p class="stat-change positive">Team rating</p></div>
+                    <div class="stat-card"><p class="stat-label">Goal achievement</p><p class="stat-value" style="color: #1D9E75;">87%</p><p class="stat-change positive">Meeting targets</p></div>
+                    <div class="stat-card"><p class="stat-label">Top performers</p><p class="stat-value" style="color: #1D9E75;">42</p><p class="stat-change positive">5.0 rating</p></div>
+                    <div class="stat-card"><p class="stat-label">Bonus pool</p><p class="stat-value">$847K</p><p class="stat-change positive">This quarter</p></div>
+                    <div class="stat-card"><p class="stat-label">Recognition awards</p><p class="stat-value">124</p><p class="stat-change positive">This month</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg bonus</p><p class="stat-value">$2,950</p><p class="stat-change positive">Per adjuster</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Performance Leaderboard (Top 10)</h2>
+                    <div class="table-container">
+                        <table class="claims-table">
+                            <thead>
+                                <tr><th>Rank</th><th>Adjuster</th><th>Performance Score</th><th>Claims Closed</th><th>Quality %</th><th>CSAT</th><th>Q1 Bonus</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: linear-gradient(135deg, #FFFAED 0%, #FFF5D6 100%);">
+                                    <td><div style="width: 24px; height: 24px; background: gold; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">1</div></td>
+                                    <td style="font-weight: 600;">Sarah Johnson</td>
+                                    <td><span style="background: #1D9E75; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">5.0</span></td>
+                                    <td style="font-weight: 600;">124</td>
+                                    <td>98.4%</td>
+                                    <td>4.9/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$5,200</td>
+                                </tr>
+                                <tr style="background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);">
+                                    <td><div style="width: 24px; height: 24px; background: silver; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600;">2</div></td>
+                                    <td style="font-weight: 600;">Michael Chen</td>
+                                    <td><span style="background: #1D9E75; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">5.0</span></td>
+                                    <td style="font-weight: 600;">118</td>
+                                    <td>97.8%</td>
+                                    <td>4.8/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$4,800</td>
+                                </tr>
+                                <tr style="background: linear-gradient(135deg, #FFF4E6 0%, #FFE5CC 100%);">
+                                    <td><div style="width: 24px; height: 24px; background: #CD7F32; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: white;">3</div></td>
+                                    <td style="font-weight: 600;">Jennifer Liu</td>
+                                    <td><span style="background: #1D9E75; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">5.0</span></td>
+                                    <td style="font-weight: 600;">114</td>
+                                    <td>98.1%</td>
+                                    <td>4.8/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$4,500</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">4</td>
+                                    <td>David Walsh</td>
+                                    <td><span style="background: #378ADD; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">4.8</span></td>
+                                    <td>108</td>
+                                    <td>96.2%</td>
+                                    <td>4.7/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$3,900</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">5</td>
+                                    <td>Emily Parker</td>
+                                    <td><span style="background: #378ADD; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">4.7</span></td>
+                                    <td>102</td>
+                                    <td>95.8%</td>
+                                    <td>4.6/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$3,600</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: 600;">6</td>
+                                    <td>Robert Martinez</td>
+                                    <td><span style="background: #378ADD; color: white; padding: 4px 12px; border-radius: 4px; font-weight: 600;">4.7</span></td>
+                                    <td>98</td>
+                                    <td>96.4%</td>
+                                    <td>4.6/5</td>
+                                    <td style="font-weight: 600; color: #1D9E75;">$3,400</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>

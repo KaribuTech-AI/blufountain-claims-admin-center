@@ -1,0 +1,66 @@
+<div id="parametric-claims-hub-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚡</div>
+                            <div class="header-title">
+                                <h1>Parametric Claims Management Hub</h1>
+                                <p>Policy configuration, data feed integration, trigger evaluation, automated claim creation, payout engine, notifications, risk analytics, and reinsurance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('New parametric policy')">⚡ New Policy</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Active parametric policies</p><p class="stat-value" style="color: #378ADD;">1,284</p><p class="stat-change positive">In force</p></div>
+                    <div class="stat-card"><p class="stat-label">Auto-triggered claims</p><p class="stat-value" style="color: #1D9E75;">847</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg payout time</p><p class="stat-value" style="color: #1D9E75;">2.4h</p><p class="stat-change positive">Trigger to payment</p></div>
+                    <div class="stat-card"><p class="stat-label">Payouts processed</p><p class="stat-value">$18.4M</p><p class="stat-change positive">YTD</p></div>
+                    <div class="stat-card"><p class="stat-label">Data feed accuracy</p><p class="stat-value" style="color: #1D9E75;">99.8%</p><p class="stat-change positive">Real-time</p></div>
+                    <div class="stat-card"><p class="stat-label">Automation rate</p><p class="stat-value" style="color: #1D9E75;">98.6%</p><p class="stat-change positive">Fully automated</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Parametric Claims Modules (8)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                        <div onclick="showScreen('parametric-policy-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📋</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PARAMETRIC POLICY MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">1,284</div><div style="font-size: 13px; margin-bottom: 16px;">Active policies</div><div style="font-size: 13px; font-weight: 500;">→ Manage policies</div></div>
+                        </div>
+                        <div onclick="showScreen('data-feed-integration-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🌐</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">DATA FEED INTEGRATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">28</div><div style="font-size: 13px; margin-bottom: 16px;">Active feeds</div><div style="font-size: 13px; font-weight: 500;">→ Manage feeds</div></div>
+                        </div>
+                        <div onclick="showScreen('trigger-evaluation-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚡</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">TRIGGER EVALUATION ENGINE</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Monitor triggers</div></div>
+                        </div>
+                        <div onclick="showScreen('automated-claim-creation-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">AUTOMATED CLAIM CREATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">847</div><div style="font-size: 13px; margin-bottom: 16px;">Auto-created YTD</div><div style="font-size: 13px; font-weight: 500;">→ View automation</div></div>
+                        </div>
+                        <div onclick="showScreen('payout-engine-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💰</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PAYOUT ENGINE</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$18.4M</div><div style="font-size: 13px; margin-bottom: 16px;">Paid YTD</div><div style="font-size: 13px; font-weight: 500;">→ Process payouts</div></div>
+                        </div>
+                        <div onclick="showScreen('parametric-notification-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📱</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">NOTIFICATION MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">4,284</div><div style="font-size: 13px; margin-bottom: 16px;">Alerts sent YTD</div><div style="font-size: 13px; font-weight: 500;">→ Manage alerts</div></div>
+                        </div>
+                        <div onclick="showScreen('parametric-risk-analytics-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">RISK ANALYTICS</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.2%</div><div style="font-size: 13px; margin-bottom: 16px;">Prediction accuracy</div><div style="font-size: 13px; font-weight: 500;">→ Analyze risk</div></div>
+                        </div>
+                        <div onclick="showScreen('parametric-reinsurance-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">REINSURANCE INTEGRATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$42M</div><div style="font-size: 13px; margin-bottom: 16px;">CAT capacity</div><div style="font-size: 13px; font-weight: 500;">→ Manage CAT risk</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. PARAMETRIC POLICY MANAGEMENT -->

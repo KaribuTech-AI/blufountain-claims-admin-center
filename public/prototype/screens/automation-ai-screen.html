@@ -1,0 +1,385 @@
+<div id="automation-ai-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">🤖</div>
+                            <div class="header-title">
+                                <h1>Claims Automation & AI Hub</h1>
+                                <p>Intelligent automation, AI-powered processing, computer vision, RPA workflows, and generative AI assistance</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showAnalytics()">📊 AI Analytics</button>
+                        <button onclick="exportReport()">📥 Export</button>
+                        <button class="primary" style="background: #7F77DD; border-color: #7F77DD;" onclick="alert('Train AI models')">Train Models</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Claims auto-processed</p>
+                        <p class="stat-value" style="color: #7F77DD;">1,847</p>
+                        <p class="stat-change positive">Today</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Automation rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">87.3%</p>
+                        <p class="stat-change positive">End-to-end</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">AI model accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">96.8%</p>
+                        <p class="stat-change positive">Across all models</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Processing time saved</p>
+                        <p class="stat-value" style="color: #1D9E75;">72%</p>
+                        <p class="stat-change positive">vs manual</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Active AI models</p>
+                        <p class="stat-value" style="color: #7F77DD;">24</p>
+                        <p class="stat-change positive">In production</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">RPA bots running</p>
+                        <p class="stat-value" style="color: #378ADD;">18</p>
+                        <p class="stat-change positive">24/7 operation</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #EEEDFE 0%, #D4D1F5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #7F77DD;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">🤖</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #534AB7;">AI models updated</p>
+                                <p style="font-size: 12px; color: #7F77DD;">3 models retrained with latest data, accuracy improved by 2.4%</p>
+                            </div>
+                            <button class="primary" style="background: #7F77DD; border-color: #7F77DD; font-size: 13px; padding: 6px 12px;" onclick="alert('Deploying...')">Deploy</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⚡</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Automation milestone</p>
+                                <p style="font-size: 12px; color: #1D9E75;">1,847 claims fully auto-processed today (87.3% rate)</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI & Automation Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">AI & Automation Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="alert('Claims Workflow Automation: End-to-end orchestration, rule engine, decision trees, exception handling')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS WORKFLOW AUTOMATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">342</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active workflows</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Automated</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">94%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Success</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">98.2%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View workflows</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Robotic Process Automation: 18 active bots, data entry, system integration, legacy automation')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🤖</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ROBOTIC PROCESS AUTOMATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active RPA bots</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Tasks/day</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Uptime</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">99.6%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View RPA bots</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('AI-Based Claim Triage: ML classification, priority scoring, intelligent routing, workload balancing')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎯</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AI-BASED CLAIM TRIAGE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">96.4%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Routing accuracy</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">2,147</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">94.2%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View triage AI</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Automated Claim Adjudication: Decision engine, policy rules, fraud checks, instant approvals')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚖️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">AUTOMATED ADJUDICATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">42.3%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Auto-adjudication rate</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,204</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Accuracy</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">98.4%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View adjudication</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Intelligent Document Processing: OCR, NLP extraction, classification, data validation')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">INTELLIGENT DOC PROCESSING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">98.6%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Extraction accuracy</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">842</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">YTD</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">24.8K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View IDP</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Computer Vision Damage Assessment: Image analysis, damage detection, cost estimation, severity scoring')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">👁️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">COMPUTER VISION ASSESSMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.8%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Detection accuracy</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Images</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto-est</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">87%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View CV models</div>
+                            </div>
+                        </div>
+
+                        <div onclick="alert('Generative AI Claims Assistants: ChatGPT-style interfaces, natural language queries, document generation')" style="background: linear-gradient(135deg, #E67E22 0%, #D35400 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💬</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">GENERATIVE AI ASSISTANTS</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">3,847</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Interactions today</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Users</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">CSAT</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.7/5</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ View Gen AI</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- AI Model Performance -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">AI Model Performance & Training</h2>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;">
+                        
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Triage Classifier</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Accuracy</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 96%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">96.4%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Trained: Jan 2026 • 2.1M samples</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Fraud Detection</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Accuracy</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 94%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">94.2%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Trained: Dec 2025 • 842K samples</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">Damage Estimator</p>
+                                <span style="background: #E1F5EE; color: #1D9E75; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">ACTIVE</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Accuracy</p>
+                                <div style="background: #E1F5EE; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #1D9E75; width: 95%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-top: 4px;">94.8%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">Trained: Jan 2026 • 1.4M images</p>
+                        </div>
+
+                        <div style="background: var(--color-background-primary); border: 2px solid var(--color-border); border-radius: 12px; padding: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <p style="font-weight: 600; font-size: 13px;">OCR Extractor</p>
+                                <span style="background: #FAEEDA; color: #BA7517; padding: 3px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;">TRAINING</span>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <p style="font-size: 11px; color: var(--color-text-secondary); margin-bottom: 4px;">Training progress</p>
+                                <div style="background: #FAEEDA; height: 8px; border-radius: 4px; overflow: hidden;">
+                                    <div style="background: #EF9F27; width: 73%; height: 100%;"></div>
+                                </div>
+                                <p style="font-size: 18px; font-weight: 600; color: #EF9F27; margin-top: 4px;">73%</p>
+                            </div>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">ETA: 2 days • 3.2M samples</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Automation coverage by process</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🎯 Claim intake & triage</span>
+                                <span style="font-weight: 500;">94.2% automated</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 94%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📄 Document processing</span>
+                                <span style="font-weight: 500;">91.3% automated</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 91%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">👁️ Damage assessment</span>
+                                <span style="font-weight: 500;">87.0% automated</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 87%; background: #534AB7;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">⚖️ Adjudication</span>
+                                <span style="font-weight: 500;">42.3% automated</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 42%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Overall automation</p>
+                                <p style="color: #1D9E75;">87.3%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Time saved</p>
+                                <p style="color: #1D9E75;">72%</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Active models</p>
+                                <p style="color: #7F77DD;">24</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>AI & automation metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #7F77DD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #534AB7;">AI model accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #7F77DD; margin-bottom: 4px;">96.8%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average across 24 production models • Continuous learning • Human feedback loop</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">End-to-end automation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">87.3%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">1,847 claims auto-processed today • 72% faster than manual • $2.4M cost savings/year</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">RPA bot performance</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">99.6% uptime</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">18 bots active • 8.4K tasks/day • 24/7 operation • Zero errors today</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #E67E22;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Generative AI adoption</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">284 active users</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">3,847 interactions today • 4.7/5 satisfaction • Document gen, query assist, summarization</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #EEEDFE; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #534AB7; margin-bottom: 4px;">🤖 AI optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">7 modules integrated • 24 AI models • 18 RPA bots • 87.3% automation • 96.8% accuracy • $2.4M annual savings</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- FNOL CHANNELS MANAGEMENT SCREEN -->

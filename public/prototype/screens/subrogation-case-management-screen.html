@@ -1,0 +1,137 @@
+<div id="subrogation-case-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; font-size: 20px; padding: 0 8px;">←</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Subrogation Case Management</h1>
+                                <p>Case tracking, workflow automation, document management, and case lifecycle monitoring</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Create new case')">New Case</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total active cases</p>
+                        <p class="stat-value" style="color: #1D9E75;">342</p>
+                        <p class="stat-change positive">All stages</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">New cases this month</p>
+                        <p class="stat-value">87</p>
+                        <p class="stat-change positive">↑ 12% vs LM</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Closed YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">1,204</p>
+                        <p class="stat-change positive">Success rate 58%</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">High priority</p>
+                        <p class="stat-value" style="color: #A32D2D;">42</p>
+                        <p class="stat-change positive">Over $50K each</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg case value</p>
+                        <p class="stat-value" style="color: #1D9E75;">$54.4K</p>
+                        <p class="stat-change positive">Recovery potential</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Case aging (avg)</p>
+                        <p class="stat-value">124</p>
+                        <p class="stat-change positive">Days open</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h2 style="font-size: 18px; font-weight: 600;">Active Subrogation Cases</h2>
+                        <div style="display: flex; gap: 12px;">
+                            <select style="padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 8px; background: var(--color-background-primary);">
+                                <option>All Cases</option>
+                                <option>High Priority</option>
+                                <option>Investigation</option>
+                                <option>Litigation</option>
+                            </select>
+                            <button onclick="showModal('sort-modal')">Sort</button>
+                            <button onclick="alert('Filters')">Filters</button>
+                        </div>
+                    </div>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr style="background: var(--color-background-secondary); border-bottom: 2px solid var(--color-border);">
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Case ID</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Claim #</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Third Party</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Potential Recovery</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Stage</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Days Open</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Priority</th>
+                                <th style="padding: 12px; text-align: left; font-weight: 600; font-size: 13px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 12px; font-weight: 500;">SBR-2026-0842</td>
+                                <td style="padding: 12px;">CLM-584729</td>
+                                <td style="padding: 12px;">Acme Insurance Co</td>
+                                <td style="padding: 12px; font-weight: 600; color: #1D9E75;">$84,500</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FAEEDA; color: #BA7517;">Negotiation</span></td>
+                                <td style="padding: 12px;">142</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FCEBEB; color: #A32D2D;">High</span></td>
+                                <td style="padding: 12px;"><button style="padding: 4px 12px; font-size: 12px;" onclick="alert('View case')">View</button></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 12px; font-weight: 500;">SBR-2026-0841</td>
+                                <td style="padding: 12px;">CLM-584712</td>
+                                <td style="padding: 12px;">Metro Auto Repair</td>
+                                <td style="padding: 12px; font-weight: 600; color: #1D9E75;">$12,400</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #E6F1FB; color: #378ADD;">Demand Sent</span></td>
+                                <td style="padding: 12px;">87</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #E6F1FB; color: #378ADD;">Normal</span></td>
+                                <td style="padding: 12px;"><button style="padding: 4px 12px; font-size: 12px;" onclick="alert('View case')">View</button></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 12px; font-weight: 500;">SBR-2026-0840</td>
+                                <td style="padding: 12px;">CLM-584698</td>
+                                <td style="padding: 12px;">Smith, John (Driver)</td>
+                                <td style="padding: 12px; font-weight: 600; color: #1D9E75;">$124,000</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FCEBEB; color: #A32D2D;">Litigation</span></td>
+                                <td style="padding: 12px;">284</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FCEBEB; color: #A32D2D;">High</span></td>
+                                <td style="padding: 12px;"><button style="padding: 4px 12px; font-size: 12px;" onclick="alert('View case')">View</button></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 12px; font-weight: 500;">SBR-2026-0839</td>
+                                <td style="padding: 12px;">CLM-584673</td>
+                                <td style="padding: 12px;">Global Liability Ltd</td>
+                                <td style="padding: 12px; font-weight: 600; color: #1D9E75;">$54,200</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FAEEDA; color: #BA7517;">Negotiation</span></td>
+                                <td style="padding: 12px;">156</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #FCEBEB; color: #A32D2D;">High</span></td>
+                                <td style="padding: 12px;"><button style="padding: 4px 12px; font-size: 12px;" onclick="alert('View case')">View</button></td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--color-border);">
+                                <td style="padding: 12px; font-weight: 500;">SBR-2026-0838</td>
+                                <td style="padding: 12px;">CLM-584651</td>
+                                <td style="padding: 12px;">Municipal Authority</td>
+                                <td style="padding: 12px; font-weight: 600; color: #1D9E75;">$8,900</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #E1F5EE; color: #1D9E75;">Investigation</span></td>
+                                <td style="padding: 12px;">42</td>
+                                <td style="padding: 12px;"><span class="badge" style="background: #EEEDFE; color: #534AB7;">Low</span></td>
+                                <td style="padding: 12px;"><button style="padding: 4px 12px; font-size: 12px;" onclick="alert('View case')">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- THIRD-PARTY LIABILITY TRACKING SUBMODULE SCREEN -->

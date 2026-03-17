@@ -1,0 +1,74 @@
+<div id="financial-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💰</div>
+                            <div class="header-title">
+                                <h1>Claims Financial Management Hub</h1>
+                                <p>Reserves, settlements, payments, approvals, expenses, liability, cost monitoring, reconciliation, reimbursement, auditing</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Payment queue')">💳 Payments</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Total reserves</p><p class="stat-value">$127.4M</p><p class="stat-change positive">Outstanding</p></div>
+                    <div class="stat-card"><p class="stat-label">Payments YTD</p><p class="stat-value" style="color: #1D9E75;">$45.8M</p><p class="stat-change positive">Settled</p></div>
+                    <div class="stat-card"><p class="stat-label">Pending approvals</p><p class="stat-value" style="color: #EF9F27;">124</p><p class="stat-change positive">Queue</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg settlement</p><p class="stat-value">$16,089</p><p class="stat-change positive">Per claim</p></div>
+                    <div class="stat-card"><p class="stat-label">Reserve adequacy</p><p class="stat-value" style="color: #1D9E75;">102.4%</p><p class="stat-change positive">Well reserved</p></div>
+                    <div class="stat-card"><p class="stat-label">Payment accuracy</p><p class="stat-value" style="color: #1D9E75;">99.4%</p><p class="stat-change positive">Error-free</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px;">Financial Management Modules (10)</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        <div onclick="showScreen('reserve-management-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💼</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM RESERVE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$127.4M</div><div style="font-size: 13px; margin-bottom: 16px;">Total reserves</div><div style="font-size: 13px; font-weight: 500;">→ Manage reserves</div></div>
+                        </div>
+                        <div onclick="showScreen('settlement-calculation-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🧮</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">SETTLEMENT CALCULATION ENGINE</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$16,089</div><div style="font-size: 13px; margin-bottom: 16px;">Avg settlement</div><div style="font-size: 13px; font-weight: 500;">→ Calculate settlements</div></div>
+                        </div>
+                        <div onclick="showScreen('payment-processing-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💳</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS PAYMENT PROCESSING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$45.8M</div><div style="font-size: 13px; margin-bottom: 16px;">Payments YTD</div><div style="font-size: 13px; font-weight: 500;">→ Process payments</div></div>
+                        </div>
+                        <div onclick="showScreen('payment-approval-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✅</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PAYMENT APPROVAL WORKFLOW</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">124</div><div style="font-size: 13px; margin-bottom: 16px;">Pending approvals</div><div style="font-size: 13px; font-weight: 500;">→ Approve payments</div></div>
+                        </div>
+                        <div onclick="showScreen('expense-management-screen')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💵</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM EXPENSE MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$127</div><div style="font-size: 13px; margin-bottom: 16px;">Avg cost per claim</div><div style="font-size: 13px; font-weight: 500;">→ Track expenses</div></div>
+                        </div>
+                        <div onclick="showScreen('liability-tracking-screen')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📊</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">FINANCIAL LIABILITY TRACKING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$284M</div><div style="font-size: 13px; margin-bottom: 16px;">Total exposure</div><div style="font-size: 13px; font-weight: 500;">→ Track liability</div></div>
+                        </div>
+                        <div onclick="showScreen('cost-monitoring-screen')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📈</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM COST MONITORING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$127</div><div style="font-size: 13px; margin-bottom: 16px;">Cost per claim</div><div style="font-size: 13px; font-weight: 500;">→ Monitor costs</div></div>
+                        </div>
+                        <div onclick="showScreen('reconciliation-screen')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔄</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">PAYMENT RECONCILIATION</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.8%</div><div style="font-size: 13px; margin-bottom: 16px;">Reconciled daily</div><div style="font-size: 13px; font-weight: 500;">→ Reconcile payments</div></div>
+                        </div>
+                        <div onclick="showScreen('reimbursement-screen')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💸</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">REIMBURSEMENT MANAGEMENT</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">$8.4M</div><div style="font-size: 13px; margin-bottom: 16px;">Recovered YTD</div><div style="font-size: 13px; font-weight: 500;">→ Manage reimbursements</div></div>
+                        </div>
+                        <div onclick="showScreen('payment-auditing-screen')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; color: white; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;"><div style="font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIM PAYMENT AUDITING</div><div style="font-size: 32px; font-weight: 600; margin-bottom: 12px;">99.4%</div><div style="font-size: 13px; margin-bottom: 16px;">Accuracy rate</div><div style="font-size: 13px; font-weight: 500;">→ Audit payments</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FRAUD DETECTION & RISK MANAGEMENT HUB SCREEN -->

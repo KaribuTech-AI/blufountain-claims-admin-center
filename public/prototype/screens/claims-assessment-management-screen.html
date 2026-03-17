@@ -1,0 +1,242 @@
+<div id="claims-assessment-management-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <button onclick="showAssessmentHub()" style="background: none; border: none; cursor: pointer; padding: 8px; color: var(--color-text-secondary);">← Back to Hub</button>
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📋</div>
+                            <div class="header-title">
+                                <h1>Claims Assessment Management</h1>
+                                <p>Comprehensive claim evaluation, validation workflows, assessment scheduling, and quality control</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showAssessmentHub()">🔬 Assessment Hub</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Schedule assessment')">Schedule Assessment</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total assessments</p>
+                        <p class="stat-value" style="color: #534AB7;">186</p>
+                        <p class="stat-change positive">Active workflows</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Pending scheduling</p>
+                        <p class="stat-value" style="color: #EF9F27;">58</p>
+                        <p class="stat-change neutral">Awaiting assignment</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">In progress</p>
+                        <p class="stat-value">72</p>
+                        <p class="stat-change positive">Field & desk reviews</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Completed YTD</p>
+                        <p class="stat-value" style="color: #1D9E75;">1,284</p>
+                        <p class="stat-change positive">Assessment reports</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg completion time</p>
+                        <p class="stat-value" style="color: #1D9E75;">5.2d</p>
+                        <p class="stat-change positive">↓ 1.8d improvement</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Quality score</p>
+                        <p class="stat-value" style="color: #1D9E75;">94.6%</p>
+                        <p class="stat-change positive">QC validation</p>
+                    </div>
+                </div>
+
+                <!-- Assessment Widgets --><div style="padding: 24px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    
+                    <div onclick="alert('Field Assessments: On-site inspections, 48 scheduled, property & vehicle')" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🏗️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">FIELD ASSESSMENTS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">48</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Scheduled on-site</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Property</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">28</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Vehicle</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">20</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View field schedule</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Desk Assessments: Document review, 24 active, remote evaluation')" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">💻</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DESK ASSESSMENTS</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">24</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Document review</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">In review</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">16</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Complete</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View desk reviews</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Assessment Scheduling: Calendar management, assessor availability, auto-assignment')" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📅</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSESSMENT SCHEDULING</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">58</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Pending assignments</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">12</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">This week</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">46</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View schedule</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Quality Control: Report validation, accuracy checks, compliance verification')" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✓</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">QUALITY CONTROL</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">94.6%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Quality score</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Reviewed</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">128</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Issues</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">7</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View QC reports</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Assessment Templates: Standardized forms, checklists, reporting formats')" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📝</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">ASSESSMENT TEMPLATES</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">18</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active templates</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Property</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">8</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Vehicle</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">10</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View templates</div>
+                        </div>
+                    </div>
+
+                    <div onclick="alert('Workflow Automation: Auto-assignment, notifications, status tracking')" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                        <div style="position: relative;">
+                            <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">WORKFLOW AUTOMATION</div>
+                            <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">82.4%</div>
+                            <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Auto-assigned</div>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">153</div>
+                                </div>
+                                <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                    <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Manual</div>
+                                    <div style="color: white; font-size: 16px; font-weight: 600;">33</div>
+                                </div>
+                            </div>
+                            <div style="color: white; font-size: 13px; font-weight: 500;">→ View automation</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Analytics -->
+                <div class="analytics-section">
+                    <div class="analytics-card">
+                        <h3>Assessment type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🏗️ Field assessments</span>
+                                <span style="font-weight: 500;">48 scheduled • 66.7%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 67%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">💻 Desk reviews</span>
+                                <span style="font-weight: 500;">24 active • 33.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total in progress</p>
+                                <p style="color: #534AB7;">72</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Pending</p>
+                                <p style="color: #EF9F27;">58</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Completed YTD</p>
+                                <p style="color: #1D9E75;">1,284</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Claims assessment metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #EEEDFE; border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #3E3686;">Completion time</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #534AB7; margin-bottom: 4px;">5.2 days</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Average assessment cycle • ↓ 1.8 days improvement • Field 6.4d, Desk 3.2d</div>
+                            </div>
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Quality score</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94.6%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">QC validation • 128 reviewed • 7 issues identified • Accuracy maintained</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #EF9F27;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Automation rate</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">82.4%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">153 auto-assigned • 33 manual • Workflow optimization</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- INVESTIGATION CASE MANAGEMENT SUBMODULE -->

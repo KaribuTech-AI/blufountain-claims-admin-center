@@ -1,0 +1,203 @@
+<div id="legal-coordination-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showSubrogationManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">⚖️</div>
+                            <div class="header-title">
+                                <h1>Legal Coordination for Recovery</h1>
+                                <p>Attorney management, litigation tracking, court case coordination, and legal expense tracking</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Attorney roster')">👨‍⚖️ Attorneys</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #534AB7; border-color: #534AB7;" onclick="alert('Refer to legal')">Refer to Legal</button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Legal cases active</p>
+                        <p class="stat-value" style="color: #534AB7;">84</p>
+                        <p class="stat-change positive">In litigation</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Attorneys engaged</p>
+                        <p class="stat-value">42</p>
+                        <p class="stat-change positive">External counsel</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Win rate</p>
+                        <p class="stat-value" style="color: #1D9E75;">68%</p>
+                        <p class="stat-change positive">Cases won</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Avg litigation time</p>
+                        <p class="stat-value">284d</p>
+                        <p class="stat-change positive">Filing to verdict</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Legal expenses YTD</p>
+                        <p class="stat-value" style="color: #A32D2D;">$847K</p>
+                        <p class="stat-change positive">Attorney fees</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Settlement pre-trial</p>
+                        <p class="stat-value" style="color: #1D9E75;">54%</p>
+                        <p class="stat-change positive">Before trial</p>
+                    </div>
+                </div>
+
+                <div style="padding: 24px;">
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Active Legal Cases (84)</h2>
+                            <div class="table-container">
+                                <table class="claims-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Case Number</th>
+                                            <th>Subrogation ID</th>
+                                            <th>Attorney</th>
+                                            <th>Court</th>
+                                            <th>Stage</th>
+                                            <th>Next Hearing</th>
+                                            <th>Amount</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1847</td>
+                                            <td>SUB-2846</td>
+                                            <td>Rachel Morrison</td>
+                                            <td>Superior Court</td>
+                                            <td><span class="badge badge-review">Discovery</span></td>
+                                            <td>Mar 28, 2026</td>
+                                            <td style="font-weight: 600; color: #534AB7;">$127,450</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1802</td>
+                                            <td>SUB-2843</td>
+                                            <td>Michael Chen</td>
+                                            <td>District Court</td>
+                                            <td><span class="badge badge-pending">Pre-Trial</span></td>
+                                            <td>Apr 15, 2026</td>
+                                            <td style="font-weight: 600; color: #534AB7;">$156,300</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1756</td>
+                                            <td>SUB-2820</td>
+                                            <td>Jennifer Liu</td>
+                                            <td>Municipal Court</td>
+                                            <td><span class="badge badge-approved">Mediation</span></td>
+                                            <td>Mar 22, 2026</td>
+                                            <td style="font-weight: 600; color: #534AB7;">$84,900</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2023-2945</td>
+                                            <td>SUB-2698</td>
+                                            <td>David Walsh</td>
+                                            <td>Superior Court</td>
+                                            <td><span class="badge badge-denied">Trial</span></td>
+                                            <td>Apr 3, 2026</td>
+                                            <td style="font-weight: 600; color: #534AB7;">$342,800</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-weight: 600;">CV-2024-1689</td>
+                                            <td>SUB-2802</td>
+                                            <td>Sarah Thompson</td>
+                                            <td>District Court</td>
+                                            <td><span class="badge badge-pending">Motion Pending</span></td>
+                                            <td>Mar 30, 2026</td>
+                                            <td style="font-weight: 600; color: #534AB7;">$97,200</td>
+                                            <td><button onclick="alert('View case')">View</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 style="margin-bottom: 16px;">Legal Metrics</h2>
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">By Stage</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Pre-Trial</span>
+                                            <strong style="color: #378ADD;">28 (33%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Discovery</span>
+                                            <strong style="color: #1D9E75;">24 (29%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Mediation</span>
+                                            <strong style="color: #EF9F27;">18 (21%)</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Trial</span>
+                                            <strong style="color: #A32D2D;">14 (17%)</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Top Attorneys</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Rachel Morrison</span>
+                                            <strong style="color: #1D9E75;">12 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Michael Chen</span>
+                                            <strong style="color: #1D9E75;">10 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Jennifer Liu</span>
+                                            <strong>8 cases</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>David Walsh</span>
+                                            <strong>7 cases</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="background: var(--color-background-primary); border-radius: 12px; padding: 16px; border: 2px solid var(--color-border);">
+                                    <p style="font-weight: 600; margin-bottom: 12px;">Legal Outcomes</p>
+                                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Won</span>
+                                            <strong style="color: #1D9E75;">68%</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Settled</span>
+                                            <strong style="color: #378ADD;">54%</strong>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; font-size: 13px;">
+                                            <span>Lost</span>
+                                            <strong style="color: #A32D2D;">32%</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Additional submodules (Financial Tracking & Recovery Analytics) would continue here with similar structure -->
+        <!-- For brevity, these follow the same pattern with their respective dashboards -->
+
+        <!-- SUBROGATION FINANCIAL TRACKING SUBMODULE SCREEN -->

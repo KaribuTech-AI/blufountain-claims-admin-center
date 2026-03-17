@@ -1,0 +1,69 @@
+<div id="payment-processing-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <button onclick="showFinancialManagement()" style="background: none; border: none; color: var(--color-text-secondary); cursor: pointer; padding: 8px; margin-right: 12px;">← Back to Financial Hub</button>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">💳</div>
+                            <div class="header-title">
+                                <h1>Claims Payment Processing</h1>
+                                <p>Payment initiation, multi-method processing, batch operations, EFT integration, and payment confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="alert('Process payment')">💳 Process</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card"><p class="stat-label">Payments YTD</p><p class="stat-value" style="color: #1D9E75;">$45.8M</p><p class="stat-change positive">Processed</p></div>
+                    <div class="stat-card"><p class="stat-label">Payment count</p><p class="stat-value">2,847</p><p class="stat-change positive">Transactions</p></div>
+                    <div class="stat-card"><p class="stat-label">Avg payment time</p><p class="stat-value" style="color: #1D9E75;">2.8d</p><p class="stat-change positive">Approval to disbursement</p></div>
+                    <div class="stat-card"><p class="stat-label">Payment success rate</p><p class="stat-value" style="color: #1D9E75;">99.4%</p><p class="stat-change positive">First-time success</p></div>
+                    <div class="stat-card"><p class="stat-label">Pending payments</p><p class="stat-value" style="color: #EF9F27;">$1.8M</p><p class="stat-change positive">In queue</p></div>
+                    <div class="stat-card"><p class="stat-label">Payment methods</p><p class="stat-value">4</p><p class="stat-change positive">ACH, Wire, Check, Card</p></div>
+                </div>
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 16px;">Payment Method Distribution</h2>
+                    <div class="analytics-section">
+                        <div class="analytics-card">
+                            <h3>Payments by method</h3>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>ACH/EFT</span><span style="font-weight: 500;">$28.4M • 62%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 62%; background: #1D9E75;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Wire Transfer</span><span style="font-weight: 500;">$12.2M • 27%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 27%; background: #378ADD;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Check</span><span style="font-weight: 500;">$4.6M • 10%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 10%; background: #EF9F27;"></div></div>
+                            </div>
+                            <div class="progress-item">
+                                <div class="progress-header"><span>Debit Card</span><span style="font-weight: 500;">$0.6M • 1%</span></div>
+                                <div class="progress-bar"><div class="progress-fill" style="width: 1%; background: #534AB7;"></div></div>
+                            </div>
+                        </div>
+                        <div class="analytics-card">
+                            <h3>Processing metrics</h3>
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                                <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Success rate</div>
+                                    <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">99.4%</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">2,830 successful • 17 failed • Automated retry • Error resolution</div>
+                                </div>
+                                <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #378ADD;">
+                                    <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Processing speed</div>
+                                    <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">2.8 days</div>
+                                    <div style="font-size: 11px; color: var(--color-text-secondary);">Approval to disbursement • ↓ 0.4d vs LY • ACH 1.2d • Wire same-day</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT APPROVAL WORKFLOW SUBMODULE SCREEN -->

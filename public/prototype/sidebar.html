@@ -1,0 +1,219 @@
+<div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <div class="sidebar-logo-icon">C</div>
+                    <div class="sidebar-logo-text">ClaimFlow</div>
+                </div>
+                <div class="sidebar-subtitle">Admin Portal</div>
+            </div>
+
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <div class="nav-item active" onclick="showDashboard()">
+                        <span class="nav-icon">📊</span>
+                        <span>Dashboard</span>
+                        <span class="nav-badge">186</span>
+                    </div>
+                    <div class="nav-item" onclick="showClaimsIntake()">
+                        <span class="nav-icon">📥</span>
+                        <span>Claims Intake & FNOL</span>
+                    </div>
+                    <div class="nav-item" onclick="showAllClaims()">
+                        <span class="nav-icon">📋</span>
+                        <span>All Claims</span>
+                    </div>
+                    <div class="nav-item" onclick="showPending()">
+                        <span class="nav-icon">⏳</span>
+                        <span>Pending Review</span>
+                    </div>
+                    <div class="nav-item" onclick="showApproved()">
+                        <span class="nav-icon">✓</span>
+                        <span>Approved</span>
+                    </div>
+                    <div class="nav-item" onclick="showDenied()">
+                        <span class="nav-icon">✗</span>
+                        <span>Denied</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Insurance Types</div>
+                    <div class="nav-item" onclick="filterByType('life')">
+                        <span class="nav-icon">❤️</span>
+                        <span>Life Insurance</span>
+                    </div>
+                    <div class="nav-item" onclick="filterByType('short-term')">
+                        <span class="nav-icon">🏥</span>
+                        <span>Short-Term Disability</span>
+                    </div>
+                    <div class="nav-item" onclick="filterByType('long-term')">
+                        <span class="nav-icon">♿</span>
+                        <span>Long-Term Disability</span>
+                    </div>
+                    <div class="nav-item" onclick="filterByType('accident')">
+                        <span class="nav-icon">🚑</span>
+                        <span>Accident Insurance</span>
+                    </div>
+                    <div class="nav-item" onclick="filterByType('critical')">
+                        <span class="nav-icon">💔</span>
+                        <span>Critical Illness</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Management</div>
+                    <div class="nav-item" onclick="showPolicyholders()">
+                        <span class="nav-icon">👥</span>
+                        <span>Policyholders</span>
+                    </div>
+                    <div class="nav-item" onclick="showDocuments()">
+                        <span class="nav-icon">📄</span>
+                        <span>Documents</span>
+                    </div>
+                    <div class="nav-item" onclick="showPaymentSettlement()">
+                        <span class="nav-icon">💳</span>
+                        <span>Payment & Settlement Mgmt</span>
+                    </div>
+                    <div class="nav-item" onclick="showPayments()">
+                        <span class="nav-icon">💰</span>
+                        <span>Payments</span>
+                    </div>
+                    <div class="nav-item" onclick="showSettlements()">
+                        <span class="nav-icon">🤝</span>
+                        <span>Settlements</span>
+                    </div>
+                    <div class="nav-item" onclick="showLitigation()">
+                        <span class="nav-icon">⚖️</span>
+                        <span>Litigation</span>
+                    </div>
+                    <div class="nav-item" onclick="showReserves()">
+                        <span class="nav-icon">💼</span>
+                        <span>Reserve Management</span>
+                    </div>
+                    <div class="nav-item" onclick="showSubrogation()">
+                        <span class="nav-icon">🔄</span>
+                        <span>Subrogation & Recovery</span>
+                    </div>
+                    <div class="nav-item" onclick="showFraud()">
+                        <span class="nav-icon">🔍</span>
+                        <span>Fraud Detection</span>
+                    </div>
+                    <div class="nav-item" onclick="showComplaints()">
+                        <span class="nav-icon">📢</span>
+                        <span>Complaints & Disputes</span>
+                    </div>
+                    <div class="nav-item" onclick="showCommunication()">
+                        <span class="nav-icon">💬</span>
+                        <span>Communication Hub</span>
+                    </div>
+                    <div class="nav-item" onclick="showVendorManagement()">
+                        <span class="nav-icon">🤝</span>
+                        <span>Vendor Management</span>
+                    </div>
+                    <div class="nav-item" onclick="showThirdParty()">
+                        <span class="nav-icon">📊</span>
+                        <span>Third-Party Dashboard</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Analytics & Reports</div>
+                    <div class="nav-item" onclick="showAnalytics()">
+                        <span class="nav-icon">📈</span>
+                        <span>Analytics</span>
+                    </div>
+                    <div class="nav-item" onclick="showOperationalPerformance()">
+                        <span class="nav-icon">📊</span>
+                        <span>Operational Performance</span>
+                    </div>
+                    <div class="nav-item" onclick="showDecisionAdjudication()">
+                        <span class="nav-icon">⚖️</span>
+                        <span>Decision & Adjudication</span>
+                    </div>
+                    <div class="nav-item" onclick="showLitigationManagement()">
+                        <span class="nav-icon">⚖️</span>
+                        <span>Litigation Management</span>
+                    </div>
+                    <div class="nav-item" onclick="showSalvageManagement()">
+                        <span class="nav-icon">🚗</span>
+                        <span>Salvage Management</span>
+                    </div>
+                    <div class="nav-item" onclick="showCatClaims()">
+                        <span class="nav-icon">🌪️</span>
+                        <span>Catastrophe (CAT) Claims</span>
+                    </div>
+                    <div class="nav-item" onclick="showCustomerRetention()">
+                        <span class="nav-icon">❤️</span>
+                        <span>Customer Retention & Loyalty</span>
+                    </div>
+                    <div class="nav-item" onclick="showSubrogationManagement()">
+                        <span class="nav-icon">🔄</span>
+                        <span>Subrogation Management</span>
+                    </div>
+                    <div class="nav-item" onclick="showLifecycleClosure()">
+                        <span class="nav-icon">🏁</span>
+                        <span>Lifecycle & Closure</span>
+                    </div>
+                    <div class="nav-item" onclick="showPolicyCoverageIntegration()">
+                        <span class="nav-icon">🔗</span>
+                        <span>Policy & Coverage Integration</span>
+                    </div>
+                    <div class="nav-item" onclick="showAutomationAI()">
+                        <span class="nav-icon">🤖</span>
+                        <span>Automation & AI</span>
+                    </div>
+                    <div class="nav-item" onclick="showFNOLChannels()">
+                        <span class="nav-icon">📱</span>
+                        <span>FNOL Channels</span>
+                    </div>
+                    <div class="nav-item" onclick="showDocumentEvidence()">
+                        <span class="nav-icon">📁</span>
+                        <span>Document & Evidence</span>
+                    </div>
+                    <div class="nav-item" onclick="showAssessmentHub()">
+                        <span class="nav-icon">🔬</span>
+                        <span>Assessment & Investigation</span>
+                    </div>
+                    <div class="nav-item" onclick="showPolicyCoverage()">
+                        <span class="nav-icon">✓</span>
+                        <span>Policy Coverage</span>
+                    </div>
+                    <div class="nav-item" onclick="showClaimTriage()">
+                        <span class="nav-icon">🎯</span>
+                        <span>Claim Triage</span>
+                    </div>
+                    <div class="nav-item" onclick="showInvestigation()">
+                        <span class="nav-icon">🔍</span>
+                        <span>Investigation</span>
+                    </div>
+                </div>
+
+                <div class="nav-section">
+                    <div class="nav-section-title">Settings</div>
+                    <div class="nav-item" onclick="showConfiguration()">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Configuration</span>
+                    </div>
+                    <div class="nav-item" onclick="showNotifications()">
+                        <span class="nav-icon">🔔</span>
+                        <span>Notifications</span>
+                    </div>
+                    <div class="nav-item" onclick="showTeamMembers()">
+                        <span class="nav-icon">👤</span>
+                        <span>Team Members</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user" onclick="showUserMenu()">
+                    <div class="sidebar-user-avatar">AK</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name">Admin User</div>
+                        <div class="sidebar-user-role">Senior Adjuster</div>
+                    </div>
+                    <span style="font-size: 12px;">⋮</span>
+                </div>
+            </div>
+        </div>

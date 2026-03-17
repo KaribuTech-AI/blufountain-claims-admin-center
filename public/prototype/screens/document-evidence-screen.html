@@ -1,0 +1,318 @@
+<div id="document-evidence-screen" class="screen">
+            <div class="dashboard">
+                <div class="header">
+                    <div class="header-left">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 18px;">📁</div>
+                            <div class="header-title">
+                                <h1>Document & Evidence Management Hub</h1>
+                                <p>Comprehensive document processing, evidence storage, digital workflows, and intelligent automation</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-right">
+                        <button onclick="showDocuments()">📄 Documents</button>
+                        <button onclick="exportReport()">📊 Export</button>
+                        <button class="primary" style="background: #1D9E75; border-color: #1D9E75;" onclick="alert('Upload document')">Upload Document</button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-label">Total documents</p>
+                        <p class="stat-value" style="color: #1D9E75;">48,742</p>
+                        <p class="stat-change positive">All file types</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Evidence items stored</p>
+                        <p class="stat-value" style="color: #378ADD;">12,384</p>
+                        <p class="stat-change positive">Secure vault</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Documents processed today</p>
+                        <p class="stat-value">842</p>
+                        <p class="stat-change positive">OCR & indexing</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Storage capacity</p>
+                        <p class="stat-value" style="color: #1D9E75;">2.4TB</p>
+                        <p class="stat-change positive">67% utilized</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">OCR accuracy</p>
+                        <p class="stat-value" style="color: #1D9E75;">98.6%</p>
+                        <p class="stat-change positive">AI-powered</p>
+                    </div>
+                    <div class="stat-card">
+                        <p class="stat-label">Digital signatures</p>
+                        <p class="stat-value" style="color: #1D9E75;">3,284</p>
+                        <p class="stat-change positive">Verified YTD</p>
+                    </div>
+                </div>
+
+                <!-- Important Alerts -->
+                <div style="padding: 0 24px 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                    <div style="background: linear-gradient(135deg, #FAEEDA 0%, #FAC775 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #EF9F27;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">⏰</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #854F0B;">Documents pending review</p>
+                                <p style="font-size: 12px; color: #BA7517;">124 documents awaiting verification and classification</p>
+                            </div>
+                            <button class="primary" style="background: #EF9F27; border-color: #EF9F27; font-size: 13px; padding: 6px 12px;" onclick="alert('Reviewing...')">Review</button>
+                        </div>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #E1F5EE 0%, #B8E6D5 100%); padding: 16px; border-radius: 12px; border-left: 4px solid #1D9E75;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <div style="font-size: 24px;">✅</div>
+                            <div style="flex: 1;">
+                                <p style="font-weight: 500; font-size: 14px; margin-bottom: 2px; color: #0F6E56;">Auto-processed today</p>
+                                <p style="font-size: 12px; color: #1D9E75;">842 documents automatically indexed and categorized</p>
+                            </div>
+                            <button style="font-size: 13px; padding: 6px 12px;" onclick="alert('Viewing...')">View</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document & Evidence Management Modules Grid -->
+                <div style="padding: 24px;">
+                    <h2 style="margin-bottom: 20px; font-size: 20px; font-weight: 600;">Document & Evidence Management Modules</h2>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                        
+                        <div onclick="showClaimsDocuments()" style="background: linear-gradient(135deg, #1D9E75 0%, #0F6E56 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📄</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS DOCUMENT MGMT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">48.7K</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Total documents</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Active</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">12.4K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Archived</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">36.3K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Manage documents</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showEvidenceUpload()" style="background: linear-gradient(135deg, #378ADD 0%, #185FA5 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">📤</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">EVIDENCE UPLOAD & STORAGE</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">12.4K</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Evidence items</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Photos</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.2K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Videos</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Evidence storage</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showDigitalProcessing()" style="background: linear-gradient(135deg, #534AB7 0%, #3E3686 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">⚙️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DIGITAL DOCUMENT PROCESSING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">842</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Processed today</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Auto</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">94%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Manual</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">6%</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Digital processing</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showOCRProcessing()" style="background: linear-gradient(135deg, #EF9F27 0%, #BA7517 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🔍</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">OCR & INTELLIGENT DOC PROCESSING</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">98.6%</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">OCR accuracy</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Today</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">684</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">YTD</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">24.8K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ OCR processing</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showImageVideoManagement()" style="background: linear-gradient(135deg, #7F77DD 0%, #534AB7 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🎬</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">IMAGE & VIDEO MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">12.4K</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Media files</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Images</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">8.2K</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Videos</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">4.2K</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Media management</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showClaimsFileManagement()" style="background: linear-gradient(135deg, #D85A30 0%, #A32D2D 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">🗂️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">CLAIMS FILE MANAGEMENT</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">2,847</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Active claim files</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Open</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,284</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Closed</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">1,563</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ File management</div>
+                            </div>
+                        </div>
+
+                        <div onclick="showDigitalSignature()" style="background: linear-gradient(135deg, #E67E22 0%, #D35400 100%); border-radius: 12px; padding: 24px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; opacity: 0.1;">✍️</div>
+                            <div style="position: relative;">
+                                <div style="color: rgba(255,255,255,0.9); font-size: 14px; margin-bottom: 8px; font-weight: 500;">DIGITAL SIGNATURE INTEGRATION</div>
+                                <div style="color: white; font-size: 32px; font-weight: 600; margin-bottom: 12px;">3,284</div>
+                                <div style="color: rgba(255,255,255,0.8); font-size: 13px; margin-bottom: 16px;">Signatures verified</div>
+                                <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Valid</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">99.2%</div>
+                                    </div>
+                                    <div style="flex: 1; background: rgba(255,255,255,0.15); padding: 8px; border-radius: 8px;">
+                                        <div style="color: rgba(255,255,255,0.7); font-size: 11px;">Pending</div>
+                                        <div style="color: white; font-size: 16px; font-weight: 600;">28</div>
+                                    </div>
+                                </div>
+                                <div style="color: white; font-size: 13px; font-weight: 500;">→ Digital signatures</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Analytics Section -->
+                <div class="analytics-section">
+                    
+                    <div class="analytics-card">
+                        <h3>Document type distribution</h3>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📄 PDFs & Documents</span>
+                                <span style="font-weight: 500;">28,442 files • 58.3%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 58%; background: #1D9E75;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📷 Images</span>
+                                <span style="font-weight: 500;">14,628 files • 30.0%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 30%; background: #378ADD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">🎬 Videos</span>
+                                <span style="font-weight: 500;">4,284 files • 8.8%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 9%; background: #7F77DD;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="progress-header">
+                                <span style="color: var(--color-text-secondary);">📊 Other formats</span>
+                                <span style="font-weight: 500;">1,388 files • 2.9%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 3%; background: #EF9F27;"></div>
+                            </div>
+                        </div>
+                        <div class="analytics-footer">
+                            <div class="analytics-stat">
+                                <p>Total files</p>
+                                <p style="color: #1D9E75;">48,742</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>Storage used</p>
+                                <p>2.4TB</p>
+                            </div>
+                            <div class="analytics-stat">
+                                <p>OCR accuracy</p>
+                                <p style="color: #1D9E75;">98.6%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="analytics-card">
+                        <h3>Document processing metrics</h3>
+                        <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                            <div style="padding: 12px; background: #E1F5EE; border-radius: 8px; border-left: 3px solid #1D9E75;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px; color: #0F6E56;">Processing automation</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #1D9E75; margin-bottom: 4px;">94%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Auto-indexed & categorized • 842 processed today • AI-powered classification</div>
+                            </div>
+                            <div style="padding: 12px; background: #E6F1FB; border-radius: 8px; border-left: 3px solid #378ADD;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">OCR accuracy</div>
+                                <div style="font-size: 18px; font-weight: 600; color: #378ADD; margin-bottom: 4px;">98.6%</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">Intelligent document processing • 24.8K processed YTD • Text extraction & indexing</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #534AB7;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Storage capacity</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">2.4TB / 3.6TB</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">67% utilized • 1.2TB available • Secure cloud storage • Encrypted</div>
+                            </div>
+                            <div style="padding: 12px; background: var(--color-background-primary); border-radius: 8px; border-left: 3px solid #E67E22;">
+                                <div style="margin-bottom: 4px; font-weight: 500; font-size: 13px;">Digital signatures</div>
+                                <div style="font-size: 18px; font-weight: 600; margin-bottom: 4px;">3,284 verified</div>
+                                <div style="font-size: 11px; color: var(--color-text-secondary);">99.2% valid • 28 pending • PKI infrastructure • Legally binding</div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 16px; padding: 12px; background: #FAEEDA; border-radius: 8px;">
+                            <p style="font-size: 12px; color: #BA7517; margin-bottom: 4px;">📁 Document optimization</p>
+                            <p style="font-size: 11px; color: var(--color-text-secondary);">7 modules integrated • 48.7K documents • 12.4K evidence items • 842 processed today • Real-time indexing</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CLAIMS ASSESSMENT & INVESTIGATION HUB SCREEN -->
+        <!-- CLAIMS ASSESSMENT & INVESTIGATION HUB SCREEN -->
