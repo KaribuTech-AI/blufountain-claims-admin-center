@@ -1,44 +1,34 @@
-# -----------------------------
 # Build Stage
-# -----------------------------
 FROM node:20-alpine AS builder
+
+# Set working directory
 WORKDIR /app
 ENV NODE_OPTIONS="--max-old-space-size=8192"
 
-# Copy package.json and install deps
+# Copy and install dependencies cleanly
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
-
-# Copy source and build
 COPY . .
 RUN npm run build -- --configuration production
 
-# -----------------------------
 # Runtime Stage
-# -----------------------------
 FROM alpine:3.21
-
-# Install NGINX
+# Install NGINX and headers-more module
 RUN apk update && \
-    apk add --no-cache nginx nginx-mod-http-headers-more
+    apk add --no-cache nginx nginx-mod-http-headers-more openssl
 
-# Create necessary dirs
+# Create necessary directories
 RUN mkdir -p /run/nginx /etc/nginx/ssl
 
-# Copy Nginx config
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 COPY nginx/nginx.dev.common /etc/nginx/conf.d/nginx.common
 
-# Copy SSL certs
+# Copy https files
 COPY nginx/cert.pem /etc/nginx/ssl/cert.pem
 COPY nginx/key.pem /etc/nginx/ssl/key.pem
 
 # Copy Angular dist output
-# ✅ Replace <project-name> with the name in angular.json
-COPY --from=builder /app/dist/<project-name> /usr/share/nginx/html
+COPY --from=builder /app/dist/browser /usr/share/nginx/html
 
-# Expose Nginx port
-EXPOSE 80
-
-# Start Nginx
+EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
