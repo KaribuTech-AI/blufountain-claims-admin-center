@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blufountain-elevate-blufountain-claims-admin-angular
+  namespace: blufountain
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: blufountain-claims-admin-angular
+  template:
+    metadata:
+      labels:
+        app: blufountain-claims-admin-angular
+    spec:
+      containers:
+      - name: blufountain-claims-admin-angular-container
+        image: kaributechsworkflow/blufountain-self-service-web:b535ee1a4bccae173105fff0543aca0bbffade82
+        ports:
+        ports:
+        - containerPort: 4200
