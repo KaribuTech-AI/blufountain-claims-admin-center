@@ -14,15 +14,12 @@ RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build -- --configuration production
 
-# Optional: check the dist folder
-RUN ls -l /app/dist
-
 # -----------------------
 # Runtime Stage (Nginx)
 # -----------------------
 FROM nginx:alpine
 
-# Install openssl only
+# Install openssl for HTTPS
 RUN apk update && apk add --no-cache openssl
 
 # Create directories for nginx and SSL
@@ -34,14 +31,14 @@ COPY nginx/nginx.dev.common /etc/nginx/conf.d/nginx.common
 COPY nginx/cert.pem /etc/nginx/ssl/cert.pem
 COPY nginx/key.pem /etc/nginx/ssl/key.pem
 
-# ✅ Copy Angular build (dist/admin-center-dash) to Nginx html folder
+# Copy Angular build to Nginx html folder
 COPY --from=builder /app/dist/admin-center-dash /usr/share/nginx/html
 
-# ✅ Set correct permissions to avoid 403
+# Set permissions
 RUN chmod -R 755 /usr/share/nginx/html
 
-# Expose HTTP/HTTPS ports
+# Expose HTTP/HTTPS
 EXPOSE 80 443
 
-# Start Nginx in foreground
+# Start Nginx
 CMD ["nginx", "-g", "daemon off;"]
