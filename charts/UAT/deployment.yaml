@@ -4,7 +4,7 @@ metadata:
   name: blufountain-elevate-blufountain-claims-admin-angular
   namespace: blufountain
 spec:
-  replicas: 1  # Reduced to 1 pod for single-node cluster
+  replicas: 1
   selector:
     matchLabels:
       app: blufountain-claims-admin-angular
@@ -15,13 +15,7 @@ spec:
     spec:
       containers:
       - name: blufountain-claims-admin-angular-container
-        image: kaributechsworkflow/blufountain-claims-admin-angular:b535ee1a4bccae173105fff0543aca0bbffade82
+        image: kaributechsworkflow/blufountain-claims-admin-angular:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 4200
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "250m"
-            memory: "256Mi"
+        - containerPort: 443
