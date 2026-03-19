@@ -4,7 +4,7 @@ metadata:
   name: blufountain-claims-admin-angular
   namespace: blufountain
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: blufountain-claims-admin-angular
