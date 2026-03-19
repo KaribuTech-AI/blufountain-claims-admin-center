@@ -22,8 +22,8 @@ RUN ls -l /app/dist
 # -----------------------
 FROM nginx:alpine
 
-# Install optional modules if needed
-RUN apk update && apk add --no-cache nginx-mod-http-headers-more openssl
+# Install openssl only
+RUN apk update && apk add --no-cache openssl
 
 # Create directories for nginx and SSL
 RUN mkdir -p /run/nginx /etc/nginx/ssl
@@ -34,11 +34,10 @@ COPY nginx/nginx.dev.common /etc/nginx/conf.d/nginx.common
 COPY nginx/cert.pem /etc/nginx/ssl/cert.pem
 COPY nginx/key.pem /etc/nginx/ssl/key.pem
 
-# ✅ Copy Angular build dynamically (works for any project name)
-# This copies all folders inside dist to Nginx html folder
+# ✅ Copy Angular build dynamically
 COPY --from=builder /app/dist/* /usr/share/nginx/html
 
-# ✅ Fix permissions to avoid 403
+# ✅ Fix permissions
 RUN chmod -R 755 /usr/share/nginx/html
 
 # Expose HTTP/HTTPS
