@@ -14,6 +14,9 @@ RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build -- --configuration production
 
+# Optional: list dist folder to confirm
+RUN ls -l /app/dist
+
 # -----------------------
 # Runtime Stage (Nginx)
 # -----------------------
@@ -34,11 +37,11 @@ COPY nginx/key.pem /etc/nginx/ssl/key.pem
 # Copy Angular build to Nginx html folder
 COPY --from=builder /app/dist/admin-center-dash /usr/share/nginx/html
 
-# Set permissions
+# Set permissions to avoid 403
 RUN chmod -R 755 /usr/share/nginx/html
 
 # Expose HTTP/HTTPS
 EXPOSE 80 443
 
-# Start Nginx
+# Run Nginx in foreground
 CMD ["nginx", "-g", "daemon off;"]
