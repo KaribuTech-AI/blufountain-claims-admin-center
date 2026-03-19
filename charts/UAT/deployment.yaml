@@ -17,11 +17,4 @@ spec:
       - name: blufountain-claims-admin-angular-container
         image: kaributechsworkflow/blufountain-self-service-web:b535ee1a4bccae173105fff0543aca0bbffade82
         ports:
-        - containerPort: 4200
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "128Mi"
-          limits:
-            cpu: "250m"
-            memory: "256Mi"
+        - containerPort: 443
