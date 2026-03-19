@@ -8,6 +8,7 @@ COPY package*.json ./
 RUN npm install --legacy-peer-deps
 
 COPY . .
+# Make sure to build production for correct output path
 RUN npm run build -- --configuration production
 
 # Optional: check output
@@ -25,8 +26,12 @@ COPY nginx/nginx.dev.common /etc/nginx/conf.d/nginx.common
 COPY nginx/cert.pem /etc/nginx/ssl/cert.pem
 COPY nginx/key.pem /etc/nginx/ssl/key.pem
 
-# ✅ Correct Angular dist output path
-COPY --from=builder /app/dist/admin-center-dash /usr/share/nginx/html
+# ✅ FIXED: Copy the correct Angular dist folder
+# Replace 'blufountain-claims-admin-angular' with your actual project name from angular.json
+COPY --from=builder /app/dist/blufountain-claims-admin-angular /usr/share/nginx/html
+
+# Set proper permissions (important for 403)
+RUN chmod -R 755 /usr/share/nginx/html
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
