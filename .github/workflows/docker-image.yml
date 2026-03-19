@@ -35,13 +35,13 @@ jobs:
         with:
           context: .
           push: true
-          tags: kaributechsworkflow/blufountain-self-service-web:${{ github.sha }}
+          tags: kaributechsworkflow/blufountain-claims-admin-angular:${{ github.sha }}
 
       - name: Update deployment.yaml
         run: |
           cd charts/UAT
           sed -i "s|appVersion:.*|appVersion: '${{ github.sha }}'|" deployment.yaml
-          sed -i "s|kaributechsworkflow/blufountain-self-service-web:.*|kaributechsworkflow/blufountain-self-service-web:${{ github.sha }}|" deployment.yaml
+          sed -i "s|kaributechsworkflow/blufountain-claims-admin-angular:.*|kaributechsworkflow/blufountain-claims-admin-angular:${{ github.sha }}|" deployment.yaml
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add deployment.yaml
