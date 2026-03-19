@@ -38,7 +38,7 @@ jobs:
 
       - name: Update deployment.yaml
         run: |
-          cd charts/UAT
+          cd charts/DEV
           sed -i "s|kaributechsworkflow/blufountain-claims-admin-angular:.*|kaributechsworkflow/blufountain-claims-admin-angular:${{ github.sha }}|" deployment.yaml
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
