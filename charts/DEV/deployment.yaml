@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: blufountain-claims-admin-angular-container
-        image: kaributechsworkflow/blufountain-claims-admin-angular:91ee82f43690a385bab2fbd56b7722ac1a8fde3c
+        image: kaributechsworkflow/blufountain-claims-admin-angular:dcb0e72f78b02e3c953e5aa126912d20e33d25c6
         ports:
         - containerPort: 443
