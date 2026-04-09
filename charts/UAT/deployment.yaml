@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: blufountain-elevate-blufountain-claims-admin-angular
-  namespace: blufountain
+  namespace: blufountain-insurance
 spec:
   replicas: 1
   selector:
